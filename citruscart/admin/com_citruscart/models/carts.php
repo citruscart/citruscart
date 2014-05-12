@@ -160,7 +160,8 @@ class CitruscartModelCarts extends CitruscartModelEav
 		{
 			JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
 			$items = parent::getList($refresh);
-
+            		
+			
 			// If no item in the list, return an array()
 			if( empty( $items ) ){
 				return array();

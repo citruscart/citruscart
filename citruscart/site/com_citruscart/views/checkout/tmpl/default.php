@@ -71,7 +71,7 @@
                         $billattribs = array(
                            'class' => 'inputbox',    
                            'size' => '1',
-                           'onchange' => "CitruscartDoTask('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', ''); CitruscartGetCheckoutTotals();"
+                           'onchange' => "citruscartDoTask('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', ''); CitruscartGetCheckoutTotals();"
                         );
                         
                         // display select list of stored addresses
@@ -109,7 +109,7 @@
                 {	                $shipattribs = array(
 	                   'class' => 'inputbox',    
 	                   'size' => '1',
-	                   'onchange' => "CitruscartGrayOutAddressDiv('".JText::_('COM_CITRUSCART_UPDATING_ADDRESS')."');CitruscartDoTask('$baseurl'+this.options[this.selectedIndex].value, 'shippingDefaultAddress', '', '', false); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, CitruscartDeleteCombinedGrayDiv ); "
+	                   'onchange' => "CitruscartGrayOutAddressDiv('".JText::_('COM_CITRUSCART_UPDATING_ADDRESS')."');citruscartDoTask('$baseurl'+this.options[this.selectedIndex].value, 'shippingDefaultAddress', '', '', false); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, CitruscartDeleteCombinedGrayDiv ); "
 	                ); // CitruscartGetCheckoutTotals();
 	                
 	                // display select list of stored addresses
@@ -159,7 +159,7 @@
         <div id="validationmessage"></div>
         
         <!--    SUBMIT   -->    
-            <input type="button" class="btn" onclick="CitruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' ); CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'selectpayment', document.adminForm )" value="<?php echo JText::_('COM_CITRUSCART_SELECT_PAYMENT_METHOD'); ?>" />
+            <input type="button" class="btn" onclick="citruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' ); CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'selectpayment', document.adminForm )" value="<?php echo JText::_('COM_CITRUSCART_SELECT_PAYMENT_METHOD'); ?>" />
             <a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
             	
     		<input type="hidden" id="currency_id" name="currency_id" value="<?php echo $this->order->currency_id; ?>" />

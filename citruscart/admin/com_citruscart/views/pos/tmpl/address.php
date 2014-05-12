@@ -160,7 +160,7 @@ defined('_JEXEC') or die('Restricted access');?>
 				$url = "index.php?option=com_citruscart&format=raw&controller=pos&task=getzones&prefix=&country_id=";
 				$attribs = array('class' => 'inputbox',
 				'size' => '1',
-				'onchange' => 'CitruscartDoTask( \'' . $url . '\'+document.getElementById(\'country_id\').value, \'zones_wrapper\', \'\');');
+				'onchange' => 'citruscartDoTask( \'' . $url . '\'+document.getElementById(\'country_id\').value, \'zones_wrapper\', \'\');');
 				echo CitruscartSelect::country($row->country_id, 'country_id', $attribs, 'country_id', true, true);
 				?>
 				</td>

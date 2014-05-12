@@ -22,7 +22,7 @@ class plgSystemCitruscart extends JPlugin
         if (!version_compare(JVERSION,'1.6.0','ge'))
         {
             // Joomla! 1.5 code here
-            if (JFile::exists(JPATH_SITE.'/plugins/system/Citruscart/Citruscart.php'))
+            if (JFile::exists(JPATH_SITE.'/plugins/system/citruscart/citruscart.php'))
             {
                 $this->attemptInstallation();
             }
@@ -59,17 +59,17 @@ class plgSystemCitruscart extends JPlugin
 		$mainframe = JFactory::getApplication();
 
 		// Load the Base classes
-		JLoader::register('DSCTableBase', JPATH_SITE.'/libraries/Citruscart/library/compatibility/table.php');
-		JLoader::register('DSCControllerBase', JPATH_SITE.'/libraries/Citruscart/library/compatibility/controller.php');
-		JLoader::register('DSCModelBase', JPATH_SITE.'/libraries/Citruscart/library/compatibility/model.php');
-		JLoader::register('DSCViewBase', JPATH_SITE.'/libraries/Citruscart/library/compatibility/view.php');
+		JLoader::register('DSCTableBase', JPATH_SITE.'/libraries/citruscart/library/compatibility/table.php');
+		JLoader::register('DSCControllerBase', JPATH_SITE.'/libraries/citruscart/library/compatibility/controller.php');
+		JLoader::register('DSCModelBase', JPATH_SITE.'/libraries/citruscart/library/compatibility/model.php');
+		JLoader::register('DSCViewBase', JPATH_SITE.'/libraries/citruscart/library/compatibility/view.php');
 
 		if (!class_exists('DSC'))
 		{
-			if (!JFile::exists(JPATH_SITE.'/libraries/Citruscart/Citruscart.php')) {
+			if (!JFile::exists(JPATH_SITE.'/libraries/citruscart/citruscart.php')) {
 				return false;
 			}
-			require_once JPATH_SITE.'/libraries/Citruscart/Citruscart.php';
+			require_once JPATH_SITE.'/libraries/citruscart/citruscart.php';
 		}
 		return DSC::loadLibrary();
     }
@@ -80,15 +80,15 @@ class plgSystemCitruscart extends JPlugin
 
         // attempt to install the files manually (primarily for J1.5)
 
-        if (!JFile::exists(JPATH_SITE.'/plugins/system/Citruscart/Citruscart.php')) {
+        if (!JFile::exists(JPATH_SITE.'/plugins/system/citruscart/citruscart.php')) {
             return $return;
         }
 
         jimport('joomla.filesystem.folder');
 
-        $src = '/plugins/system/Citruscart/';
-        $dest = '/libraries/Citruscart/';
-        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/Citruscart', '.', true, true);
+        $src = '/plugins/system/citruscart/';
+        $dest = '/libraries/citruscart/';
+        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/citruscart', '.', true, true);
         if (!empty($src_folders)) {
             foreach ($src_folders as $src_folder) {
                 $src_folder = str_replace(JPATH_SITE, '', $src_folder);
@@ -100,9 +100,9 @@ class plgSystemCitruscart extends JPlugin
         }
 
         // move files from plugins to libraries
-        $src = '/plugins/system/Citruscart/';
-        $dest = '/libraries/Citruscart/';
-        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/Citruscart', '.', true, true);
+        $src = '/plugins/system/citruscart/';
+        $dest = '/libraries/citruscart/';
+        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/citruscart', '.', true, true);
         if (!empty($src_files)) {
             foreach ($src_files as $src_file) {
                 $src_filename = str_replace(JPATH_SITE, '', $src_file);
@@ -110,25 +110,25 @@ class plgSystemCitruscart extends JPlugin
                 JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
             }
 
-            JFolder::delete(JPATH_SITE.'/plugins/system/Citruscart');
+            JFolder::delete(JPATH_SITE.'/plugins/system/citruscart');
         }
 
         // move the media files from libraries to media
-        $src = '/libraries/Citruscart/media/';
+        $src = '/libraries/citruscart/media/';
         $dest = '/media/citruscart/';
-        $src_files = JFolder::files(JPATH_SITE.'/libraries/Citruscart/media', '.', true, true);
+        $src_files = JFolder::files(JPATH_SITE.'/libraries/citruscart/media', '.', true, true);
         if (!empty($src_files)) {
             foreach ($src_files as $src_file) {
                 $src_filename = str_replace(JPATH_SITE, '', $src_file);
                 $dest_filename = str_replace( $src, '', $src_filename);
                 JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
             }
-            JFolder::delete(JPATH_SITE.'/libraries/Citruscart/media');
+            JFolder::delete(JPATH_SITE.'/libraries/citruscart/media');
         }
 
         // move the lang files from libraries to language
-        $src_files = JFolder::files(JPATH_SITE.'/libraries/Citruscart/language', '.', true, true);
-        $src = '/libraries/Citruscart/language/';
+        $src_files = JFolder::files(JPATH_SITE.'/libraries/citruscart/language', '.', true, true);
+        $src = '/libraries/citruscart/language/';
         $dest = '/language/';
         if (!empty($src_files)) {
             foreach ($src_files as $src_file) {
@@ -136,10 +136,10 @@ class plgSystemCitruscart extends JPlugin
                 $dest_filename = str_replace( $src, '', $src_filename);
                 JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
             }
-            JFolder::delete(JPATH_SITE.'/libraries/Citruscart/language');
+            JFolder::delete(JPATH_SITE.'/libraries/citruscart/language');
         }
 
-        if (JFile::exists(JPATH_SITE.'/libraries/Citruscart/Citruscart.php')) {
+        if (JFile::exists(JPATH_SITE.'/libraries/citruscart/citruscart.php')) {
             $return = true;
         }
 
@@ -165,7 +165,4 @@ class plgSystemCitruscart extends JPlugin
 
 
 	}
-
-
 }
-?>

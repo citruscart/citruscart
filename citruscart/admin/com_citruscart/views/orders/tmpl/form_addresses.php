@@ -89,7 +89,7 @@ defined('_JEXEC') or die('Restricted access');
                 <td>
                     <?php
                     $url = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getzones&name=shop_zone&country_id=";
-                    $attribs = array('onchange' => 'CitruscartDoTask( \''.$url.'\'+document.getElementById(\'billing_country_id\').value, \'billing_zones_wrapper\', \'\');' );
+                    $attribs = array('onchange' => 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'billing_country_id\').value, \'billing_zones_wrapper\', \'\');' );
                     echo CitruscartSelect::country( $row->orderinfo->billing_country_id, 'billing_country_id', $attribs, 'billing_country_id', true );
                     ?>
                 </td>
@@ -182,7 +182,7 @@ defined('_JEXEC') or die('Restricted access');
                 <td>
                     <?php
                     $url = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getzones&name=shop_zone&country_id=";
-                    $attribs = array('onchange' => 'CitruscartDoTask( \''.$url.'\'+document.getElementById(\'shipping_country_id\').value, \'shipping_zones_wrapper\', \'\');' );
+                    $attribs = array('onchange' => 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'shipping_country_id\').value, \'shipping_zones_wrapper\', \'\');' );
                     echo CitruscartSelect::country( $row->orderinfo->shipping_country_id, 'shipping_country_id', $attribs, 'shipping_country_id', true );
                     ?>
                 </td>

@@ -19,7 +19,7 @@ CitruscartPos = CitruscartClass.extend({
 
     init: function (element, options) {
         this.__construct();
-        this.element = CitruscartJQ(element);
+        this.element = citruscartJQ(element);
         this.options = jQuery.extend( true, {}, this.defaults, options || {} );
     },
     
@@ -41,7 +41,7 @@ CitruscartPos = CitruscartClass.extend({
         var self = this;
         
         if( this.element.size() ) {
-	        CitruscartJQ('#pos_continue').on('click', function(e){
+	        citruscartJQ('#pos_continue').on('click', function(e){
 	            e.preventDefault();
 	            self.setAddress( this, section == "payment" ); 
 	        });
@@ -50,12 +50,12 @@ CitruscartPos = CitruscartClass.extend({
 
 	setAddress: function( el, onlyBilling ) {
 		if( !onlyBilling ) {
-			if( CitruscartJQ('#sameasbilling').attr('checked') == 'checked' ) {
+			if( citruscartJQ('#sameasbilling').attr('checked') == 'checked' ) {
 				this.syncWithBilling();
 			}
 		}
 
-		var subtask = CitruscartJQ(el).data( "task" );
+		var subtask = citruscartJQ(el).data( "task" );
 		if( this.validations.setAddress.validateForm() ) {
 			CitruscartValidation( this.urls.validate_address,
 								'validation_message', 
@@ -72,17 +72,17 @@ CitruscartPos = CitruscartClass.extend({
     },
     
     syncWithBilling: function () {
-        CitruscartJQ('#sameasbilling').attr('checked', true).val('1');
-		var bill_id = CitruscartJQ( '#billing_input_address_id' );
-		var ship_id = CitruscartJQ( '#shipping_input_address_id' );
+        citruscartJQ('#sameasbilling').attr('checked', true).val('1');
+		var bill_id = citruscartJQ( '#billing_input_address_id' );
+		var ship_id = citruscartJQ( '#shipping_input_address_id' );
 
 		if(bill_id.size() == 0) {
-            arrElements = this.getFormElements( CitruscartJQ('#pos-form-step3-shipping') );
+            arrElements = this.getFormElements( citruscartJQ('#pos-form-step3-shipping') );
 
             for (i=0,len=arrElements.length; i<len; i++) {
-                var targetFormElement = CitruscartJQ(arrElements[i] );
+                var targetFormElement = citruscartJQ(arrElements[i] );
                 if (targetFormElement.attr('id')) {
-                    var sourceField = CitruscartJQ( '#' + targetFormElement.attr('id').replace(this.options.shippingInputPrefix, this.options.billingInputPrefix) );
+                    var sourceField = citruscartJQ( '#' + targetFormElement.attr('id').replace(this.options.shippingInputPrefix, this.options.billingInputPrefix) );
                     if (sourceField.length) {
                         targetFormElement.val( sourceField.val() );
                     }

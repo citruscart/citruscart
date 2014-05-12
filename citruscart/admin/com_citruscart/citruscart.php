@@ -18,8 +18,6 @@ JHTML::_('behavior.tooltip');
 
 jimport('joomla.application.component.controller');
 
-
-
 $app = JFactory::getApplication();
 
 //j3 compatibility
@@ -27,9 +25,13 @@ if(!defined('DS')){
 	define('DS',DIRECTORY_SEPARATOR);
 }
 require_once(JPATH_SITE.'/libraries/dioscouri/loader.php');
+
 require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+
 require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/version.php');
+
 JHtml::_('jquery.framework');
+
 JHtml::_('bootstrap.framework');
 // Check the registry to see if our Citruscart class has been overridden
 if ( !class_exists('Citruscart') )
@@ -119,8 +121,8 @@ $doc->addStyleSheet(JUri::root().'media/citruscart/css/common.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/uploadifive.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/bootstrapped-advanced-ui.css');
-
-
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/leftmenu_admin.css');
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 
 // load the plugins
 JPluginHelper::importPlugin( 'citruscart' );
@@ -137,8 +139,6 @@ if (empty($task))
 {
     $task = 'display';
 }
-
-
 
 $app->input->set('task',$task);
 

@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php if (!empty($items)) { ?>
 <script type="text/javascript">
-CitruscartJQ(document).ready(function(){
+citruscartJQ(document).ready(function(){
     Citruscart.setupPaoFilters();
 });
 </script>

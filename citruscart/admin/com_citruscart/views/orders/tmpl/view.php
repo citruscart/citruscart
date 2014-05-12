@@ -592,7 +592,7 @@ defined('_JEXEC') or die('Restricted access');
     	        <input value="<?php echo JText::_('COM_CITRUSCART_UPDATE_ORDER'); ?>" onclick="document.getElementById('task').value='update_status'; this.form.submit();" style="float: right;" type="button"  class="btn btn-danger"/>
     	        <?php
 			$url = "index.php?option=com_citruscart&format=raw&controller=orders&task=updateStatusTextarea&orderstate_selected=";
-			$onchange = 'CitruscartPutAjaxLoader( \'update_order\' );CitruscartDoTask( \''.$url.'\'+document.getElementById(\'new_orderstate_id\').options[document.getElementById(\'new_orderstate_id\').selectedIndex].value, \'update_order\', \'\', \'\', false );';
+			$onchange = 'citruscartPutAjaxLoader( \'update_order\' );citruscartDoTask( \''.$url.'\'+document.getElementById(\'new_orderstate_id\').options[document.getElementById(\'new_orderstate_id\').selectedIndex].value, \'update_order\', \'\', \'\', false );';
 			$attribs = array('class' => 'inputbox', 'size' => '1','onchange'=>$onchange, 'id' => 'new_orderstate_id');
 			echo CitruscartSelect::orderstate( $row->order_state_id, 'new_orderstate_id',$attribs );
 		?>

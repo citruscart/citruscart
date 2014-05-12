@@ -198,7 +198,7 @@
 				$url = "index.php?option=com_citruscart&format=raw&controller=pos&task=getzones&prefix={$this->form_prefix}&country_id=";
 				$attribs = array('class' => 'inputbox',
 				'size' => '1',
-				'onchange' => 'CitruscartDoTask( \'' . $url . '\'+document.getElementById(\'' . $this->form_prefix . 'country_id\').value, \'' . $this->form_prefix . 'zones_wrapper\', \'\');');
+				'onchange' => 'citruscartDoTask( \'' . $url . '\'+document.getElementById(\'' . $this->form_prefix . 'country_id\').value, \'' . $this->form_prefix . 'zones_wrapper\', \'\');');
 				echo CitruscartSelect::country($this->default_country_id, $this->form_prefix . 'country_id', $attribs, $this->form_prefix . 'country_id', false, true);
 				?>
 				</td>

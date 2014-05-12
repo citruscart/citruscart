@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-//Citruscart::load( 'CitruscartQuery', 'library.query' );
+Citruscart::load( 'CitruscartQuery', 'library.query' );
 require_once(JPATH_SITE.'/libraries/dioscouri/library/table.php');
 class CitruscartTable extends DSCTable
 {

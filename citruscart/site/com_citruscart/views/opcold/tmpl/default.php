@@ -21,7 +21,7 @@ $js_strings = array( 'COM_CITRUSCART_PLEASE_CHOOSE_REGISTER', 'COM_CITRUSCART_PL
 CitruscartHelperAddresses::addJsTranslationStrings( $js_strings );
 
 $doc = JFactory::getDocument();
-$js = 'CitruscartJQ(document).ready(function(){
+$js = 'citruscartJQ(document).ready(function(){
     Opc = new CitruscartOpc("#opc-checkout-steps", { guestCheckoutEnabled: '.$guest_checkout_enabled.', urls: { failure: "'.$failureUrl.'" } });';
     if (empty($this->user->id)) {
         $js .= 'Opc.gotoSection("checkout-method");';

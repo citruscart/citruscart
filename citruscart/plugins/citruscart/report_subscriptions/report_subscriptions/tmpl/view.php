@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');?>
 
 <h2><?php echo JText::_('COM_CITRUSCART_RESULTS'); ?></h2>
 
-    <table class="adminlist" style="clear: both;">
+    <table class="adminlist table table-bordered table-striped" style="clear: both;">
         <thead>
             <tr>
                 <th style="width: 5px;">

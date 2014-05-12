@@ -7,7 +7,7 @@
  */
 function CitruscartGetOrderTotals() {
 	var url = 'index.php?option=com_citruscart&controller=orders&task=getOrderTotals&format=raw';
-	CitruscartDoTask(url, 'order_totals_div', document.adminForm);
+	citruscartDoTask(url, 'order_totals_div', document.adminForm);
 }
 
 /**
@@ -20,7 +20,7 @@ function CitruscartAddProductsToOrder() {
 	document.getElementById('sbox-window').close();
 
 	var url = 'index.php?option=com_citruscart&controller=orders&task=getProducts&format=raw';
-	CitruscartDoTask(url, 'order_products_div', document.adminForm);
+	citruscartDoTask(url, 'order_products_div', document.adminForm);
 	CitruscartPause(1000);
 	CitruscartGetOrderTotals();
 }
@@ -32,7 +32,7 @@ function CitruscartAddProductsToOrder() {
  */
 function CitruscartUpdateProductQuantities() {
 	url = 'index.php?option=com_citruscart&controller=orders&task=updateProductQuantities&format=raw';
-	CitruscartDoTask(url, 'order_products_div', document.adminForm);
+	citruscartDoTask(url, 'order_products_div', document.adminForm);
 	CitruscartPause(1500);
 	CitruscartGetOrderTotals();
 }
@@ -48,7 +48,7 @@ function CitruscartRemoveProducts(message) {
 		alert(message);
 	} else {
 		url = 'index.php?option=com_citruscart&controller=orders&task=removeProducts&format=raw';
-		CitruscartDoTask(url, 'order_products_div', document.adminForm);
+		citruscartDoTask(url, 'order_products_div', document.adminForm);
 		CitruscartPause(1500);
 		CitruscartGetOrderTotals();
 	}

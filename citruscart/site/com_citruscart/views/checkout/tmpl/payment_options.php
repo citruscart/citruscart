@@ -22,7 +22,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php } elseif( $one_page ) { ?>	
 	<?php if(count($this->payment_plugins)):?>
 		<?php foreach($this->payment_plugins as $payment_plugin):?>
-		<input value="<?php echo $payment_plugin->element; ?>" onclick="CitruscartGetPaymentForm('<?php echo $payment_plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); CitruscartJQ('validationmessage').html(''); CitruscartJQ('payment_form_div').addClass('note');" name="payment_plugin" type="radio" <?php echo (!empty($payment_plugin->checked)) ? "checked" : ""; ?> />
+		<input value="<?php echo $payment_plugin->element; ?>" onclick="CitruscartGetPaymentForm('<?php echo $payment_plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); citruscartJQ('validationmessage').html(''); citruscartJQ('payment_form_div').addClass('note');" name="payment_plugin" type="radio" <?php echo (!empty($payment_plugin->checked)) ? "checked" : ""; ?> />
 		<?php echo JText::_( $payment_plugin->name ); ?>
 		<br />
 		<?php endforeach;?>
@@ -45,8 +45,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
               foreach ($this->payment_plugins as $plugin) 
               {
                   ?>
-                  <input id="paymeny_<?php echo $plugin->element?>" value="<?php echo $plugin->element; ?>" onclick="CitruscartGetPaymentForm('<?php echo $plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); CitruscartJQ('validationmessage').html('');" name="payment_plugin" type="radio" <?php echo (!empty($plugin->checked)) ? "checked" : ""; ?> />
-                  <label for="paymeny_<?php echo $plugin->element?>" onclick="CitruscartGetPaymentForm('<?php echo $plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); CitruscartJQ('validationmessage').html('');"><?php echo JText::_( $plugin->name ); ?></label>
+                  <input id="paymeny_<?php echo $plugin->element?>" value="<?php echo $plugin->element; ?>" onclick="CitruscartGetPaymentForm('<?php echo $plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); citruscartJQ('validationmessage').html('');" name="payment_plugin" type="radio" <?php echo (!empty($plugin->checked)) ? "checked" : ""; ?> />
+                  <label for="paymeny_<?php echo $plugin->element?>" onclick="CitruscartGetPaymentForm('<?php echo $plugin->element; ?>', 'payment_form_div', '<?php echo JText::_('COM_CITRUSCART_GETTING_PAYMENT_METHOD'); ?>'); citruscartJQ('validationmessage').html('');"><?php echo JText::_( $plugin->name ); ?></label>
                   <br/>
                   <?php
               }                   

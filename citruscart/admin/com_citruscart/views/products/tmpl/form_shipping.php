@@ -25,7 +25,7 @@ $helper_product = new CitruscartHelperProduct();
                 <div class="controls">
                     <fieldset id="shipoptions" class="radio btn-group">
                         <input class="input" type="radio" <?php if (empty($row->product_ships)) { echo "checked='checked'"; } ?> value="0" name="product_ships" id="product_ships0" />
-                        <label onclick="CitruscartShowHideDiv('shipping_options');" for="product_ships0"><?php echo JText::_('COM_CITRUSCART_NO'); ?></label>
+                        <label onclick="citruscartShowHideDiv('shipping_options');" for="product_ships0"><?php echo JText::_('COM_CITRUSCART_NO'); ?></label>
                         <input class="input" type="radio" <?php if (!empty($row->product_ships)) { echo "checked='checked'"; } ?> value="1" name="product_ships" id="product_ships1" />
                         <label for="product_ships1"><?php echo JText::_('COM_CITRUSCART_YES'); ?> </label>
                     </fieldset>

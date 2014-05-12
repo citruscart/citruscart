@@ -165,7 +165,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
                     <?php // TODO Make this display the "quickAdd" layout in a lightbox ?>
                     <?php // $url = "index.php?option=com_citruscart&format=raw&controller=carts&task=addToCart&productid=".$item->product_id; ?>
-                    <?php // $onclick = 'CitruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
+                    <?php // $onclick = 'citruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
                     <?php // <img class="addcart" src="media/citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; " /> ?>
                 </div>
 

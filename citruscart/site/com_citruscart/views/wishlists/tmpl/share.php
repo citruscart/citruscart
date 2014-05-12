@@ -18,7 +18,7 @@ if( $this->only_redirect ) : ?>
 	$router = new CitruscartHelperRoute();
 ?>
 <script type="text/javascript">
-	CitruscartJQ( function() {
+	citruscartJQ( function() {
 		window.parent.location = '<?php echo JRoute::_( "index.php?option=com_citruscart&view=wishlists&email=true&Itemid=".$router->findItemid( array('view'=>'wishlists') ), false ); ?>';
 		window.close();
 	});

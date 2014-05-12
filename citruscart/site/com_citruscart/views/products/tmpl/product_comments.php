@@ -42,7 +42,7 @@ if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
     <div class="rowDiv" style="padding-top: 5px;">
         <?php if ($review_enable==1 && $result == 1): ?>
         	<div class="leftAlignDiv">
-        		<input onclick="CitruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn" />
+        		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn" />
         	</div>
         <?php endif;?>
     	<div class="rightAlignDiv">

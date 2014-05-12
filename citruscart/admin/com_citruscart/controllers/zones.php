@@ -87,7 +87,7 @@ class CitruscartControllerZones extends CitruscartController
 		$hookgeozone = $app->input->get( 'hookgeozone',TRUE);
 		//$hookgeozone = JRequest::getVar( 'hookgeozone', TRUE, 'request', 'boolean' );
 		if($hookgeozone){
-			$attribs['onchange'] = 'CitruscartDoTask( \''.$url.'\'+document.getElementById(\'geozone_id\').value+\'&zoneid=\'+this.options[this.selectedIndex].value, \'current_zones_wrapper\', \'\');';
+			$attribs['onchange'] = 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'geozone_id\').value+\'&zoneid=\'+this.options[this.selectedIndex].value, \'current_zones_wrapper\', \'\');';
 		}
 
 		$html = CitruscartSelect::zone( '', $idtag, $countryid, $attribs, $idtag, true);

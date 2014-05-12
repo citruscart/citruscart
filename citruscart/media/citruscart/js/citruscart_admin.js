@@ -3,18 +3,18 @@ if (typeof(Citruscart) === 'undefined') {
 }
 
 Citruscart.saveConfigOnClick = function() {
-    CitruscartJQ('a.view-config').each(function(){
-        var el = CitruscartJQ(this);
+    citruscartJQ('a.view-config').each(function(){
+        var el = citruscartJQ(this);
         Citruscart.postConfigFormAndRedirect(el);
     });
     
-    CitruscartJQ('a.view-shipping').each(function(){
-        var el = CitruscartJQ(this);
+    citruscartJQ('a.view-shipping').each(function(){
+        var el = citruscartJQ(this);
         Citruscart.postConfigFormAndRedirect(el);
     });
     
-    CitruscartJQ('a.view-payment').each(function(){
-        var el = CitruscartJQ(this);
+    citruscartJQ('a.view-payment').each(function(){
+        var el = citruscartJQ(this);
         Citruscart.postConfigFormAndRedirect(el);
     });
 }
@@ -24,7 +24,7 @@ Citruscart.postConfigFormAndRedirect = function(el) {
         event.preventDefault();
         url = 'index.php?option=com_citruscart&view=config&format=raw';
         
-        values = CitruscartJQ("#adminForm").serializeArray();
+        values = citruscartJQ("#adminForm").serializeArray();
         for (index = 0; index < values.length; ++index) {
             if (values[index].name == "task") {
                 values[index].value = 'save';
@@ -33,7 +33,7 @@ Citruscart.postConfigFormAndRedirect = function(el) {
         }
         data = jQuery.param(values);
         
-        CitruscartJQ.post( url, data, function(response){
+        citruscartJQ.post( url, data, function(response){
             window.location = el.attr('href');
         });
     });    
@@ -47,7 +47,7 @@ Citruscart.refreshProductGallery = function(product_id) {
     }).done(function(data){
         var response = JSON.decode(data, false);
         if (response.html) {
-            CitruscartJQ('#form-gallery').html(response.html);
+            citruscartJQ('#form-gallery').html(response.html);
             Citruscart.bindProductGalleryLinks();
         }
     }).fail(function(data){
@@ -58,8 +58,8 @@ Citruscart.refreshProductGallery = function(product_id) {
 }
 
 Citruscart.bindProductGalleryLinks = function() {
-    CitruscartJQ('.delete-gallery-image').each(function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.delete-gallery-image').each(function(){
+        el = citruscartJQ(this);
         var url = el.attr('data-href');
         var product_id = el.attr('data-product_id');
         if (url) {
@@ -80,8 +80,8 @@ Citruscart.bindProductGalleryLinks = function() {
         }
     });
     
-    CitruscartJQ('.set-default-gallery-image').each(function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.set-default-gallery-image').each(function(){
+        el = citruscartJQ(this);
         var url = el.attr('data-href');
         var image = el.attr('data-image');
         if (url) {
@@ -93,9 +93,9 @@ Citruscart.bindProductGalleryLinks = function() {
                 }).done(function(data){
                     var response = JSON.decode(data, false);
                     if (response.html) {
-                        CitruscartJQ('#default_image').html(response.html);
+                        citruscartJQ('#default_image').html(response.html);
                     }
-                    CitruscartJQ('#product_full_image').val(image);
+                    citruscartJQ('#product_full_image').val(image);
                 }).fail(function(data){
 
                 }).always(function(data){
@@ -107,7 +107,7 @@ Citruscart.bindProductGalleryLinks = function() {
 }
 
 Citruscart.DisableShippingAddressControls = function(check){
-	var s_table = CitruscartJQ("table[data-type='shipping_input'] :input");
+	var s_table = citruscartJQ("table[data-type='shipping_input'] :input");
 	if( check ) {
 		s_table.attr('disabled', 'true');
 	} else {
@@ -142,20 +142,20 @@ function CitruscartUpdateParentDefaultImage(id) {
 		},
 		onSuccess : function(response) {
 			var resp = JSON.decode(response, false);
- 			CitruscartJQ('default_image').html ( resp.default_image );
-	      	CitruscartJQ('default_image_name').html( resp.default_image_name);
+ 			citruscartJQ('default_image').html ( resp.default_image );
+	      	citruscartJQ('default_image_name').html( resp.default_image_name);
 			return true;
 		}
 	}).send();
 }
 
 function CitruscartSetShippingRate(name, price, tax, extra, code) {
-	CitruscartJQ('shipping_name').val( name );
-	CitruscartJQ('shipping_code').val( code );
-	CitruscartJQ('shipping_price').val( price );
-	CitruscartJQ('shipping_tax').val( tax );
-	CitruscartJQ('shipping_extra').val( extra );
-	CitruscartGetCheckoutTotals();
+	citruscartJQ('shipping_name').val( name );
+	citruscartJQ('shipping_code').val( code );
+	citruscartJQ('shipping_price').val( price );
+	citruscartJQ('shipping_tax').val( tax );
+	citruscartJQ('shipping_extra').val( extra );
+	citruscartGetCheckoutTotals();
 }
 
 /**
@@ -167,7 +167,7 @@ function CitruscartSetShippingRate(name, price, tax, extra, code) {
  */
 function CitruscartGetCheckoutTotals() {
 	var url = 'index.php?option=com_citruscart&view=pos&task=setShippingMethod&format=raw';
-	CitruscartDoTask( url, 'orderSummary', document.adminForm, '', false );
+	citruscartDoTask( url, 'orderSummary', document.adminForm, '', false );
 }
 
 function CitruscartGetShippingRates( container, form, msg, doModal ) {
@@ -175,7 +175,7 @@ function CitruscartGetShippingRates( container, form, msg, doModal ) {
 	if (doModal != false) {
 		Dsc.newModal(msg)
 	}
-	CitruscartJQ('#validation_message').html( '' );
+	citruscartJQ('#validation_message').html( '' );
 
 	// loop through form elements and prepare an array of objects for passing to server
 	var str = new Array();
@@ -199,10 +199,10 @@ function CitruscartGetShippingRates( container, form, msg, doModal ) {
 			var resp = JSON.decode(response, false);
 
 			if (resp.error != '1') {
-				CitruscartJQ("#"+container).html( resp.msg );
-				CitruscartGetCheckoutTotals();
+				citruscartJQ("#"+container).html( resp.msg );
+				citruscartGetCheckoutTotals();
 			} else {
-				CitruscartJQ('#validation_message').html( resp.msg );
+				citruscartJQ('#validation_message').html( resp.msg );
 			}
 
 			if (doModal != false) {
@@ -215,7 +215,7 @@ function CitruscartGetShippingRates( container, form, msg, doModal ) {
 
 function CitruscartGetPaymentForm( element, container ) {
 	var url = 'index.php?option=com_citruscart&view=pos&task=getPaymentForm&format=raw&payment_element=' + element;
-	CitruscartDoTask( url, container, document.adminForm );
+	citruscartDoTask( url, container, document.adminForm );
 }
 
 /**
@@ -249,25 +249,25 @@ function CitruscartAddCoupon( form, mult_enabled ) {
 		onSuccess : function(response) {
 			var resp = JSON.decode(response, false);
 			if (resp.error != '1') {
-				if (CitruscartJQ(container)) {
-					CitruscartJQ(container).html( '');
+				if (citruscartJQ(container)) {
+					citruscartJQ(container).html( '');
 				}
 
 				// Push the code into the form
-				var cc_html = CitruscartJQ('coupon_codes').innerHTML + resp.msg;
-				CitruscartJQ('coupon_codes').html( cc_html );
+				var cc_html = citruscartJQ('coupon_codes').innerHTML + resp.msg;
+				citruscartJQ('coupon_codes').html( cc_html );
 
 				// Clear the field
 				document.getElementById('new_coupon_code').value = '';
 
 				// Update the summary
-				CitruscartGetCheckoutTotals();
+				citruscartGetCheckoutTotals();
 
 				if (mult_enabled != 1) {
-					CitruscartShowHideDiv('coupon_code_form');
+					citruscartShowHideDiv('coupon_code_form');
 				}
 			} else {
-				if (CitruscartJQ(container)) {
+				if (citruscartJQ(container)) {
 					JQ(container).html( resp.msg );
 				}
 			}
@@ -309,17 +309,17 @@ function CitruscartAddCredit( form )
 			var resp = JSON.decode(response, false);
             if (resp.error != '1') 
             {
-                if (CitruscartJQ(container)) { CitruscartJQ(container).html( ''); }
-                CitruscartJQ('applied_credit').html( resp.msg );
+                if (citruscartJQ(container)) { citruscartJQ(container).html( ''); }
+                citruscartJQ('applied_credit').html( resp.msg );
                 // Clear the field
-                CitruscartJQ('apply_credit_amount').value = '';
+                citruscartJQ('apply_credit_amount').value = '';
                                
                  // Update the summary
-                CitruscartGetCheckoutTotals();                          
+                citruscartGetCheckoutTotals();                          
             }
                 else
             {
-                if (CitruscartJQ(container)) { CitruscartJQ(container).html( resp.msg ); }
+                if (citruscartJQ(container)) { citruscartJQ(container).html( resp.msg ); }
             }
         }
     }).send();

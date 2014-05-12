@@ -23,7 +23,7 @@ Citruscart.deleteCartItem = function(cartitem_id, prompt_text, callback_function
                 }                                    
 
                 if( response.subtotal.length ) {
-                	CitruscartJQ('#totalAmountDue').html(response.subtotal);
+                	citruscartJQ('#totalAmountDue').html(response.subtotal);
                 }
             } 
 
@@ -71,8 +71,8 @@ Citruscart.deleteWishlistItem = function(wishlistitem_id, prompt_text, callback_
 Citruscart.addToWishlist = function( form_id, container_id, callback_function ) {
     var url = 'index.php?option=com_citruscart&format=raw&view=products';
     
-    var form_data = CitruscartJQ('#'+form_id).serializeArray();
-    CitruscartJQ.each(form_data, function(index, value) {
+    var form_data = citruscartJQ('#'+form_id).serializeArray();
+    citruscartJQ.each(form_data, function(index, value) {
         if (value.name == 'task') {
             form_data[index].value = 'addToWishlist';
         }
@@ -85,7 +85,7 @@ Citruscart.addToWishlist = function( form_id, container_id, callback_function ) 
     }).done(function(data){
         var response = JSON.decode(data, false);
         if (response.html) {
-            CitruscartJQ('#'+container_id).html(response.html);
+            citruscartJQ('#'+container_id).html(response.html);
         }        
         if ( typeof callback_function === 'function') {
             callback_function( response );
@@ -259,12 +259,12 @@ Citruscart.UpdateAddToCart = function(page, container, form, working, callback) 
 		url = 'index.php?option=com_citruscart&format=raw&view=pos&task=updateAddToCart&page=' + page;
 	}
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 	// execute Ajax request to server
 	if (working)
-		CitruscartGrayOutAjaxDiv(container, Joomla.JText._('COM_CITRUSCART_UPDATING_ATTRIBUTES'), '');
+		citruscartGrayOutAjaxDiv(container, Joomla.JText._('COM_CITRUSCART_UPDATING_ATTRIBUTES'), '');
 		
-    CitruscartJQ.post( url, { "elements" : JSON.encode(str) }, function(response){ 
+    citruscartJQ.post( url, { "elements" : JSON.encode(str) }, function(response){ 
     	    	
     	var resp = JSON.decode(response, false);
     	
@@ -296,8 +296,8 @@ Citruscart.UpdateAddToCart = function(page, container, form, working, callback) 
  */
 Citruscart.updateProductDetail = function(resp, page, container, form) {
 	
-    var f = CitruscartJQ( form );
-    var changed_attr = CitruscartJQ( 'input[name="changed_attr"]', f ).val();
+    var f = citruscartJQ( form );
+    var changed_attr = citruscartJQ( 'input[name="changed_attr"]', f ).val();
     
     if (!resp.paov_items || !changed_attr) {
         return;
@@ -306,7 +306,7 @@ Citruscart.updateProductDetail = function(resp, page, container, form) {
     new_image = null;
     paov_items = resp.paov_items;
     product_id = resp.product_id;
-    CitruscartJQ.each(paov_items, function(index, paov){
+    citruscartJQ.each(paov_items, function(index, paov){
         if (paov.productattributeoptionvalue_field == 'product_full_image' && paov.productattributeoptionvalue_operator == 'replace' && paov.productattributeoptionvalue_value) {
             new_image = paov.productattributeoptionvalue_value;
         }
@@ -324,15 +324,15 @@ Citruscart.updateProductDetail = function(resp, page, container, form) {
  * Changes ID of currently changed attribute on form
  */
 Citruscart.UpdateChangedAttribute= function( form, attr_id ) {
-	var f = CitruscartJQ( form );
+	var f = citruscartJQ( form );
 	//console.log(f);
-	CitruscartJQ( 'input[name="changed_attr"]', f ).val( attr_id );
+	citruscartJQ( 'input[name="changed_attr"]', f ).val( attr_id );
 }
 
 /**
  * Simple function to refresh a page.
  */
-function CitruscartUpdate() {
+function citruscartUpdate() {
 	location.reload(true);
 }
 
@@ -343,7 +343,7 @@ function CitruscartUpdate() {
  * @param form
  * @return
  */
-function CitruscartFormReset(form) {
+function citruscartFormReset(form) {
 	// loop through form elements
 	Dsc.resetFormFilters(form);
 }
@@ -354,7 +354,7 @@ function CitruscartFormReset(form) {
  * @param {Object} dir
  * @param {Object} task
  */
-function CitruscartGridOrdering(order, dir, form) {
+function citruscartGridOrdering(order, dir, form) {
 	Dsc.gridOrdering(order, dir, form);
 }
 
@@ -364,7 +364,7 @@ function CitruscartGridOrdering(order, dir, form) {
  * @param change
  * @return
  */
-function CitruscartGridOrder(id, change, form) {
+function citruscartGridOrder(id, change, form) {
 	Dsc.gridOrder(id, change, form);
 }
 
@@ -376,7 +376,7 @@ function CitruscartGridOrder(id, change, form) {
  * @param {String} form element name
  * @param {String} task being performed
  */
-function CitruscartFormValidation(url, container, task, form, doModal, msg, onCompleteFunction) {
+function citruscartFormValidation(url, container, task, form, doModal, msg, onCompleteFunction) {
 	Dsc.formValidation(url, container, task, form, doModal, msg, onCompleteFunction);
 }
 
@@ -385,7 +385,7 @@ function CitruscartFormValidation(url, container, task, form, doModal, msg, onCo
  * @param task
  * @return
  */
-function CitruscartSubmitForm(task, form) {
+function citruscartSubmitForm(task, form) {
 	Dsc.submitForm(task, form);
 }
 
@@ -415,7 +415,7 @@ function submitbutton(task) {
  * @param {Object} showtext
  * @param {Object} hidetext
  */
-function CitruscartDisplayDiv(divname, spanname, showtext, hidetext) {
+function citruscartDisplayDiv(divname, spanname, showtext, hidetext) {
 	Dsc.displayDiv(divname, spanname, showtext, hidetext);
 }
 
@@ -424,11 +424,11 @@ function CitruscartDisplayDiv(divname, spanname, showtext, hidetext) {
  * @param {Object} prefix
  * @param {Object} newSuffix
  */
-function CitruscartSwitchDisplayDiv(prefix, newSuffix) {
+function citruscartSwitchDisplayDiv(prefix, newSuffix) {
 	Dsc.switchDisplayDiv(prefix, newSuffix);
 }
 
-function CitruscartShowHideDiv(divname) {
+function citruscartShowHideDiv(divname) {
 	Dsc.showHideDiv(divname);
 }
 
@@ -440,7 +440,7 @@ function CitruscartShowHideDiv(divname) {
  * @param {String} msg message for the modal div (optional)
  * @param (Function) Function which is executed after the call is completed
  */
-function CitruscartDoTask(url, container, form, msg, doModal, onCompleteFunction) {
+function citruscartDoTask(url, container, form, msg, doModal, onCompleteFunction) {
 
 	Dsc.doTask(url, container, form, msg, doModal, onCompleteFunction);
 
@@ -450,7 +450,7 @@ function CitruscartDoTask(url, container, form, msg, doModal, onCompleteFunction
  *
  * @param {String} msg message for the modal div (optional)
  */
-function CitruscartNewModal(msg) {
+function citruscartNewModal(msg) {
 	Dsc.newModal(msg);
 }
 
@@ -460,7 +460,7 @@ function CitruscartNewModal(msg) {
  * @param radioObj
  * @return string
  */
-function CitruscartGetCheckedValue(radioObj) {
+function citruscartGetCheckedValue(radioObj) {
 	if (!radioObj) {
 		return "";
 	}
@@ -481,7 +481,7 @@ function CitruscartGetCheckedValue(radioObj) {
 	return "";
 }
 
-function CitruscartVerifyZone() {
+function citruscartVerifyZone() {
 	var c = document.getElementById('country_id');
 	var z = document.getElementById('zone_id');
 
@@ -519,7 +519,7 @@ function submitCitruscartform(pressbutton, fieldname) {
  * @param milliseconds
  * @return
  */
-function CitruscartPause(milliseconds) {
+function citruscartPause(milliseconds) {
 	var dt = new Date();
 	while ((new Date()) - dt <= milliseconds) {/* Do nothing */
 	}
@@ -532,12 +532,12 @@ function CitruscartPause(milliseconds) {
  * @param {String} form name (optional)
  * @param {String} msg message for the modal div (optional)
  */
-function CitruscartAddToCart(url, container, form, msg) {
-	var cartContainer = 'CitruscartUserShoppingCart';
+function citruscartAddToCart(url, container, form, msg) {
+	var cartContainer = 'citruscartUserShoppingCart';
 	var cartUrl = 'index.php?option=com_citruscart&format=raw&view=carts&task=displayCart';
 
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 
 	// execute Ajax request to server
 	var a = new Request({
@@ -554,26 +554,26 @@ function CitruscartAddToCart(url, container, form, msg) {
 				}
 				return false;
 			} else {
-				CitruscartPause(500);
-				CitruscartDoTask(cartUrl, cartContainer, '', '', false);
+				citruscartPause(500);
+				citruscartDoTask(cartUrl, cartContainer, '', '', false);
 				return true;
 			}
 		}
 	}).send();
 }
 
-function CitruscartAddRelationship(container, msg) {
+function citruscartAddRelationship(container, msg) {
 	var url = 'index.php?option=com_citruscart&view=products&task=addRelationship&protocol=json';
-	CitruscartDoTask(url, container, document.adminForm, msg, true);
+	citruscartDoTask(url, container, document.adminForm, msg, true);
 	document.adminForm.new_relationship_productid_to.value = '';
 }
 
-function CitruscartRemoveRelationship(id, container, msg) {
+function citruscartRemoveRelationship(id, container, msg) {
 	var url = 'index.php?option=com_citruscart&view=products&task=removeRelationship&protocol=json&productrelation_id=' + id;
-	CitruscartDoTask(url, container, document.adminForm, msg, true);
+	citruscartDoTask(url, container, document.adminForm, msg, true);
 }
 
-function CitruscartRating(id) {
+function citruscartRating(id) {
 	var count;
 	document.getElementById('productcomment_rating').value = id;
 	for ( count = 1; count <= id; count++) {
@@ -585,7 +585,7 @@ function CitruscartRating(id) {
 	}
 }
 
-function CitruscartCheckUpdateCartQuantities(form, text) {
+function citruscartCheckUpdateCartQuantities(form, text) {
 
 	var quantities = form.getElements('input[name^=quantities]');
 	var original_quantities = form.getElements('input[name^=original_quantities]');
@@ -602,16 +602,16 @@ function CitruscartCheckUpdateCartQuantities(form, text) {
 
 }
 
-function CitruscartPopulateAttributeOptions(select, target, opt_name, opt_id) {
+function citruscartPopulateAttributeOptions(select, target, opt_name, opt_id) {
 	// Selected option
 	var attribute_id = select.getSelected().getLast().value;
 
-	CitruscartGetAttributeOptions(attribute_id, target, opt_name, opt_id);
+	citruscartGetAttributeOptions(attribute_id, target, opt_name, opt_id);
 }
 
-function CitruscartGetAttributeOptions(attribute_id, container, opt_name, opt_id) {
+function citruscartGetAttributeOptions(attribute_id, container, opt_name, opt_id) {
 	var url = 'index.php?option=com_citruscart&controller=productattributeoptions&task=getProductAttributeOptions&attribute_id=' + attribute_id + '&select_name=' + opt_name + '&select_id=' + opt_id + '&format=raw';
-	CitruscartDoTask(url, container);
+	citruscartDoTask(url, container);
 }
 
 /**
@@ -626,13 +626,13 @@ function CitruscartGetAttributeOptions(attribute_id, container, opt_name, opt_id
  * @param {Boolean} display modal overlay?
  * @param {String} Text for modal overlay
  */
-function CitruscartValidation(url, container, task, form, doModal, msg) {
+function citruscartValidation(url, container, task, form, doModal, msg) {
 	if (doModal == true) {
-		CitruscartNewModal(msg);
+		citruscartNewModal(msg);
 	}
 
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 
 	// execute Ajax request to server
 	var a = new Request({
@@ -648,7 +648,7 @@ function CitruscartValidation(url, container, task, form, doModal, msg) {
 					document.getElementById(container).set('html', resp.msg);
 				}
 			}
-			if (doModal != false) { (function() { document.body.removeChild(CitruscartJQ('dscModal')); }).delay(500); }
+			if (doModal != false) { (function() { document.body.removeChild(citruscartJQ('dscModal')); }).delay(500); }
 			if (resp.error != '1') {
 				form.task.value = task;
 				form.submit();
@@ -657,13 +657,13 @@ function CitruscartValidation(url, container, task, form, doModal, msg) {
 	}).send();
 }
 
-function CitruscartClearInput(element, value) {
+function citruscartClearInput(element, value) {
 	if (element.value == value) {
 		element.value = '';
 	}
 }
 
-function CitruscartAddProductToCompare(id, container, obj, doModal) {
+function citruscartAddProductToCompare(id, container, obj, doModal) {
 	var add = 0;
 	var msg = Joomla.JText._("COM_CITRUSCART_REMOVING_PRODUCT");
 	if (obj.checked == true) {
@@ -671,7 +671,7 @@ function CitruscartAddProductToCompare(id, container, obj, doModal) {
 		msg = Joomla.JText._("COM_CITRUSCART_ADDING_PRODUCT_FOR_COMPARISON");
 	}
 	if (doModal == true) {
-		CitruscartNewModal(msg);
+		citruscartNewModal(msg);
 	}
 	var url = 'index.php?option=com_citruscart&view=productcompare&task=addProductToCompare&format=raw&product_id=' + id + '&add=' + add;
 
@@ -685,8 +685,8 @@ function CitruscartAddProductToCompare(id, container, obj, doModal) {
 
 			if (doModal != false) { (function() { document.body.removeChild($('dscModal')); }).delay(500); }
 			if (resp.error == '1') {
-				if (CitruscartJQ('validationmessage')) {
-					CitruscartJQ('validationmessage').set('html', resp.msg);
+				if (citruscartJQ('validationmessage')) {
+					citruscartJQ('validationmessage').set('html', resp.msg);
 				}
 			} else {
 				if (document.getElementById(container)) {
@@ -700,16 +700,16 @@ function CitruscartAddProductToCompare(id, container, obj, doModal) {
 /**
  *
  */
-function CitruscartAddCoupon(form, mult_enabled) {
+function citruscartAddCoupon(form, mult_enabled) {
 	var new_coupon_code = document.getElementById('new_coupon_code').value;
 
 	var url = 'index.php?option=com_citruscart&view=checkout&task=validateCouponCode&format=raw&coupon_code=' + new_coupon_code;
 	var container = 'coupon_code_message';
 
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 
-	CitruscartGrayOutAjaxDiv('coupon_code_area', Joomla.JText._('COM_CITRUSCART_CHECKING_COUPON'));
+	citruscartGrayOutAjaxDiv('coupon_code_area', Joomla.JText._('COM_CITRUSCART_CHECKING_COUPON'));
 	// execute Ajax request to server
 	var a = new Request({
 		url : url,
@@ -725,21 +725,21 @@ function CitruscartAddCoupon(form, mult_enabled) {
 				}
 
 				// Push the code into the form
-				var cc_html = CitruscartJQ('coupon_codes').innerHTML + resp.msg;
-				if (CitruscartJQ('coupon_codes').set('html', cc_html)) {
-				    CitruscartGetPaymentOptions('onCheckoutPayment_wrapper', form, '' );
+				var cc_html = citruscartJQ('coupon_codes').innerHTML + resp.msg;
+				if (citruscartJQ('coupon_codes').set('html', cc_html)) {
+				    citruscartGetPaymentOptions('onCheckoutPayment_wrapper', form, '' );
 				}
 
 				// Clear the field
 				document.getElementById('new_coupon_code').value = '';
 
 				// Update the summary
-				CitruscartGrayOutAjaxDiv('onCheckoutCart_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_CART'));
-				CitruscartGetCheckoutTotals(true);
-				CitruscartRefreshTotalAmountDue();
+				citruscartGrayOutAjaxDiv('onCheckoutCart_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_CART'));
+				citruscartGetCheckoutTotals(true);
+				citruscartRefreshTotalAmountDue();
 
 				if (mult_enabled != 1) {
-					CitruscartShowHideDiv('coupon_code_form');
+					citruscartShowHideDiv('coupon_code_form');
 				}
 				
 			} else {
@@ -748,10 +748,10 @@ function CitruscartAddCoupon(form, mult_enabled) {
 				}
 			}
 
-			el = $$('#coupon_code_area .CitruscartAjaxGrayDiv');
+			el = $$('#coupon_code_area .citruscartAjaxGrayDiv');
 			if (el != '')
 				el.destroy();
-			CitruscartSetColorInContainer('coupon_code_area', '');
+			citruscartSetColorInContainer('coupon_code_area', '');
 		}
 	}).send();
 }
@@ -759,14 +759,14 @@ function CitruscartAddCoupon(form, mult_enabled) {
 /**
  *
  */
-function CitruscartAddCartCoupon(form, mult_enabled) {
+function citruscartAddCartCoupon(form, mult_enabled) {
 	var new_coupon_code = document.getElementById('new_coupon_code').value;
 
 	var url = 'index.php?option=com_citruscart&view=carts&task=validateCouponCode&format=raw&coupon_code=' + new_coupon_code;
 	var container = 'coupon_code_message';
 
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 
 	// execute Ajax request to server
 	var a = new Request({
@@ -784,17 +784,17 @@ function CitruscartAddCartCoupon(form, mult_enabled) {
 
 				// Push the code into the form
 				var cc_html = $('coupon_codes').innerHTML + resp.msg;
-				CitruscartJQ('coupon_codes').set('html', cc_html);
+				citruscartJQ('coupon_codes').set('html', cc_html);
 
 				// Clear the field
 				document.getElementById('new_coupon_code').value = '';
 
 				// Update the summary
-				CitruscartGetCartCheckoutTotals();
-				CitruscartRefreshCartTotalAmountDue();
+				citruscartGetCartCheckoutTotals();
+				citruscartRefreshCartTotalAmountDue();
 
 				if (mult_enabled != 1) {
-					CitruscartShowHideDiv('coupon_code_form');
+					citruscartShowHideDiv('coupon_code_form');
 				}
 			} else {
 				if (document.getElementById(container)) {
@@ -812,9 +812,9 @@ function CitruscartAddCartCoupon(form, mult_enabled) {
  *
  * @return
  */
-function CitruscartGetCartCheckoutTotals() {
+function citruscartGetCartCheckoutTotals() {
 	var url = 'index.php?option=com_citruscart&view=carts&task=saveOrderCoupons&format=raw';
-	CitruscartDoTask(url, 'onCheckoutCart_wrapper', document.adminForm, '', true);
+	citruscartDoTask(url, 'onCheckoutCart_wrapper', document.adminForm, '', true);
 }
 
 /**
@@ -824,9 +824,9 @@ function CitruscartGetCartCheckoutTotals() {
  *
  * @return
  */
-function CitruscartRefreshCartTotalAmountDue() {
+function citruscartRefreshCartTotalAmountDue() {
 	var url = 'index.php?option=com_citruscart&view=carts&task=totalAmountDue&format=raw';
-	CitruscartDoTask(url, 'totalAmountDue', document.adminForm, '', false, function() {
+	citruscartDoTask(url, 'totalAmountDue', document.adminForm, '', false, function() {
 	});
 
 	//url, container, form, msg, doModal, execFunc
@@ -838,7 +838,7 @@ function CitruscartRefreshCartTotalAmountDue() {
  * @param text Text next to ajax loading picture
  * @param suffix Suffix of the AJAX loader gif (in case it's empty '_transp' is used)
  */
-function CitruscartPutAjaxLoader(container, text, suffix) {
+function citruscartPutAjaxLoader(container, text, suffix) {
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
@@ -858,7 +858,7 @@ function CitruscartPutAjaxLoader(container, text, suffix) {
  * @param suffix 		Suffix of the AJAX loader gif (in case it's empty '_transp' is used)
  *
  */
-function CitruscartGrayOutAjaxDiv(container, text, suffix) {
+function citruscartGrayOutAjaxDiv(container, text, suffix) {
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
@@ -869,11 +869,11 @@ function CitruscartGrayOutAjaxDiv(container, text, suffix) {
 		text_element = '<div class="text">' + text + '</div>';
 
 	// make all texts in the countainer gray
-	CitruscartSetColorInContainer(container, '');
+	citruscartSetColorInContainer(container, '');
 	document.getElementById(container).innerHTML += '<div class="citruscartAjaxGrayDiv">' + img_loader + text_element + '</div>';
 }
 
-function CitruscartSetColorInContainer(container, color) {
+function citruscartSetColorInContainer(container, color) {
 	if (document.getElementById(container)) { document.getElementById(container).setStyle('color', color); }
 	$$('#' + container + ' *' ).each(function(el) {
 		el.setStyle('color', color);
@@ -887,7 +887,7 @@ function CitruscartSetColorInContainer(container, color) {
  *
  * @return Associative array
  */
-function CitruscartStoreFormInputs(form) {
+function citruscartStoreFormInputs(form) {
 	var values = new Array();
 	for ( i = 0; i < form.elements.length; i++) {
 		value = {
@@ -907,12 +907,12 @@ function CitruscartStoreFormInputs(form) {
  *
  * @return Associative array
  */
-function CitruscartRestoreFormInputs(form, values) {
+function citruscartRestoreFormInputs(form, values) {
 	for ( i = 0; i < form.elements.length; i++) {
 		if (form.elements[i].getAttribute('type') == 'checkbox')
 			form.elements[i].checked = values[form.elements[i].name].checked;
-		else if (CitruscartJQ(form.elements[i].id))
-			CitruscartJQ(form.elements[i].id).val( values[form.elements[i].name].value);
+		else if (citruscartJQ(form.elements[i].id))
+			citruscartJQ(form.elements[i].id).val( values[form.elements[i].name].value);
 	}
 }
 
@@ -923,7 +923,7 @@ function CitruscartRestoreFormInputs(form, values) {
  *
  * @return Array with all data from all inputs on the form
  */
-function CitruscartGetFormInputData(form) {
+function citruscartGetFormInputData(form) {
 	var str = new Array();
 	for ( i = 0; i < form.elements.length; i++) {
 		postvar = {
@@ -937,8 +937,8 @@ function CitruscartGetFormInputData(form) {
 	return str;
 }
 
-function CitruscartDeleteGrayDivs() {
-    $$('.CitruscartAjaxGrayDiv').each(function(el) {
+function citruscartDeleteGrayDivs() {
+    $$('.citruscartAjaxGrayDiv').each(function(el) {
         el.destroy();
     });
 }

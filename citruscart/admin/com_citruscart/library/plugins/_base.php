@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // TODO Make all Citruscart plugins extend this _base file, to reduce code redundancy
-define('DS' ,'/' );
+//define('DS' ,'/' );
 /** Import library dependencies */
 jimport('joomla.plugin.plugin');
 jimport('joomla.utilities.string');

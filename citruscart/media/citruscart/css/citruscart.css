@@ -19,9 +19,9 @@ div.reset{clear:both;}
 .wrap,.flat { zoom: 1; }
 
 /* Gray DIV while loading AJAX */ 
-.CitruscartAjaxGrayDiv{	position : absolute; top : 0px;	left : 0px;	width : 100%;	height : 100%;	z-index : 9999;	background : url(../images/ajax_background.png);}
-.CitruscartAjaxGrayDiv img{	position : absolute !important; top : 50%;	left : 50%; margin-left : -8px; margin-top : -8px; }
-.CitruscartAjaxGrayDiv div.text{ position : absolute !important; top : 50%;	left: 0px; margin-top : 12px;  text-align : center; width : 100%; color : black; }
+.citruscartAjaxGrayDiv{	position : absolute; top : 0px;	left : 0px;	width : 100%;	height : 100%;	z-index : 9999;	background : url(../images/ajax_background.png);}
+.citruscartAjaxGrayDiv img{	position : absolute !important; top : 50%;	left : 50%; margin-left : -8px; margin-top : -8px; }
+.citruscartAjaxGrayDiv div.text{ position : absolute !important; top : 50%;	left: 0px; margin-top : 12px;  text-align : center; width : 100%; color : black; }
 
 /* category headers */ 
 div#citruscart_category_header{border-bottom:1px solid #cccccc;margin-bottom:10px;padding-bottom:5px;padding-top:5px;}
@@ -123,14 +123,14 @@ div#citruscart_searchfilters div.row select{width:255px;}
 div#citruscart_searchfilters div.submit{margin-left:200px;}
 
 /* product compare */ 
-#CitruscartProductCompare a{position:relative;top:-4px;}
-#CitruscartProductCompare span.arrow{color:#F00;font-size:130%;font-weight:bold;}
-#CitruscartProductCompareScroll{height:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:3px;width:100%;}
-#CitruscartProductCompareScroll table td{padding:5px;}
-#CitruscartProductCompareScroll table tr.row1{background-color:#E6E6E6;}
-#CitruscartProductCompareScroll table a.close-img{display:block;float:right;margin-left:-15px;padding:2px;}
-#CitruscartProductCompareScroll table td.border-left{border-left:1px dotted #666;padding-right:10px;}
-#CitruscartProductCompareScroll span.arrow{color:#F00;}
+#citruscartProductCompare a{position:relative;top:-4px;}
+#citruscartProductCompare span.arrow{color:#F00;font-size:130%;font-weight:bold;}
+#citruscartProductCompareScroll{height:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:3px;width:100%;}
+#citruscartProductCompareScroll table td{padding:5px;}
+#citruscartProductCompareScroll table tr.row1{background-color:#E6E6E6;}
+#citruscartProductCompareScroll table a.close-img{display:block;float:right;margin-left:-15px;padding:2px;}
+#citruscartProductCompareScroll table td.border-left{border-left:1px dotted #666;padding-right:10px;}
+#citruscartProductCompareScroll span.arrow{color:#F00;}
 
 /* tabs */ 
 dl.tabs{float:left;margin:10px 0 -1px;z-index:50;}
@@ -151,7 +151,7 @@ div#payment_form_div{min-height : 50px;}
 div#citruscart_breadcrumb,div#citruscart_pricefilter{margin-bottom:15px;}
 div#citruscart_category_header span,div#citruscart_product_header span.product_name{font-size:1.8em;vertical-align:middle;}
 div#citruscart_products span.title,div#citruscart_product_header span.title,span.product_name,div#product_recurs span.title,div.product_listprice span.title,div.progressbar span.current-step,div#searchresults_sort div.title{font-weight:bold;}
-div#product_description,#CitruscartProductCompare{margin-top:10px;}
+div#product_description,#citruscartProductCompare{margin-top:10px;}
 tr.filterline div.range div.rangeline span.label,tr.filterline div.range div.rangeline .input{text-align:left;}
 div.prepayment_message,div.prepayment_action{padding:10px;}
 .dateDiv,.leftAlignDiv{float:left;width:auto;}

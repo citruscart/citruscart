@@ -26,7 +26,7 @@ class CitruscartViewConfig extends CitruscartViewBase
 	function getLayoutVars($tpl=null)
 	{
 	    $doc = JFactory::getDocument();
-	    $saveOnClick = 'CitruscartJQ(document).ready(function(){ Citruscart.saveConfigOnClick(); })';
+	    $saveOnClick = 'citruscartJQ(document).ready(function(){ Citruscart.saveConfigOnClick(); })';
 	    $doc->addScriptDeclaration( $saveOnClick );
 	    $this->renderSubmenu();
 		$layout = $this->getLayout();
