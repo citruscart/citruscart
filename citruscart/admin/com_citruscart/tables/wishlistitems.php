@@ -44,7 +44,7 @@ class CitruscartTableWishlistItems extends CitruscartTableEav
     	
         $tbl_key      = 'wishlistitem_id';
         $tbl_suffix   = 'wishlistitems';
-        $name         = 'Citruscart';
+        $name         = 'citruscart';
         
         $this->set( '_tbl_key', $tbl_key );
         $this->set( '_suffix', $tbl_suffix );

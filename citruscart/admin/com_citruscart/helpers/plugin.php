@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
 
-require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/dioscouri/library/parameter.php');
+require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
 
 class CitruscartHelperPlugin extends CitruscartHelperBase
 {

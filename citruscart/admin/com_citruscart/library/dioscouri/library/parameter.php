@@ -12,10 +12,8 @@
 # @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
+
 defined('_JEXEC') or die('Restricted access');
-
-
-
 if (version_compare(JVERSION,'1.6.0','ge')) {
     // Joomla! 1.6+ code here
     class DSCParameter extends JRegistry

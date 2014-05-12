@@ -34,7 +34,7 @@ class CitruscartTableProductCompare extends CitruscartTableEav
     	
         $tbl_key      = 'productcompare_id';
         $tbl_suffix   = 'productcompare';
-        $name         = 'Citruscart';
+        $name         = 'citruscart';
         
         $this->set( '_tbl_key', $tbl_key );
         $this->set( '_suffix', $tbl_suffix );
