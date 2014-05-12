@@ -145,6 +145,7 @@ class CitruscartControllerCheckout extends CitruscartController
      */
     function display($cachable=false, $urlparams = false)
     {
+
     	$input = JFactory::getApplication()->input;
         $user = $this->user;
 
@@ -214,7 +215,7 @@ class CitruscartControllerCheckout extends CitruscartController
             }
 
             Citruscart::load( 'CitruscartHelperPlugin', 'helpers.plugin' );
-            
+
 
             if($showShipping)
             {
@@ -241,6 +242,8 @@ class CitruscartControllerCheckout extends CitruscartController
             $view->assign( 'payment_options_html', $this->getPaymentOptionsHtml() );
             $view->assign( 'order', $order );
 
+
+
             // are there any enabled coupons?
             $coupons_present = false;
             $model = JModelLegacy::getInstance( 'Coupons', 'CitruscartModel' );
@@ -258,7 +261,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $view->assign('userinfo', $userinfo);
             $view->assign('addresses', $addresses);
 
-            
+
             ob_start();
             JFactory::getApplication()->triggerEvent( 'onBeforeDisplaySelectPayment', array( $order ) );
             $view->assign( 'onBeforeDisplaySelectPayment', ob_get_contents() );
@@ -327,7 +330,7 @@ class CitruscartControllerCheckout extends CitruscartController
                 Citruscart::load( 'CitruscartHelperPlugin', 'helpers.plugin' );
                 $plugins = CitruscartHelperPlugin::getPluginsWithEvent( 'onGetShippingPlugins' );
 
-                
+
 
                 $rates = array();
                 if ($plugins)
@@ -463,7 +466,7 @@ class CitruscartControllerCheckout extends CitruscartController
                 $input->set('layout', 'default');
             }
 
-            
+
 
             ob_start();
             JFactory::getApplication()->triggerEvent( 'onBeforeDisplaySelectShipping', array( $order ) );
@@ -916,7 +919,7 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // no matter what, fire this validation plugin event for plugins that extend the checkout workflow
         $results = array();
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onValidateSelectShipping", array( $submitted_values ) );
 
         for ($i=0; $i<count($results); $i++)
@@ -1021,7 +1024,7 @@ class CitruscartControllerCheckout extends CitruscartController
             {
                 // Validate the results of the payment plugin
                 $results = array();
-                
+
                 $results = JFactory::getApplication()->triggerEvent( "onGetPaymentFormVerify", array( $submitted_values['_checked']['payment_plugin'], $submitted_values) );
 
                 for ($i=0; $i<count($results); $i++)
@@ -1038,7 +1041,7 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // no matter what, fire this validation plugin event for plugins that extend the checkout workflow
         $results = array();
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onValidateSelectPayment", array( $submitted_values ) );
 
         for ($i=0; $i<count($results); $i++)
@@ -1516,7 +1519,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $model->setState('filter_enabled', '1');
         $plugins = $model->getList();
 
-        
+
 
         $rates = array();
 
@@ -1846,7 +1849,7 @@ class CitruscartControllerCheckout extends CitruscartController
         if (count($payment_plugins) == 1)
         {
             $payment_plugins[0]->checked = true;
-            
+
             $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
 
             $text = '';
@@ -1892,7 +1895,7 @@ class CitruscartControllerCheckout extends CitruscartController
         if ($plugins)
         {
             Citruscart::load( 'CitruscartTablePayment', 'tables.payment' );
-            
+
             foreach ($plugins as $plugin)
             {
                 $results = JFactory::getApplication()->triggerEvent( "onGetPaymentOptions", array( $plugin->element, $order ) );
@@ -1986,7 +1989,7 @@ class CitruscartControllerCheckout extends CitruscartController
         if (count($payment_plugins) == 1)
         {
             $payment_plugins[0]->checked = true;
-            
+
             $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
 
             $text = '';
@@ -2222,7 +2225,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $userinfo->credits_total = (float) $userinfo->credits_total;
         $view->assign('userinfo', $userinfo);
 
-        
+
         ob_start();
         JFactory::getApplication()->triggerEvent( 'onBeforeDisplaySelectPayment', array( $order ) );
         $view->assign( 'onBeforeDisplaySelectPayment', ob_get_contents() );
@@ -2257,7 +2260,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $element = $input->get( 'payment_element' );
         }
         $results = array();
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $element, $values ) );
 
         for ($i=0; $i<count($results); $i++)
@@ -2357,7 +2360,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $html = "";
         if (!empty($values['payment_plugin']))
         {
-            
+
             $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
             // Display whatever comes back from Payment Plugin for the onPrePayment
@@ -2538,7 +2541,7 @@ class CitruscartControllerCheckout extends CitruscartController
             }
         }
 
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
         // Display whatever comes back from Payment Plugin for the onPrePayment
@@ -2666,7 +2669,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $mainframe->redirect(JURI::root().'administrator/index.php?' . $pos_link);
         }
 
-        
+
         $html = "";
         if( !empty( $order->order_hash ) )
             $order_link .= '&h='.$order->order_hash;
@@ -3231,7 +3234,7 @@ class CitruscartControllerCheckout extends CitruscartController
             else
             {
                 //fire onAfterSaveOrderItem
-                
+
                 JFactory::getApplication()->triggerEvent( 'onAfterSaveOrderItem', array( $item ) );
 
                 // does the orderitem create a subscription?
@@ -3514,7 +3517,7 @@ class CitruscartControllerCheckout extends CitruscartController
         // Let the plugin store the information about the shipping
         if (isset($values['shipping_plugin']))
         {
-            
+
             JFactory::getApplication()->triggerEvent( "onPostSaveShipping", array( $values['shipping_plugin'], $row ) );
         }
 
@@ -4118,7 +4121,7 @@ class CitruscartControllerCheckout extends CitruscartController
             }
         }
 
-        
+
         JFactory::getApplication()->triggerEvent( 'onGetOrderArticles', array( $order_id, &$articles ) );
 
         return $articles;
@@ -4176,7 +4179,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $order->load( array('order_id' => $this->pos_order->order_id));
         $items = $order->getItems();
 
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
         // Display whatever comes back from Payment Plugin for the onPrePayment

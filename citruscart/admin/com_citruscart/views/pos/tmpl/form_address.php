@@ -1,7 +1,7 @@
 <?php 
 	defined('_JEXEC') or die('Restricted access');
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-	JHTML::_('stylesheet', 'Citruscart.css', 'media/com_citruscart/css/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+	JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');
 	
 	switch($this->form_prefix)
 	{

@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 JHTML::_('script', 'core.js', 'media/system/js/');
 
 $form = $this->form;

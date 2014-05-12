@@ -16,9 +16,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php
 	$input = JFactory::getApplication()->input;
 	$doc = JFactory::getDocument();
-	$doc->addStyleSheet(JUri::root().'media/com_citruscart/js/citruscart.js');
+	$doc->addStyleSheet(JUri::root().'media/citruscart/js/citruscart.js');
 
-	//JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+	//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $vars->state; ?>
 <?php $form = $vars->form; ?>
 <?php $items = $vars->list;

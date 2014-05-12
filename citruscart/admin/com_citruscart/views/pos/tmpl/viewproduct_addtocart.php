@@ -1,7 +1,7 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
-	JHTML::_('stylesheet', 'pos.css', 'media/com_citruscart/css/');
-	JHTML::_('stylesheet', 'Citruscart.css', 'media/com_citruscart/css/');
+	JHTML::_('stylesheet', 'pos.css', 'media/citruscart/css/');
+	JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');
 	
 	$row = @$this->product;
 	$values = @$this->values;

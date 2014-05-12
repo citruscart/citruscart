@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('stylesheet', 'citruscart.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/'); ?>
 <?php Citruscart::load( 'CitruscartHelperBase', 'helpers._base' ); ?>
 <?php jimport('joomla.html') ?>
 

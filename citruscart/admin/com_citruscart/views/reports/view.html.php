@@ -41,7 +41,7 @@ class CitruscartViewReports extends CitruscartViewBase
 	{
         JHTML::_('script', 'bootstrapped-advanced-ui.js', 'media/citruscart/js/');
         JHTML::_('stylesheet', 'bootstrapped-advanced-ui.css', 'media/citruscart/css/');
-        JHTML::_('stylesheet', 'reports.css', 'media/com_citruscart/css/');
+        JHTML::_('stylesheet', 'reports.css', 'media/citruscart/css/');
         parent::_form($tpl);
 
         // load the plugin

@@ -35,7 +35,7 @@ class CitruscartHelperManufacturer extends CitruscartHelperBase
 		{
 			// then this is a filename, return the full img tag if file exists, otherwise use a default image
 			$src = (JFile::exists( Citruscart::getPath( $path ).DIRECTORY_SEPARATOR.$id))
-				? Citruscart::getUrl( $path ).$id : 'media/com_citruscart/images/noimage.png';
+				? Citruscart::getUrl( $path ).$id : 'media/citruscart/images/noimage.png';
 			
 			// if url is true, just return the url of the file and not the whole img tag
 			$tmpl = ($url)
@@ -53,7 +53,7 @@ class CitruscartHelperManufacturer extends CitruscartHelperBase
 				$id = $row->manufacturer_image;
 
 				$src = (JFile::exists( Citruscart::getPath( $path ).DIRECTORY_SEPARATOR.$row->manufacturer_image))
-					? Citruscart::getUrl( $path ).$id : 'media/com_citruscart/images/noimage.png';
+					? Citruscart::getUrl( $path ).$id : 'media/citruscart/images/noimage.png';
 
 				// if url is true, just return the url of the file and not the whole img tag
 				$tmpl = ($url)

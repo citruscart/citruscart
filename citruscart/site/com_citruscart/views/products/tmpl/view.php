@@ -11,10 +11,10 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
+
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-JHTML::_( 'script', 'citruscart.js', 'media/citruscart/js/' );
-JHTML::_( 'script', 'citruscart_inventory_check.js', 'media/citruscart/js/' );
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
 $state = $this->state;
 $item = $this->row;
 

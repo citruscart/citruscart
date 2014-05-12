@@ -10,8 +10,8 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/com_citruscart/css/');?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');?>
+<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
 <?php $row = $this->address;?>
 <?php JFilterOutput::objectHTMLSafe($row);?>
 <?php $config = CitruscartConfig::getInstance(); ?>

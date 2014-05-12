@@ -300,34 +300,34 @@ class Citruscart extends DSC
 				$url = JURI::root(true).'/media/citruscart/js/';
 				break;
 			case 'categories_images' :
-				$url = JURI::root(true).'/images/com_citruscart/categories/';
+				$url = JURI::root(true).'/images/citruscart/categories/';
 				break;
 			case 'categories_thumbs' :
-				$url = JURI::root(true).'/images/com_citruscart/categories/thumbs/';
+				$url = JURI::root(true).'/images/citruscart/categories/thumbs/';
 				break;
 			case 'products_images' :
-				$url = JURI::root(true).'/images/com_citruscart/products/';
+				$url = JURI::root(true).'/images/citruscart/products/';
 				break;
 			case 'products_thumbs' :
-				$url = JURI::root(true).'/images/com_citruscart/products/thumbs/';
+				$url = JURI::root(true).'/images/citruscart/products/thumbs/';
 				break;
 			case 'products_files' :
-				$url = JURI::root(true).'/images/com_citruscart/files/';
+				$url = JURI::root(true).'/images/citruscart/files/';
 				break;
 			case 'order_files' :
-				$url = JURI::root(true).'/images/com_citruscart/orders/';
+				$url = JURI::root(true).'/images/citruscart/orders/';
 				break;
 			case 'manufacturers_images' :
-				$url = JURI::root(true).'/images/com_citruscart/manufacturers/';
+				$url = JURI::root(true).'/images/citruscart/manufacturers/';
 				break;
 			case 'manufacturers_thumbs' :
-				$url = JURI::root(true).'/images/com_citruscart/manufacturers/thumbs/';
+				$url = JURI::root(true).'/images/citruscart/manufacturers/thumbs/';
 				break;
 			case 'cartitems_files':
-				$url = JURI::root(true).'/images/com_citruscart/cartitems/';
+				$url = JURI::root(true).'/images/citruscart/cartitems/';
 				break;
 			case 'orderitems_files':
-				$url = JURI::root(true).'/images/com_citruscart/orderitems/';
+				$url = JURI::root(true).'/images/citruscart/orderitems/';
 				break;
 		}
 
@@ -381,7 +381,7 @@ class Citruscart extends DSC
 		switch($type)
 		{
 			case 'media' :
-				$path = JPATH_SITE.'/media/com_citruscart';
+				$path = JPATH_SITE.'/media/citruscart';
 				break;
 			case 'css' :
 				$path = JPATH_SITE.'/media/citruscart/css';
@@ -405,16 +405,16 @@ class Citruscart extends DSC
 				$path = JPATH_SITE.'/media/citruscart/templates/site/categories';
 				break;
 			case 'categories_images' :
-				$path = JPATH_SITE.'/images/com_citruscart/categories';
+				$path = JPATH_SITE.'/images/citruscart/categories';
 				break;
 			case 'categories_thumbs' :
-				$path = JPATH_SITE.'/images/com_citruscart/categories/thumbs';
+				$path = JPATH_SITE.'/images/citruscart/categories/thumbs';
 				break;
 			case 'products_images' :
-				$path = JPATH_SITE.'/images/com_citruscart/products';
+				$path = JPATH_SITE.'/images/citruscart/products';
 				break;
 			case 'products_thumbs' :
-				$path = JPATH_SITE.'/images/com_citruscart/products/thumbs';
+				$path = JPATH_SITE.'/images/citruscart/products/thumbs';
 				break;
 			case 'products_files' :
 				$path = JPATH_SITE.'/images/com_citruscart/files';
@@ -423,16 +423,16 @@ class Citruscart extends DSC
 				$path = JPATH_SITE.'/images/com_citruscart/manufacturers';
 				break;
 			case 'manufacturers_thumbs' :
-				$path = JPATH_SITE.'/images/com_citruscart/manufacturers/thumbs';
+				$path = JPATH_SITE.'/images/citruscart/manufacturers/thumbs';
 				break;
 			case 'order_files' :
-				$path = JPATH_SITE.'/images/com_citruscart/orders';
+				$path = JPATH_SITE.'/images/citruscart/orders';
 				break;
 			case 'cartitems_files':
-				$path = JPATH_SITE.'/images/com_citruscart/cartitems';
+				$path = JPATH_SITE.'/images/citruscart/cartitems';
 				break;
 			case 'orderitems_files':
-				$path = JPATH_SITE.'/images/com_citruscart/orderitems';
+				$path = JPATH_SITE.'/images/citruscart/orderitems';
 				break;
 		}
 

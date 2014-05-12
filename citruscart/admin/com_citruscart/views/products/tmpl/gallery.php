@@ -12,8 +12,8 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-JHTML::_('stylesheet', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHTML::_('stylesheet', 'citruscart.js', 'media/citruscart/js/');
 $app = JFactory::getApplication();
 $images =$this->images;
 $path = $this->url;

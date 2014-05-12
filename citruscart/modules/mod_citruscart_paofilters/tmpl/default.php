@@ -13,7 +13,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_( 'script', 'site.js', 'media/com_citruscart/js/' ); ?>
+<?php JHTML::_( 'script', 'site.js', 'media/citruscart/js/' ); ?>
 
 <?php if (!empty($items)) { ?>
 <script type="text/javascript">

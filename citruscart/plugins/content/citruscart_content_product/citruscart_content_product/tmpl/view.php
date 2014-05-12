@@ -11,9 +11,9 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'citruscart.css', 'media/com_citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-JHTML::_('script', 'citruscart_inventory_check.js', 'media/com_citruscart/js/');
+JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHTML::_('script', 'citruscart_inventory_check.js', 'media/citruscart/js/');
 $item = $row;
 
 Citruscart::load('CitruscartHelperCategory', 'helpers.category');

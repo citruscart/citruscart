@@ -11,7 +11,7 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php //JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+<?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/select.php');
 ?>
 <?php $state =$this->state; ?>

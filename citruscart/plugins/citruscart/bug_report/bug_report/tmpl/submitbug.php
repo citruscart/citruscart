@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('stylesheet', 'Citruscart_admin.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'Citruscart_admin.css', 'media/citruscart/css/'); ?>
 
 <?php $link = '<a href="'.JRoute::_('index.php?option=com_admin&task=sysinfo').'">'.JText::_('COM_CITRUSCART_SYSTEM_INFORMATION').'</a>'; ?>
 

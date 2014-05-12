@@ -577,16 +577,16 @@ function CitruscartRating(id) {
 	var count;
 	document.getElementById('productcomment_rating').value = id;
 	for ( count = 1; count <= id; count++) {
-		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/com_citruscart/images/star_10.png";
+		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/citruscart/images/star_10.png";
 	}
 
 	for ( count = id + 1; count <= 5; count++) {
-		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/com_citruscart/images/star_00.png";
+		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/citruscart/images/star_00.png";
 	}
 }
 
 function CitruscartCheckUpdateCartQuantities(form, text) {
-
+	console.log(form);
 	var quantities = form.getElements('input[name^=quantities]');
 	var original_quantities = form.getElements('input[name^=original_quantities]');
 
@@ -845,7 +845,7 @@ function CitruscartPutAjaxLoader(container, text, suffix) {
 	text_element = '';
 	if (text != null && text != '')
 		text_element = '<span> ' + text + '</span>';
-	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/com_citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
+	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
 	if (document.getElementById(container)) {
 	    document.getElementById(container).set('html', img_loader + text_element);
 	}
@@ -862,7 +862,7 @@ function CitruscartGrayOutAjaxDiv(container, text, suffix) {
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
-	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/com_citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
+	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
 	document.getElementById(container).setStyle('position', 'relative');
 	text_element = '';
 	if (text && text.length)

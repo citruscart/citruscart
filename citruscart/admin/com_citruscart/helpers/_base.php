@@ -616,8 +616,8 @@ class CitruscartHelperBase extends DSCHelper
 	function includeJQueryUI()
 	{
 		self::includeJQuery();
-		JHTML::_('script', 'jquery-ui-1.7.2.min.js', 'media/com_citruscart/js/');
-		JHTML::_('stylesheet', 'jquery-ui.css', 'media/com_citruscart/css/');
+		JHTML::_('script', 'jquery-ui-1.7.2.min.js', 'media/citruscart/js/');
+		JHTML::_('stylesheet', 'jquery-ui.css', 'media/citruscart/css/');
 	}
 
 	/**
@@ -628,7 +628,7 @@ class CitruscartHelperBase extends DSCHelper
 	 */
 	function includeJQuery()
 	{
-		JHTML::_('script', 'jquery-1.3.2.min.js', 'media/com_citruscart/js/');
+		JHTML::_('script', 'jquery-1.3.2.min.js', 'media/citruscart/js/');
 	}
 
 	/**
@@ -636,8 +636,8 @@ class CitruscartHelperBase extends DSCHelper
 	 */
 	function includeMultiFile()
 	{
-		JHTML::_('script', 'Stickman.MultiUpload.js', 'media/com_citruscart/js/');
-		JHTML::_('stylesheet', 'Stickman.MultiUpload.css', 'media/com_citruscart/css/');
+		JHTML::_('script', 'Stickman.MultiUpload.js', 'media/citruscart/js/');
+		JHTML::_('stylesheet', 'Stickman.MultiUpload.css', 'media/citruscart/css/');
 	}
 
 	/**
@@ -827,7 +827,7 @@ class CitruscartHelperBase extends DSCHelper
 		if( self::$added_strings === null )
 			self::$added_strings = array();
 
-		JHTML::_('script', 'citruscart_lang.js', 'media/com_citruscart/js/');
+		JHTML::_('script', 'citruscart_lang.js', 'media/citruscart/js/');
 		$js_strings = array();
 		for( $i = 0, $c = count( $strings ); $i < $c; $i++ )
 		{

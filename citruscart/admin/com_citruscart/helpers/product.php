@@ -852,7 +852,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
                 if( $main_product )
                 {
-                    
+
                     JFactory::getApplication()->triggerEvent('onGetProductMainImage', array( $row->product_id, &$full_image, $options ) );
                 }
 
@@ -2677,7 +2677,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             }
             Citruscart::load( 'CitruscartHelperTax', 'helpers.tax' );
             $product = new stdClass();
-            $product->product_price = $row->price;
+         	$product->product_price = $row->price;
             $product->product_id = $product_id;
             $tax = CitruscartHelperTax::calculateGeozonesTax( array( $product ), 2, $geozones );
             $row->taxtotal = $tax->tax_total;

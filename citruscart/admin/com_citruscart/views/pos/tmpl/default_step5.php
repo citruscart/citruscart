@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/'); ?>
 <?php 
 $order_link = @$this->order_link;
 $plugin_html = @$this->plugin_html;

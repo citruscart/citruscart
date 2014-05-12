@@ -26,9 +26,9 @@ class CitruscartViewUsers extends CitruscartViewBase
     	/* Get the application */
         $app = JFactory::getApplication();
     	$layout = $this->getLayout();
+
     	$this->renderSubmenu();
 
-    	$this->renderLinkbar();
 
         switch(strtolower($layout))
         {

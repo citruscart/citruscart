@@ -1,18 +1,17 @@
 <?php
-/**
- * @version		$Id: view.php 10710 2008-08-21 10:08:12Z eddieajau $
- * @package		Joomla
- * @subpackage	com_citruscart
- * @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
- * @license		GNU/GPL, see LICENSE.php
- * Joomla! is free software. This version may have been modified pursuant to the
- * GNU General Public License, and as distributed it includes or is derivative
- * of works licensed under the GNU General Public License or other free or open
- * source software licenses. See COPYRIGHT.php for copyright notices and
- * details.
- */
+/*------------------------------------------------------------------------
+# com_citruscart - citruscart
+# ------------------------------------------------------------------------
+# author    Citruscart Team - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2012 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
 
-// no direct access
+/** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
 /**
@@ -22,6 +21,7 @@ defined('_JEXEC') or die('Restricted access');
  * @subpackage	Content
  * @since 1.5
  */
+require_once(JPATH_SITE.'/libraries/dioscouri/library/view/admin.php');
 class CitruscartViewElementProduct extends DSCViewAdmin
 {
 }
