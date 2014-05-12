@@ -138,19 +138,11 @@ class DSCView extends DSCViewBase
 
 
 		$validate = JSession::getFormToken();
-        // form
-        /*
-        	if(DSC_JVERSION == '30') {
-				$validate = JSession::getFormToken();
-
-
-				} else {$validate = JSession::getFormToken();}
-         */
-            $form = array();
-            $view = strtolower(  $input->getString('view') );
-            $form['action'] = $this->get( '_action', "index.php?option={$this->_option}&controller={$view}&view={$view}" );
-            $form['validate'] = "<input type='hidden' name='{$validate}' value='1' />";
-            $this->assign( 'form', $form );
+          $form = array();
+           $view = strtolower(  $input->getString('view') );
+           $form['action'] = $this->get( '_action', "index.php?option={$this->_option}&controller={$view}&view={$view}" );
+           $form['validate'] = "<input type='hidden' name='{$validate}' value='1' />";
+           $this->assign( 'form', $form );
     }
 
 

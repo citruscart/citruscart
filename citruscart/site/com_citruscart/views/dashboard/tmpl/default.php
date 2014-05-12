@@ -1,7 +1,7 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
 	jimport('joomla.application.component.model');
-	JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
+	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
 	$user = JFactory::getUser();
 	Citruscart::load( "CitruscartHelperBase", 'helpers._base' );
 	$display_credits = Citruscart::getInstance()->get( 'display_credits', '0' );

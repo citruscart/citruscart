@@ -161,13 +161,18 @@ class CitruscartModelCategories extends CitruscartModelBase
 
 	public function getList($refresh = false)
 	{
- 		/* $db = JFactory::getDbo();
+ 		$db = JFactory::getDbo();
 		$query=$db->getQuery(true);
-		$query->select("* ,category_name as name,parent_id as level");
-		$query->from("#__citruscart_categories");
+		$this->_buildQueryFields($query);
+		$this->_buildQueryFrom($query);
+		$this->_buildQueryJoins($query);
+		$this->_buildQueryWhere($query);
+		$this->_buildQueryGroup($query);
+		$this->_buildQueryHaving($query);
+		$this->_buildQueryOrder($query);
 		$db->setQuery($query);
-		$list = $db->loadObjectList(); */
-		$list = parent::getList($refresh);
+		$list = $db->loadObjectList();
+		//$list = parent::getList($refresh);
 
 		// If no item in the list, return an array()
         if( empty( $list ) ){

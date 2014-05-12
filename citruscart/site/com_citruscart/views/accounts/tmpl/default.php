@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/'); ?>
 
 <div class='componentheading'>
 	<span><?php echo JText::_('COM_CITRUSCART_MY_PROFILE'); ?></span>

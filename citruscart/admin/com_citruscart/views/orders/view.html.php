@@ -23,6 +23,8 @@ Citruscart::load('CitruscartUrl', 'library.url');
 
 class CitruscartViewOrders extends CitruscartViewBase
 {
+
+
 	/**
 	 *
 	 * @param $tpl
@@ -33,6 +35,7 @@ class CitruscartViewOrders extends CitruscartViewBase
 		$app = JFactory::getApplication();
 		$view = $app->input->getString('view');
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "confirmdelete":
@@ -167,5 +170,9 @@ class CitruscartViewOrders extends CitruscartViewBase
 		$this->assign('form', $form);
 		$this->assign('row', $model->getItem());
 	}
+
+
+
+
 
 }

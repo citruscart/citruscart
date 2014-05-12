@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
+JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
 $steps = $this->steps;
 $current_step = $this->current_step;
 ?>

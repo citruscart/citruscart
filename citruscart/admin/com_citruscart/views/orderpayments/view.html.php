@@ -26,6 +26,7 @@ class CitruscartViewOrderPayments extends CitruscartViewBase
     {
     	$app  = JFactory::getApplication();
         $layout = $this->getLayout();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
         	case "print":
@@ -64,5 +65,13 @@ class CitruscartViewOrderPayments extends CitruscartViewBase
     		$this->assign( 'row', $item );
     	}
 
+    }
+
+    public function renderSubmenu(){
+
+    	require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+    	$toolbar = new CitruscartToolBar();
+    	Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
+    	$toolbar->renderLinkbar();
     }
 }

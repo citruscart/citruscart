@@ -12,9 +12,9 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/com_citruscart/js/citruscart.js');
-JHTML::_( 'script', 'citruscart.js', 'media/com_citruscart/js/' );
-JHTML::_( 'script', 'Citruscart_inventory_check.js', 'media/com_citruscart/js/' );
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+JHTML::_( 'script', 'citruscart.js', 'media/citruscart/js/' );
+JHTML::_( 'script', 'citruscart_inventory_check.js', 'media/citruscart/js/' );
 $state = $this->state;
 $item = $this->row;
 
@@ -24,7 +24,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', 
 
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
 
-    <?php if ( $this->defines->get( 'display_Citruscart_pathway' ) ) : ?>
+    <?php if ( $this->defines->get( 'display_citruscart_pathway' ) ) : ?>
         <div id='citruscart_breadcrumb'>
             <?php echo CitruscartHelperCategory::getPathName( $this->cat->category_id, 'links', true ); ?>
         </div>

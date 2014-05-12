@@ -8,22 +8,22 @@
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
- 
+
 /** ensure this file is being included by a parent file */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 Citruscart::load( 'CitruscartTable', 'tables._base' );
 
-class CitruscartTableProductCommentsHelpfulness extends CitruscartTable 
+class CitruscartTableProductCommentsHelpfulness extends CitruscartTable
 {
 
-	function CitruscartTableProductCommentsHelpfulness( &$db ) 
+	function CitruscartTableProductCommentsHelpfulness( &$db )
 	{
 		$tbl_key 	= 'productcommentshelpfulness_id';
 		$tbl_suffix = 'productcommentshelpfulness';
 		$this->set( '_suffix', $tbl_suffix );
-		$name 		= "Citruscart";
-		
-		parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );	
+		$name 		= "citruscart";
+
+		parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
 	}
 }

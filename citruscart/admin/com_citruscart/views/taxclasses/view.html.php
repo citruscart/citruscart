@@ -25,6 +25,7 @@ class CitruscartViewTaxclasses extends CitruscartViewBase
 	{
 
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":
@@ -47,7 +48,7 @@ class CitruscartViewTaxclasses extends CitruscartViewBase
 		Citruscart::load( 'CitruscartUrl', 'library.url' );
 		parent::_default($tpl);
 	}
-	
+
 	/**
 	 * Method to overwrite
 	 * @param $tpl

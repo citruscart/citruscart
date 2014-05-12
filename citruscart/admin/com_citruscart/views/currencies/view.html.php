@@ -25,6 +25,7 @@ class CitruscartViewCurrencies extends CitruscartViewBase
 	{
 		$app = JFactory::getApplication();
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":
@@ -47,6 +48,12 @@ class CitruscartViewCurrencies extends CitruscartViewBase
         JToolBarHelper::publishList( 'currency_enabled.enable' );
         JToolBarHelper::unpublishList( 'currency_enabled.disable' );
 		JToolBarHelper::divider();
+
+		require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+		$toolbar = new CitruscartToolBar();
+		Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
+		$toolbar->renderLinkbar();
+
 		parent::_defaultToolbar();
 	}
 

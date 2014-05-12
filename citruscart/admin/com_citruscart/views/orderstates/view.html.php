@@ -25,6 +25,7 @@ class CitruscartViewOrderstates extends CitruscartViewBase
 	{
 		$app = JFactory::getApplication();
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":
@@ -36,6 +37,7 @@ class CitruscartViewOrderstates extends CitruscartViewBase
 			  break;
 			case "default":
 			default:
+
 				$this->set( 'leftMenu', 'leftmenu_localization' );
 				$this->_default($tpl);
 			  break;
@@ -52,6 +54,9 @@ class CitruscartViewOrderstates extends CitruscartViewBase
 			$item = JTable::getInstance('Orderstates', 'CitruscartTable');
 			//$item->orderstate_params = new DSCParameter( $item->orderstate_params );
 			$this->assign( 'row', $item );
-		}	
+		}
 	}
+
+
+
 }

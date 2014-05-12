@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
@@ -166,7 +166,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <?php // TODO Make this display the "quickAdd" layout in a lightbox ?>
                     <?php // $url = "index.php?option=com_citruscart&format=raw&controller=carts&task=addToCart&productid=".$item->product_id; ?>
                     <?php // $onclick = 'CitruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
-                    <?php // <img class="addcart" src="media/com_citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; " /> ?>
+                    <?php // <img class="addcart" src="media/citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; " /> ?>
                 </div>
 
                 <div class="product_info">

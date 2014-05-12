@@ -69,6 +69,9 @@ class DSCViewAdmin extends DSCView
 		}
 	}
 
+
+
+
 	/**
 	* Displays text as the title of the page
 	*

@@ -41,9 +41,11 @@ class CitruscartViewBase extends DSCViewAdmin
 
 		$doc = JFactory::getDocument();
 		$doc->addStyleSheet(JUri::root().'media/citruscart/css/common.css');
+		//$this->renderSubmenu();
 		parent::display($tpl);
 
 	}
+
 
 	/**
 	 * The default toolbar for a list
@@ -110,6 +112,15 @@ class CitruscartViewBase extends DSCViewAdmin
 		}
 
 		JToolBarHelper::cancel('close', JText::_('COM_CITRUSCART_CLOSE'));
+	}
+
+	public function renderSubmenu(){
+
+			require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+			$toolbar = new CitruscartToolBar();
+			Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
+			$toolbar->renderLinkbar();
+
 	}
 
 }

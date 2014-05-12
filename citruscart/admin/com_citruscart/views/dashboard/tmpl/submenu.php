@@ -7,6 +7,9 @@ $doc->addStyleSheet(JUri::root().'/media/citruscart/css/menu.css');
 
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
 $toolbar = new CitruscartToolBar();
+
+Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
+
 $toolbar->renderLinkbar();
 
 

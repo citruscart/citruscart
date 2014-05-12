@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
+JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
 $display_subscriptions = Citruscart::getInstance()->get( 'display_subscriptions', 1 );
 $display_mydownloads = Citruscart::getInstance()->get( 'display_mydownloads', 1 );
 ?>

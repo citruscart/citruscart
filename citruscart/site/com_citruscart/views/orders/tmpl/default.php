@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-	JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
+	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
 	$state = $this->state;
 	$form = $this->form;
 	$items = $this->items;

@@ -28,6 +28,7 @@ class CitruscartViewProducts extends CitruscartViewBase
     {
     	$app = JFactory::getApplication();
         $layout = $this->getLayout();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
             case "gallery":
@@ -89,6 +90,7 @@ class CitruscartViewProducts extends CitruscartViewBase
 		JToolBarHelper::publishList( 'product_enabled.enable' );
 		JToolBarHelper::unpublishList( 'product_enabled.disable' );
 		JToolBarHelper::divider();
+
 		parent::_defaultToolbar();
 	}
 
