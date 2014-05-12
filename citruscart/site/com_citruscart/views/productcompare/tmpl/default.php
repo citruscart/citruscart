@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $items = $this->items;
 
 $show_manufacturer = Citruscart::getInstance()->get('show_manufacturer_productcompare', '1');

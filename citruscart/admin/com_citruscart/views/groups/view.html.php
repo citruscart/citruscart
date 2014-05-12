@@ -14,37 +14,38 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewGroups extends CitruscartViewBase 
+class CitruscartViewGroups extends CitruscartViewBase
 {
-	
+
 	/**
-     * 
+     *
      * @param $tpl
      * @return unknown_type
      */
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
     	/* Get the application */
         $app = JFactory::getApplication();
     	$layout = $this->getLayout();
-        
+    	$this->renderSubmenu();
+
         switch(strtolower($layout))
         {
         	case "selectusers":
                 $this->_default($tpl);
               break;
             case "form":
-            	
+
             	$app->input->set('hidemainmenu', '1');
                 //JRequest::setVar('hidemainmenu', '1');
                 $this->_form($tpl);
               break;
             case "default":
             default:
-            	
+
                 $this->set( 'leftMenu', 'leftmenu_users' );
                 $this->_default($tpl);
-                
+
               break;
         }
     }

@@ -22,6 +22,7 @@ if (version_compare(JVERSION, '1.6.0', 'ge')) {
     JLoader::register('JToolBar', JPATH_PLATFORM . '/cms/toolbar/toolbar.php');
 }
 
+
 class DSCMenu
 {
     public $_name = array();

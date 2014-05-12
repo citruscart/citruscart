@@ -15,12 +15,12 @@ $doc = JFactory::getDocument();
 ?>
 
 <?php $active = false;
-$doc->addScript(JUri::root().'media/com_citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'media/com_citruscart/js/class.js');
-$doc->addScript(JUri::root().'media/com_citruscart/js/validation.js');
-$doc->addScript(JUri::root().'media/com_citruscart/js/opcaccordion.js');
-$doc->addScript(JUri::root().'media/com_citruscart/js/opc.js');
-$doc->addStyleSheet(JUri::root().'media/com_citruscart/css/opc.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addScript(JUri::root().'media/citruscart/js/class.js');
+$doc->addScript(JUri::root().'media/citruscart/js/validation.js');
+$doc->addScript(JUri::root().'media/citruscart/js/opcaccordion.js');
+$doc->addScript(JUri::root().'media/citruscart/js/opc.js');
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/opc.css');
 
 ?>
 

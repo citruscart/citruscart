@@ -14,14 +14,15 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewTools extends CitruscartViewBase 
+class CitruscartViewTools extends CitruscartViewBase
 {
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
         $layout = $this->getLayout();
-        
+
         /* Get the application */
         $app = JFactory::getApplication();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
             case "form":
@@ -38,20 +39,20 @@ class CitruscartViewTools extends CitruscartViewBase
               break;
         }
     }
-    
+
 	function _form($tpl=null)
 	{
         parent::_form($tpl);
-        
+
         // load the plugin
 		$row = $this->getModel()->getItem();
 		$import = JPluginHelper::importPlugin( 'Citruscart', $row->element );
 	}
-	
+
 	function _defaultToolbar()
 	{
 	}
-	
+
     function _viewToolbar( $isNew = null )
     {
     	JToolBarHelper::custom( 'view', 'forward', 'forward', 'COM_CITRUSCART_SUBMIT', false );

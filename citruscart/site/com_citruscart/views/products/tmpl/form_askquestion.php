@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
  ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = $this->form; ?>
 <?php
 $sender_name 	= JRequest::getVar('sender_name', '');

@@ -13,8 +13,8 @@
 defined('_JEXEC') or die('Restricted access');
 
 	$app = JFactory::getApplication();
-	JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 	$form = $this->form;
 	$row = $this->row;
 	$order = $this->order;

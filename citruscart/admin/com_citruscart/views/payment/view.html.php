@@ -21,6 +21,7 @@ class CitruscartViewPayment extends CitruscartViewBase
 	{
 		$app =JFactory::getApplication();
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":

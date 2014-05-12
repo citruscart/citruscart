@@ -1,11 +1,11 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <?php $active = false; ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('script', 'class.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('script', 'validation.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('script', 'opcaccordion.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('script', 'opc.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('stylesheet', 'opc.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('script', 'class.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('script', 'validation.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('script', 'opcaccordion.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('script', 'opc.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('stylesheet', 'opc.css', 'media/citruscart/css/'); ?>
 
 <?php 
 $cart_itemid = $this->router->findItemid( array('view'=>'carts') );

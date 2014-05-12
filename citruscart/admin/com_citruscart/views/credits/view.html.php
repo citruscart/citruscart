@@ -26,6 +26,7 @@ class CitruscartViewCredits extends CitruscartViewBase
     	$app = JFactory::getApplication();
 
         $layout = $this->getLayout();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
             case "form":
@@ -39,21 +40,25 @@ class CitruscartViewCredits extends CitruscartViewBase
               break;
         }
     }
-    
+
+
+
     function _form($tpl=null){
-    		
+
     	$model = $this->getModel();
     	$item = $model->getItem();
     	$this->row=$item;
-    	
+
        	if(empty($this->row->credit_id)){
     		$item = JTable::getInstance('Credits', 'CitruscartTable');
     		//$state->coupon_params = new DSCParameter($state->coupon_params);
     		//print_r($state->coupon_params);
     		$this->assign('row', $item);
-    
+
     	}
     	parent::_form($tpl);
     }
-    
+
+
+
 }

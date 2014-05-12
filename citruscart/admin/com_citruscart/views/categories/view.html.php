@@ -25,6 +25,7 @@ class CitruscartViewCategories extends CitruscartViewBase
     {
     	$app = JFactory::getApplication();
         $layout = $this->getLayout();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
             case "selectproducts":
@@ -50,7 +51,7 @@ class CitruscartViewCategories extends CitruscartViewBase
 
 		$item = $model->getItem();
 
-		
+
 		$results = JFactory::getApplication()->triggerEvent( 'onGetCategoryView', array( $item  ) );
 
 		if (empty($item->category_id))

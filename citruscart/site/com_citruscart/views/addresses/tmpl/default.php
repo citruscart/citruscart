@@ -12,11 +12,11 @@
 	defined('_JEXEC') or die('Restricted access');
 	jimport('joomla.application.component.model');
 
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-	JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
 	/*
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-	 JHTML::_('script', 'Citruscart_admin.js', 'media/com_citruscart/js/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+	 JHTML::_('script', 'Citruscart_admin.js', 'media/citruscart/js/');
 	 JHTML::_('behavior.tooltip');
 */
 	$state = $this->state;

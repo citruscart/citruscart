@@ -11,7 +11,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 	Citruscart::load( 'CitruscartGrid', 'library.grid' );
 	Citruscart::load( 'CitruscartHelperAddresses', 'helpers.addresses' );
 	$config = Citruscart::getInstance();

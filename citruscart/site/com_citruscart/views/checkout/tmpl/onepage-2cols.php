@@ -10,10 +10,10 @@
 -------------------------------------------------------------------------*/
 
 	defined('_JEXEC') or die('Restricted access');
-	JHTML::_('stylesheet', 'Citruscart_checkout_onepage.css', 'media/com_citruscart/css/');
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-	JHTML::_('script', 'Citruscart_checkout.js', 'media/com_citruscart/js/');
-	JHTML::_('script', 'Citruscart_checkout_onepage.js', 'media/com_citruscart/js/');
+	JHTML::_('stylesheet', 'Citruscart_checkout_onepage.css', 'media/citruscart/css/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+	JHTML::_('script', 'Citruscart_checkout.js', 'media/citruscart/js/');
+	JHTML::_('script', 'Citruscart_checkout_onepage.js', 'media/citruscart/js/');
 	JHTML::_('behavior.mootools' );
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));

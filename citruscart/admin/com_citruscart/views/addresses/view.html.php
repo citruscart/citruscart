@@ -14,14 +14,15 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewAddresses extends CitruscartViewBase 
+class CitruscartViewAddresses extends CitruscartViewBase
 {
-	function getLayoutVars($tpl=null) 
+	function getLayoutVars($tpl=null)
 	{
 		$layout = $this->getLayout();
-		
+
 		/* Get the application */
 		$app = JFactory::getApplication();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":
@@ -46,9 +47,9 @@ class CitruscartViewAddresses extends CitruscartViewBase
 		$this->row=$item;
 		if(empty($this->row->address_id)){
 			$item = JTable::getInstance('Addresses', 'CitruscartTable');
-			
+
 			$this->assign('row', $item);
 		    //print_r($item);
-		}	
+		}
 	}
 }

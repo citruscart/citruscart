@@ -18,7 +18,7 @@ class DSC extends JObject
     protected $_version 		= '2.0';
 	protected $_build          = '';
 	protected $_versiontype    = '';
-	protected $_copyrightyear 	= '2012';
+	protected $_copyrightyear 	= '2014 - 2019';
 	protected $_min_php		= '5.3';
 
 	/**
@@ -150,7 +150,7 @@ class DSC extends JObject
 	*/
 	public static function getURL( $type = 'media', $com='' )
 	{
-	    $name = 'dioscouri';
+	    $name = 'citruscart';
 	    if (!empty($com)) {
 	        $app = self::getApp($com);
 	        $name = "com_" . $app->getName();

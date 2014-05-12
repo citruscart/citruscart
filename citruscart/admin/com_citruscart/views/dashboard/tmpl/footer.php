@@ -17,13 +17,13 @@ defined('_JEXEC') or die('Restricted access');?>
 		$img_path = "../media/citruscart/images";
 
 		JPluginHelper::importPlugin('Citruscart');
-		
+
 		$results = JFactory::getApplication()->triggerEvent( 'onGetFooter', array() );
 
 		$html = implode('', $results);
 		echo $html;
 
-		$url = "http://www.dioscouri.com/";
+		$url = "http://www.citruscart.com/";
 		if ($amigosid = Citruscart::getInstance()->get( 'amigosid', '' ))
 		{
 			$url .= "?amigosid=".$amigosid;
@@ -36,7 +36,7 @@ defined('_JEXEC') or die('Restricted access');?>
 		<td style="text-align: center; width: 33%;">
 			<?php echo JText::_('COM_CITRUSCART_CITRUSCART'); ?>: <?php echo JText::_('COM_CITRUSCART_CITRUSCART_DESC'); ?>
 			<br/>
-			<?php echo JText::_('COM_CITRUSCART_COPYRIGHT'); ?>: <?php echo Citruscart::getInstance()->getCopyrightYear(); ?> &copy; <a href="<?php echo $url; ?>" target="_blank">Dioscouri Design</a>
+			<?php echo JText::_('COM_CITRUSCART_COPYRIGHT'); ?>: <?php echo Citruscart::getInstance()->getCopyrightYear(); ?> &copy; <a href="<?php echo $url; ?>" target="_blank"><?php echo JText::_('COM_CITRUSCART');?></a>
 			<br/>
 			<?php echo JText::_('COM_CITRUSCART_VERSION'); ?>: <?php echo Citruscart::getInstance()->getVersion(); ?>
 			<br/>

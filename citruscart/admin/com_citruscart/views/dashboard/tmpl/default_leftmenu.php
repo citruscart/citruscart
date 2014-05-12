@@ -3,7 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 
 $doc->addStyleSheet(JUri::root().'/media/citruscart/css/leftmenu_admin.css');
-//JHTML::_('stylesheet', 'leftmenu_admin.css', 'media/com_citruscart/css/');
+
 ?>
 
 <div id="<?php echo $this->name; ?>" class="leftmenu-navigation">

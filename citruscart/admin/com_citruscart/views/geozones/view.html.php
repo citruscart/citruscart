@@ -25,6 +25,7 @@ class CitruscartViewGeozones extends CitruscartViewBase
 	function getLayoutVars($tpl=null)
 	{
 		$layout = $this->getLayout();
+		$this->renderSubmenu();
 		switch(strtolower($layout))
 		{
 			case "view":

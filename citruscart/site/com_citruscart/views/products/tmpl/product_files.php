@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $downloadItems = $this->product_file_data->downloadItems;
 $nondownloadItems = $this->product_file_data->nondownloadItems;
 ?>

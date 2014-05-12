@@ -14,20 +14,22 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewShippingMethods extends CitruscartViewBase 
+class CitruscartViewShippingMethods extends CitruscartViewBase
 {
 	/**
-	 * 
+	 *
 	 * @param $tpl
 	 * @return unknown_type
 	 */
-	function getLayoutVars($tpl=null) 
+	function getLayoutVars($tpl=null)
 	{
 		$layout = $this->getLayout();
-		
+
+		$this->renderSubmenu();
+
 		/* Get the application */
 		$app = JFactory::getApplication();
-		
+
 		switch(strtolower($layout))
 		{
 			case "view":

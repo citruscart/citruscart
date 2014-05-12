@@ -12,8 +12,8 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = $this->state;
 $item = $this->row;
 
@@ -47,7 +47,7 @@ $item = $this->row;
             <span class="price"><?php echo CitruscartHelperBase::currency($item->price); ?></span><br />
             <?php $url = "index.php?option=com_citruscart&format=raw&controller=carts&task=addToCart&productid=".$item->product_id; ?>
             <?php $onclick = 'CitruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
-            <img class="addcart" src="media/com_citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; ?>" />
+            <img class="addcart" src="media/citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; ?>" />
         </div>
     </div>
 

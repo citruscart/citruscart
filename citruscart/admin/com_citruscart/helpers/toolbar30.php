@@ -12,7 +12,7 @@ class CitruscartToolBar30 extends JToolbar
 	{
 		$views = array(
 				'dashboard',
-				'COM_CITRUSCART_ORDERS' => array('orders','payments','subscriptions','orderitems'),
+				'COM_CITRUSCART_ORDERS' => array('orders','orderpayments','subscriptions','orderitems'),
 				'COM_CITRUSCART_CATALOG' => array('products','categories',  'manufacturers', 'reviews'),
 				'COM_CITRUSCART_USERS' => array('users','groups',  'credits', 'address'),
 				'coupons',
@@ -87,12 +87,6 @@ class CitruscartToolBar30 extends JToolbar
 
 		$this->renderSubMenu();
 		$links = $this->getLinks();
-		//if(!empty($links)) {
-		//	foreach($links as $link) {
-		//JSubMenuHelper::addEntry($link['name'], $link['link'], $link['active']);
-		//	}
-		//}
-
 		if(!empty($links)) {
 			echo "<div class=\"citruscart-menu\">\n";
 			echo "<ul class=\"nav nav-tabs\">\n";

@@ -13,9 +13,22 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-require_once(JPATH_SITE.'/libraries/dioscouri/loader.php');
+
+JHTML::_('behavior.tooltip');
+
+jimport('joomla.application.component.controller');
+
+
+
 $app = JFactory::getApplication();
 
+//j3 compatibility
+if(!defined('DS')){
+	define('DS',DIRECTORY_SEPARATOR);
+}
+require_once(JPATH_SITE.'/libraries/dioscouri/loader.php');
+require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/version.php');
 JHtml::_('jquery.framework');
 JHtml::_('bootstrap.framework');
 // Check the registry to see if our Citruscart class has been overridden
@@ -62,6 +75,7 @@ else
     	$controller = '';
 	}
 }
+
 
 if (empty($controller))
 {

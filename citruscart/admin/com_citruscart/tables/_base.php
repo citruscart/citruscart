@@ -22,8 +22,7 @@ class CitruscartTable extends DSCTable
 	function __construct( $tbl_name, $tbl_key, &$db )
 	{
 		parent::__construct( $tbl_name, $tbl_key, $db );
-		// set table properties based on table's fields
-		//$this->setTableProperties();
+
 	}
 
 	/**

@@ -12,8 +12,8 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('stylesheet', 'menu.css', 'media/com_citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = $this->state;
 $items = $this->items;
 ?>
@@ -63,7 +63,7 @@ if (empty($items)) {
                     }
                 ?>
                 </span><br />
-                <span class="productrating"><!-- <img src="media/com_citruscart/images/ratings_star_4_1.gif" alt="" /> --></span><br />
+                <span class="productrating"><!-- <img src="media/citruscart/images/ratings_star_4_1.gif" alt="" /> --></span><br />
                 <span class="productminidesc"><?php $str = wordwrap($item->product_description, 200, '`|+'); echo substr($str, 0, stripos($str, '`|+')).'...'; ?></span>
             </td>
         </tr>

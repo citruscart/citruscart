@@ -19,9 +19,12 @@ class CitruscartViewDashboard extends CitruscartViewBase
 {
 	function dispaly($tpl=null){
 
-		/* $this->addToolBar();
-		$toolbar = new CitruscartToolBar();
-		$toolbar->renderLinkbar(); */
+		//$this->addToolBar();
+
+
+
+
+
 		parent::display($tpl);
 
 
@@ -33,4 +36,6 @@ class CitruscartViewDashboard extends CitruscartViewBase
     function _defaultToolbar()
     {
     }
+
+
 }

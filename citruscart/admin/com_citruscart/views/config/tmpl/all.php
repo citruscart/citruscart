@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -21,13 +21,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
     <?php echo CitruscartGrid::pagetooltip($app->input->getString('view'));
-    
-    //CitruscartGrid::pagetooltip(JRequest::getVar('view')); 
+
+    //CitruscartGrid::pagetooltip(JRequest::getVar('view'));
     ?>
 
     <div id='onBeforeDisplay_wrapper'>
         <?php
-        
+
         $dispatcher -> trigger('onBeforeDisplayConfigForm', array());
         ?>
     </div>
@@ -469,9 +469,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_DISPLAY_Citruscart_BREADCRUMB'); ?>
+                                                <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_DISPLAY_CITRUSCART_BREADCRUMB'); ?>
                                                 </th>
-                                                <td><?php  echo CitruscartSelect::btbooleanlist('display_Citruscart_pathway', 'class="inputbox"', $this -> row -> get('display_Citruscart_pathway', '1')); ?>
+                                                <td><?php  echo CitruscartSelect::btbooleanlist('display_citruscart_pathway', 'class="inputbox"', $this -> row -> get('display_Citruscart_pathway', '1')); ?>
                                                 </td>
                                                 <td></td>
                                             </tr>
@@ -1465,11 +1465,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
                         </div>
 
                     </div>
-                    </div> <?php	
-								
+                    </div> <?php
+
 						// if there are plugins, display them accordingly
-		                if ($this->items_sliders) 
-		                {               	
+		                if ($this->items_sliders)
+		                {
 	                		$tab=1;
 							$pane=2;
 							for ($i=0, $count=count($this->items_sliders); $i < $count; $i++) {
@@ -1489,7 +1489,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 								// load the plugin
 								$import = JPluginHelper::importPlugin(strtolower('Citruscart'), $item -> element);
 								// fire plugin
-								
+
 								$dispatcher -> trigger('onDisplayConfigFormSliders', array($item, $this -> row));
 								?>
 
@@ -1518,7 +1518,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
                     <div id='onDisplayRightColumn_wrapper'>
                         <?php
-							
+
 							$dispatcher -> trigger('onDisplayConfigFormRightColumn', array());
 							?>
                     </div>
@@ -1530,14 +1530,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
     <div id='onAfterDisplay_wrapper'>
         <?php
-			
+
 			$dispatcher -> trigger('onAfterDisplayConfigForm', array());
 			?>
     </div>
 
-    <input type="hidden" name="task" value="" /> 
-    <input type="hidden" name="boxchecked" value="" /> 
-    <input type="hidden" name="filter_order" value="<?php echo $state -> order; ?>" /> 
+    <input type="hidden" name="task" value="" />
+    <input type="hidden" name="boxchecked" value="" />
+    <input type="hidden" name="filter_order" value="<?php echo $state -> order; ?>" />
     <input type="hidden" name="filter_direction" value="<?php echo $state -> direction; ?>" />
 
     <?php echo $this -> form['validate']; ?>

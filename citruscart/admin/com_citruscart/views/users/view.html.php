@@ -14,19 +14,22 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewUsers extends CitruscartViewBase 
+class CitruscartViewUsers extends CitruscartViewBase
 {
 	/**
-     * 
+     *
      * @param $tpl
      * @return unknown_type
      */
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
     	/* Get the application */
         $app = JFactory::getApplication();
     	$layout = $this->getLayout();
-        
+    	$this->renderSubmenu();
+
+    	$this->renderLinkbar();
+
         switch(strtolower($layout))
         {
             case "form":
@@ -43,13 +46,13 @@ class CitruscartViewUsers extends CitruscartViewBase
               break;
         }
     }
-    
+
 	function _default($tpl=null)
 	{
 		Citruscart::load( 'CitruscartUrl', 'library.url' );
 		parent::_default($tpl);
 	}
-	
+
 	function _defaultToolbar()
 	{
 	}

@@ -20,10 +20,10 @@ require_once (JPATH_SITE.'/libraries/dioscouri/dioscouri.php');
 class Citruscart extends DSC
 {
 	protected $_name 			= 'citruscart';
-	protected $_version 		= '0.10.1';
+	protected $_version 		= '1.0';
 	protected $_build          = null;
 	protected $_versiontype    = 'community';
-	protected $_copyrightyear 	= '2012';
+	protected $_copyrightyear 	= '2014 -  2019';
 	protected $_min_php		= '5.3';
 	static $_guestIdStart = -10;
 

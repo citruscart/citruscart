@@ -8,7 +8,7 @@
 	<!-- Joomla 1.6+ only -->
 	<fields name="request">
 		<fieldset name="request" addfieldpath="/administrator/components/com_citruscart/elements">
-			<field name="filter_category" type="Citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_Citruscart_CATEGORY_ID" />
+			<field name="filter_category" type="citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_CITRUSCART_CATEGORY_ID" />
 		</fieldset>
 	</fields>
 	<!-- Joomla 1.5 only -->
@@ -16,7 +16,7 @@
 		<name>COM_CITRUSCART_PRODUCTS_DEFAULT_LAYOUT</name>
 		<description>COM_CITRUSCART_PRODUCTS_DEFAULT_LAYOUT_DESC</description>
 		<url addpath="/administrator/components/com_citruscart/elements">
-			<param name="filter_category" type="Citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_Citruscart_CATEGORY_ID" />
+			<param name="filter_category" type="Citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_CITRUSCART_CATEGORY_ID" />
 		</url>
 	</state>
 </metadata>

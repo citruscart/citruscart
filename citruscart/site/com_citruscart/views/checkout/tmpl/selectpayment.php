@@ -10,8 +10,8 @@
 -------------------------------------------------------------------------*/
 
 	defined('_JEXEC') or die('Restricted access');
-	JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
-	JHTML::_('script', 'Citruscart_checkout.js', 'media/com_citruscart/js/');
+	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+	JHTML::_('script', 'Citruscart_checkout.js', 'media/citruscart/js/');
 	$form = $this->form;
 	$shipping_info = $this->shipping_info;
 	$billing_info = $this->billing_info;

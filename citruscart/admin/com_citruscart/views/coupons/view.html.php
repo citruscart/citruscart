@@ -14,20 +14,21 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewCoupons extends CitruscartViewBase 
+class CitruscartViewCoupons extends CitruscartViewBase
 {
     /**
-     * 
+     *
      * @param $tpl
      * @return unknown_type
      */
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
         $layout = $this->getLayout();
-        
+
         /* Get the application */
         $app = JFactory::getApplication();
-        
+        $this->renderSubmenu();
+
         switch(strtolower($layout))
         {
 	        case "selectproducts":
@@ -46,23 +47,23 @@ class CitruscartViewCoupons extends CitruscartViewBase
                 $this->_default($tpl);
               break;
         }
-    }    
-    
+    }
+
     function _form($tpl=null){
-    	    	        	
+
     	$model = $this->getModel();
     	$item = $model->getItem();
-    	$this->row=$item;    	    	    	
+    	$this->row=$item;
     	if(empty($this->row->coupon_id)){
     		$item = JTable::getInstance('Coupons', 'CitruscartTable');
     		//$state->coupon_params = new DSCParameter($state->coupon_params);
     		//print_r($state->coupon_params);
     		$this->assign('row', $item);
-    		
+
     	}
     	parent::_form($tpl);
     }
-    
+
 	/**
 	 * (non-PHPdoc)
 	 * @see Citruscart/admin/views/CitruscartViewBase#_defaultToolbar()

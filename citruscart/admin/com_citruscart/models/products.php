@@ -17,6 +17,7 @@ if ( !class_exists('Citruscart') )
     JLoader::register( "Citruscart", JPATH_ADMINISTRATOR."/components/com_citruscart/defines.php" );
 
 Citruscart::load( 'CitruscartModelEav', 'models._baseeav' );
+
 require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
 class CitruscartModelProducts extends CitruscartModelEav
 {
