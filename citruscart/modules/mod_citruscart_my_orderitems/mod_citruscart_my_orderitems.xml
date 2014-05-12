@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" position="left" method="upgrade" client="site">
+	<name>Citruscart - My Ordered Items</name>
+	<author>Citruscart Team</author>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<version>1.1.0</version>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_MY_ORDERITEMS_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_my_orderitems">mod_citruscart_my_orderitems.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.mod_citruscart_my_orderitems.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="display_title" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_TITLE" description="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_TITLE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image" type="list" default="0" label="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_IMAGE" description="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_IMAGE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image_width" type="text" default="36" label="MOD_CISTRUSCART_MY_ORDERITEMS_IMAGE_WIDTH" description="MOD_CISTRUSCART_MY_ORDERITEMS_IMAGE_WIDTH_DESC" />
+				<field name="display_image_height" type="text" default="36" label="MOD_CISTRUSCART_MY_ORDERITEMS_IMAGE_HEIGHT" description="MOD_CISTRUSCART_MY_ORDERITEMS_IMAGE_HEIGHT_DESC" />
+				<field name="display_downloads_only" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_PRODUCTS_WITH_DOWNLOADS_ONLY" description="MOD_CISTRUSCART_MY_ORDERITEMS_SHOW_PRODUCTS_WITH_DOWNLOADS_ONLY_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="max_number" type="text" default="5" label="MOD_CISTRUSCART_MY_ORDERITEMS_MAX_NUMBER" description="MOD_CISTRUSCART_MY_ORDERITEMS_MAX_NUMBER_DESC" />
+				<field type="spacer" />
+				<field name="null_text" type="text" size="50" default="No Products Found" label="MOD_CISTRUSCART_MY_ORDERITEMS_NULL_TEXT" description="MOD_CISTRUSCART_MY_ORDERITEMS_NULL_TEXT_DESC"></field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>	
+</extension>

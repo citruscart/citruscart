@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+        <name>COM_CITRUSCART_GENERAL</name>
+        <url>index.php?option=com_citruscart&#38;view=eavattributes</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_PRODUCTS</name>
+        <url>index.php?option=com_citruscart&#38;view=eavattributes&#38;filter_entitytype=products</url>
+   </link>
+</menu>

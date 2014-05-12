@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+    <link>
+        <name>COM_CITRUSCART_COUNTRIES</name>
+        <url>index.php?option=com_citruscart&#38;view=countries</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_ZONES</name>
+        <url>index.php?option=com_citruscart&#38;view=zones</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_GEO_ZONES</name>
+        <url>index.php?option=com_citruscart&#38;view=geozones</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_CURRENCIES</name>
+        <url>index.php?option=com_citruscart&#38;view=currencies</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_EMAILS</name>
+        <url>index.php?option=com_citruscart&#38;view=emails</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_ORDER_STATES</name>
+        <url>index.php?option=com_citruscart&#38;view=orderstates</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_TAX_CLASSES</name>
+        <url>index.php?option=com_citruscart&#38;view=taxclasses</url>
+    </link>
+</menu>

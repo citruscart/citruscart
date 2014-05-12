@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" method="upgrade" position="left" client="site">
+	<name>Citruscart - Breadcrumbs</name>
+	<author>Citruscart Team</author>
+  <creationDate>April 2014</creationDate>
+  <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+  <authorEmail>support@citruscart.com</authorEmail>
+  <authorUrl>http://citruscart.com</authorUrl>
+  <version>1.1.0</version>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_BREADCRUMBS_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_breadcrumbs">mod_citruscart_breadcrumbs.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_breadcrumbs.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field  name="showhome" type="radio" default="1" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWHOME" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWHOMEDESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field  name="hometext" type="text" default="Home" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMHOMETEXT" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMHOMETEXTDESC" />
+				<field  name="showcatroot" type="radio" default="1" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWCATROOT" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWCATROOTDESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field  name="roottext" type="text" default="" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMROOTTEXT" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMROOTTEXTDESC" />
+				<field  name="showLast" type="radio" default="1" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWLAST" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMSHOWLASTDESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field  name="linkself" type="radio" default="1" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMLINKSELF" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMLINKSELFDESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field  name="separator" type="text" default="" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMSEPARATOR" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMSEPARATORDESC" />
+			</fieldset>
+			
+				<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field  name="cache" type="list" default="0" label="MOD_CISTRUSCART_BREADCRUMBS_PARAMCACHE" description="MOD_CISTRUSCART_BREADCRUMBS_PARAMCACHEDESC">
+					<option value="0">Never</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>	
+</extension>

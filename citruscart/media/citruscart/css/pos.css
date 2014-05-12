@@ -1,0 +1,89 @@
+div.pos {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+div.pos h2 {
+	margin-top: 0px;
+}
+
+div.step_title.inactive h2 {
+	margin-bottom: 0px;
+}
+
+div.step_wrapper {
+	width: 100%;
+	border: 2px solid #000000;
+}
+
+div.step_body {
+	width: 80%;
+}
+
+div.step_title {
+	width: 20%;
+	border-left: 2px solid black;
+}
+
+div.step_body.active, div.step_title.active {
+	/* height: 300px; */
+}
+
+div.step_body.inactive {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div.step_body.inactive, div.step_title.inactive {
+    color: #CCCCCC;
+    vertical-align: middle;
+}
+
+
+div.option {
+	clear: both;
+	vertical-align: middle;
+	padding: 5px 0px;
+}
+div.userOption {
+	min-height: 150px;
+	padding:10px;
+}
+div.userOption label.radio {
+	display:none;
+}
+
+div.option_data {
+    margin-left: 20px;
+    clear: both;
+    padding: 5px 0px;
+}
+
+div.continue, div.go_back {
+	float: right;
+}
+
+span.new_product a {
+    float: right;
+    background-image: url("../images/add.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+    padding-left: 20px;
+}
+
+div.product_body {
+    width: 80%;
+}
+
+div.product_title {
+    width: 20%;
+    border-right: 2px solid black;
+}
+
+/* either shipping or billing address table */
+table[data-type] div.dsc-required{
+	display : block;
+	float : right;
+	clear : left;
+	margin-left : 3px;
+}

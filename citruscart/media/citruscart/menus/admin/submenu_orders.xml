@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+	<link>
+        <name>COM_CITRUSCART_ORDERS</name>
+        <url>index.php?option=com_citruscart&#38;view=orders</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_PAYMENTS</name>
+        <url>index.php?option=com_citruscart&#38;view=orderpayments</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_SUBSCRIPTIONS</name>
+        <url>index.php?option=com_citruscart&#38;view=subscriptions</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_ORDERED_ITEMS</name>
+        <url>index.php?option=com_citruscart&#38;view=orderitems</url>
+   </link>
+</menu>

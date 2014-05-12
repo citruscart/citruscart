@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	 <name>Citruscart - Report - List of User's with Abandoned Cart</name>
+	 <author>Citruscart Team</author>
+	 <creationDate>April 2014</creationDate>
+	 <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	 <authorEmail>support@citruscart.com</authorEmail>
+	 <authorUrl>http://citruscart.com</authorUrl>
+	 <version>1.1.0</version>
+	 <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>COM_CITRUSCART_THIS_REPORTS_ON_DISPLAYING_LIST_OF_USERS_WITH_ITEMS_NOT_PURCHASED</description>
+	<files>
+		<filename plugin="report_abandoned_cart">report_abandoned_cart.php</filename>
+		<folder>report_abandoned_cart</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_citruscart_report_abandoned_cart.ini</language>
+	</languages>
+	<params></params>
+	<config></config>
+</extension>

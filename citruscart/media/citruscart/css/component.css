@@ -1,0 +1,12 @@
+.message ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+.message li {
+	margin: 0;
+ 	padding: 10px 0;
+}
+
+dt.message { display: none; }
+dd.message { margin: 0; }

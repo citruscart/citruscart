@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT">
+		<message>
+			<![CDATA[COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT_DESC]]>
+		</message>
+	</layout>
+	<!-- Joomla 1.6+ only -->
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_citruscart/elements">
+			<field name="id" type="Citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
+			<field name="task" type="hidden" section="com_citruscart" default="view" />
+		</fieldset>
+	</fields>
+	<!-- Joomla 1.5 only -->
+	<state>
+		<name>COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT</name>
+		<description>COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT_DESC</description>
+        <url addpath="/administrator/components/com_citruscart/elements">
+            <param name="id" type="Citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
+            <param name="task" type="hidden" section="com_citruscart" default="view" />
+        </url>
+	</state>
+</metadata>

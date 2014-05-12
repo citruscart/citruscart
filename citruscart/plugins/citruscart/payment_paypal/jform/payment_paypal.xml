@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fields name="params">
+			<fieldset name="basic">
+				<field name="merchant_email" type="text" size="50" default="" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_EMAIL" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_EMAIL_DESC"/>
+				<field name="currency" type="text" size="10" default="USD" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CURRENCY" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CURRENCY_DESC"/>
+				<field name="secure_post" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SECURE_POST" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SECURE_POST_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="img_url_std" type="text" size="100" default="https://www.paypal.com/en_US/i/btn/x-click-but20.gif" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CHECKOUT_IMAGE" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CHECKOUT_IMAGE_DESC"/>
+				<field name="img_url_mixed" type="text" size="100" default="https://www.paypal.com/en_US/i/btn/x-click-but02.gif" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CHECKOUT_IMAGE_MIXED" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_CHECKOUT_IMAGE_MIXED_DESC"/>
+				<field type="spacer" />
+				<field name="sandbox" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_USE_SANDBOX" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_USE_SANDBOX_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="sandbox_merchant_email" type="text" size="50" default="" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SANDBOX_MERCHANT_EMAIL" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SANDBOX_MERCHANT_EMAIL_DESC"/>
+				<field name="sandbox_customer_email" type="text" size="50" default="" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SANDBOX_CUSTOMER_EMAIL" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_SANDBOX_CUSTOMER_EMAIL_DESC"/>
+				<field type="spacer" />
+				<field name="articleid" type="text" size="10" default="" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_ARTICLE_NUMBER" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_ARTICLE_NUMBER_DESC"/>
+				<field name="display_article_title" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_DISPLAY_ARTICLE_TITLE" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_DISPLAY_ARTICLE_TITLE_DESC" >
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="ipn_method" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD_DESC">
+					<option value="0">CURL</option>
+					<option value="1">FSOCKOPEN</option>
+				</field>
+				<field name="failed_order_state" type="Citruscartorderstate" scope="com_citruscart" default="10" label="PLG_CITRUSCART_PAYMENT_PAYPAL_FAILED_ORDER_STATE" description="PLG_CITRUSCART_PAYMENT_PAYPAL_FAILED_ORDER_STATE_DESC" addfieldpath="/administrator/components/com_citruscart/elements" />
+				<field name="payment_received_order_state" type="Citruscartorderstate" scope="com_citruscart" default="17" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYMENT_RECEIVED_ORDER_STATE" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYMENT_RECEIVED_ORDER_STATE_DESC" addfieldpath="/administrator/components/com_citruscart/elements" />
+                <field name="label" type="textarea" cols="50" rows="10" default="" label="PLG_CITRUSCART_PAYMENT_PAYPAL_LABEL" description="PLG_CITRUSCART_PAYMENT_PAYPAL_LABEL_DESC" filter="raw" />
+			</fieldset>
+		</fields>
+</form>

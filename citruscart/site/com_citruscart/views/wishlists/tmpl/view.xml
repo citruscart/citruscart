@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_CITRUSCART_WISHLISTS_VIEW_LAYOUT">
+		<message>
+			<![CDATA[COM_CITRUSCART_WISHLISTS_VIEW_LAYOUT_DESC]]>
+		</message>
+	</layout>
+
+    <fields name="request">
+        <fieldset name="request" addfieldpath="/administrator/components/com_citruscart/elements">
+            <field name="task" type="hidden" default="view" />
+        </fieldset>
+    </fields>
+</metadata>

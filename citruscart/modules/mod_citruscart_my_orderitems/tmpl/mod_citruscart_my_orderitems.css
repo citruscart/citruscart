@@ -1,0 +1,25 @@
+div.mod_citruscart_my_orderitems_item {
+    margin-bottom: 5px;
+    border-bottom: thin solid gray;
+    padding: 5px;
+    float: left;
+    width: 100%;
+}
+
+div.mod_citruscart_my_orderitems_item_image {
+	float: left;
+	width: 50px;
+	text-align: center !important;	 
+}
+
+div.mod_citruscart_my_orderitems_item_image img {
+	border: thin solid gray;
+	padding: 3px;
+	margin: 3px;
+}
+
+.mod_citruscart_my_orderitems_item_name {
+	float: left;
+	margin-top: 5px;
+	padding-left: 10px;
+}

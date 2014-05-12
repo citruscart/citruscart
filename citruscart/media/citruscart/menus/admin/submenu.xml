@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+       <name>COM_CITRUSCART_DASHBOARD</name>
+       <url>index.php?option=com_citruscart&#38;view=dashboard</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_ORDERS</name>
+       <url>index.php?option=com_citruscart&#38;view=orders</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_CATALOG</name>
+       <url>index.php?option=com_citruscart&#38;view=catalog</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_USERS</name>
+       <url>index.php?option=com_citruscart&#38;view=users</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_COUPONS</name>
+       <url>index.php?option=com_citruscart&#38;view=coupons</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_CUSTOM_FIELDS</name>
+       <url>index.php?option=com_citruscart&#38;view=eavattributes</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_LOCALIZATION</name>
+       <url>index.php?option=com_citruscart&#38;view=localization</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_TOOLS_AND_REPORTS</name>
+       <url>index.php?option=com_citruscart&#38;view=reports</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_CONFIGURATION</name>
+       <url>index.php?option=com_citruscart&#38;view=config</url>
+   </link>
+</menu>

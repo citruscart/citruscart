@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content" method="upgrade">
+	<name>Citruscart - Product Content Plugin</name>
+	<author>Citruscart Team</author>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<authorEmail>support@citruscart.com</authorEmail>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<version>1.1.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>PLG_CITRUSCART_CONTENT_PRODUCT_CONTENT_PRODUCT_PLUGINDESC</description>
+	<files>
+		<filename plugin="citruscart_content_product">citruscart_content_product.php</filename>
+		<folder>citruscart_content_product</folder>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_content_citruscart_content_product.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="basic">
+				<field name="quantity_restriction" type="radio" default="0" label="PLG_CITRUSCART_CONTENT_PRODUCT_QUANTITY_RESTRICTION" description="PLG_CITRUSCART_CONTENT_PRODUCT_QUANTITY_RESTRICTION_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_description" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_DESCRIPTION" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_DESCRIPTION_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_name" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_NAME" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_NAME_DESCR">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_model" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_MODEL" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_MODEL_DESCR">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_sku" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_SKU" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_SKU_DESCR">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_image" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_IMAGE" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_IMAGE_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_price" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_PRICE" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_PRICE_DESCR">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_buy" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_BUY_FORM" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_BUY_FORM_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_children" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_CHILDREN" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_CHILDREN_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_files" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_FILES" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_FILES_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_relations" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_RELATIONS" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_RELATIONS_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="show_requirements" type="radio" default="1" label="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_REQUIREMENT" description="PLG_CITRUSCART_CONTENT_PRODUCT_SHOW_PRODUCT_REQUIREMENT_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="layout" type="list" default="view" label="PLG_CITRUSCART_CONTENT_PRODUCT_LAYOUT" description="PLG_CITRUSCART_CONTENT_PRODUCT_LAYOUT_DESC">
+					<option value="view">PLG_CITRUSCART_CONTENT_PRODUCT_COMPLETE_VIEW</option>
+					<option value="product_children">PLG_CITRUSCART_CONTENT_PRODUCT_CHILDREN_PRODUCTS</option>
+					<option value="product_files">PLG_CITRUSCART_CONTENT_PRODUCT_PRODUCT_FILES</option>
+					<option value="product_relations">PLG_CITRUSCART_CONTENT_PRODUCT_PRODUCT_RELATIONS</option>
+					<option value="product_requirements">PLG_CITRUSCART_CONTENT_PRODUCT_PRODUCT_REQUIREMENTS</option>
+					<option value="product_buy">PLG_CITRUSCART_CONTENT_PRODUCT_PRODUCT_BUY</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

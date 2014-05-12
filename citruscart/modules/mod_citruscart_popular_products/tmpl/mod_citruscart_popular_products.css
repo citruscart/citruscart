@@ -1,0 +1,23 @@
+div.Citruscart_products_grid div.Citruscart_product_item {
+	float: left;
+}
+div.Citruscart_products_grid div.Citruscart_product_item.grid2 {
+	width: 47%;
+	margin-right: 5%;
+}
+div.Citruscart_products_grid div.Citruscart_product_item.grid3 {
+	width: 30%;
+	margin-right: 5%;
+}
+div.Citruscart_products_grid div.Citruscart_product_item.grid4 {
+	width: 22%;
+	margin-right: 3%;
+}
+div.Citruscart_products_grid div.Citruscart_product_item.grid5 {
+	width: 17%;
+	margin-right: 3%;
+}
+div.Citruscart_products_grid div.Citruscart_product_item.grid6 {
+	width: 13%;
+	margin-right: 4%;
+}

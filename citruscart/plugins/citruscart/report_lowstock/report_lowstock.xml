@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	<name>Citruscart - Report - Low Stock Products</name>
+	<version>0.10.1</version>
+	<creationDate>October 2011</creationDate>
+	<author>Citruscart</author>
+	<authorEmail>info@Citruscart.com</authorEmail>
+	<authorUrl>http://www.Citruscart.com</authorUrl>
+	<copyright>2012 Citruscart.com</copyright>
+	<license>GNU General Public License v2</license>
+	<description>COM_CITRUSCART_THIS_REPORTS_ON_LOW_STOCK_PRODUCTS</description>
+	<files>
+		<filename plugin="report_lowstock">report_lowstock.php</filename>
+		<folder>report_lowstock</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_citruscart_report_lowstock.ini</language>
+	</languages>	
+	<config></config>
+</extension>

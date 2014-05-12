@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+        <name>COM_CITRUSCART_PRODUCTS</name>
+        <url>index.php?option=com_citruscart&#38;view=products</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_CATEGORIES</name>
+        <url>index.php?option=com_citruscart&#38;view=categories</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_MANUFACTURERS</name>
+        <url>index.php?option=com_citruscart&#38;view=manufacturers</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_REVIEWS_AND_RATINGS</name>
+        <url>index.php?option=com_citruscart&#38;view=productcomments</url>
+   </link>
+</menu>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+	<name>Citruscart - System Plugin for Checking Subscriptions</name>
+	<version>0.10.1</version>
+	<creationDate>October 2011</creationDate>
+	<author>Citruscart</author>
+	<authorEmail>info@Citruscart.com</authorEmail>
+	<authorUrl>http://www.Citruscart.com</authorUrl>
+	<copyright>2012 Citruscart.com</copyright>
+	<license>GNU General Public License v2</license>
+	<description>PLG_CITRUSCART_SYSTEM_CITRUSCART_SUBSCRIPTIONS_DESC</description>
+	<files>
+		<filename plugin="citruscart_subscriptions">citruscart_subscriptions.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_system_citruscart_subscriptions.ini</language>
+	</languages>
+	<params></params>
+	<config></config>
+</extension>

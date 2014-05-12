@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* submenu styling */
+div.submenu {
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+}
+
+div.submenu li {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+div.submenu a,
+div.submenu li a,
+div.submenu span.nolink {
+	cursor: pointer;
+	padding: 0px 15px;
+	border-right: 1px solid #ccc;
+	font-weight: bold;
+	/* color: #0B55C4; */
+	line-height: 12px;
+	height: 12px;
+}
+
+div.submenu span.nolink {
+	color: #999;
+}
+
+div.submenu a.active
+{
+	text-decoration: none;
+}
+
+div.submenu span.nolink.active {
+	color: #000;
+	/* text-decoration: underline; */
+}

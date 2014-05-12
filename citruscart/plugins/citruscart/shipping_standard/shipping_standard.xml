@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	<name>Citruscart - Shipping - Standard Shipping Methods</name>
+	<version>0.10.1</version>
+	<creationDate>October 2011</creationDate>
+	<author>Citruscart Team</author>
+	<authorEmail>info@Citruscart.com</authorEmail>
+	<authorUrl>http://www.Citruscart.com</authorUrl>
+	<copyright>2012 Citruscart.com</copyright>
+	<license>GNU General Public License v2</license>
+	<description>COM_CITRUSCART_PLUGIN_SHIPPING_STANDARD_DESC</description>
+	<files>
+		<filename plugin="shipping_standard">shipping_standard.php</filename>
+		<folder>shipping_standard</folder>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_citruscart_shipping_standard.ini</language>
+	</languages>
+	<config></config>
+</extension>

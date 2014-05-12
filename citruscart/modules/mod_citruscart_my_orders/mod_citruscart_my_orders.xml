@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" position="left" method="upgrade" client="site">
+	<name>Citruscart - My Orders</name>
+	<author>Citruscart Team</author>
+	<authorEmail>support@citruscart.com</authorEmail>
+  <authorUrl>http://citruscart.com</authorUrl>	<version>1.1.0</version>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_MY_ORDERITEMS_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_my_orders">mod_citruscart_my_orders.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_my_orders.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="spacer" />
+				<field name="display_id" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERS_SHOW_ID" description="MOD_CISTRUSCART_MY_ORDERS_SHOW_ID_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_date" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERS_SHOW_DATE" description="MOD_CISTRUSCART_MY_ORDERS_SHOW_DATE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image_link" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERS_LINK_IMAGE" description="MOD_CISTRUSCART_MY_ORDERS_LINK_IMAGE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_amount" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERS_SHOW_AMOUNT" description="MOD_CISTRUSCART_MY_ORDERS_SHOW_AMOUNT_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_state" type="list" default="1" label="MOD_CISTRUSCART_MY_ORDERS_SHOW_STATE" description="MOD_CISTRUSCART_MY_ORDERS_SHOW_STATE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="max_number" type="text" default="5" label="MOD_CISTRUSCART_MY_ORDERS_MAX_NUMBER" description="MOD_CISTRUSCART_MY_ORDERS_MAX_NUMBER_DESC" />
+				<field type="spacer" />
+				<field name="null_text" type="text" size="50" default="No Orders Found" label="MOD_CISTRUSCART_MY_ORDERS_NO_ITEMS_TEXT" description="MOD_CISTRUSCART_MY_ORDERS_NO_ITEMS_TEXT_DESC"></field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

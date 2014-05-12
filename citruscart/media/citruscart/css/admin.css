@@ -1,0 +1,324 @@
+/** To be moved to joomla.bootstrapped.css in library **/
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	display: inline-block;
+	height: 30px;
+	padding: 4px;
+	margin-bottom: 0px;
+	font-size: 13px;
+	line-height: 20px;
+	color: #555555;
+}
+select {
+	height: 28px;
+}
+
+
+/** toolbar icons **/
+.icon-48-citruscart {
+	background-image: url(../../../media/citruscart/images/Citruscart.png);
+	padding-left: 125px !important;
+}
+.icon-32-savenew {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-savenew.png);
+}
+.icon-32-saveprev {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-saveprev.png);
+}
+.icon-32-savenext {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-savenext.png);
+}
+.icon-32-prev {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-prev.png);
+}
+.icon-32-next {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-next.png);
+}
+.icon-32-revert {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-revert.png);
+}
+.icon-32-refresh {
+	background-image: url(../../../media/citruscart/images/toolbar/icon-32-refresh.png);
+}
+.icon-32-cancel {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-cancel.png");
+}
+.icon-32-save {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-save.png");
+}
+.icon-32-new {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-new.png");
+}
+.icon-32-new {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-new.png");
+}
+.icon-32-delete {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-delete.png");
+}
+.icon-32-edit {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-edit.png");
+}
+.icon-32-default {
+	background-image: url("../../../media/citruscart/images/toolbar/icon-32-default.png");
+}
+/** filter lines **/
+tr.filterline div.range {
+	width: 100%;
+	text-align: left;
+}
+tr.filterline div.range div.rangeline {
+	width: 100%;
+	white-space: nowrap;
+	padding-bottom: 2px;
+	text-align: right;
+}
+tr.filterline div.range div.rangeline span.label {
+	text-align: left;
+}
+tr.filterline div.range div.rangeline .input {
+	text-align: left;
+}
+/** common **/
+span.href {
+	cursor: pointer;
+	color: #0000FF;
+	text-decoration: none;
+	/* font-weight: bold; */
+}
+span.href:hover {
+	cursor: pointer;
+	color: #0000FF;
+	/* font-weight: bold; */
+	text-decoration: underline;
+}
+td img {
+	vertical-align: middle;
+}
+/** notes **/
+.note, .note_pink, .note_green {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: justify;
+	border: 1px solid #DDDDBB;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+.note {
+	/*background-color: #FFFFDD;*/
+}
+.note_pink {
+	background-color: #FDE8FD;
+}
+.note_green {
+	/*background-color: #EBF6DF;*/
+	border:#ffffff;
+}
+.alert {
+	font-weight: bold;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 10px;
+}
+/** custom **/
+.label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	font-weight: bold;
+}
+.addresslist {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+div.tcpanel div.icon {
+	text-align: center;
+	margin-right: 5px;
+	float: left;
+	margin-bottom: 5px;
+}
+div.tcpanel div.icon a {
+	display: block;
+	float: left;
+	border: 1px solid #f0f0f0;
+	height: 97px;
+	width: 108px;
+	color: #666;
+	vertical-align: middle;
+	text-decoration: none;
+}
+div.tcpanel div.icon a:hover {
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f9f9f9;
+	color: #0B55C4;
+}
+div.tcpanel img {
+	padding: 10px 0;
+	margin: 0 auto;
+	height:48px;
+}
+div.tcpanel span {
+	display: block;
+	text-align: center;
+}
+/* Muti Image styling*/
+
+div.multiupload {
+	border:1px outset gray;
+	float:left;
+	padding:3px;
+	background:#eee;
+}
+div.multiupload div.list {
+	border:1px inset gray;
+	background: #fff;
+}
+div.multiupload div.list div.item {
+	margin:1px;
+	background: #eee;
+	clear: both;
+}
+div.multiupload div.list div.item:hover {
+	background: #ccc;
+}
+div.multiupload div.list img {
+	float:left;
+	margin: 3px;
+	cursor:pointer;
+}
+/** related products **/
+
+span.relationship_requires {
+	color: #FF0000;
+}
+span.relationship_relates {
+	color: #008000;
+}
+span.relationship_required_by {
+	color: #FF8C00;
+}
+span.relationship_requires_past {
+	color: #FF0000;
+}
+span.relationship_requires_current {
+	color: #FF0000;
+}
+span.relationship_requires_past_by {
+	color: #FF8C00;
+}
+span.relationship_requires_current_by {
+	color: #FF8C00;
+}
+div.product_rating, div.product_rating img {
+	vertical-align: middle;
+}
+ul.submenu {
+	position: relative;
+}
+ul#submenu li a {
+	padding-bottom: 5px;
+}
+ul.submenu_dropdown {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+ul#submenu ul.submenu_dropdown {
+	display: none;
+}
+ul#submenu li:hover ul.submenu_dropdown, ul#submenu a:hover ul {
+	display: block;
+}
+ul#submenu ul.submenu_dropdown {
+	position: absolute;
+	top: 17px;
+	left: auto;
+	margin-bottom: 10px;
+	background: #F6F6F6;
+	border: 1px solid #CCCCCC;
+}
+ul#submenu ul.submenu_dropdown li {
+	clear: both;
+	width: 200px;
+	border-bottom: thin solid #CCCCCC;
+}
+ul#submenu ul.submenu_dropdown a {
+	padding: 5px 15px;
+	display: block;
+}
+ul#submenu ul.submenu_dropdown li span {
+	display: block;
+}
+/* === SYSTEM MESSAGE CSS === */
+#system-message {
+	margin-bottom: 10px;
+	padding: 0;
+}
+#system-message dt.message, #system-message dt.notice, #system-message dt.error {
+	display: none;
+}
+#system-message dt {
+	font-weight: bold;
+}
+#system-message dd {
+	font-weight: bold;
+	margin: 0;
+	text-indent: 30px;
+}
+#system-message dd.message {
+}
+#system-message dd ul {
+	border-bottom: 3px solid #84A7DB;
+	border-top: 3px solid #84A7DB;
+	color: #0055BB;
+	list-style: none outside none;
+	margin-bottom: 10px;
+	margin-left : 0px;
+	padding: 10px;
+}
+
+/* *********** CUSTOM FIELDS *************** */
+div.citruscart_custom_fields{
+	width : 100%;
+	float : left;
+	clear : none;
+}
+
+div.citruscart_custom_fields div.citruscart_custom_fields_line{
+	width : 100%;
+	float : left;
+	clear : right;
+	padding : 5px 0px;
+}
+
+
+div.citruscart_custom_fields div.citruscart_custom_fields_line div.citruscart_custom_fields_key{
+	float : left;
+	clear : right;
+	width : 150px;
+	text-align : right;
+	background : silver;
+	border-right : 1px solid black;
+	padding : 5px;
+}
+
+div.citruscart_custom_fields div.citruscart_custom_fields_line div.citruscart_custom_fields_key span{
+	font-weight : bold;
+}
+
+div.citruscart_custom_fields div.citruscart_custom_fields_line div.citruscart_custom_fields_value{
+	float : left;
+	clear : right;
+	width : auto;
+	padding : 5px 10px;
+}
+
+.lightbox-select {
+    width: 95%; 
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto;
+}

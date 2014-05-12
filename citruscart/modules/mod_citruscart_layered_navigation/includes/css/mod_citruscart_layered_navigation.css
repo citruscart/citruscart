@@ -1,0 +1,68 @@
+span.Citruscart_layered_nav_single, span.Citruscart_layered_nav_multi
+{
+	border: 1px solid #CCC;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;	
+	width: 185px;
+}
+
+span.Citruscart_layered_nav_single h3, span.Citruscart_layered_nav_multi h3
+{
+	background-color: #ccc;	
+	font-size: 120%;	
+    color: #000000;  
+    font-weight: bold;
+    line-height: 1.25em;
+    margin: 0 0 3px 0;   
+    padding: 3px 6px;    
+    width: 94%;
+}
+
+span.Citruscart_layered_nav_single h4, span.Citruscart_layered_nav_multi h4
+{
+	padding: 4px 6px 0 6px;
+	color: #E47911;  
+    font-size: 105%;
+    font-weight: bold; 
+    width: 94%;
+}
+
+span.Citruscart_layered_nav_single ul, span.Citruscart_layered_nav_multi ul
+{	
+	padding: 0 0 10px 10px;
+	margin: -3px 0 3px 0;
+    border-bottom: 1px dotted #CCC;
+}
+
+span.Citruscart_layered_nav_single ul li, span.Citruscart_layered_nav_multi ul li
+{
+	line-height: 1.2em;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;    
+}
+
+ul.Citruscart_browse_currently li
+{
+	padding: 3px 0;
+}
+
+ul.Citruscart_browse_currently .btn-remove
+{	
+	margin-right: 3px;
+	float: right;
+	font-size: 0px;
+	display: block;   
+    height: 12px;    
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-indent: -999em;
+    width: 12px;
+    background-image: url("../images/close.png");
+}
+
+.Citruscart_browse_currently .value img, #Citruscart_browse_rating .refinementLink img 
+{
+	height: 14px;
+	margin-bottom: 7px;
+}

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/* leftmenu styling */
+div.leftmenu {
+	margin-bottom: 5px;
+	border: 1px solid #E7E7E7;
+}
+div.leftmenu div.menuitems {
+}
+	
+div.leftmenu li {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+div.leftmenu a,
+div.leftmenu li a,
+div.leftmenu span.nolink {
+	cursor: pointer;
+	padding: 10px 15px 10px 10px;
+	border-top: 1px dotted #CCCCCC;
+	font-weight: bold;
+	line-height: 12px;
+	height: 12px;
+	display: block;
+}
+
+div.leftmenu span.nolink {
+	color: #999;
+}
+
+div.leftmenu a.active
+{
+	color: #000000;
+	background: none repeat scroll 0 0 #FFFFCC;
+}
+
+div.leftmenu span.nolink.active {
+	color: #000;
+}
+
+div.leftmenu div.title {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px;
+	background: none repeat scroll 0 0 #F0F0F0;
+}

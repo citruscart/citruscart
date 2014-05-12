@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	<name>Citruscart - Bug Report</name>
+	<author>Citruscart Team</author>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<authorEmail>support@citruscart.com</authorEmail>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<version>1.1.0</version>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	
+	<description>COM_CITRUSCART_BUG_REPORT_PLUGINDESC</description>
+	<files>
+		<filename plugin="bug_report">bug_report.php</filename>
+		<folder>bug_report</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_citruscart_bug_report.ini</language>
+	</languages>
+	<config></config>
+	<fields name="params"></fields>
+</extension>

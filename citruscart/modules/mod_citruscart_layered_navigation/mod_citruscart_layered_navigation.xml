@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" position="left" method="upgrade" client="site">
+	<name>Citruscart - Layered Navigation</name>
+	<author>Citruscart Team</author>
+  <creationDate>April 2014</creationDate>
+  <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+  <authorEmail>support@citruscart.com</authorEmail>
+  <authorUrl>http://citruscart.com</authorUrl>
+  <version>1.1.0</version>
+	<license>GNU General Public License</license>
+	<description>Layered navigation that allow users to filter products by any parameter they want</description>
+	<files>
+		<filename module="mod_citruscart_layered_navigation">mod_citruscart_layered_navigation.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>includes</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_layered_navigation.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="multi_mode" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_MULTI_MODE" description="MOD_CISTRUSCART_LAYERED_NAV_MULTI_MODE_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="filter_category" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="roottext" size="35" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY" description="MOD_CISTRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY_DESC" />
+				<field name="filter_manufacturer" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="filter_rating" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_RATING" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_RATING_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="filter_attributes" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="excluded_attributes" size="35" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES" description="MOD_CISTRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES_DESC" />
+				<field name="filter_price" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_PRICE" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_PRICE_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="attributes_case_insensitive" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE" description="MOD_CISTRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="auto_price_range" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE" description="MOD_CISTRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE_DESC">
+					<option value="1">COM_CITRUSCART_YES</option>
+					<option value="0">COM_CITRUSCART_NO</option>
+				</field>
+				<field name="price_range_set" size="50" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS" description="MOD_CISTRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS_DESC" />
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>	
+</extension>

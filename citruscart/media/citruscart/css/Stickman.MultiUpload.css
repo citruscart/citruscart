@@ -1,0 +1,25 @@
+div.multiupload {
+    float: left;
+}
+
+div.multiupload div.list div.item {
+    clear: both;
+    line-height: 22px;
+    margin: 1px;
+    min-height: 25px;
+    padding: 0 10px 0 0;
+}
+
+div.multiupload div.list div.item:hover {
+    background: #cccccc;
+}
+
+div.multiupload div.list img {
+    float: left;
+    margin: 3px;
+    cursor: pointer;
+}
+
+div.multiupload input[type=file] {
+    margin: 10px;
+}

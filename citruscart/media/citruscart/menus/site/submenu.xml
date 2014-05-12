@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+       <name>COM_CITRUSCART_DASHBOARD</name>
+       <url>index.php?option=com_citruscart&#38;view=dashboard</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_PROFILE</name>
+       <url>index.php?option=com_citruscart&#38;view=accounts</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_ORDER_HISTORY</name>
+       <url>index.php?option=com_citruscart&#38;view=orders</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_SUBSCRIPTIONS</name>
+       <url>index.php?option=com_citruscart&#38;view=subscriptions</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_MY_DOWNLOADS</name>
+       <url>index.php?option=com_citruscart&#38;view=productdownloads</url>
+   </link>
+   <link>
+       <name>COM_CITRUSCART_SHOPPING_CART</name>
+       <url>index.php?option=com_citruscart&#38;view=carts</url>
+   </link>
+</menu>

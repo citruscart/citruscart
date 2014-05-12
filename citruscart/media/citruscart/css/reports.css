@@ -1,0 +1,9 @@
+ul.navbar-form li input , .container-fluid input {
+	height: 20px;
+}
+ul.navbar-form li span.label {
+	margin-top: 10px;
+}
+ul.navbar-form li select {
+	height: 30px;
+}

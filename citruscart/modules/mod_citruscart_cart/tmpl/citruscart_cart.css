@@ -1,0 +1,84 @@
+/**
+ * @version    1.5
+ * @package    Citruscart
+ * @author     Skullbock
+ * @author     Robert G. Mears
+ * @link     http://www.dioscouri.com
+ * @copyright Copyright (C) 2009 Dioscouri Design. All rights reserved.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
+*/
+
+/* BOTH VARIANTS */
+
+span.qty, span.CartTotal span {
+    font-weight: bold;
+}
+
+/* BLOCK CART */
+
+div#CitruscartUserShoppingCart {
+    
+}
+
+span.CartItems, span.CartTotal {
+    display: block;
+}
+span.CartItems {
+	
+}
+span.CartTotal {
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+} 
+
+span.CartView {
+	display: block;
+    float: left;
+    width: 65%;
+    text-align: left;
+}
+
+span.CartCheckout {
+    display: block;
+    float: right;
+    width: 35%;
+    text-align: right;
+}
+
+div.reset {
+    clear: both;
+}
+
+/* INLINE CART */ 
+
+/* 
+div#CitruscartUserShoppingCart {
+    float: left;
+    width: 74%; 
+    margin-top: 0;
+    text-align: center !important;
+}
+
+span.CartItems {
+    margin: 0;
+    padding: .6em 1em;
+    border-right: 1px solid #cccccc;
+}
+span.CartTotal {
+    margin: 0;
+    padding: .6em 1em;
+    border-right: 1px solid #cccccc;
+}
+span.CartView {
+    margin: 0;
+    padding: .6em 1em;
+    border-right: 1px solid #cccccc;
+}
+span.CartCheckout {
+    margin: 0;
+    padding: .6em 1em;
+}
+div.reset {
+    clear: none;
+}
+*/

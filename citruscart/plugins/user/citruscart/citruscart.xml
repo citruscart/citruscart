@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="user" method="upgrade">
+     <name>User - Citruscart</name>
+     <author>Citruscart Team</author>
+	 <creationDate>April 2014</creationDate>
+	 <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	 <authorEmail>support@citruscart.com</authorEmail>
+	 <authorUrl>http://citruscart.com</authorUrl>
+	 <version>1.1.0</version>
+	 <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+     <description>COM_CITRUSCART_HANDLES_USER_EVENTS_FOR_Citruscart</description>
+    
+    <files>
+        <filename plugin="citruscart">citruscart.php</filename>
+    </files>
+
+    <languages>
+        <language tag="en-GB">languages/en-GB.plg_user_citruscart.ini</language>
+    </languages>
+           
+</extension>

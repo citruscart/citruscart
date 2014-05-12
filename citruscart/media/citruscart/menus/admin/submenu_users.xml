@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+       <name>COM_CITRUSCART_USERS</name>
+       <url>index.php?option=com_citruscart&#38;view=users</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_GROUPS</name>
+        <url>index.php?option=com_citruscart&#38;view=groups</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_CREDITS</name>
+        <url>index.php?option=com_citruscart&#38;view=credits</url>
+   </link>
+</menu>

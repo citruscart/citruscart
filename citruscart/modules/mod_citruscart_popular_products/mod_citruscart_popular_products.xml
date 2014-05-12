@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" position="left" method="upgrade" client="site">
+	<name>Citruscart - Popular Products</name>
+	<author>Citruscart Team</author>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<version>1.1.0</version>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_POPULAR_PRODUCTS_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_popular_products">mod_citruscart_popular_products.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_popular_products.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!--<field name="category" type="Citruscartcategory" default="" label="Category" description="Category Desc" />-->
+				<!--<field name="manufacturer" type="Citruscartmanufacturer" default="" label="Manufacturer" description="Manufacturer Desc" />-->
+				<!--<field name="id_set" type="text" default="" label="ID Set" description="ID Set Desc" />-->
+				<!--<field name="attribute" type="text" default="" label="Attribute" description="Attribute Description" />-->
+				<!--<field name="price_from" type="text" default="" label="Price From" description="PRICE_FROM" />-->
+				<!--<field name="price_to" type="text" default="" label="Price To" description="PRICE_TO" />-->
+
+				<field type="spacer" />
+				<field name="display_title" type="list" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_TITLE" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_TITLE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image" type="list" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_IMAGE" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_IMAGE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image_link" type="list" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_LINK_IMAGE" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_LINK_IMAGE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_image_width" type="text" default="" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_IMAGE_WIDTH" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_IMAGE_WIDTH_DESC" />
+				<field name="display_image_height" type="text" default="" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_IMAGE_HEIGHT" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_IMAGE_HEIGHT_DESC" />
+				<field name="display_description" type="list" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_SHORT" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_SHORT_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="display_price" type="list" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_PRICE" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_SHOW_PRICE_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="max_number" type="text" default="" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_MAX_NUMBER" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_MAX_NUMBER_DESC" />
+				<field type="spacer" />
+				<field name="display_style" type="list" default="flat" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_DISPLAY_STYLE" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_DISPLAY_STYLE_DESC">
+					<option value="flat">Column</option>
+					<option value="grid">Grid</option>
+				</field>
+				<field name="display_grid_items" type="list" default="3" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_GRID_ITEMS" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_GRID_ITEMS_DESC">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</field>
+				<field name="display_null" type="radio" default="1" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_DISPLAY_NO_PRODUCTS" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_DISPLAY_NO_PRODUCTS_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="null_text" type="text" size="50" default="No Products Set" label="MOD_CISTRUSCART_POPULAR_PRODUCTS_NO_PRODUCTS_SET" description="MOD_CISTRUSCART_POPULAR_PRODUCTS_NO_PRODUCTS_SET_DESC"></field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>	
+</extension>

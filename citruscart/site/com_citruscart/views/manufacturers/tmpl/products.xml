@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_CITRUSCART_MANUFACTURER_DEFAULT_LAYOUT">
+		<message>
+			<![CDATA[COM_CITRUSCART_MANUFACTURER_DEFAULT_LAYOUT_DESC]]>
+		</message>
+	</layout>
+	
+	
+	<state>
+		<name>COM_CITRUSCART_MANUFACTURER_DEFAULT_LAYOUT</name>
+		<description>COM_CITRUSCART_MANUFACTURER_DEFAULT_LAYOUT_DESC</description>
+		<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_schools/elements">
+			<field name="filter_manufacturer" type="Citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID"  />
+			<field name="task" type="hidden" default="products" />
+		</fieldset>
+		
+	</fields>
+        <url addpath="/administrator/components/com_citruscart/elements">
+            <param name="filter_manufacturer" type="Citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID" />
+            <param name="task" type="hidden" default="products" />
+        </url>
+	</state>
+</metadata>

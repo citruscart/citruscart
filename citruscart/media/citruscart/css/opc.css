@@ -1,0 +1,25 @@
+.opc-hidden {
+    display: none;
+}
+
+.opc-change {
+    float: right;
+    font-size: .8em;
+    display: none;
+}
+
+.allow.active .opc-summary,
+.allow.active .opc-change {
+    display: none;
+}
+
+.past .opc-summary,
+.allow .opc-summary,
+.allow .opc-change {
+    display: block;
+}
+
+.opc-section-title h3 {
+    float: left;
+    width: 100%;
+}

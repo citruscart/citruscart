@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	 <name>Citruscart - Report - Pre-Payment Orders</name>
+	 <author>Citruscart Team</author>
+	 <creationDate>April 2014</creationDate>
+	 <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	 <authorEmail>support@citruscart.com</authorEmail>
+	 <authorUrl>http://citruscart.com</authorUrl>
+	 <version>1.1.0</version>
+	 <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>COM_CITRUSCART_THIS_REPORTS_ON_PRE-PAYMENT_ORDERS</description>
+	<files>
+		<filename plugin="report_prepayments">report_prepayments.php</filename>
+		<folder>report_prepayments</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.plg_citruscart_report_prepayments.ini</language>
+	</languages>
+	<params></params>
+	<config></config>
+</extension>

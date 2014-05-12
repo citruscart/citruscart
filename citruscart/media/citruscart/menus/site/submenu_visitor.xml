@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+       <name>COM_CITRUSCART_SHOPPING_CART</name>
+       <url>index.php?option=com_citruscart&#38;view=carts</url>
+   </link>
+</menu>

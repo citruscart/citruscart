@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+   <link>
+        <name>COM_CITRUSCART_REPORTS</name>
+        <url>index.php?option=com_citruscart&#38;view=reports</url>
+   </link>
+   <link>
+        <name>COM_CITRUSCART_TOOLS</name>
+        <url>index.php?option=com_citruscart&#38;view=tools</url>
+   </link>
+</menu>

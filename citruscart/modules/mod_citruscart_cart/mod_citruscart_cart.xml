@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" method="upgrade" position="left" client="site">
+	<name>Citruscart - Shopping Cart</name>
+	<author>Citruscart Team</author>
+	<authorEmail>support@citruscart.com</authorEmail>
+ 	 <authorUrl>http://citruscart.com</authorUrl>	<version>1.1.0</version>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_CART_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_cart">mod_citruscart_cart.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_cart.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="display_null" type="radio" default="1" label="MOD_CISTRUSCART_CART_DISPLAY_NO_ITEMS" description="MOD_CISTRUSCART_CART_DISPLAY_NO_ITEMS_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="display_lightbox" type="radio" default="0" label="MOD_CISTRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX" description="MOD_CISTRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX_DESC">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="null_text" type="text" size="50" default="No items in your cart" label="MOD_CISTRUSCART_CART_NO_ITEMS_TEXT" description="MOD_CISTRUSCART_CART_NO_ITEMS_TEXT_DESC"></field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.5.0" method="upgrade" position="left" client="site">
+	<name>Citruscart - Product Search</name>
+	<author>Citruscart Team</author>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<authorUrl>http://citruscart.com</authorUrl>
+	<version>1.1.0</version>
+	<creationDate>April 2014</creationDate>
+	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<description>MOD_CISTRUSCART_SEARCH_MODULEDESC</description>
+	<files>
+		<filename module="mod_citruscart_search">mod_citruscart_search.php</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>tmpl/index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_citruscart_search.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="filter_text" type="text" default="" label="MOD_CISTRUSCART_SEARCH_FILTER_TEXT" description="MOD_CISTRUSCART_SEARCH_FILTER_TEXT_DESC" />
+				<field name="category_filter" type="list" default="1" label="MOD_CISTRUSCART_SEARCH_DISPLAY_CATEGORY_FILTER" description="MOD_CISTRUSCART_SEARCH_DISPLAY_CATEGORY_FILTER_DESC">
+					<option value="1">ENABLED</option>
+					<option value="0">DISABLED</option>
+				</field>
+				<field name="filter_fields" type="list" default="0" label="MOD_CISTRUSCART_SEARCH_FILTER_FIELDS" description="MOD_CISTRUSCART_SEARCH_FILTER_FIELDS_DESC">
+					<option value="4">MOD_CISTRUSCART_SEARCH_NAME_ONLY</option>
+					<option value="3">NMOD_CISTRUSCART_SEARCH_NAME_DESCRIPTION</option>
+					<option value="2">MOD_CISTRUSCART_SEARCH_SKU</option>
+					<option value="1">MOD_CISTRUSCART_SEARCH_MODEL_NUMBER</option>
+					<option value="0">MOD_CISTRUSCART_SEARCH_ALL_OF_THE_ABOVE</option>
+				</field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

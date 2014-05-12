@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	 <name>Citruscart - Tool - XML Importer</name>
+	 <author>Citruscart Team</author>
+	 <creationDate>April 2014</creationDate>
+	 <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
+	 <authorEmail>support@citruscart.com</authorEmail>
+	 <authorUrl>http://citruscart.com</authorUrl>
+	 <version>1.1.0</version>
+	 <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>COM_CITRUSCART_THIS_TOOL_IMPORTS_DATA_FROM_AN_XML_FILE_TO_CITRUSCART</description>
+	
+	<files>
+		<filename plugin="tool_xmlimporter">tool_xmlimporter.php</filename>
+		<folder>tool_xmlimporter</folder>	
+	</files>
+
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_citruscart_tool_xmlimporter.ini</language>
+	</languages>
+			
+</extension>

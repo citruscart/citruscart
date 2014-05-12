@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	<name>Citruscart - Tool - XCart Migration</name>
+	<version>0.10.1</version>
+	<creationDate>October 2011</creationDate>
+	<author>Citruscart</author>
+	<authorEmail>info@Citruscart.com</authorEmail>
+	<authorUrl>http://www.Citruscart.com</authorUrl>
+	<copyright>2012 Citruscart.com</copyright>
+	<license>GNU General Public License v2</license>
+	<description>COM_CITRUSCART_THIS_TOOL_MIGRATES_DATA_FROM_XCART_TO_CITRUSCART</description>
+	
+	<files>
+		<filename plugin="tool_xcartmigration">tool_xcartmigration.php</filename>
+		<folder>tool_xcartmigration</folder>	
+	</files>
+
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_citruscart_tool_xcartmigration.ini</language>
+	</languages>
+
+</extension>

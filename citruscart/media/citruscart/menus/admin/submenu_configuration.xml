@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<menu>
+	<link>
+        <name>COM_CITRUSCART_GENERAL_CONFIGURATION</name>
+        <url>index.php?option=com_citruscart&#38;view=config</url>
+    </link>
+    <link>
+        <name>COM_CITRUSCART_SHIPPING_METHODS</name>
+        <url>index.php?option=com_citruscart&#38;view=shipping</url>
+    </link>
+	 <link>
+        <name>COM_CITRUSCART_PAYMENT_METHODS</name>
+        <url>index.php?option=com_citruscart&#38;view=payment</url>
+    </link>
+</menu>
