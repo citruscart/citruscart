@@ -28,7 +28,6 @@ $form = $this->form; ?>
 	/* Get view string */
 	echo CitruscartGrid::pagetooltip( $app->input->getString('view') );
 
-	//CitruscartGrid::pagetooltip( JRequest::getVar('view') );
 	?>
 
     <?php echo CitruscartGrid::searchform($state->filter,JText::_('COM_CITRUSCART_SEARCH'), JText::_('COM_CITRUSCART_RESET') ) ?>
@@ -40,8 +39,7 @@ $form = $this->form; ?>
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th>
-                	<!-- <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" /> -->
-            	   	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
+                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
             	</th>
                 <th>
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.coupon_id", $state->direction, $state->order ); ?>

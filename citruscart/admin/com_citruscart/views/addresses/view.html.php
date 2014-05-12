@@ -29,7 +29,6 @@ class CitruscartViewAddresses extends CitruscartViewBase
 			  break;
 			case "form":
 				$app->input->set('hidemainmenu', '1');
-				//JRequest::setVar('hidemainmenu', '1');
 				$this->_form($tpl);
 			  break;
 			case "default":

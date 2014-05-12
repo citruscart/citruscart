@@ -22,7 +22,7 @@ class CitruscartTableProductCommentsHelpfulness extends CitruscartTable
 		$tbl_key 	= 'productcommentshelpfulness_id';
 		$tbl_suffix = 'productcommentshelpfulness';
 		$this->set( '_suffix', $tbl_suffix );
-		$name 		= "Citruscart";
+		$name 		= "citruscart";
 		
 		parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );	
 	}

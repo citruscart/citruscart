@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/dioscouri/library/parameter.php');
+require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
 
 Citruscart::load( 'CitruscartModelBase', 'models._base' );
 

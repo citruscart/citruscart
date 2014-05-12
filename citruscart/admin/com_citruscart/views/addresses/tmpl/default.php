@@ -19,9 +19,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
     <?php
-
     echo CitruscartGrid::pagetooltip( $app->input->getString('view') );
-    //echo CitruscartGrid::pagetooltip( JRequest::getVar('view') );
     ?>
 
     <?php echo CitruscartGrid::searchform($state->filter,JText::_('COM_CITRUSCART_SEARCH'), JText::_('COM_CITRUSCART_RESET') ) ?>
@@ -33,8 +31,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th style="width: 20px;">
-                	<!-- <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" /> -->
-                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
+                  	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="width: 50px;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.address_id", $state->direction, $state->order ); ?>

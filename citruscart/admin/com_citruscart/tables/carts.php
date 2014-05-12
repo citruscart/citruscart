@@ -50,7 +50,7 @@ class CitruscartTableCarts extends CitruscartTableEav
     	
         $tbl_key      = 'cart_id';
         $tbl_suffix   = 'carts';
-        $name         = 'Citruscart';
+        $name         = 'citruscart';
         
         $this->set( '_tbl_key', $tbl_key );
         $this->set( '_suffix', $tbl_suffix );
