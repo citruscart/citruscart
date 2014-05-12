@@ -14,54 +14,54 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 Citruscart::load( 'CitruscartTableEav', 'tables._baseeav' );
 
-class CitruscartTableProductCompare extends CitruscartTableEav
+class CitruscartTableProductCompare extends CitruscartTableEav 
 {
     /**
      * @param $db
      * @return unknown_type
      */
-    function CitruscartTableProductCompare ( &$db )
+    function CitruscartTableProductCompare ( &$db ) 
     {
         $keynames = array();
         $keynames['user_id']    = 'user_id';
         $keynames['session_id'] = 'session_id';
         $keynames['product_id'] = 'product_id';
-
+        
         // load the plugins (when loading this table outside of Citruscart, this is necessary)
         JPluginHelper::importPlugin( 'citruscart' );
-
+       
         $this->setKeyNames( $keynames );
-
+    	
         $tbl_key      = 'productcompare_id';
         $tbl_suffix   = 'productcompare';
-        $name         = 'citruscart';
-
+        $name         = 'Citruscart';
+        
         $this->set( '_tbl_key', $tbl_key );
         $this->set( '_suffix', $tbl_suffix );
-
+        
         $this->_linked_table = 'products';
-
-        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
+        
+        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );    
     }
-
+    
     function check()
-    {
+    {        
         if (empty($this->user_id) && empty($this->session_id))
         {
             $this->setError( JText::_('COM_CITRUSCART_USER_OR_SESSION_REQUIRED') );
             return false;
         }
-
+        
         if (empty($this->product_id))
         {
             $this->setError( JText::_('COM_CITRUSCART_PRODUCT_REQUIRED') );
             return false;
-        }
-
+        }        
+    
         return true;
     }
-
-
+    
+    
     /**
      * (non-PHPdoc)
      * @see Citruscart/admin/tables/CitruscartTable#delete($oid)
@@ -74,7 +74,7 @@ class CitruscartTableProductCompare extends CitruscartTableEav
             $keynames = $this->getKeyNames();
             foreach ($keynames as $key=>$value)
             {
-                $oid[$key] = $this->$key;
+                $oid[$key] = $this->$key; 
             }
             if (empty($oid))
             {
@@ -83,29 +83,29 @@ class CitruscartTableProductCompare extends CitruscartTableEav
                 return false;
             }
         }
-
+        
         if (!is_array($oid))
         {
             $keyName = $this->getKeyName();
             $arr = array();
-            $arr[$keyName] = $oid;
+            $arr[$keyName] = $oid; 
             $oid = $arr;
         }
 
-
+        
         $before = JFactory::getApplication()->triggerEvent( 'onBeforeDelete'.$this->get('_suffix'), array( $this, $oid ) );
         if (in_array(false, $before, true))
         {
             return false;
         }
-
+        
         $db = $this->getDBO();
-
+        
         // initialize the query
         $query = new CitruscartQuery();
         $query->delete();
         $query->from( $this->getTableName() );
-
+        
         foreach ($oid as $key=>$value)
         {
             // Check that $key is field in table
@@ -123,7 +123,7 @@ class CitruscartTableProductCompare extends CitruscartTableEav
 
         if ($db->query())
         {
-
+            
             JFactory::getApplication()->triggerEvent( 'onAfterDelete'.$this->get('_suffix'), array( $this, $oid ) );
             return true;
         }
@@ -133,7 +133,7 @@ class CitruscartTableProductCompare extends CitruscartTableEav
             return false;
         }
     }
-
+    
 	function store( $updateNulls=false )
 	{
 		$this->_linked_table_key = $this->product_id;
