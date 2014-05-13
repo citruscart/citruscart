@@ -13,6 +13,8 @@
     $doc = JFactory::getDocument();
     $doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
     $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+    $doc->addScript(JUri::root().'media/citruscart/js/common.js');
+    $doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout_onepage.js');
     $doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
 	$form = $this->form;
 	$row = $this->row;

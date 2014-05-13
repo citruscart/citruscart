@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 JHTML::_('behavior.modal');
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addScript(JUri::root().'media/citruscart/js/common.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
 
 $state = $this->state;
@@ -22,6 +23,8 @@ $item = $this->row;
 
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
 $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'thumb', false, false, array(), true );
+
+$app = JFactory::getApplication();
 
 ?>
 
@@ -159,8 +162,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', 
             </div>
         <?php endif; ?>
 
-		<?php echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
-
+        <?php  echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
         <?php // display the files associated with this product ?>
         <?php echo $this->files; ?>
 

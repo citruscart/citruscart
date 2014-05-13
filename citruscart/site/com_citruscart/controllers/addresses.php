@@ -62,9 +62,15 @@ class CitruscartControllerAddresses extends CitruscartController
 		$redirect = JRoute::_( $redirect, false );
 
 		$user = JFactory::getUser();
+
 		$model  = $this->getModel( $this->get('suffix') );
 		$row = $model->getTable();
 		$row->load( $model->getId() );
+		if(empty($row)){
+
+			$row = JTable::getInstance('Addresses','CitruscartTable');
+
+		}
 
 		// if id is present then user is editing, check if user can edit this item
 		if (!empty($row->address_id) && $row->user_id != JFactory::getUser()->id)
@@ -78,9 +84,9 @@ class CitruscartControllerAddresses extends CitruscartController
 		$input->set( 'hidemainmenu', '1' );
 		$input->set( 'view', $this->get('suffix') );
 		$input->set( 'layout', 'form' );
-
 		$view  = $this->getView( 'addresses', 'html' );
 		$view->assign('form_inner', $this->getInnerAddressForm($row->address_id));
+
 		parent::display();
 	}
 
@@ -155,7 +161,7 @@ class CitruscartControllerAddresses extends CitruscartController
 			$this->messagetype  = 'message';
 			$this->message      = JText::_('COM_CITRUSCART_SAVED');
 
-			
+
 			JFactory::getApplication()->triggerEvent( 'onAfterSave'.$this->get('suffix'), array( $row ) );
 		}
 		else

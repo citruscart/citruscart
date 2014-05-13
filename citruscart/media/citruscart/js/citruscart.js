@@ -845,7 +845,7 @@ function citruscartPutAjaxLoader(container, text, suffix) {
 	text_element = '';
 	if (text != null && text != '')
 		text_element = '<span> ' + text + '</span>';
-	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/com_citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
+	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
 	if (document.getElementById(container)) {
 	    document.getElementById(container).set('html', img_loader + text_element);
 	}

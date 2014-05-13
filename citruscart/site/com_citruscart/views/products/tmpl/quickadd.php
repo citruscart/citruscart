@@ -11,9 +11,10 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
+$doc = JFactory::getDocument();
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 
-JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = $this->state;
 $item = $this->row;
 

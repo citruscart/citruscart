@@ -15,6 +15,7 @@ function citruscartCopyBillingAdToShippingAd(checkbox, form) {
 }
 
 function citruscartSaveOnepageOrder(container, errcontainer, form) {
+	console.log(container);
 	var url = 'index.php?option=com_citruscart&view=checkout&controller=checkout&task=saveOrderOnePage&format=raw';
 	var str = citruscartGetFormInputData(form);
 

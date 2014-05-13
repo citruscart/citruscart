@@ -57,24 +57,4 @@ class CitruscartViewProducts extends CitruscartViewBase
 		}
 	}
 
-	 /* function _form($tpl =null){
-
-		$app = JFactory::getApplication();
-		parent::_form($tpl);
-
-		$model = $this->getModel();
-
-
-		$this->row = $model->getItem();
-
-		if (empty($this->row->product_id))
-		{
-			// this is a new product
-			$item = JTable::getInstance($app->input->getString('view'), 'CitruscartTable');
-			$this->assign( 'row', $item );
-		}
-
-
-
-	} */
 }

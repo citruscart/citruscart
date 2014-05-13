@@ -74,6 +74,7 @@ $js = "var com_citruscart = {};\n";
 $js.= "com_citruscart.jbase = '".Citruscart::getUriRoot()."';\n";
 $doc->addScriptDeclaration($js);
 
+$doc->addScript(JUri::root().'media/citruscart/js/common.js');
 
 /* $doc->addStyleSheet(JUri::root().'media/system/css/modal.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/bootstrap/default/css/bootstrap.min.css');

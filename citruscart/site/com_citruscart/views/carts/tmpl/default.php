@@ -45,7 +45,7 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
     <form id="adminForm" action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
 
         <div style="float: right;">
-        <!-- <a class="btn btn-primary" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout&Itemid='.$this->checkout_itemid ); ?>" onclick="return CitruscartCheckUpdateCartQuantities(document.adminForm, '<?php echo JText::_('COM_CITRUSCART_CHECK_CART_UPDATE'); ?>');">
+        <!-- <a class="btn btn-primary" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout&Itemid='.$this->checkout_itemid ); ?>" onclick="return citruscartCheckUpdateCartQuantities(document.adminForm, '<?php echo JText::_('COM_CITRUSCART_CHECK_CART_UPDATE'); ?>');">
             <?php echo JText::_('COM_CITRUSCART_BEGIN_CHECKOUT'); ?>
         </a> -->
         </div>
