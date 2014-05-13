@@ -10,7 +10,7 @@ $doc->addStyleSheet(JUri::root().'/media/citruscart/css/leftmenu_admin.css');
 
     <ul class="nav nav-pills nav-stacked">
     <?php
-    foreach ($this->items as $item) {
+  		  foreach ($this->items as $item) {
         ?>
         <li <?php  if ($item[2] == 1) {echo 'class="active"'; } ?> >
         <?php

@@ -12,6 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
+JHTML::_('behavior.modal');
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
@@ -98,7 +99,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', 
         </div>
 
         <div id="product_image" class="dsc-wrap product_image">
-            <?php echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
+            <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
             <div>
 	            <?php
 				if ( isset( $item->product_full_image ) )

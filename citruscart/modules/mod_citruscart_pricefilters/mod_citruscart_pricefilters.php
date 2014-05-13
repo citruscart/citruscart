@@ -18,9 +18,9 @@ defined('_JEXEC') or die('Restricted access');
 if (!defined('_DSC')) { return; }
 
 // Check the registry to see if our Citruscart class has been overridden
-if ( !class_exists('Citruscart') ) 
+if ( !class_exists('Citruscart') )
     JLoader::register( "Citruscart", JPATH_ADMINISTRATOR."/components/com_citruscart/defines.php" );
-    
+
 require_once( dirname(__FILE__).'/helper.php' );
 
 // include lang files
@@ -29,14 +29,14 @@ $lang->load( 'com_citruscart', JPATH_BASE );
 $lang->load( 'com_citruscart', JPATH_ADMINISTRATOR );
 
 // grab the Price range
-$helper = new modCitruscartPriceFiltersHelper( $params ); 
+$helper = new modCitruscartPriceFiltersHelper( $params );
 $priceRanges = $helper->getPriceRange();
 
 $show_remove = false;
 
 $app = JFactory::getApplication();
 $model = JModelLegacy::getInstance( 'Products', 'CitruscartModel' );
-$ns = $app->getName().'::'.'com.Citruscart.model.'.$model->getTable()->get('_suffix');
+$ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
 $filter_price_from = $app->getUserStateFromRequest($ns.'price_from', 'filter_price_from', '0', 'int');
 $filter_price_to = $app->getUserStateFromRequest($ns.'price_to', 'filter_price_to', '', '');
 $filter_category = $app->getUserStateFromRequest($ns.'.category', 'filter_category', '', 'int');

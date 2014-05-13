@@ -35,6 +35,8 @@ $changed_pao = -1;
 if( $changed_attr > -1 ) {
 	$changed_pao = $values['attribute_'.$changed_attr];
 }
+
+
 ?>
 
 <div>

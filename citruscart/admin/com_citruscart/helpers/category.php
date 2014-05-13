@@ -136,7 +136,7 @@ class CitruscartHelperCategory extends CitruscartHelperBase
     function getLayout( $category_id )
     {
         static $template;
-        
+
 
         $layout = 'default';
 
@@ -463,7 +463,7 @@ class CitruscartHelperCategory extends CitruscartHelperBase
 
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );
         $model = JModelLegacy::getInstance( 'Categories', 'CitruscartModel' );
-        $ns = $app->getName().'::'.'com.Citruscart.model.'.$model->getTable()->get('_suffix');
+        $ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
         $state = array();
 
         $state['limit']     = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'int');

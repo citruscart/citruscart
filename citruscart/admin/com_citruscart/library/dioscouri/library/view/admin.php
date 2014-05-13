@@ -46,7 +46,7 @@ class DSCViewAdmin extends DSCView
 
 		require_once(JPATH_SITE.'/libraries/dioscouri/library/menu.php');
 
-		DSCMenu::getInstance()->display();
+		//DSCMenu::getInstance()->display();
 
 		/*
 			if(DSC_JVERSION == 30) {
@@ -61,7 +61,9 @@ class DSCViewAdmin extends DSCView
 		jimport('joomla.application.module.helper');
 		$modules = JModuleHelper::getModules($this->_name . "_left");
 		if ($modules && !$app->input->getInt('hidemainmenu') && empty($this->hidemenu) || !empty($this->leftMenu) && empty($this->hidemenu)) {
-		$this->displayWithLeftMenu($tpl = null, $this->leftMenu);
+
+			$this->displayWithLeftMenu($tpl = null, $this->leftMenu);
+
 
 
 		} else {
@@ -102,16 +104,18 @@ class DSCViewAdmin extends DSCView
 	 */
 	public function displayWithLeftMenu($tpl = null, $menuname)
 	{
+
 	    // TODO This is an ugly, quick hack - fix it
 	    echo "<table width='100%'>";
 	    echo "<tr>";
 	    echo "<td style='width: 180px; padding-right: 5px; vertical-align: top;' >";
 
-	    DSC::load('DSCMenu', 'library.menu');
-	    if ($menu = DSCMenu::getInstance($menuname)) {
-	        $menu->display('leftmenu');
-	    }
 
+	    DSC::load('DSCMenu', 'library.menu');
+
+	    if ($menu = DSCMenu::getInstance($menuname)) {
+	        $menu->display('leftmenu',$menu);
+	    }
 	    $modules = JModuleHelper::getModules($this->_name . "_left");
 	    $document = JFactory::getDocument();
 	    $renderer = $document->loadRenderer('module');
@@ -122,6 +126,7 @@ class DSCViewAdmin extends DSCView
 	    }
 
 	    echo "</td>";
+
 	    echo "<td style='vertical-align: top;' >";
 	    parent::display($tpl);
 	    echo "</td>";

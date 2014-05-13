@@ -33,6 +33,7 @@ class CitruscartControllerDashboard extends CitruscartController
 	    $state = $model->getState();
 	    $app = JFactory::getApplication();
 	    $state->stats_interval = $app->input->getString('stats_interval', 'last_thirty');
+
 	    $model->setState('stats_interval', $state->stats_interval);
 
 	    $cache = JFactory::getCache('com_citruscart');
@@ -44,7 +45,7 @@ class CitruscartControllerDashboard extends CitruscartController
 	    $sum = $cache->call(array($model, 'getSumChartData'), $revenue);
 
         $interval = $model->getStatIntervalValues($state->stats_interval);
-
+		print_r($interval);
 	    $view = $this->getView( $this->get('suffix'), 'html' );
 	    $view->assign( 'orders', $orders );
 	    $view->assign( 'revenue', $revenue );

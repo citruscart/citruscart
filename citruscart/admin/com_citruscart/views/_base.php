@@ -118,7 +118,7 @@ class CitruscartViewBase extends DSCViewAdmin
 
 	public function renderSubmenu(){
 
-			require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
+		 	require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
 			$toolbar = new CitruscartToolBar();
 			Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
 			$toolbar->renderLinkbar();

@@ -1,5 +1,19 @@
-<?php defined('_JEXEC') or die('Restricted access');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');
+
+$doc = JFactory::getDocument();
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $state = @$this->state;
 $items = @$this->items;
 $citems = @$this->citems;
@@ -13,17 +27,17 @@ $citems = @$this->citems;
         </div>
     <?php endif; ?>
 
-    <div id="citruscart_categories">    
+    <div id="citruscart_categories">
         <div id='citruscart_category_header'>
             <?php if (isset($state->category_name)) : ?>
                 <span><?php echo @$this->title; ?></span>
             <?php else : ?>
-                <span><?php echo JText::_('COM_CITRUSCART_ALL_CATEGORIES'); ?></span>
+                <span><?php  echo JText::_('COM_CITRUSCART_ALL_CATEGORIES'); ?></span>
             <?php endif; ?>
-                        
+
             <div class='category_description'><?php echo $this->cat->category_description; ?></div>
         </div>
-        
+
         <?php if (!empty($citems)) : ?>
             <div class="citruscart_subcategories">
                 <?php
@@ -35,9 +49,9 @@ $citems = @$this->citems;
                     $model->setState('direction', 'ASC');
                     $products = $model->getList();
                     // if there are no products, skip it
-                    if (empty($products)) { continue; }                
+                    if (empty($products)) { continue; }
                     ?>
-                    <table class="subcategory" style="width: 100%;">
+                    <table class="subcategory table table-striped table-bordered" style="width: 100%;">
                     <thead>
                     <tr>
                         <th class="subcategory_name" style="background-color: #DDDDDD;">
@@ -65,19 +79,19 @@ $citems = @$this->citems;
                             <?php echo CitruscartHelperBase::currency( $product->price ); ?>
                         </td>
                         </tr>
-                        <?php 
-                    } 
+                        <?php
+                    }
                     ?>
                     </tbody>
                     </table>
                 <?php
-                endforeach; 
+                endforeach;
                 ?>
                 <div class="reset"></div>
             </div>
         <?php endif; ?>
     </div>
-    
+
     <?php if (!empty($items)) : ?>
         <table class="subcategory" style="width: 100%;">
         <thead>
@@ -91,7 +105,7 @@ $citems = @$this->citems;
         </tr>
         </thead>
         <tbody>
-            <?php foreach ($items as $item) : 
+            <?php foreach ($items as $item) :
             $itemid = Citruscart::getClass( "CitruscartHelperRoute", 'helpers.route' )->category( $this->cat->category_id, true );
             $item->itemid = (!empty($itemid)) ? $itemid : JRequest::getInt('Itemid', $itemid);
             ?>
@@ -110,5 +124,5 @@ $citems = @$this->citems;
         </table>
 
     <?php endif; ?>
-    
+
 </div>
