@@ -5,7 +5,7 @@
  *
  * @return
  */
-function CitruscartGetOrderTotals() {
+function citruscartGetOrderTotals() {
 	var url = 'index.php?option=com_citruscart&controller=orders&task=getOrderTotals&format=raw';
 	citruscartDoTask(url, 'order_totals_div', document.adminForm);
 }
@@ -16,13 +16,13 @@ function CitruscartGetOrderTotals() {
  *
  * @return
  */
-function CitruscartAddProductsToOrder() {
+function citruscartAddProductsToOrder() {
 	document.getElementById('sbox-window').close();
 
 	var url = 'index.php?option=com_citruscart&controller=orders&task=getProducts&format=raw';
 	citruscartDoTask(url, 'order_products_div', document.adminForm);
-	CitruscartPause(1000);
-	CitruscartGetOrderTotals();
+	citruscartPause(1000);
+	citruscartGetOrderTotals();
 }
 
 /**
@@ -30,11 +30,11 @@ function CitruscartAddProductsToOrder() {
  *
  * @return
  */
-function CitruscartUpdateProductQuantities() {
+function citruscartUpdateProductQuantities() {
 	url = 'index.php?option=com_citruscart&controller=orders&task=updateProductQuantities&format=raw';
 	citruscartDoTask(url, 'order_products_div', document.adminForm);
-	CitruscartPause(1500);
-	CitruscartGetOrderTotals();
+	citruscartPause(1500);
+	citruscartGetOrderTotals();
 }
 
 /**
@@ -42,15 +42,15 @@ function CitruscartUpdateProductQuantities() {
  *
  * @return
  */
-function CitruscartRemoveProducts(message) {
+function citruscartRemoveProducts(message) {
 	// if !boxchecked, alert, else doTask
 	if (document.adminForm.boxchecked.value == 0) {
 		alert(message);
 	} else {
 		url = 'index.php?option=com_citruscart&controller=orders&task=removeProducts&format=raw';
 		citruscartDoTask(url, 'order_products_div', document.adminForm);
-		CitruscartPause(1500);
-		CitruscartGetOrderTotals();
+		citruscartPause(1500);
+		citruscartGetOrderTotals();
 	}
 }
 
@@ -60,7 +60,7 @@ function CitruscartRemoveProducts(message) {
  * @param addressType
  * @return
  */
-function CitruscartSetAddressToDiv(addressType) {
+function citruscartSetAddressToDiv(addressType) {
 	var addressDropdownName = addressType + '_address_id';
 	var addressInputTable = addressType + 'AddressInputFormTable';
 	var selectedAddressDiv = addressType + 'SelectedAddressDiv';
@@ -110,7 +110,7 @@ function CitruscartSetAddressToDiv(addressType) {
  * @param checkbox
  * @return
  */
-function CitruscartDisableShippingAddressControls(checkbox) {
+function citruscartDisableShippingAddressControls(checkbox) {
 	var disable = false;
 	if (checkbox.checked) {
 		disable = true;
@@ -144,7 +144,7 @@ function CitruscartDisableShippingAddressControls(checkbox) {
  * @param addressNameControlId
  * @return
  */
-function CitruscartShowAddressNameForSaveToAddressBook(checkbox, addressNameRowId, addressNameControlId) {
+function citruscartShowAddressNameForSaveToAddressBook(checkbox, addressNameRowId, addressNameControlId) {
 	var addressNameRow = document.getElementById(addressNameRowId);
 	if (checkbox.checked) {
 		addressNameRow.style.display = 'table-row';
@@ -162,7 +162,7 @@ function CitruscartShowAddressNameForSaveToAddressBook(checkbox, addressNameRowI
  * displays the user's default addresses
  * @return
  */
-function CitruscartSelectDefaultAddresses() {
-	CitruscartSetAddressToDiv('billing');
-	CitruscartSetAddressToDiv('shipping');
+function citruscartSelectDefaultAddresses() {
+	citruscartSetAddressToDiv('billing');
+	citruscartSetAddressToDiv('shipping');
 }

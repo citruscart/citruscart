@@ -41,8 +41,8 @@ function citruscartSaveOnepageOrder(container, errcontainer, form) {
 				if ($('onCheckoutCart_wrapper')) {
 					$('onCheckoutCart_wrapper').set('html', resp.summary);
 				}
-				if ($('citruscart_btns')) {
-					$('citruscart_btns').setStyle('display', 'none');
+				if ($('citruscartbtns')) {
+					$('citruscartbtns').setStyle('display', 'none');
 				}
 				if ($('refreshpage')) {
 					$('refreshpage').setStyle('display', 'block');

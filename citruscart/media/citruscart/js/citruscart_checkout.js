@@ -5,16 +5,16 @@
  * 
  * @return
  */
-function CitruscartGetPaymentForm( element, container )
+function citruscartGetPaymentForm( element, container )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=getPaymentForm&format=raw&payment_element=' + element;
 
    	citruscartGrayOutAjaxDiv( container, Joomla.JText._( 'COM_CITRUSCART_UPDATING_PAYMENT_METHODS' ) );
-	citruscartDoTask( url, container, document.adminForm, '', false, CitruscartDeletePaymentGrayDiv );    	
+	citruscartDoTask( url, container, document.adminForm, '', false, citruscartDeletePaymentGrayDiv );    	
 }
 
 
-function CitruscartGetShippingRates( container, form, callback )
+function citruscartGetShippingRates( container, form, callback )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=updateShippingRates&format=raw';
     
@@ -35,7 +35,7 @@ function CitruscartGetShippingRates( container, form, callback )
             citruscartJQ( container ).html( resp.msg );
             if( resp.default_rate && resp.default_rate != null ) { 
                 // if only one rate was found - set it as default
-                CitruscartSetShippingRate(resp.default_rate['name'], resp.default_rate['price'], resp.default_rate['tax'], resp.default_rate['extra'], resp.default_rate['code'], callback != null );                
+                citruscartSetShippingRate(resp.default_rate['name'], resp.default_rate['price'], resp.default_rate['tax'], resp.default_rate['extra'], resp.default_rate['code'], callback != null );                
             }
             
             if (typeof callback == 'function') {
@@ -44,17 +44,17 @@ function CitruscartGetShippingRates( container, form, callback )
             return true;
         },
         onFailure : function(response) {
-            CitruscartDeleteShippingGrayDiv();
+            citruscartDeleteShippingGrayDiv();
         },
         onException : function(response) {
-            CitruscartDeleteShippingGrayDiv();
+            citruscartDeleteShippingGrayDiv();
         }
     }).send();
     
-    CitruscartDeleteShippingGrayDiv();
+    citruscartDeleteShippingGrayDiv();
 }
 
-function CitruscartSetShippingRate(name, price, tax, extra, code, combined )
+function citruscartSetShippingRate(name, price, tax, extra, code, combined )
 {
 	citruscartJQ('shipping_name').value = name;
 	citruscartJQ('shipping_code').value = code;
@@ -64,7 +64,7 @@ function CitruscartSetShippingRate(name, price, tax, extra, code, combined )
 
 	citruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
 	citruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );		
-	CitruscartGetCheckoutTotals( combined ); // combined = true - both shipping rates and addresses are updating at the same time
+	citruscartGetCheckoutTotals( combined ); // combined = true - both shipping rates and addresses are updating at the same time
 }
 
 /**
@@ -75,22 +75,22 @@ function CitruscartSetShippingRate(name, price, tax, extra, code, combined )
  * @param combined If true, both shipping rated and addresses are updating at the same time
  * @return
  */
-function CitruscartGetCheckoutTotals( combined )
+function citruscartGetCheckoutTotals( combined )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=setShippingMethod&format=raw';
 //    if( typeof( combined ) == 'undefined' )
  //   	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false );
     if( combined )
-    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteCombinedGrayDiv );    	
+    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, citruscartDeleteCombinedGrayDiv );    	
     else
-    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteShippingGrayDiv );
+    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, citruscartDeleteShippingGrayDiv );
 }
 
 /**
  * Recalculates the currency amounts
  * @return
  */
-function CitruscartGetCurrencyTotals()
+function citruscartGetCurrencyTotals()
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=setCurrency&format=raw';
     citruscartDoTask( url, 'onCheckoutReview_wrapper', document.adminForm );    
@@ -103,13 +103,13 @@ function CitruscartGetCurrencyTotals()
  * 
  * @return
  */
-function CitruscartRefreshTotalAmountDue()
+function citruscartRefreshTotalAmountDue()
 {
 	if( citruscartJQ( 'payment_info' ) )
 	{
 		var url = 'index.php?option=com_citruscart&view=checkout&task=totalAmountDue&format=raw';
 		citruscartGrayOutAjaxDiv( 'payment_info', Joomla.JText._( 'COM_CITRUSCART_UPDATING_BILLING' ) ); 
-	    citruscartDoTask( url, 'totalAmountDue', document.adminForm, '', false, CitruscartDeleteTotalAmountDueGrayDiv );		
+	    citruscartDoTask( url, 'totalAmountDue', document.adminForm, '', false, citruscartDeleteTotalAmountDueGrayDiv );		
 	}
 }
 
@@ -120,13 +120,13 @@ function CitruscartRefreshTotalAmountDue()
  * @param checkbox
  * @return
  */
-function CitruscartDisableShippingAddressControls(checkbox, form)
+function citruscartDisableShippingAddressControls(checkbox, form)
 {
     
 	var disable = false;
     if (checkbox.checked){
         disable = true;
-        CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', form );
+        citruscartGetShippingRates( 'onCheckoutShipping_wrapper', form );
     }
     
     var fields = "address_name;address_id;title;first_name;middle_name;last_name;company;tax_number;address_1;address_2;city;country_id;zone_id;postal_code;phone_1;phone_2;fax";
@@ -165,15 +165,15 @@ function CitruscartDisableShippingAddressControls(checkbox, form)
     citruscartDeleteGrayDivs();
 }
 
-function CitruscartManageShippingRates()
+function citruscartManageShippingRates()
 {
 	citruscartJQ('shipping_form_div').getElements('input[name=shipping_rate]').addEvent('click', function() {
-		CitruscartGetCheckoutTotals();
+		citruscartGetCheckoutTotals();
 	}
 	);
 }
 
-function CitruscartDeleteAddressGrayDiv()
+function citruscartDeleteAddressGrayDiv()
 {
 	el_billing = $$( '#billingAddress .citruscartAjaxGrayDiv' );
 	if( !el_billing )
@@ -188,13 +188,13 @@ function CitruscartDeleteAddressGrayDiv()
 	}
 }
 
-function CitruscartDeletePaymentGrayDiv()
+function citruscartDeletePaymentGrayDiv()
 {
 	if( citruscartJQ( 'onCheckoutPayment_wrapper' ) )
 		citruscartSetColorInContainer( 'onCheckoutPayment_wrapper', '' );
 }
 
-function CitruscartDeleteTotalAmountDueGrayDiv()
+function citruscartDeleteTotalAmountDueGrayDiv()
 {
 	el = $$( '#payment_info .citruscartAjaxGrayDiv' );
 	if( el != '' )
@@ -203,7 +203,7 @@ function CitruscartDeleteTotalAmountDueGrayDiv()
 	citruscartSetColorInContainer( 'payment_info', '' );
 }
 
-function CitruscartDeleteShippingGrayDiv()
+function citruscartDeleteShippingGrayDiv()
 {
 	if( citruscartJQ( 'onCheckoutShipping_wrapper' ) == null )
 		return;
@@ -227,26 +227,26 @@ function CitruscartDeleteShippingGrayDiv()
 			} );			
 		}
 	}
-	CitruscartDeleteCartGrayDiv();
+	citruscartDeleteCartGrayDiv();
 }
 
-function CitruscartDeleteCartGrayDiv()
+function citruscartDeleteCartGrayDiv()
 {
 	if( citruscartJQ('onCheckoutCart_wrapper') )
 		citruscartSetColorInContainer( 'onCheckoutCart_wrapper', '' );
 }
 
-function CitruscartDeleteCombinedGrayDiv()
+function citruscartDeleteCombinedGrayDiv()
 {
-	CitruscartDeleteAddressGrayDiv();
+	citruscartDeleteAddressGrayDiv();
 
 	if( citruscartJQ( 'onCheckoutShipping_wrapper' ) )
-		CitruscartDeleteShippingGrayDiv();
+		citruscartDeleteShippingGrayDiv();
 	else // no shipping address so delete gray div from cart
-		CitruscartDeleteCartGrayDiv();
+		citruscartDeleteCartGrayDiv();
 }
 
-function CitruscartGrayOutAddressDiv( prefix )
+function citruscartGrayOutAddressDiv( prefix )
 {
 	if( !citruscartJQ( 'shippingAddress' ) )
 		return;
@@ -261,7 +261,7 @@ function CitruscartGrayOutAddressDiv( prefix )
  * Method to disable UI and update shipping rates
  * 
  */
-function CitruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
+function citruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
 {
 	obj = document.getElementById( obj_id );
 
@@ -270,11 +270,11 @@ function CitruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
 	{
 		if( !$( 'shippingAddress' ) ) // no shipping
 		{
-			CitruscartGrayOutAddressDiv();
-			CitruscartGetPaymentOptions('onCheckoutPayment_wrapper', document.adminForm, '', CitruscartDeleteAddressGrayDiv );
+			citruscartGrayOutAddressDiv();
+			citruscartGetPaymentOptions('onCheckoutPayment_wrapper', document.adminForm, '', citruscartDeleteAddressGrayDiv );
 		}
 		else
-			CitruscartGetPaymentOptions('onCheckoutPayment_wrapper', document.adminForm, '' );
+			citruscartGetPaymentOptions('onCheckoutPayment_wrapper', document.adminForm, '' );
 	}
 
 	if( !$( 'shippingAddress' ) ) {
@@ -285,24 +285,24 @@ function CitruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
 	only_shipping = !citruscartJQ( 'sameasbilling' ) || !citruscartJQ( 'sameasbilling' ).get( 'checked' );
 	if( only_shipping )
 	{
-		CitruscartGrayOutAddressDiv();
+		citruscartGrayOutAddressDiv();
 		citruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
 		if( obj_id.substr( 0, 9 ) == 'shipping_' ) // shipping input
 		{
-			CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, CitruscartDeleteAddressGrayDiv );
+			citruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, citruscartDeleteAddressGrayDiv );
 		}
 		else // billing input
 		{
 			citruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );
-			CitruscartGetCheckoutTotals( true );
+			citruscartGetCheckoutTotals( true );
 		}
 	}
 	else // same as billing
 	{
 		if( obj_id.substr( 0, 8 ) == 'billing_' ) // billing input
 		{
-			CitruscartGrayOutAddressDiv();
-			CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, CitruscartDeleteAddressGrayDiv );
+			citruscartGrayOutAddressDiv();
+			citruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, citruscartDeleteAddressGrayDiv );
 		}
 	}
 }
@@ -311,7 +311,7 @@ function CitruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
  * Simple function to check a password strength
  * 
  */
-function CitruscartCheckPassword( container, form, psw, min_length, req_num, req_alpha, req_spec )
+function citruscartCheckPassword( container, form, psw, min_length, req_num, req_alpha, req_spec )
 {
     val_errors = [];
 	var pass_ok = true;
@@ -385,7 +385,7 @@ function CitruscartCheckPassword( container, form, psw, min_length, req_num, req
 /**
  * Simple function to compare passwords
  */
-function CitruscartCheckPassword2( container, form, psw1, psw2 )
+function citruscartCheckPassword2( container, form, psw1, psw2 )
 {
 	if( citruscartJQ( psw1 ).get( 'value' ) == citruscartJQ( psw2 ).get( 'value' ) )
 	{
@@ -411,7 +411,7 @@ function CitruscartCheckPassword2( container, form, psw1, psw2 )
 /*
  * This method checks availability of the email address
  */
-function CitruscartCheckoutCheckEmail( container, form )
+function citruscartCheckoutCheckEmail( container, form )
 {
 	user_email = 'email_address';
 	// send AJAX request to validate the email address against other users
@@ -440,14 +440,14 @@ function CitruscartCheckoutCheckEmail( container, form )
     }).send();
 }
 
-function CitruscartHideInfoCreateAccount( )
+function citruscartHideInfoCreateAccount( )
 {	
 	citruscartJQ('create_account').addEvent('change', function() {
 		citruscartJQ('citruscart_user_additional_info').toggleClass('hidden');
 	});
 }
 
-function CitruscartGetPaymentOptions(container, form, msg, callback) {
+function citruscartGetPaymentOptions(container, form, msg, callback) {
     var payment_plugin = $$('input[name=payment_plugin]:checked');
 
     if (payment_plugin) {
@@ -476,14 +476,14 @@ function CitruscartGetPaymentOptions(container, form, msg, callback) {
             return true;
         },
         onFailure : function(response) {
-            CitruscartDeletePaymentGrayDiv();
-            CitruscartDeleteAddressGrayDiv();
-            CitruscartDeleteShippingGrayDiv();
+            citruscartDeletePaymentGrayDiv();
+            citruscartDeleteAddressGrayDiv();
+            citruscartDeleteShippingGrayDiv();
         },
         onException : function(response) {
-            CitruscartDeletePaymentGrayDiv();
-            CitruscartDeleteAddressGrayDiv();
-            CitruscartDeleteShippingGrayDiv();
+            citruscartDeletePaymentGrayDiv();
+            citruscartDeleteAddressGrayDiv();
+            citruscartDeleteShippingGrayDiv();
         }
     }).send();  
 

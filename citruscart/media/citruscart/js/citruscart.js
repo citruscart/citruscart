@@ -577,11 +577,11 @@ function citruscartRating(id) {
 	var count;
 	document.getElementById('productcomment_rating').value = id;
 	for ( count = 1; count <= id; count++) {
-		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/com_citruscart/images/star_10.png";
+		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/citruscart/images/star_10.png";
 	}
 
 	for ( count = id + 1; count <= 5; count++) {
-		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/com_citruscart/images/star_00.png";
+		document.getElementById('rating_'+count).getElementsByTagName("img")[0].src = window.com_citruscart.jbase + "media/citruscart/images/star_00.png";
 	}
 }
 
@@ -859,21 +859,26 @@ function citruscartPutAjaxLoader(container, text, suffix) {
  *
  */
 function citruscartGrayOutAjaxDiv(container, text, suffix) {
+	console.log(container);
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
-	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/com_citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
-	document.getElementById(container).setStyle('position', 'relative');
+	var img_loader = '<img src="' + window.com_citruscart.jbase + 'media/citruscart/images/ajax-loader' + suffix + '.gif' + '"/>';
+	//document.getElementById(container).setStyle('position', 'relative');
 	text_element = '';
 	if (text && text.length)
 		text_element = '<div class="text">' + text + '</div>';
 
 	// make all texts in the countainer gray
 	citruscartSetColorInContainer(container, '');
-	document.getElementById(container).innerHTML += '<div class="citruscartAjaxGrayDiv">' + img_loader + text_element + '</div>';
+	console.log(img_loader);
+	//document.getElementById(container).innerHTML += '<div class="citruscartAjaxGrayDiv">' + img_loader + text_element + '</div>';
+	
+	
 }
 
 function citruscartSetColorInContainer(container, color) {
+	console.log(color);
 	if (document.getElementById(container)) { document.getElementById(container).setStyle('color', color); }
 	$$('#' + container + ' *' ).each(function(el) {
 		el.setStyle('color', color);

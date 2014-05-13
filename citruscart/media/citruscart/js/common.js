@@ -82,7 +82,6 @@ Dsc.gridOrder = function(id, change, form)
  */
 Dsc.formValidation = function( url, container, task, form, doModal, msg, onCompleteFunction ) 
 {	
-	alert("hi");
 	if (doModal != false) { Dsc.newModal(msg); }
 	
     // loop through form elements and prepare an array of objects for passing to server
