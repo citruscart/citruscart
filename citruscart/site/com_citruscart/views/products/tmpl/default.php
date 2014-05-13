@@ -28,7 +28,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
 ?>
 <div id="citruscart" class="products default">
 
-    <?php if ($this->level > 1 && $config->get('display_Citruscart_pathway')) : ?>
+    <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
         <div id='citruscart_breadcrumb'>
             <?php echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
         </div>
@@ -215,7 +215,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
 						/*
                 	if( $product_compare && (($item->product_parameters->get('show_product_compare', '1')))) { ?>
                 <div id="product_compare" class="dsc-wrap">
-                	<input <?php echo in_array($item->product_id,$compareitems) ? 'checked' : '';?> type="checkbox" onclick="CitruscartAddProductToCompare(<?php echo $item->product_id;?>, 'CitruscartComparedProducts', this, true);">
+                	<input <?php echo in_array($item->product_id,$compareitems) ? 'checked' : '';?> type="checkbox" onclick="citruscartAddProductToCompare(<?php echo $item->product_id;?>, 'CitruscartComparedProducts', this, true);">
                	 	<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=productcompare');?>">
                	 		<?php echo JText::_('COM_CITRUSCART_COMPARE')?>
                	 		<span class="arrow" >»</span>

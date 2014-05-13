@@ -1,11 +1,15 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
 	jimport('joomla.application.component.model');
-	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+
+	$doc = JFactory::getDocument();
+	$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 	$user = JFactory::getUser();
 	Citruscart::load( "CitruscartHelperBase", 'helpers._base' );
 	$display_credits = Citruscart::getInstance()->get( 'display_credits', '0' );
 	$menu = CitruscartMenu::getInstance();
+
+
 ?>
 
 <div class='componentheading'>
@@ -77,7 +81,7 @@
             </table>
 
 		<?php
-		$modules = JModuleHelper::getModules("Citruscart_dashboard_main");
+		$modules = JModuleHelper::getModules("citruscart_dashboard_main");
 		$document	= JFactory::getDocument();
 		$renderer	= $document->loadRenderer('module');
 		$attribs 	= array();
@@ -89,7 +93,7 @@
 		?>
 
 		<?php
-		$modules = JModuleHelper::getModules("Citruscart_dashboard_right");
+		$modules = JModuleHelper::getModules("citruscart_dashboard_right");
 		if ($modules)
 		{
 			?>

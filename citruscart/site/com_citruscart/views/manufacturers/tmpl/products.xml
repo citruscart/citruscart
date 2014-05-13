@@ -12,13 +12,13 @@
 		<description>COM_CITRUSCART_MANUFACTURER_DEFAULT_LAYOUT_DESC</description>
 		<fields name="request">
 		<fieldset name="request" addfieldpath="/administrator/components/com_schools/elements">
-			<field name="filter_manufacturer" type="Citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID"  />
+			<field name="filter_manufacturer" type="citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID"  />
 			<field name="task" type="hidden" default="products" />
 		</fieldset>
 		
 	</fields>
         <url addpath="/administrator/components/com_citruscart/elements">
-            <param name="filter_manufacturer" type="Citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID" />
+            <param name="filter_manufacturer" type="citruscartmanufacturer" section="com_citruscart" default="" label="Select Manufacturer" description="A Citruscart Manufaturer ID" />
             <param name="task" type="hidden" default="products" />
         </url>
 	</state>

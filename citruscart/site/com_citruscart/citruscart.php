@@ -75,7 +75,7 @@ $js.= "com_citruscart.jbase = '".Citruscart::getUriRoot()."';\n";
 $doc->addScriptDeclaration($js);
 
 
-$doc->addStyleSheet(JUri::root().'media/system/css/modal.css');
+/* $doc->addStyleSheet(JUri::root().'media/system/css/modal.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/bootstrap/default/css/bootstrap.min.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/joomla.bootstrap.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/common.css');
@@ -86,13 +86,13 @@ $doc->addScript(JUri::root().'media/citruscart/js/common.js');
 $doc->addScript(JUri::root().'media/citruscart/colorbox/colorbox.js');
 $doc->addScript(JUri::root().'media/citruscart/bootstrap/default/js/bootstrap.min.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'media/citruscart/js/opc.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/opc.js');
 $doc->addScript(JUri::root().'media/citruscart/js/class.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_lang.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_orders.js');
 // $doc->addScript(JUri::root().'media/citruscart/js/class.js');
 $doc->addScript(JUri::root().'media/citruscart/js/validation.js');
-$doc->addScript(JUri::root().'media/citruscart/js/opcaccordion.js');
+$doc->addScript(JUri::root().'media/citruscart/js/opcaccordion.js'); */
 //$doc->addScript(JUri::root().'media/citruscart/js/opc.js');
 
 

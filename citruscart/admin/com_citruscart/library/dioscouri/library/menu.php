@@ -30,7 +30,8 @@ class DSCMenu
 
     function __construct($name = 'submenu')
     {	$input = JFactory::getApplication()->input;
-        $this->_option = $input->get('option');
+        //$this->_option = $input->get('option');
+		$this->_option="citruscart";
         $this->_name   = $name;
 
         $this->_menu = JToolBar::getInstance($name);

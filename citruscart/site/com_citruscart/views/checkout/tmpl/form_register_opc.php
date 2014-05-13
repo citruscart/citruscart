@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 	$req_spec = Citruscart::getInstance()->get( 'password_req_spec', 1 );
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
-	
+
 	$js_strings = array( 'COM_CITRUSCART_PASSWORD_VALID', 'COM_CITRUSCART_PASSWORD_INVALID', 'COM_CITRUSCART_PASSWORD_DO_NOT_MATCH', 'COM_CITRUSCART_PASSWORD_MATCH', 'COM_CITRUSCART_SUCCESS', 'COM_CITRUSCART_ERROR', 'COM_CITRUSCART_PASSWORD_MIN_LENGTH', 'COM_CITRUSCART_PASSWORD_REQ_ALPHA', 'COM_CITRUSCART_PASSWORD_REQ_NUMBER', 'COM_CITRUSCART_PASSWORD_REQ_SPEC' );
 	CitruscartHelperImage::addJsTranslationStrings( $js_strings );
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);
@@ -25,14 +25,14 @@
 <div style="clear: both;width:100%;">
 	<div class="form_item">
 		<div class="form_key">
-			<?php 
+			<?php
 				echo JText::_('COM_CITRUSCART_PASSWORD').': '.CitruscartGrid::required();
 				if( $enable_tooltips ): ?>
-				<a class="img_tooltip" href="" > 
+				<a class="img_tooltip" href="" >
 					<img src="<?php echo Citruscart::getUrl('images').$image; ?>" alt='<?php echo JText::_('COM_CITRUSCART_HELP'); ?>' />
 					<span>
 						<?php echo JText::_('COM_CITRUSCART_PASSWORD_REQUIREMENTS'); ?>: <br />
-						<?php 
+						<?php
 							echo '- '.JText::sprintf( "COM_CITRUSCART_PASSWORD_MIN_LENGTH", $min_length ).'<br />';
 							if( $req_num )
 								echo '- '.JText::_('COM_CITRUSCART_PASSWORD_REQ_NUMBER').'<br />';
@@ -47,7 +47,7 @@
 		</div>
 		<div class="form_input">
 			<!--   Password 1st   -->
-			<input id="password" name="password" type="password" onblur="CitruscartCheckPassword( 'message-password', this.form, 'password', <?php echo $min_length ?>, <?php echo $req_num; ?>, <?php echo $req_alpha; ?>, <?php echo $req_spec; ?>  );" class="inputbox_required" size="30" value="" />
+			<input id="password" name="password" type="password" onblur="citruscartCheckPassword( 'message-password', this.form, 'password', <?php echo $min_length ?>, <?php echo $req_num; ?>, <?php echo $req_alpha; ?>, <?php echo $req_spec; ?>  );" class="inputbox_required" size="30" value="" />
 		</div>
 		<div class="form_message" id="message-password"></div>
 	</div>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="form_input">
 			<!--   Password 2nd   -->
-			<input id="password2" name="password2" type="password" onblur="CitruscartCheckPassword2( 'message-password2', this.form, 'password', 'password2' );" class="inputbox_required" size="30" value="" />			
+			<input id="password2" name="password2" type="password" onblur="citruscartCheckPassword2( 'message-password2', this.form, 'password', 'password2' );" class="inputbox_required" size="30" value="" />
 		</div>
 		<div class="form_message" id="message-password2"></div>
 	</div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -9,10 +9,17 @@
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
 
-defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+defined('_JEXEC') or die('Restricted access');
+
+$doc = JFactory::getDocument();
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
+
+?>
+<?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = $this->form; ?>
-<?php $row = $this->row; 
+<?php $row = $this->row;
 JFilterOutput::objectHTMLSafe( $row );
 ?>
 
@@ -20,15 +27,15 @@ JFilterOutput::objectHTMLSafe( $row );
     <span><?php echo JText::_('COM_CITRUSCART_EDIT_BASIC_INFORMATION'); ?></span>
 </div>
 
-<form action="<?php echo JRoute::_( $form['action'] ) ?>" onsubmit="CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', document.adminForm.task.value, document.adminForm )" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
+<form action="<?php echo JRoute::_( $form['action'] ) ?>" onsubmit="citruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', document.adminForm.task.value, document.adminForm )" method="post" class="adminform"  id="adminForm"  name="adminForm" enctype="multipart/form-data" >
     <div style="float: right;">
-        <input type="button" onclick="CitruscartSubmitForm('save');" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />    
+        <input type="button" onclick="citruscartSubmitForm('save');" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />
     </div>
 
     <?php
     echo "<< <a href='".JRoute::_("index.php?option=com_citruscart&view=accounts")."'>".JText::_('COM_CITRUSCART_CANCEL_AND_RETURN_TO_PROFILE')."</a>";
     ?>
-    
+
     <div id="validationmessage"></div>
 
 	<table>
@@ -48,7 +55,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	             <?php echo JText::_('COM_CITRUSCART_FIRST_NAME'); ?>
 	        </th>
 	        <td>
-	            <input name="first_name" id="first_name" 
+	            <input name="first_name" id="first_name"
 	            type="text" size="35" maxlength="250"
 	            value="<?php echo $row->first_name; ?>" />
 	        </td>
@@ -74,7 +81,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        </td>
 	    </tr>
 	    <tr>
-	        <th style="width: 100px; text-align: right;" class="key"> 
+	        <th style="width: 100px; text-align: right;" class="key">
 	          <?php echo JText::_('COM_CITRUSCART_COMPANY'); ?>
 	        </th>
 	        <td><input type="text" name="company" id="company"
@@ -87,7 +94,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        </th>
 	        <td>
 	            <input type="text" name="phone_1" id="phone_1"
-	            size="25" maxlength="250" 
+	            size="25" maxlength="250"
 	            value="<?php echo $row->phone_1; ?>" />
 	        </td>
 	    </tr>
@@ -106,8 +113,8 @@ JFilterOutput::objectHTMLSafe( $row );
 	            <?php echo JText::_('COM_CITRUSCART_FAX'); ?>
 	        </th>
 	        <td>
-	            <input type="text" name="fax" id="fax" 
-	            size="25" maxlength="250" 
+	            <input type="text" name="fax" id="fax"
+	            size="25" maxlength="250"
 	            value="<?php echo $row->fax; ?>" />
 	        </td>
 	    </tr>
@@ -122,7 +129,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	    </tbody>
 	</table>
 
-    <input type="button" onclick="CitruscartSubmitForm('save');" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />
+    <input type="button" onclick="citruscartSubmitForm('save');" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />
 
     <input type="hidden" name="id" value="<?php echo $row->user_id; ?>" />
     <input type="hidden" name="task" id="task" value="" />

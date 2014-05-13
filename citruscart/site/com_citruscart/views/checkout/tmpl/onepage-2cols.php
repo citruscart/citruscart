@@ -29,10 +29,10 @@
 
 	CitruscartHelperImage::addJsTranslationStrings( $js_strings );
 ?>
-<a name="Citruscart-method"></a>
+<a name="citruscart-method"></a>
 
 <div id="citruscart_checkout_pane">
-<a name="CitruscartRegistration" id="citruscartRegistration"></a>
+<a name="citruscartRegistration" id="citruscartRegistration"></a>
 
 <?php // login link ?>
 <?php if(!$this->user->id ) : ?>
@@ -46,7 +46,7 @@
 						array(
 							'width' => '490', 'height' => '320'
 						) );
-				$asktxt = "<a class=\"Citruscart-modal\" href='{$asklink}'>";
+				$asktxt = "<a class=\"citruscart-modal\" href='{$asklink}'>";
 				$asktxt .= JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN');
 				$asktxt .= "</a>";
 		?>
@@ -85,7 +85,7 @@
 					?>
 
 					<?php echo JText::_('COM_CITRUSCART_E-MAIL_ADDRESS');?>:<br/>
-						<input type="text" id="email_address" class="inputbox" name="email_address" value="<?php echo $email_address; ?>" onblur="CitruscartCheckoutCheckEmail( 'user_email_validation',document.adminForm )"/> *
+						<input type="text" id="email_address" class="inputbox" name="email_address" value="<?php echo $email_address; ?>" onblur="citruscartCheckoutCheckEmail( 'user_email_validation',document.adminForm )"/> *
 				</div>
 				<div id="user_email_validation"></div>
 			</div>
@@ -108,7 +108,7 @@
 	            		$billattribs = array(
 	                		'class' => 'inputbox',
 	                    	'size' => '1',
-	                    	'onchange' => "CitruscartCheckoutSetBillingAddress('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', this.options[this.selectedIndex].value, this.form );"
+	                    	'onchange' => "citruscartCheckoutSetBillingAddress('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', this.options[this.selectedIndex].value, this.form );"
 	                	);
 
 	                	// display select list of stored addresses
@@ -150,7 +150,7 @@
 					<!--    SHIPPING ADDRESS  -->
 	                <?php if (empty($this->shipping_address)) : ?>
 	                    <div>
-	                        <input id="sameasbilling" name="sameasbilling" type="checkbox" checked="checked" onclick="citruscartShowHideDiv( 'shipping_input_addressForm' ); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); "/>&nbsp;
+	                        <input id="sameasbilling" name="sameasbilling" type="checkbox" checked="checked" onclick="citruscartShowHideDiv( 'shipping_input_addressForm' ); citruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); citruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); "/>&nbsp;
 	                        <?php echo JText::_('COM_CITRUSCART_SAME_AS_BILLING_ADDRESS'); ?>
 	                    </div>
 					<?php endif; ?>
@@ -158,7 +158,7 @@
 		                $shipattribs = array(
 		                   'class' => 'inputbox',
 		                   'size' => '1',
-		                   'onchange' => "CitruscartCheckoutSetShippingAddress('$baseurl'+this.options[this.selectedIndex].value, 'shippingDefaultAddress', this.form, this.options[this.selectedIndex].value ); "
+		                   'onchange' => "citruscartCheckoutSetShippingAddress('$baseurl'+this.options[this.selectedIndex].value, 'shippingDefaultAddress', this.form, this.options[this.selectedIndex].value ); "
 		                );
 
 		                // display select list of stored addresses
@@ -282,7 +282,7 @@
 								</div>
 		            			<div id="coupon_code_message"></div>
 		            			<input type="text" name="new_coupon_code" id="new_coupon_code" value="" />
-		            			<input type="button" name="coupon_submit" value="<?php echo JText::_('COM_CITRUSCART_ADD_COUPON_TO_ORDER'); ?>"  onClick="CitruscartAddCoupon( document.adminForm, '<?php if ($mult_enabled) { echo "1"; } else { echo "0"; } ?>' );"/>
+		            			<input type="button" name="coupon_submit" value="<?php echo JText::_('COM_CITRUSCART_ADD_COUPON_TO_ORDER'); ?>"  onClick="citruscartAddCoupon( document.adminForm, '<?php if ($mult_enabled) { echo "1"; } else { echo "0"; } ?>' );"/>
 		            		</div>
 		            		<div id='coupon_codes' style="display: none;"></div>
 		        		</div>
@@ -296,10 +296,10 @@
 		            <div id="credits_area" class="address">
 		                <div id="credits_form">
 		                <h3><?php echo JText::_('COM_CITRUSCART_STORE_CREDIT'); ?></h3>
-		                <div id="credit_help"><?php echo sprintf( JText::_('COM_CITRUSCART_YOU_HAVE_STORE_CREDIT'), CitruscartHelperBase::currency( $this->userinfo->credits_total, Citruscart::getInstance()->get( 'default_currencyid', 1) ) ); ?></div>
+		                <div id="credit_help"><?php echo sprintf( JText::_('COM_CITRUSCART_YOU_HAVE_STORE_CREDIT'), citruscartHelperBase::currency( $this->userinfo->credits_total, Citruscart::getInstance()->get( 'default_currencyid', 1) ) ); ?></div>
 		                <div id="credit_message"></div>
 		                <input type="text" name="apply_credit_amount" id="apply_credit_amount" value="" />
-		                <input type="button" name="credit_submit" value="<?php echo JText::_('COM_CITRUSCART_APPLY_CREDIT_TO_ORDER'); ?>"  onClick="CitruscartAddCredit( document.adminForm );"/>
+		                <input type="button" name="credit_submit" value="<?php echo JText::_('COM_CITRUSCART_APPLY_CREDIT_TO_ORDER'); ?>"  onClick="citruscartAddCredit( document.adminForm );"/>
 		                </div>
 		            </div>
 		        <?php endif; ?>
@@ -344,7 +344,7 @@
 				</div>
 				<div id="validationmessage" style="padding-top: 10px;"></div>
 				<div id="citruscart_btns">
-					<input type="button" class="btn" onclick="CitruscartSaveOnepageOrder('Citruscart_checkout_pane', 'validationmessage', this.form, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>')" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_CONTINUE'); ?>" />
+					<input type="button" class="btn" onclick="citruscartSaveOnepageOrder('citruscart_checkout_pane', 'validationmessage', this.form, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>')" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_CONTINUE'); ?>" />
 					<div class="reset marginbot"></div>
 					<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
 				</div>
@@ -377,12 +377,12 @@ window.addEvent('domready', function() {
 <?php if( $this->showShipping  ):?>
 	citruscartShowHideDiv( 'shipping_input_addressForm' );
 	<?php if( !$this->shipping_address->address_id ): ?>
-	document.id( 'sameasbilling' ).addEvent( 'change', function() { CitruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm ) } );
+	document.id( 'sameasbilling' ).addEvent( 'change', function() { citruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm ) } );
 	<?php endif; ?>
 <?php endif; ?>
 
 <?php if( !$this->user->id ) : ?>
-	CitruscartHideInfoCreateAccount();
+	citruscartHideInfoCreateAccount();
 <?php endif; ?>
 });
 </script>

@@ -16,7 +16,7 @@
 		<name>COM_CITRUSCART_PRODUCTS_DEFAULT_LAYOUT</name>
 		<description>COM_CITRUSCART_PRODUCTS_DEFAULT_LAYOUT_DESC</description>
 		<url addpath="/administrator/components/com_citruscart/elements">
-			<param name="filter_category" type="Citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_CITRUSCART_CATEGORY_ID" />
+			<param name="filter_category" type="citruscartcategory" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_CATEGORY" description="COM_CITRUSCART_A_CITRUSCART_CATEGORY_ID" />
 		</url>
 	</state>
 </metadata>

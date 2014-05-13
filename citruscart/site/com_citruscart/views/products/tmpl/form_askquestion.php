@@ -41,7 +41,7 @@ onload=setTimeout("window.parent.document.getElementById( 'sbox-window' ).close(
     <div><?php echo $recaptcha->recaptcha_get_html($publickey); ?></div>
     <?php endif;?>
     <br>
-    <input type="button" onclick="CitruscartSubmitForm('sendAskedQuestion');" value="<?php echo JText::_('COM_CITRUSCART_SEND'); ?>" />
+    <input type="button" onclick="citruscartSubmitForm('sendAskedQuestion');" value="<?php echo JText::_('COM_CITRUSCART_SEND'); ?>" />
     <input type="hidden" name="product_id" value="<?php echo JRequest::getInt('id');; ?>" />
     <input type="hidden" name="task" id="task" value="" />
     <input type="hidden" name="return" id="return" value="<?php echo JRequest::getVar('return');?>" />

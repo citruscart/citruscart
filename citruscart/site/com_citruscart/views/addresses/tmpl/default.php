@@ -14,11 +14,7 @@
 
 	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
-	/*
-	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
-	 JHTML::_('script', 'Citruscart_admin.js', 'media/citruscart/js/');
-	 JHTML::_('behavior.tooltip');
-*/
+
 	$state = $this->state;
 	$form = $this->form;
 	$items = $this->items;

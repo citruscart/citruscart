@@ -3,7 +3,7 @@
 
 <h3><?php echo JText::_('COM_CITRUSCART_SELECT_A_SHIPPING_METHOD') ?></h3>
 
-<input type="button" class="btn btn-danger" onclick="CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', this.form, '<?php echo $shipping_rates_text; ?>' )" value="<?php echo JText::_("COM_CITRUSCART_CLICK_HERE_TO_UPDATE_CUSTOMERS_SHIPPING_RATES"); ?>" />
+<input type="button" class="btn btn-danger" onclick="citruscartGetShippingRates( 'onCheckoutShipping_wrapper', this.form, '<?php echo $shipping_rates_text; ?>' )" value="<?php echo JText::_("COM_CITRUSCART_CLICK_HERE_TO_UPDATE_CUSTOMERS_SHIPPING_RATES"); ?>" />
 <p><?php echo JText::_('COM_CITRUSCART_PLEASE_SELECT_YOUR_PREFERRED_SHIPPING_METHOD_BELOW'); ?>:</p>
 
 <input type="hidden" id="shippingrequired" name="shippingrequired" value="1" />
@@ -19,7 +19,7 @@
             	$checked = "checked";                        
             }        	        		
             ?>
-            <input name="shipping_plugin" type="radio" value="<?php echo $rate['element'] ?>" onClick="CitruscartSetShippingRate('<?php echo $rate['name']; ?>','<?php echo $rate['price']; ?>',<?php echo $rate['tax']; ?>,<?php echo $rate['extra']; ?>, '<?php echo $rate['code']; ?>');" <?php echo $checked; ?> /> <?php echo $rate['name']; ?> ( <?php echo CitruscartHelperBase::currency( $rate['total'] ); ?> )<br />
+            <input name="shipping_plugin" type="radio" value="<?php echo $rate['element'] ?>" onClick="citruscartSetShippingRate('<?php echo $rate['name']; ?>','<?php echo $rate['price']; ?>',<?php echo $rate['tax']; ?>,<?php echo $rate['extra']; ?>, '<?php echo $rate['code']; ?>');" <?php echo $checked; ?> /> <?php echo $rate['name']; ?> ( <?php echo CitruscartHelperBase::currency( $rate['total'] ); ?> )<br />
             <br/>
             <?php
         }
@@ -54,7 +54,7 @@
 <?php if (!empty($this->default_rate)) : ?>
     <?php $default_rate = $this->default_rate; ?>
     <script type="text/javascript">
-        window.onload = CitruscartSetShippingRate('<?php echo $default_rate['name']; ?>','<?php echo $default_rate['price']; ?>',<?php echo $default_rate['tax']; ?>,<?php echo $default_rate['extra']; ?>, '<?php echo $default_rate['code']; ?>');
+        window.onload = citruscartSetShippingRate('<?php echo $default_rate['name']; ?>','<?php echo $default_rate['price']; ?>',<?php echo $default_rate['tax']; ?>,<?php echo $default_rate['extra']; ?>, '<?php echo $default_rate['code']; ?>');
     </script>
 <?php endif; ?>
 <input type="hidden" name="subtask" id="subtask" value="payment" />
