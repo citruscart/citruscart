@@ -43,10 +43,16 @@ class CitruscartViewBase extends DSCViewSite
 	 */
 	function display($tpl=null, $perform = true )
 	{
+
+		$doc = JFactory::getDocument();
+		//$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
+
+
+
 	    // these need to load before jquery to prevent joomla from crying
 	    JHTML::_('behavior.modal');
-	    JHTML::_('script', 'core.js', 'media/system/js/');
 
+	    $doc->addScript(JUri::root().'media/system/js/core.js');
 	    DSC::loadJQuery('latest', true, 'citruscartJQ');
 
 	    if ($this->defines->get('use_bootstrap', '0'))
@@ -54,11 +60,14 @@ class CitruscartViewBase extends DSCViewSite
 	    	DSC::loadBootstrap();
 	    }
 
-	    JHTML::_('stylesheet', 'common.css', 'media/citruscart/css/');
+	    //JHTML::_('stylesheet', 'common.css', 'media/citruscart/css/');
+
+	    $doc->addStyleSheet(JUri::root().'media/citruscart/css/common.css');
 
 	    if ($this->defines->get('include_site_css', '0'))
 	    {
-	        JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+	    	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart.css');
+	    	//JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
 	    }
 
 		parent::display($tpl);

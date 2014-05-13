@@ -375,12 +375,12 @@ window.addEvent('domready', function() {
 <?php if( $this->showShipping  ):?>
 	citruscartShowHideDiv( 'shipping_input_addressForm' );
 	<?php if( !$this->shipping_address->address_id ): ?>
-		document.id( 'sameasbilling' ).addEvent( 'change', function() { CitruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm ) } );
+		document.id( 'sameasbilling' ).addEvent( 'change', function() { citruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm ) } );
 	<?php endif; ?>
 <?php endif; ?>
 
 <?php if( !$this->user->id ) : ?>
-	CitruscartHideInfoCreateAccount();
+	citruscartHideInfoCreateAccount();
 <?php endif; ?>
 });
 </script>

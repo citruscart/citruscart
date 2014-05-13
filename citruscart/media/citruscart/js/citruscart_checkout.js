@@ -377,7 +377,7 @@ function citruscartCheckPassword( container, form, psw, min_length, req_num, req
 		val_class	= 'validation-fail';
 	}
 
-	content = '<div class="citruscart_validation"><img src="'+window.com_citruscart.jbase+'media/com_citruscart/images/'+val_img+'" alt="'+val_alt+'"><span class="'+val_class+'">'+val_text+'</span></div>';
+	content = '<div class="citruscart_validation"><img src="'+window.com_citruscart.jbase+'media/citruscart/images/'+val_img+'" alt="'+val_alt+'"><span class="'+val_class+'">'+val_text+'</span></div>';
 	if( $( container ) )
 		$( container ).set('html',  content );
 }
@@ -402,7 +402,7 @@ function citruscartCheckPassword2( container, form, psw1, psw2 )
 		val_class	= 'validation-fail';
 	}
 	
-	content = '<div class="citruscart_validation"><img src="'+window.com_citruscart.jbase+'media/com_citruscart/images/'+val_img+'" alt="'+val_alt+'"><span class="'+val_class+'">'+val_text+'</span></div>';
+	content = '<div class="citruscart_validation"><img src="'+window.com_citruscart.jbase+'media/citruscart/images/'+val_img+'" alt="'+val_alt+'"><span class="'+val_class+'">'+val_text+'</span></div>';
 	if( citruscartJQ( container ) )
 		citruscartJQ( container ).set('html',  content );
 }
@@ -445,6 +445,7 @@ function citruscartHideInfoCreateAccount( )
 	citruscartJQ('create_account').addEvent('change', function() {
 		citruscartJQ('citruscart_user_additional_info').toggleClass('hidden');
 	});
+
 }
 
 function citruscartGetPaymentOptions(container, form, msg, callback) {

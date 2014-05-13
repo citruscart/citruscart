@@ -249,16 +249,10 @@ class DSCHelper extends JObject
 		foreach ($elements as $element)
 		{
 			$isarray = false;
-			$name = $element->name;
+			$name = (isset($element->name)) ? $element->name : "";
 			$value = (isset($element->value)) ? $element->value : null;
 
 			$checked = (isset($element->checked)) ? $element->checked : null;
-			/* $value = $element->value;
-            $checked = $element->checked; */
-
-
-
-
 			// if the name is an array,
 			// attempt to recreate it
 			// using the array's name

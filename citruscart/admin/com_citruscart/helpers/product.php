@@ -2501,6 +2501,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $html = '';
 
         $page = $app->input->get('page', 'product');
+
         //$page = JRequest::getVar( 'page', 'product' );
 		$isPOS = $page == 'pos';
 
@@ -2709,10 +2710,14 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         JFactory::getApplication()->triggerEvent( 'onDisplayProductAttributeOptions', array(
                 $row->product_id
         ) );
+
         $view->onDisplayProductAttributeOptions = ob_get_contents( );
+
+
         ob_end_clean( );
 
         $html = $view->loadTemplate();
+
 		if( isset( $view->callback_js ) && !empty( $view->callback_js ) ) {
 			$callback_js = $view->callback_js;
 		}

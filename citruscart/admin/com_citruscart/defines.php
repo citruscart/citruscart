@@ -481,12 +481,12 @@ class Citruscart extends DSC
 		$view = $app->input->get('view', 'dashboard');
 		$config = JFactory::getConfig();
 		$uri = JURI::getInstance(JURI::base());
+
 		if( $config->get('config.force_ssl') || ( $app->isSite() &&  $view == 'checkout' && Citruscart::getInstance()->get( 'force_ssl_checkout',0 ) ) )
 			$uri->setScheme( 'https' );
-		$root['prefix'] = $uri->__toString( array('scheme', 'host', 'port') );
-		$root['path']   = rtrim($uri->__toString( array('path') ), '/\\');
 
-		return $root['prefix'].$root['path'].'/';
+		return JUri::root();
+
 	}
 
 	/**

@@ -12,11 +12,8 @@
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php
 	$doc = JFactory::getDocument();
-
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-
-
-//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+?>
 <?php $row = $this->row; ?>
 <?php $config = Citruscart::getInstance(); ?>
 
@@ -39,7 +36,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JText::_('COM_CITRUSCART_SET_AS_DEFAULT_SHIPPING'); ?>
         </th>
         <td>
-            <?php echo JHTML::_('select.booleanlist', 'is_default_shipping', '', $row->is_default_shipping ); ?>
+            <?php echo JHTML::_('select.booleanlist', 'is_default_shipping', '', @$row->is_default_shipping ); ?>
         </td>
     </tr>
     <tr>
@@ -47,7 +44,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JText::_('COM_CITRUSCART_SET_AS_DEFAULT_BILLING'); ?>
         </th>
         <td>
-            <?php echo JHTML::_('select.booleanlist', 'is_default_billing', '', $row->is_default_billing ); ?>
+            <?php echo JHTML::_('select.booleanlist', 'is_default_billing', '', @$row->is_default_billing ); ?>
         </td>
     </tr>
 
@@ -57,7 +54,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
     		<?php echo JText::_('COM_CITRUSCART_TITLE'); ?>
     	</th>
         <td>
-			<input name="title" id="title" type="text" size="25" maxlength="250" value="<?php echo $row->title; ?>" />
+			<input name="title" id="title" type="text" size="25" maxlength="250" value="<?php echo @$row->title; ?>" />
 		</td>
 	</tr>
 
@@ -69,7 +66,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
              <?php echo JText::_('COM_CITRUSCART_FIRST_NAME'); ?>
         </th>
         <td>
-            <input name="first_name" id="first_name"  type="text" size="35" maxlength="250" value="<?php echo $row->first_name; ?>" />
+            <input name="first_name" id="first_name"  type="text" size="35" maxlength="250" value="<?php echo @$row->first_name; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -79,7 +76,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
              <?php echo JText::_('COM_CITRUSCART_MIDDLE_NAME'); ?>
         </th>
         <td>
-           <input type="text" name="middle_name" id="middle_name" size="25" maxlength="250" value="<?php echo $row->middle_name; ?>" />
+           <input type="text" name="middle_name" id="middle_name" size="25" maxlength="250" value="<?php echo @$row->middle_name; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -89,7 +86,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
              <?php echo JText::_('COM_CITRUSCART_LAST_NAME'); ?>
         </th>
         <td>
-           <input type="text" name="last_name" id="last_name" size="45" maxlength="250" value="<?php echo $row->last_name; ?>" />
+           <input type="text" name="last_name" id="last_name" size="45" maxlength="250" value="<?php echo @$row->last_name; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -99,7 +96,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
           <?php echo JText::_('COM_CITRUSCART_COMPANY'); ?>
         </th>
         <td>
-          <input type="text" name="company" id="company" size="48" maxlength="250" value="<?php echo $row->company; ?>" />
+          <input type="text" name="company" id="company" size="48" maxlength="250" value="<?php echo @$row->company; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -109,7 +106,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
           <?php echo JText::_('COM_CITRUSCART_COMPANY_TAX_NUMBER'); ?>
         </th>
         <td>
-          <input type="text" name="tax_number" id="tax_number" size="48" maxlength="250" value="<?php echo $row->tax_number; ?>" />
+          <input type="text" name="tax_number" id="tax_number" size="48" maxlength="250" value="<?php echo @$row->tax_number; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -119,7 +116,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
               <?php echo JText::_('COM_CITRUSCART_ADDRESS_LINE_1'); ?>
         </th>
         <td>
-            <input type="text" name="address_1" id="address_1" size="48" maxlength="250"  value="<?php echo $row->address_1; ?>" />
+            <input type="text" name="address_1" id="address_1" size="48" maxlength="250"  value="<?php echo @$row->address_1; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -129,7 +126,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
               <?php echo JText::_('COM_CITRUSCART_ADDRESS_LINE_2'); ?>
         </th>
         <td>
-            <input type="text" name="address_2" id="address_2" size="48" maxlength="250"  value="<?php echo $row->address_2; ?>" />
+            <input type="text" name="address_2" id="address_2" size="48" maxlength="250"  value="<?php echo @$row->address_2; ?>" />
         </td>
     </tr>
     <?php endif;?>
@@ -139,7 +136,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JText::_('COM_CITRUSCART_CITY'); ?>
 		</th>
 		<td>
-			<input type="text" name="city" id="city" size="48" maxlength="250" value="<?php echo $row->city; ?>" />
+			<input type="text" name="city" id="city" size="48" maxlength="250" value="<?php echo @$row->city; ?>" />
 		</td>
 	</tr>
   <?php endif;?>
@@ -152,7 +149,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			// TODO Change this to use a task within the checkout controller rather than creating a new zones controller
 			$url = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getzones&country_id=";
 			$attribs = array('class' => 'inputbox','size' => '1','onchange' => 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'country_id\').value, \'zones_wrapper\', \'\');' );
-			echo CitruscartSelect::country( $row->country_id, 'country_id', $attribs, 'country_id', true, true );
+			echo CitruscartSelect::country( @$row->country_id, 'country_id', $attribs, 'country_id', true, true );
 			?>
         </td>
 	</tr>
@@ -169,7 +166,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             }
             else
             {
-            	echo CitruscartSelect::zone( $row->zone_id, 'zone_id', $row->country_id );
+            	echo CitruscartSelect::zone( @$row->zone_id, 'zone_id', @$row->country_id );
             }
             ?>
             </div>
@@ -181,7 +178,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	       <?php echo JText::_('COM_CITRUSCART_POSTAL_CODE'); ?>
     	</th>
       <td>
-			<input type="text" name="postal_code" id="postal_code" size="25" maxlength="250"  value="<?php echo $row->postal_code; ?>" />
+			<input type="text" name="postal_code" id="postal_code" size="25" maxlength="250"  value="<?php echo @$row->postal_code; ?>" />
 		</td>
 	</tr>
   <?php endif;?>
@@ -191,7 +188,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JText::_('COM_CITRUSCART_PHONE'); ?>
 		</th>
 		<td>
-			<input type="text" name="phone_1" id="phone_1" size="25" maxlength="250" value="<?php echo $row->phone_1; ?>" />
+			<input type="text" name="phone_1" id="phone_1" size="25" maxlength="250" value="<?php echo @$row->phone_1; ?>" />
 		</td>
 	</tr>
   <?php endif;?>
@@ -202,7 +199,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JText::_('COM_CITRUSCART_CELL'); ?>
 		</th>
 		<td>
-			<input type="text" name="phone_2" id="phone_2" size="25" maxlength="250" value="<?php echo $row->phone_2; ?>" />
+			<input type="text" name="phone_2" id="phone_2" size="25" maxlength="250" value="<?php echo @$row->phone_2; ?>" />
 		</td>
 	</tr>
 	<?php endif;?>
@@ -212,7 +209,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			<?php echo JText::_('COM_CITRUSCART_FAX'); ?>
 		</th>
 		<td>
-			<input type="text" name="fax" id="fax" size="25" maxlength="250" value="<?php echo $row->fax; ?>" />
+			<input type="text" name="fax" id="fax" size="25" maxlength="250" value="<?php echo @$row->fax; ?>" />
 		</td>
 	</tr>
 	<?php endif;?>
