@@ -49,11 +49,6 @@ class CitruscartViewCurrencies extends CitruscartViewBase
         JToolBarHelper::unpublishList( 'currency_enabled.disable' );
 		JToolBarHelper::divider();
 
-		require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
-		$toolbar = new CitruscartToolBar();
-		Citruscart::load('CitruscartToolbar','helpers.toolbar.php');
-		$toolbar->renderLinkbar();
-
 		parent::_defaultToolbar();
 	}
 

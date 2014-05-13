@@ -33,7 +33,7 @@ if (!class_exists( 'DSCInstaller' )) {
 	 * @author Dioscouri Design
 	 * @author Joomla Core Team
 	 * @link http://www.dioscouri.com
-	 * @copyright Copyright (C) 2008 Dioscouri Design. All rights reserved.
+	 * @copyright Copyright (C) 2014 - 2019 Citruscart. All rights reserved.
 	 * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 	 */
 	class DSCInstaller extends JObject {
