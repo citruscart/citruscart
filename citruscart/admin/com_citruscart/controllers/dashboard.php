@@ -45,7 +45,7 @@ class CitruscartControllerDashboard extends CitruscartController
 	    $sum = $cache->call(array($model, 'getSumChartData'), $revenue);
 
         $interval = $model->getStatIntervalValues($state->stats_interval);
-		print_r($interval);
+		//print_r($interval);
 	    $view = $this->getView( $this->get('suffix'), 'html' );
 	    $view->assign( 'orders', $orders );
 	    $view->assign( 'revenue', $revenue );

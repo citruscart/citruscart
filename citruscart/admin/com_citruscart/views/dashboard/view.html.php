@@ -20,11 +20,6 @@ class CitruscartViewDashboard extends CitruscartViewBase
 	function dispaly($tpl=null){
 
 		//$this->addToolBar();
-
-
-
-
-
 		parent::display($tpl);
 
 
