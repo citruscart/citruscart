@@ -1,7 +1,7 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
-	jimport('joomla.application.component.model');
-
+	//jimport('joomla.application.component.model');
+	JHTML::_('behavior.modal');
 	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 	$user = JFactory::getUser();
@@ -28,7 +28,7 @@
 
         <?php echo JText::_('COM_CITRUSCART_DASHBOARD_TEXT'); ?>
 
-            <table class="adminlist" style="margin-bottom: 5px;">
+            <table class="adminlist table table-striped table-bordered" style="margin-bottom: 5px;">
             <thead>
             <tr>
                 <th colspan="2">
@@ -62,7 +62,8 @@
                     <?php echo JText::_('COM_CITRUSCART_ADDRESSES'); ?>
                 </th>
                 <td>
-                    <a href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
+
+                    <a class="modal"  rel="{handler: 'iframe', size: {x: 800, y: 500}}"  href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
                         <?php echo JText::_('COM_CITRUSCART_MANAGE_BILLING_AND_SHIPPING_ADDRESSES'); ?>
                     </a>
                 </td>

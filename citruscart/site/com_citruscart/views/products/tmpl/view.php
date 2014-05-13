@@ -15,11 +15,13 @@ defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
+
 $state = $this->state;
 $item = $this->row;
 
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
 $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'thumb', false, false, array(), true );
+
 ?>
 
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">

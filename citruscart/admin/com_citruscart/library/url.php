@@ -26,12 +26,16 @@ class CitruscartUrl extends DSCUrl
 	    }
 
 		$html = "";
+		$doc = JFactory::getDocument();
+		$doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
+		$doc->addScript(JUri::root().'media/com_citruscart/colorbox/colorbox.js');
 
-		JHTML::_('stylesheet', 'colorbox.css', 'media/com_citruscart/colorbox/');
-		JHTML::_( 'script', 'colorbox.js', 'media/com_citruscart/colorbox/' );
+
+		//JHTML::_('stylesheet', 'colorbox.css', 'media/com_citruscart/colorbox/');
+		//JHTML::_( 'script', 'colorbox.js', 'media/com_citruscart/colorbox/' );
 
 		$document = JFactory::getDocument();
-		$js = "citruscartJQ(document).ready(function() { citruscartJQ('.Citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
+		$js = "citruscartJQ(document).ready(function() { citruscartJQ('.citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
 		$document->addScriptDeclaration( $js );
 
 		if (!empty($options['update']))
@@ -45,7 +49,9 @@ class CitruscartUrl extends DSCUrl
 
 		// set the $handler_string based on the user's browser
         $handler_string = "{handler:'iframe', ". $onclose ." size:{x: window.innerWidth-80, y: window.innerHeight-80}, onShow:$('sbox-window').setStyles({'padding': 0})}";
-	    $browser = DSC::getClass( 'DSCBrowser', 'library.browser' );
+		require_once(JPATH_SITE.'/libraries/dioscouri/dioscouri.php');
+        $browser = DSC::getClass( 'DSCBrowser', 'library.browser' );
+
         if ( $browser->getBrowser() == DSCBrowser::BROWSER_IE )
         {
             // if IE, use
@@ -68,7 +74,7 @@ class CitruscartUrl extends DSCUrl
 		$id = (!empty($options['id'])) ? $options['id'] : '';
 		$class = (!empty($options['class'])) ? $options['class'] : '';
 
-		$html	= "<a class=\"Citruscart-modal\" href=\"$url\" rel=\"$handler\" >\n";
+		$html	= "<a class=\"citruscart-modal\" href=\"$url\" rel=\"$handler\" >\n";
 		$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
         $html   .= "$text\n";
 		$html 	.= "</span>\n";

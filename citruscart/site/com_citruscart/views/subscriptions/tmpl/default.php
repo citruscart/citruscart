@@ -11,7 +11,8 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+	 $doc = JFactory::getDocument();
+    $doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 	$state = $this->state;
 	$form = $this->form;
 	$items = $this->items;
@@ -24,9 +25,9 @@ defined('_JEXEC') or die('Restricted access');
 
 	<?php if( $menu ) { $menu->display(); } ?>
 
-<form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" id="adminForm" name="adminForm" enctype="multipart/form-data">
 
-    <table>
+    <table class="table table-striped table-bordered">
         <tr>
             <td align="left" width="100%">
                 <?php echo JText::_('COM_CITRUSCART_SEARCH_BY_APPLYING_FILTERS'); ?>
@@ -40,7 +41,7 @@ defined('_JEXEC') or die('Restricted access');
         </tr>
     </table>
 
-    <table class="adminlist" style="clear: both;" >
+    <table class="adminlist table table-striped table-bordered" style="clear: both;" >
         <thead>
             <tr class="filterline">
                 <th>

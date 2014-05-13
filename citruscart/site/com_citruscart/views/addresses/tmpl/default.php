@@ -12,8 +12,11 @@
 	defined('_JEXEC') or die('Restricted access');
 	jimport('joomla.application.component.model');
 
-	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
-	JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+	JHTML::_('behavior.modal');
+
+	$doc = JFactory::getDocument();
+	$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
+	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 
 	$state = $this->state;
 	$form = $this->form;
