@@ -149,7 +149,7 @@ function CitruscartUpdateParentDefaultImage(id) {
 	}).send();
 }
 
-function CitruscartSetShippingRate(name, price, tax, extra, code) {
+function citruscartSetShippingRate(name, price, tax, extra, code) {
 	citruscartJQ('shipping_name').val( name );
 	citruscartJQ('shipping_code').val( code );
 	citruscartJQ('shipping_price').val( price );
@@ -170,7 +170,7 @@ function CitruscartGetCheckoutTotals() {
 	citruscartDoTask( url, 'orderSummary', document.adminForm, '', false );
 }
 
-function CitruscartGetShippingRates( container, form, msg, doModal ) {
+function citruscartGetShippingRates( container, form, msg, doModal ) {
 	var url = 'index.php?option=com_citruscart&view=pos&task=updateShippingRates&format=raw';
 	if (doModal != false) {
 		Dsc.newModal(msg)

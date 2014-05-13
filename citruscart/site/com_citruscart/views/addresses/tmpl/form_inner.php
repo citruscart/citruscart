@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -10,7 +10,13 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php
+	$doc = JFactory::getDocument();
+
+	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
+
+//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $row = $this->row; ?>
 <?php $config = Citruscart::getInstance(); ?>
 
@@ -44,7 +50,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <?php echo JHTML::_('select.booleanlist', 'is_default_billing', '', $row->is_default_billing ); ?>
         </td>
     </tr>
-    
+
     <?php if($config->get('show_field_title', '3') != '0' ): ?>
     <tr>
     	<th style="width: 100px; text-align: right;" class="key">
@@ -54,9 +60,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			<input name="title" id="title" type="text" size="25" maxlength="250" value="<?php echo $row->title; ?>" />
 		</td>
 	</tr>
-	
+
 	<?php endif; ?>
-    
+
     <?php if($config->get('show_field_name', '3') != '0' ): ?>
     <tr>
         <th style="width: 100px; text-align: right;" class="key">
@@ -89,7 +95,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
     <?php endif;?>
     <?php if($config->get('show_field_company', '3') != '0' ): ?>
     <tr>
-        <th style="width: 100px; text-align: right;" class="key"> 
+        <th style="width: 100px; text-align: right;" class="key">
           <?php echo JText::_('COM_CITRUSCART_COMPANY'); ?>
         </th>
         <td>
@@ -99,7 +105,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
     <?php endif;?>
     <?php if($config->get('show_field_tax_number', '3') != '0' ): ?>
     <tr>
-        <th style="width: 100px; text-align: right;" class="key"> 
+        <th style="width: 100px; text-align: right;" class="key">
           <?php echo JText::_('COM_CITRUSCART_COMPANY_TAX_NUMBER'); ?>
         </th>
         <td>
@@ -143,7 +149,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		</th>
 		<td>
 			<?php
-			// TODO Change this to use a task within the checkout controller rather than creating a new zones controller 
+			// TODO Change this to use a task within the checkout controller rather than creating a new zones controller
 			$url = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getzones&country_id=";
 			$attribs = array('class' => 'inputbox','size' => '1','onchange' => 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'country_id\').value, \'zones_wrapper\', \'\');' );
 			echo CitruscartSelect::country( $row->country_id, 'country_id', $attribs, 'country_id', true, true );
@@ -156,10 +162,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		</th>
 		<td>
             <div id="zones_wrapper">
-            <?php 
-            if (empty($row->zone_id)) 
+            <?php
+            if (empty($row->zone_id))
             {
-            	echo JText::_('COM_CITRUSCART_SELECT_COUNTRY_FIRST'); 
+            	echo JText::_('COM_CITRUSCART_SELECT_COUNTRY_FIRST');
             }
             else
             {
@@ -189,7 +195,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		</td>
 	</tr>
   <?php endif;?>
-  
+
    <?php if($config->get('show_field_cell', '3') != '0' ): ?>
 	<tr>
 		<th style="width: 100px; text-align: right;" class="key">
@@ -210,8 +216,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		</td>
 	</tr>
 	<?php endif;?>
-	<?php 
-		
+	<?php
+
 		JFactory::getApplication()->triggerEvent('onAfterDisplayAddressDetails', array($row, '') );
 	?>
 	</tbody>

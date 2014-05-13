@@ -1481,7 +1481,7 @@ class CitruscartControllerCheckout extends CitruscartController
             // set response array
             $response = array();
             $response['msg'] = '<form action="index.php?option=com_citruscart&view=checkout" method="post" id="citruscart_registration_form" name="adminForm" enctype="multipart/form-data">';
-            $response['msg'] .= "<div class='Citruscart_registration'>".$html."</div>";
+            $response['msg'] .= "<div class='citruscart_registration'>".$html."</div>";
             $response['msg'] .= "</form>";
             $response['label'] = JText::_('COM_CITRUSCART_REGISTER');
 

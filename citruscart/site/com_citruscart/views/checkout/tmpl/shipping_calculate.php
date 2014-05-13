@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -12,10 +12,10 @@
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php  if (!Citruscart::getInstance()->get('one_page_checkout')) :?>
 	<h3><?php echo JText::_('COM_CITRUSCART_SELECT_A_SHIPPING_METHOD') ?></h3>
-	<input type="button" class="btn" value="<?php echo JText::_( "COM_CITRUSCART_GET_SHIPPING_RATES" ); ?>" onclick="CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); " />
+	<input type="button" class="btn" value="<?php echo JText::_( "COM_CITRUSCART_GET_SHIPPING_RATES" ); ?>" onclick="citruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); citruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); " />
 <?php endif; ?>
 <input type="hidden" id="shippingrequired" name="shippingrequired" value="1"  />
 <div class="note">
 	<?php echo JText::_('COM_CITRUSCART_NO_SHIPPING_RATES_FOUND'); ?>
 </div>
-<input type="button" class="btn" value="<?php echo JText::_( "COM_CITRUSCART_GET_SHIPPING_RATES" ); ?>" onclick="CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); " />
+<input type="button" class="btn" value="<?php echo JText::_( "COM_CITRUSCART_GET_SHIPPING_RATES" ); ?>" onclick="citruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); citruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); " />

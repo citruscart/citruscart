@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -9,9 +9,11 @@
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
 
-	defined('_JEXEC') or die('Restricted access'); 
- 	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); 
- 	JHTML::_('script', 'Citruscart_checkout.js', 'media/citruscart/js/'); 
+	defined('_JEXEC') or die('Restricted access');
+	$doc = JFactory::getDocument();
+
+	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
 	$order_link = $this->order_link;
 	$plugin_html = $this->plugin_html;
 ?>
@@ -42,7 +44,7 @@
 <?php foreach ($this->articles as $article) : ?>
     <div class="postpayment_article">
         <?php echo $article; ?>
-    </div>    
+    </div>
 <?php endforeach; ?>
 
 <?php if (!empty($this->onAfterDisplayPostPayment)) : ?>

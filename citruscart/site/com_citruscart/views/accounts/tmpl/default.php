@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -17,11 +17,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
 </div>
 
 	<?php if ($menu = CitruscartMenu::getInstance()) { $menu->display(); } ?>
-		
+
 <table style="width: 100%;">
 <tr>
 	<td style="width: 70%; max-width: 70%; vertical-align: top; padding-right: 5px;">
-	
+
             <table class="adminlist" style="margin-bottom: 5px;">
             <thead>
             <tr>
@@ -45,7 +45,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     }
                     else
                     {
-                        echo $userinfo->first_name." ".$userinfo->last_name."<br/>"; 	
+                        echo $userinfo->first_name." ".$userinfo->last_name."<br/>";
                     }
                     ?>
                 </td>
@@ -88,7 +88,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </th>
                 <td colspan="2">
 		            	<?php Citruscart::load( 'CitruscartHelperSubscription', 'helpers.subscription' ); ?>
-    	        		<?php echo CitruscartHelperSubscription::displaySubNum( $userinfo->sub_number ); ?>                    
+    	        		<?php echo CitruscartHelperSubscription::displaySubNum( $userinfo->sub_number ); ?>
                 </td>
             </tr>
             <?php endif; ?>
@@ -106,10 +106,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			            echo $address->address_1 . " " . $address->address_2 . "<br>";
 			            echo $address->city . ", " . $address->zone_name .", " . $address->postal_code . "<br>";
 			            echo $address->country_name . "<br>";
-                    } 
+                    }
                     else
                     {
-                        echo JText::_('COM_CITRUSCART_NONE_SELECTED');	
+                        echo JText::_('COM_CITRUSCART_NONE_SELECTED');
                     }
                     ?>
                 </td>
@@ -124,7 +124,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <?php echo JText::_('COM_CITRUSCART_PRIMARY_BILLING_ADDRESS'); ?>
                 </th>
                 <td>
-                    <?php 
+                    <?php
                     if ($address = CitruscartHelperUser::getPrimaryAddress( JFactory::getUser()->id, 'billing' ))
                     {
                         echo $address->title . " ". $address->first_name . " ". $address->last_name . "<br>";
@@ -132,10 +132,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
                         echo $address->address_1 . " " . $address->address_2 . "<br>";
                         echo $address->city . ", " . $address->zone_name .", " . $address->postal_code . "<br>";
                         echo $address->country_name . "<br>";
-                    } 
+                    }
                     else
                     {
-                        echo JText::_('COM_CITRUSCART_NONE_SELECTED'); 
+                        echo JText::_('COM_CITRUSCART_NONE_SELECTED');
                     }
                     ?>
                 </td>
@@ -147,33 +147,33 @@ defined('_JEXEC') or die('Restricted access'); ?>
             </tr>
             </tbody>
             </table>
-	
+
 		<?php
-		$modules = JModuleHelper::getModules("Citruscart_dashboard_main");
+		$modules = JModuleHelper::getModules("citruscart_dashboard_main");
 		$document	= JFactory::getDocument();
 		$renderer	= $document->loadRenderer('module');
 		$attribs 	= array();
 		$attribs['style'] = 'xhtml';
-		foreach ( $modules as $mod ) 
+		foreach ( $modules as $mod )
 		{
 			echo $renderer->render($mod, $attribs);
 		}
 		?>
-		
+
 		<?php
-		$modules = JModuleHelper::getModules("Citruscart_dashboard_right");
+		$modules = JModuleHelper::getModules("citruscart_dashboard_right");
 		if ($modules)
 		{
             ?>
             </td>
             <td style="vertical-align: top; width: 30%; min-width: 30%; padding-left: 5px;">
             <?php
-			
+
 			$document	= JFactory::getDocument();
 			$renderer	= $document->loadRenderer('module');
 			$attribs 	= array();
 			$attribs['style'] = 'xhtml';
-			foreach ( $modules as $mod ) 
+			foreach ( $modules as $mod )
 			{
 				echo $renderer->render($mod, $attribs);
 			}

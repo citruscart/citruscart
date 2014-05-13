@@ -8,7 +8,7 @@
 	<!-- Joomla 1.6+ only -->
 	<fields name="request">
 		<fieldset name="request" addfieldpath="/administrator/components/com_citruscart/elements">
-			<field name="id" type="Citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
+			<field name="id" type="citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
 			<field name="task" type="hidden" section="com_citruscart" default="view" />
 		</fieldset>
 	</fields>
@@ -17,7 +17,7 @@
 		<name>COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT</name>
 		<description>COM_CITRUSCART_PRODUCTS_SINGLE_LAYOUT_DESC</description>
         <url addpath="/administrator/components/com_citruscart/elements">
-            <param name="id" type="Citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
+            <param name="id" type="citruscartproduct" section="com_citruscart" default="" label="COM_CITRUSCART_SELECT_PRODUCT" description="COM_CITRUSCART_A_Citruscart_PRODUCT_ID" />
             <param name="task" type="hidden" section="com_citruscart" default="view" />
         </url>
 	</state>

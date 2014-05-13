@@ -100,7 +100,7 @@ $image_addtocart = CitruscartHelperImage::getLocalizedName("addcart.png", Citrus
             <input type="hidden" id="task" name="task" value="" />
             <?php echo JHTML::_( 'form.token' ); ?>
 
-            <?php $onclick = "CitruscartFormValidation( '".JRoute::_( $this->product_relations_data->validation )."', 'validationmessage_children', 'addchildrentocart', document.adminFormChildren );"; ?>
+            <?php $onclick = "citruscartFormValidation( '".JRoute::_( $this->product_relations_data->validation )."', 'validationmessage_children', 'addchildrentocart', document.adminFormChildren );"; ?>
 
             <?php
             if (empty($item->product_check_inventory) || (!empty($item->product_check_inventory) && empty($this->product_relations_data->invalidQuantity)) ) :

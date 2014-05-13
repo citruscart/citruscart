@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');
 	$config = Citruscart::getInstance();
 	$one_page =$config->get('one_page_checkout', 0);
 	$guest_enabled = $config->get('guest_checkout_enabled', 0);
-	
+
 	switch($this->form_prefix)
 	{
 		case 'shipping_input_':
@@ -35,7 +35,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <div id="<?php echo $this->form_prefix; ?>addressForm" class="address_form">
 	<?php
-		if( $elements['address_name'][0] ) 
+		if( $elements['address_name'][0] )
 		{
 			if( $this->guest && !$one_page )
 			{
@@ -49,7 +49,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php echo CitruscartGrid::required(); ?>
 		<?php endif;?>
 		<span class="block"><?php echo JText::_('COM_CITRUSCART_ADDRESS_TITLE_FOR_YOUR_REFERENCE'); ?>
-		
+
 		</span>
 	</label>
 	<input name="<?php echo $this->form_prefix; ?>address_name" id="<?php echo $this->form_prefix; ?>address_name" class="inputbox" type="text" maxlength="250" data-required="<?php echo $elements['address_name'][1] ? 'true' : false; ?>" />&nbsp;
@@ -62,7 +62,7 @@ defined('_JEXEC') or die('Restricted access');
 	<?php if( $elements['title'][0] ) :?>
 		<div>
 			<label class="key" for="<?php echo $this->form_prefix; ?>title">
-				<?php 
+				<?php
 					echo JText::_('COM_CITRUSCART_TITLE');
 					if( $elements['title'][1] ):
 						echo CitruscartGrid::required();
@@ -80,7 +80,7 @@ defined('_JEXEC') or die('Restricted access');
 				<?php echo JText::_('COM_CITRUSCART_FIRST_NAME'); ?>
 				<?php if( $elements['name'][1] ): ?>
 					<?php echo CitruscartGrid::required(); ?>
-				<?php endif;?>			
+				<?php endif;?>
 			</label>
 			<input name="<?php echo $this->form_prefix; ?>first_name"	id="<?php echo $this->form_prefix; ?>first_name" class="inputbox"	type="text" maxlength="250" data-required="<?php echo $elements['name'][1] ? 'true' : false; ?>" />
 		</div>
@@ -89,7 +89,7 @@ defined('_JEXEC') or die('Restricted access');
 		<?php if( $elements['middle'][0] ) :?>
 		<div>
 			<label class="key" for="<?php echo $this->form_prefix; ?>middle_name">
-				<?php echo JText::_('COM_CITRUSCART_MIDDLE_NAME'); ?> 
+				<?php echo JText::_('COM_CITRUSCART_MIDDLE_NAME'); ?>
 				<?php if( $elements['middle'][1] ): ?>
 					<?php echo CitruscartGrid::required(); ?>
 				<?php endif;?>
@@ -110,7 +110,7 @@ defined('_JEXEC') or die('Restricted access');
 		<input type="text" name="<?php echo $this->form_prefix; ?>last_name"	id="<?php echo $this->form_prefix; ?>last_name" class="inputbox" size="45" maxlength="250" data-required="<?php echo $elements['last'][1] ? 'true' : false; ?>" />
 	</div>
 	<?php endif; ?>
-	
+
 <div class="floatbox">
 	<?php if( $elements['company'][0] ) :?>
 		<div>
@@ -147,7 +147,7 @@ defined('_JEXEC') or die('Restricted access');
 		<input type="text"	name="<?php echo $this->form_prefix; ?>address_1" id="<?php echo $this->form_prefix; ?>address_1" class="inputbox" size="48" maxlength="250" data-required="<?php echo $elements['address1'][1] ? 'true' : false; ?>" />
 	</div>
 	<?php endif; ?>
-	
+
 	<?php if( $elements['address2'][0] ) :?>
 	<div>
 		<label class="key" for="<?php echo $this->form_prefix; ?>address_2">
@@ -176,7 +176,7 @@ defined('_JEXEC') or die('Restricted access');
 		{
 			$onchange = 'citruscartPutAjaxLoader( \''.$this->form_prefix.'zones_wrapper\' );'.
 									'citruscartDoTask( \''.$url.'\'+document.getElementById(\''.$this->form_prefix.'country_id\').value, \''.$this->form_prefix.'zones_wrapper\', \'\', \'\', false, '.
-									'function() {CitruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'country_id\' ); '.
+									'function() {citruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'country_id\' ); '.
 									'
 			});';
 		}
@@ -193,7 +193,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php echo JText::_('COM_CITRUSCART_CITY'); ?>
 			<?php if( $elements['city'][1] ): ?>
 				<?php echo CitruscartGrid::required(); ?>
-			<?php endif;?>		
+			<?php endif;?>
 		</label>
 		<input type="text" name="<?php echo $this->form_prefix; ?>city" id="<?php echo $this->form_prefix; ?>city" class="inputbox" size="48" maxlength="250" />
 	</div>
@@ -235,9 +235,9 @@ defined('_JEXEC') or die('Restricted access');
 			if( !empty( $this->showShipping ) )
       {
         if( $one_page )
-		  		$onchange = 'CitruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'postal_code\' )';
+		  		$onchange = 'citruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'postal_code\' )';
         else
-			    $onchange = 'CitruscartGrayOutAddressDiv( \'Updating Address\' ); CitruscartGetShippingRates( \'onCheckoutShipping_wrapper\', document.adminForm, CitruscartDeleteAddressGrayDiv );';
+			    $onchange = 'citruscartGrayOutAddressDiv( \'Updating Address\' ); citruscartGetShippingRates( \'onCheckoutShipping_wrapper\', document.adminForm, citruscartDeleteAddressGrayDiv );';
 			}
       ?>
 			<input type="text" name="<?php echo $this->form_prefix; ?>postal_code" id="<?php echo $this->form_prefix; ?>postal_code" class="inputbox" size="25" maxlength="250" <?php if ( strlen( $onchange ) ) { ?> onchange="<?php echo $onchange; ?>" <?php } ?> />
@@ -260,7 +260,7 @@ defined('_JEXEC') or die('Restricted access');
 
 	<?php
 	$data = new JObject();
-	
+
 	JFactory::getApplication()->triggerEvent('onAfterDisplayAddressDetails', array($data, $this->form_prefix) );
 	?>
 
