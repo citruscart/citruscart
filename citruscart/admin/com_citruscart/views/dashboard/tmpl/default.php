@@ -14,15 +14,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/select.php');
 ?>
-<?php $state =@$this->state; ?>
-<?php $form = @$this->form;
+<?php $state =$this->state; ?>
+<?php $form = $this->form;
 ?>
-<?php $items =@$this->items;
+<?php $items =$this->items;
 
 require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
-
-echo $this->loadTemplate('submenu');
-
 ?>
 
 <?php  DSC::loadHighcharts(); ?>
