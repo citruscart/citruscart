@@ -12,8 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-$doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = $this->state;
 $items = $this->items;
 
@@ -105,7 +104,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
     <?php if (!empty($items)) : ?>
 
      <?php if($config->get('display_sort_by', '1')) :?>
-      <form id="adminForm" action="<?php echo JRoute::_("&limitstart=".$state->limitstart )?>" method="post" name="adminForm_sort" enctype="multipart/form-data">
+      <form action="<?php echo JRoute::_("&limitstart=".$state->limitstart )?>" method="post" name="adminForm_sort" enctype="multipart/form-data">
      	<div class="citruscart_sortby">
         	<?php Citruscart::load('CitruscartSelect', 'libray.select');?>
         	<span class="sort_by_label">
@@ -131,7 +130,6 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
         	</span>
     	</div>
         <?php echo $this->form['validate']; ?>
-
     </form>
     <?php endif;?>
 
@@ -230,7 +228,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
         </div>
 
         <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
-        <form id="adminForm"  action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
+        <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
             <div id="results_counter"><?php echo $this->pagination->getResultsCounter(); ?></div>
             <?php if ($this->defines->get('disable_changing_list_limit')) { ?>
