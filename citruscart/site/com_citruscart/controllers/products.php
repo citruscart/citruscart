@@ -13,7 +13,6 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-
 class CitruscartControllerProducts extends CitruscartController
 {
 	private $_callback_js = ''; // callback jS that should be returned with the current AJAX request

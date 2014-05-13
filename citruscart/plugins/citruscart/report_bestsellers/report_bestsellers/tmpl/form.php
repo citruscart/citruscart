@@ -13,7 +13,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 
 <?php $state = $vars->state; ?>
 <?php $attribs = array('class' => ''); ?>

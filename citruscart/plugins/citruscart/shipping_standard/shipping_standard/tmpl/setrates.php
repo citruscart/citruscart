@@ -14,8 +14,8 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/com_citruscart/js/citruscart.js');
-$doc->addStyleSheet(JUri::root().'media/com_citruscart/css/Citruscart.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/Citruscart.css');
  $form = $this->form2;
    $row = $this->row;
    $state = $this->state;

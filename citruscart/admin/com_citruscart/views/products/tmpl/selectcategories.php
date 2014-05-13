@@ -16,7 +16,7 @@ $doc = JFactory::getDocument();
 
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $doc->addScript(JUri::root().'media/citruscart/js/core.js');
-//JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php //JHTML::_('script', 'core.js', 'media/system/js/'); ?>
 <?php $state = $this->state;
 

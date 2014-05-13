@@ -31,8 +31,8 @@ class CitruscartSelect extends DSCSelect
      */
 	public static function btbooleanlist($name, $attribs = null, $selected = null, $yes = 'JYES', $no = 'JNO', $id = false)
 	{
-	    JHTML::_('script', 'bootstrapped-advanced-ui.js', 'media/com_citruscart/js/');
-	    JHTML::_('stylesheet', 'bootstrapped-advanced-ui.css', 'media/com_citruscart/css/');
+	    JHTML::_('script', 'bootstrapped-advanced-ui.js', 'media/citruscart/js/');
+	    JHTML::_('stylesheet', 'bootstrapped-advanced-ui.css', 'media/citruscart/css/');
 	    $arr = array(JHtml::_('select.option', '0', JText::_($no)), JHtml::_('select.option', '1', JText::_($yes)));
 	    $html = '<div class="control-group"><div class="controls"><fieldset id="'.$name.'" class="radio btn-group">';
 	    $html .=  CitruscartSelect::btradiolist( $arr, $name, $attribs, 'value', 'text', (int) $selected, $id);

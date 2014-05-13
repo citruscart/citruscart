@@ -41,7 +41,7 @@ class CitruscartViewElementProductMultiple extends JView
 
 		$template = $mainframe->getTemplate();
 		$document->addStyleSheet("templates/$template/css/general.css");
-		$document->addScript( 'media/com_citruscart/js/citruscart.js' );
+		$document->addScript( 'media/citruscart/js/citruscart.js' );
 
 		$limitstart = JRequest::getVar('limitstart', '0', '', 'int');
 
@@ -59,7 +59,7 @@ class CitruscartViewElementProductMultiple extends JView
 
 		Citruscart::load( 'CitruscartGrid', 'library.grid' );
 		?>
-		<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+		<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 
 <form action="<?php echo $link; ?>" method="post" name="adminForm">
 

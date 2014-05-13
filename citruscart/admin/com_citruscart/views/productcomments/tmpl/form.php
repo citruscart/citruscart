@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = @$this->form; ?>
 <?php $row = @$this->row;
 JFilterOutput::objectHTMLSafe( $row );

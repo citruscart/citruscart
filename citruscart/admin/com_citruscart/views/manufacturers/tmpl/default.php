@@ -16,8 +16,8 @@ $app = JFactory::getApplication();
 $view = $app->input->get('view');
 
 $doc  = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/com_citruscart/js/citruscart.js');
-//JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>

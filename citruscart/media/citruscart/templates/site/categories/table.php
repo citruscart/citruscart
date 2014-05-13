@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die('Restricted access');
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = @$this->state;
 $items = @$this->items;
 $citems = @$this->citems;

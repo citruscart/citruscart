@@ -157,8 +157,7 @@ class plgSystemCitruscart extends JPlugin
 		if($value=$this->params->get('embedjquery')) {
 			DSC::loadJQuery('latest',$this->params->get('jquerynoconflict'));
 		}
-
-		JHTML::_('script', 'colorbox.js', 'media/com_citruscart/colorbox/');
+		JHTML::_('script', 'colorbox.js', 'media/citruscart/colorbox/');
 		if($value=$this->params->get('embedbootstrap')) {
 			DSC::loadBootstrap($this->params->get('bootstrapversion'), $this->params->get('bootstrapjoomla'));
 		}

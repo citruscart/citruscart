@@ -92,7 +92,6 @@ $doc = JFactory::getDocument();
 $uri = JURI::getInstance();
 $js = "var com_citruscart = {};\n";
 $js.= "com_citruscart.jbase = '".$uri->root()."';\n";
-
 $doc->addScriptDeclaration($js);
 
 $parentPath = JPATH_ADMINISTRATOR . '/components/com_citruscart/helpers';

@@ -14,8 +14,8 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.model');
 
-JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('script', 'Citruscart_admin.js', 'media/com_citruscart/js/'); ?>
+JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('script', 'Citruscart_admin.js', 'media/citruscart/js/'); ?>
 <?php JHTML::_('behavior.tooltip'); ?>
 <?php
 $form = $this->form;

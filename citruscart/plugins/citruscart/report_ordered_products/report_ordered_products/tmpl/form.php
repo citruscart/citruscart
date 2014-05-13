@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $vars->state; ?>
 
 <p><?php echo JText::_('COM_CITRUSCART_THIS_REPORT_DISPLAYS_ORDERED_PRODUCTS'); ?></p>

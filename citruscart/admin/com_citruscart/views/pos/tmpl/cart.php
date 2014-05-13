@@ -11,8 +11,8 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/com_citruscart/css/');?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/');?>
+<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');?>
 <?php $items = $this -> items;?>
 <div class="cartitems">
 

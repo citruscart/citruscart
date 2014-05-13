@@ -11,9 +11,9 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/com_citruscart/js/'); ?>
-<?php JHTML::_('stylesheet', 'pos.css', 'media/com_citruscart/css/'); ?>
-<?php JHTML::_('stylesheet', 'component.css', 'media/com_citruscart/css/'); ?>
+<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHTML::_('stylesheet', 'pos.css', 'media/citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'component.css', 'media/citruscart/css/'); ?>
 <?php $state = $this->state; ?>
 <?php $row = $this->row; ?>
 
