@@ -588,7 +588,7 @@ class modCitruscartLayeredNavigationFiltersHelper extends JObject
 		}
 
 		$app = JFactory::getApplication();
-		$ns = $app->getName().'::'.'com.Citruscart.model.products';
+		$ns = $app->getName().'::'.'com.citruscart.model.products';
 		$this->_filter_category = $app->getUserStateFromRequest($ns.'.category', 'filter_category', '0', 'int');
     $prev_cat_id = $app->getUserState( $ns . 'prev_cat_id' );
     if( $prev_cat_id && $prev_cat_id != $this->_filter_category ) // drop all filters

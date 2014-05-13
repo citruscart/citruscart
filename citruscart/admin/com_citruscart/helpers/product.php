@@ -1656,7 +1656,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
         $model = JModelLegacy::getInstance( 'Products', 'CitruscartModel' );
-        $ns = $app->getName( ) . '::' . 'com.Citruscart.model.' . $model->getTable( )->get( '_suffix' );
+        $ns = $app->getName( ) . '::' . 'com.citruscart.model.' . $model->getTable( )->get( '_suffix' );
         $state = array( );
 
         $config = Citruscart::getInstance( );

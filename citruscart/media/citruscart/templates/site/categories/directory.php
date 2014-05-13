@@ -1,17 +1,34 @@
-<?php defined('_JEXEC') or die('Restricted access');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');
+
+$doc = JFactory::getDocument();
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
 $state = @$this->state;
 $items = @$this->items;
 $citems = @$this->citems;
+
+
 ?>
 
 <div id="citruscart" class="products directory">
-    <div id="citruscart_categories">    
+    <div id="citruscart_categories">
         <div id='citruscart_category_header'>
             <h3><?php echo JText::_('COM_CITRUSCART_BROWSE_CATEGORIES'); ?></h3>
             <div class='category_description'><?php echo $this->cat->category_description; ?></div>
         </div>
-        
+
         <?php if (!empty($citems)) : ?>
             <div class="directory_categories" style="width: 100%;">
                 <?php
@@ -29,7 +46,7 @@ $citems = @$this->citems;
                         </div>
                         <?php if (!empty($categories)) { ?>
                             <ul class="directory_subcategory">
-                            <?php foreach ($categories as $category) { 
+                            <?php foreach ($categories as $category) {
                                 $pmodel = JModelLegacy::getInstance('Products', 'CitruscartModel');
                                 $pmodel->setState('filter_category', $category->category_id);
                                 $products = $pmodel->getTotal();
@@ -44,11 +61,11 @@ $citems = @$this->citems;
                         <?php } ?>
                     </div>
                 <?php
-                endforeach; 
+                endforeach;
                 ?>
                 <div class="reset"></div>
             </div>
         <?php endif; ?>
     </div>
-    
+
 </div>

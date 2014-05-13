@@ -57,7 +57,7 @@ class CitruscartToolPlugin extends CitruscartPluginBase
     function _getNamespace()
     {
         $app = JFactory::getApplication();
-        $ns = $app->getName().'::'.'com.Citruscart.tool.'.$this->get('_element');
+        $ns = $app->getName().'::'.'com.citruscart.tool.'.$this->get('_element');
         return $ns;
     }
 

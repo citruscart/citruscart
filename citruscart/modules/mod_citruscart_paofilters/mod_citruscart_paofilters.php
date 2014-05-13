@@ -33,7 +33,7 @@ $helper = new modCitruscartPAOFiltersHelper( $params );
 
 $app = JFactory::getApplication();
 $model = JModelLegacy::getInstance( 'Products', 'CitruscartModel' );
-$ns = $app->getName().'::'.'com.Citruscart.model.'.$model->getTable()->get('_suffix');
+$ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
 $filter_category = $app->getUserStateFromRequest($ns.'.category', 'filter_category', '', 'int');
 
 $category_ids = array();
@@ -44,7 +44,7 @@ if ($filter_category) {
 $itemid = JRequest::getInt('Itemid');
 $session = JFactory::getSession();
 $app = JFactory::getApplication();
-$ns = $app->getName().'::'.'com.Citruscart.products.state.'.$itemid;
+$ns = $app->getName().'::'.'com.citruscart.products.state.'.$itemid;
 $session_state = $session->get( $ns );
 
 $helper->state = $session_state;

@@ -140,7 +140,8 @@ class DSCMenu
     public function display($layout = 'submenu', $hidemainmenu = '', $type = '')
     {
     	$input = JFactory::getApplication()->input;
-        jimport('joomla.application.component.view');
+
+    	jimport('joomla.application.component.view');
 
         // TODO This should be passed as an argument
         $hide = $input->getInt('hidemainmenu');

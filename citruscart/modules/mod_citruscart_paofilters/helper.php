@@ -68,7 +68,7 @@ class modCitruscartPAOFiltersHelper extends JObject
         // get the model
     	$model = JModelLegacy::getInstance( 'Products', 'CitruscartModel' );
         $app = JFactory::getApplication();
-        $ns = $app->getName().'::'.'com.Citruscart.model.'.$model->getTable()->get('_suffix');
+        $ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
 
     	//check if we are in the manufacturer view
     	$view = JRequest::getWord('view');

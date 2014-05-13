@@ -13,17 +13,18 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewProductComments extends CitruscartViewBase 
+class CitruscartViewProductComments extends CitruscartViewBase
 {
 
     /**
-     * 
+     *
      * @param $tpl
      * @return unknown_type
      */
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
         $layout = $this->getLayout();
+        $this->renderSubmenu();
         switch(strtolower($layout))
         {
             case "form":
@@ -38,10 +39,10 @@ class CitruscartViewProductComments extends CitruscartViewBase
         }
     }
     /**
-     * 
+     *
      *
      */
-     
+
 	function _default($tpl=null)
 	{
 		Citruscart::load( 'CitruscartUrl', 'library.url' );
@@ -49,11 +50,11 @@ class CitruscartViewProductComments extends CitruscartViewBase
 		parent::_default($tpl);
 	}
 	/**
-	 * 
+	 *
 	 * @param unknown_type $tpl
 	 */
 	function _form($tpl=null)
-	{ 
+	{
 			$model = $this->getModel();
 			$item = $model->getItem();
 			$this->assign( 'item', $item);
@@ -70,12 +71,12 @@ class CitruscartViewProductComments extends CitruscartViewBase
 			$resetUser_product		= $userModel->clearElement( 'user_id','0' );
 			$this->assign('elementUser_product',$elementUser_product);
 			$this->assign('resetUser_product', $resetUser_product);
-			
+
 		parent::_form($tpl);
-		
-		
+
+
 	}
-	
+
 	function _defaultToolbar()
 	{
 		JToolBarHelper::publishList( 'productcomment_enabled.enable' );

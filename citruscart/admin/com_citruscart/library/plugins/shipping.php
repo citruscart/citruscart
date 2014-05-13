@@ -240,7 +240,7 @@ if ( !class_exists( 'CitruscartShippingPlugin' ) )
 		protected function _getNamespace( )
 		{
 			$app = JFactory::getApplication( );
-			$ns = $app->getName( ) . '::' . 'com.Citruscart.shipping.' . $this->get( '_element' );
+			$ns = $app->getName( ) . '::' . 'com.citruscart.shipping.' . $this->get( '_element' );
 		}
 
 		/**

@@ -134,7 +134,7 @@ class CitruscartControllerCheckout extends CitruscartController
     function getNamespace()
     {
         $app = JFactory::getApplication();
-        $ns = $app->getName().'::'.'com.Citruscart.model.checkout';
+        $ns = $app->getName().'::'.'com.citruscart.model.checkout';
         return $ns;
     }
 

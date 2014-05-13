@@ -38,8 +38,11 @@ class CitruscartControllerProducts extends CitruscartController
     {
         $app = JFactory::getApplication();
         $model = $this->getModel( $this->get('suffix') );
+
         $ns = $app->getName().'::'.'com.'.$this->get('com').'.model.'.$model->getTable()->get('_suffix').".".$this->itemid;
         return $ns;
+
+
     }
 
     /**
@@ -209,11 +212,11 @@ class CitruscartControllerProducts extends CitruscartController
 
         $session = JFactory::getSession();
         $app = JFactory::getApplication();
-        $ns = $app->getName().'::'.'com.Citruscart.products.state.'.$this->itemid;
+        $ns = $app->getName().'::'.'com.citruscart.products.state.'.$this->itemid;
         $session->set( $ns, $state );
 
         $app = JFactory::getApplication();
-        $ns_general = $app->getName().'::'.'com.Citruscart.products.state';
+        $ns_general = $app->getName().'::'.'com.citruscart.products.state';
         $session->set( $ns_general, $state );
 
         // get the category we're looking at
@@ -347,8 +350,11 @@ class CitruscartControllerProducts extends CitruscartController
         $model = $this->getModel( $this->get( 'suffix' ) );
         $model->getId( );
         Citruscart::load( 'CitruscartHelperUser', 'helpers.user' );
+
         $user_id = JFactory::getUser( )->id;
+
         $filter_group = CitruscartHelperUser::getUserGroup( $user_id, $model->getId( ) );
+
         $model->setState( 'filter_group', $filter_group );
 		$model->setState( 'product.qty', 1);
 		$model->setState( 'user.id', $user_id );
@@ -364,6 +370,9 @@ class CitruscartControllerProducts extends CitruscartController
             }
         }
         $unpublished = false;
+
+
+
         if( $row->unpublish_date != JFactory::getDbo()->getNullDate() )
         {
             $unpublished = strtotime( $row->unpublish_date ) < time();
@@ -373,7 +382,7 @@ class CitruscartControllerProducts extends CitruscartController
             $unpublished = strtotime( $row->publish_date ) > time();
         }
 
-        if ( empty( $row->product_enabled ) || $unpublished )
+      	if ( empty( $row->product_enabled ) || $unpublished )
         {
             $redirect = "index.php?option=com_citruscart&view=products&task=display&filter_category=" . $filter_category;
             $redirect = JRoute::_( $redirect, false );
@@ -393,7 +402,7 @@ class CitruscartControllerProducts extends CitruscartController
 
         // if product browsing enabled on detail pages, get surrounding items based on browsing state
 
-        $ns = $app->getName().'::'.'com.Citruscart.products.state';
+        $ns = $app->getName().'::'.'com.citruscart.products.state';
         $session_state = $session->get( $ns );
 
         $surrounding = array();

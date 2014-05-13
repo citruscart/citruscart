@@ -1,14 +1,17 @@
 <?php
-/**
- * @version	1.5
- * @package	Citruscart
- * @author 	Dioscouri Design
- * @link 	http://www.dioscouri.com
- * @copyright Copyright (C) 2007 Dioscouri Design. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
- */
+/*------------------------------------------------------------------------
+# com_citruscart - citruscart
+# ------------------------------------------------------------------------
+# author    Citruscart Team - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2012 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
 
-/** ensure this file is being included by a parent file */
+// no direct access
 defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartModelBase', 'models._base' );
@@ -20,7 +23,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
      * default: '2','3','5','17' = cash in hand
      */
     var $_statesCSV = null;
-    
+
     public function getTable($name='Config', $prefix='CitruscartTable', $options = array())
     {
         return parent::getTable($name, $prefix, $options);
@@ -29,7 +32,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
     public function getStatIntervalValues($stats_interval)
     {
         $this->setStatesCSV();
-        
+
         $interval = new stdClass();
 
         switch ($stats_interval) {
@@ -102,12 +105,12 @@ class CitruscartModelDashboard extends CitruscartModelBase
                 $interval->hour_format = '0';
                 break;
         }
-         
+
         return $interval;
     }
-    
+
     /**
-     * 
+     *
      * @param unknown_type $items
      * @return Ambigous <number, unknown>
      */
@@ -122,23 +125,23 @@ class CitruscartModelDashboard extends CitruscartModelBase
     }
 
     /**
-     * 
+     *
      * @param unknown_type $stats_interval
      * @return multitype:multitype:number
      */
     public function getOrdersChartData($stats_interval)
     {
         $interval = $this->getStatIntervalValues($stats_interval);
-         
+
         $model = JModelLegacy::getInstance( 'Orders', 'CitruscartModel' );
         $datetime_field = 'created_date';
-         
+
         $filter_date_from = date( 'Y-m-d 00:00:00', strtotime( $interval->date_from ) );
         $filter_date_to = date( 'Y-m-d 23:59:59', strtotime( $interval->date_to ) );
 
         $model->setState( 'filter_date_from', $filter_date_from );
         $model->setState( 'filter_date_to', $filter_date_to );
-         
+
         $ordersQuery = $model->getQuery();
         $ordersQuery->where("tbl.order_state_id IN (".$this->getStatesCSV().")");
         $model->setQuery($ordersQuery);
@@ -146,7 +149,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
         $days = array();
         $current_date = date($interval->current_date_format, strtotime( $filter_date_from ) );
         $end_date = date($interval->end_date_format, strtotime( $filter_date_to ) );
-         
+
         while ($current_date <= $end_date)
         {
             if (empty($days[$current_date]))
@@ -175,7 +178,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
             $hour = date( $interval->hour_format, strtotime($key) );
             $minute = date( '0', strtotime($key) );
             $second = date( '0', strtotime($key) );
-            
+
             // gmmktime(0,0,0,$month,$day,$year)*1000 = javascript's Date.UTC (milliseconds since Epoch)
             $return[] = array( gmmktime($hour,$minute,$second,$month,$day,$year)*1000, $value );
         }
@@ -184,14 +187,14 @@ class CitruscartModelDashboard extends CitruscartModelBase
     }
 
     /**
-     * 
+     *
      * @param unknown_type $stats_interval
      * @return multitype:multitype:number Ambigous <number, NULL>
      */
     public function getRevenueChartData($stats_interval)
     {
         $interval = $this->getStatIntervalValues($stats_interval);
-         
+
         $model = JModelLegacy::getInstance( 'Orders', 'CitruscartModel' );
         $datetime_field = 'created_date';
 
@@ -200,7 +203,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
 
         $model->setState( 'filter_date_from', $filter_date_from );
         $model->setState( 'filter_date_to', $filter_date_to );
-         
+
         $ordersQuery = $model->getQuery();
         $ordersQuery->where("tbl.order_state_id IN (".$this->getStatesCSV().")");
         $model->setQuery($ordersQuery);
@@ -237,7 +240,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
             $hour = date( $interval->hour_format, strtotime($key) );
             $minute = date( '0', strtotime($key) );
             $second = date( '0', strtotime($key) );
-            
+
             // gmmktime(0,0,0,$month,$day,$year)*1000 = javascript's Date.UTC (milliseconds since Epoch)
             $return[] = array( gmmktime($hour,$minute,$second,$month,$day,$year)*1000, $value );
         }

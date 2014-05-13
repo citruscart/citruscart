@@ -13,9 +13,10 @@ class CitruscartToolBar30 extends JToolbar
 		$views = array(
 				'dashboard',
 				'COM_CITRUSCART_ORDERS' => array('orders','orderpayments','subscriptions','orderitems'),
-				'COM_CITRUSCART_CATALOG' => array('products','categories',  'manufacturers', 'reviews'),
-				'COM_CITRUSCART_USERS' => array('users','groups',  'credits', 'address'),
+				'COM_CITRUSCART_CATALOG' => array('products','categories',  'manufacturers', 'productcomments'),
+				'COM_CITRUSCART_USERS' => array('users','groups',  'credits', 'addresses'),
 				'coupons',
+				'eavattributes',
 				'COM_CITRUSCART_LOCALISATION' => array('countries', 'zones', 'geozones', 'currencies','emails','orderstates', 'taxclasses'),
 				'COM_CITRUSCART_MAINMENU_REPORTS' => array('reports', 'tools'),
 				'config'

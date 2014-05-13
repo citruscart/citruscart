@@ -60,7 +60,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		}
 
 		// Fire an onAfterSetOrderPaymentReceived event
-		
+
 		JFactory::getApplication()->triggerEvent( 'onAfterSetOrderPaymentReceived', array( $order_id ) );
 
 		// Do orderTasks
@@ -169,7 +169,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 
 				$productsTable = JTable::getInstance( 'Products', 'CitruscartTable' );
 				$productsTable->load($orderitem->product_id);
-				 
+
 
 				// Check if it has inventory enabled
 				if (!$productsTable->product_check_inventory  || empty($product->product_id))
@@ -209,7 +209,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 					$helper->sendEmailLowQuanty( $product->productquantity_id );
 				}
 			}
-			 
+
 			$row = $model->getTable();
 			$row->load(array('order_id'=>$order->order_id));
 			$row->quantities_updated = 1;
@@ -227,17 +227,17 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 	function getSurrounding( $id )
 	{
 		$return = array();
-		
+
 		/* Get the application */
 		$app = JFactory::getApplication();
-		
+
 		$prev = $app->input->getInt('prev');
-		
+
 		$next = $app->input->getInt('next');
-		
+
 		//$prev = intval( JRequest::getVar( "prev" ) );
 		//$next = intval( JRequest::getVar( "next" ) );
-		
+
 		if ($prev || $next)
 		{
 			$return["prev"] = $prev;
@@ -245,10 +245,10 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 			return $return;
 		}
 
-		
+
 		JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );
 		$model = JModelLegacy::getInstance( 'Orders', 'CitruscartModel' );
-		$ns = $app->getName().'::'.'com.Citruscart.model.'.$model->getTable()->get('_suffix');
+		$ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
 		$state = array();
 
 		$config = Citruscart::getInstance();
@@ -310,7 +310,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		if (!is_numeric($currency_id)) {
     		return false;
 		}
-		 
+
 		JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );
 		$model = JModelLegacy::getInstance('Currencies', 'CitruscartModel' );
 		$table = $model->getTable();
@@ -319,7 +319,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		if (!$table->load($currency_id)) {
     		return false;
 		}
-			
+
 		// Convert this into a DSCParameter formatted string
 		// a bit rough, but works smoothly and is extensible (works even if you add another parameter to the curremcy table
 		$currency_parameters = $table;
@@ -328,10 +328,10 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		unset($currency_parameters->created_date);
 		unset($currency_parameters->modified_date);
 		unset($currency_parameters->currency_enabled);
-		 
+
 		$param = new DSCParameter('');
 		$param->loadObject($currency_parameters);
-		 
+
 		return $param->__toString();
 	}
 
@@ -351,7 +351,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
 		$order = JTable::getInstance('Orders', 'CitruscartTable');
 		$order->load( $order_id );
-		 
+
 		if (empty($order->order_id))
 		{
 			// TODO we must make sure this class is always instantiated
@@ -360,7 +360,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		}
 
 		// Fire an doCompletedOrderTasks event
-		
+
 		JFactory::getApplication()->triggerEvent( 'doCompletedOrderTasks', array( $order_id ) );
 
 		// 0. Enable One-Time Purchase Subscriptions
@@ -399,11 +399,11 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		// do Ambra Subscriptions Integration processes
 		$helper = CitruscartHelperBase::getInstance( 'Ambrasubs' );
 		$helper->processOrder( $order_id );
-		
+
 		// increase the hit counts for coupons in the order
 		$helper = CitruscartHelperBase::getInstance( 'Coupon' );
 		$helper->processOrder( $order_id );
-		
+
 		if ($error)
 		{
 			$this->setError( implode( '<br/>', $errors ) );
@@ -443,7 +443,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
                 // Joomla! 1.5 code here
                 $db -> setQuery("SELECT `template` FROM #__templates_menu WHERE `menuid` = '0' AND `client_id` = '0';");
             }
-			
+
 			$template = $db->loadResult();
 
 			jimport('joomla.filesystem.file');
@@ -527,7 +527,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 						}
 						else
 						{
-							
+
 							JFactory::getApplication()->triggerEvent( 'onAfterEnableSubscription', array( $subscription ) );
 						}
 					}
@@ -539,7 +539,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 	public static function onDisplayOrderItems($orderitems)
 	{
 		//trigger the onDisplayOrderItem for each orderitem
-		
+
 
 		$onDisplayOrderItem = array();
 		$index = 0;
@@ -600,9 +600,9 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 
 	/**
 	 * Method to calculate hash which will be used to access guest invoices
-	 * 
+	 *
 	 * @param $order		Object of type CitruscartTableOrders
-	 * 
+	 *
 	 * @return	String containing the calculated hash
 	 */
 	public static function getHashInvoice( $order )
@@ -610,7 +610,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		$secret = Citruscart::getInstance()->get( 'secret_word', '' );
 		$hash = $order->shipping_method_id.$order->order_total.$order->order_id.$order->ip_address.$secret.
 						$order->order_state_id.$order->completed_task.$order->user_id;
-						
+
 		return sha1( base64_encode( $hash ) );
 	}
 }

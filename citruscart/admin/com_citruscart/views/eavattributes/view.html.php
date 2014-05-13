@@ -14,25 +14,26 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartViewBase', 'views._base' );
 
-class CitruscartViewEavAttributes extends CitruscartViewBase 
+class CitruscartViewEavAttributes extends CitruscartViewBase
 {
     /**
-     * 
+     *
      * @param $tpl
      * @return unknown_type
      */
-    function getLayoutVars($tpl=null) 
+    function getLayoutVars($tpl=null)
     {
         $layout = $this->getLayout();
-        
+
         /* Get the application  */
         $app = JFactory::getApplication();
-        
+        $this->renderSubmenu();
+
         switch(strtolower($layout))
         {
-        	
+
         	 case "selectproducts":
-        	 	
+
         	 	$app->input->set('hidemainmenu', '1');
         	 	//JRequest::setVar('hidemainmenu', '1');
                 $this->_default($tpl);
@@ -52,22 +53,22 @@ class CitruscartViewEavAttributes extends CitruscartViewBase
               break;
         }
     }
-    
+
     function _form($tpl=null)
-    {      	
+    {
     	    /* Get the application */
     	    $app = JFactory::getApplication();
-    	    
+
     	    /* Get the id values */
     	    $id = $app->input->get('id', '');
     	    //$id = JRequest::getVar('id', '');
-    		    	    
+
     		$model = $this->getModel();
-    	   							    		
+
 			$item = $model->getItem($id);
-		
-			$items = JArrayHelper::fromObject($item);	
-			
+
+			$items = JArrayHelper::fromObject($item);
+
 			switch($items['eaventity_type'])
 			{
 				case 'products':
@@ -80,8 +81,8 @@ class CitruscartViewEavAttributes extends CitruscartViewBase
 					$resetArticle_product		= $productModel->clearElement( 'eaventity_id', '0' );
 					$this->assign('elementproduct', $elementArticle_product);
 					$this->assign('resetproduct', $resetArticle_product);
-			}   
-						
+			}
+
 			parent::_form($tpl);
     }
 }

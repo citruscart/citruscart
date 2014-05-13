@@ -1,7 +1,18 @@
 <?php
-	defined('_JEXEC') or die('Restricted access');
-	jimport('joomla.application.component.model');
 
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');
+
+	JHTML::_('behavior.modal');
 	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 	$user = JFactory::getUser();
