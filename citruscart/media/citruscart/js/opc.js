@@ -50,16 +50,16 @@ CitruscartOpc = CitruscartClass.extend({
 
     init: function (element, options) {
         this.__construct();
-        this.element = CitruscartJQ(element);
+        this.element = citruscartJQ(element);
         this.options = jQuery.extend( true, {}, this.defaults, options || {} );
         
         this.urls    = this.options.urls;
         this.accordion = new CitruscartOpcAccordion(element, this.options);
         
-        var headers = CitruscartJQ(element + ' .opc-section ' + this.accordion.options.clickableEntity);
+        var headers = citruscartJQ(element + ' .opc-section ' + this.accordion.options.clickableEntity);
         var self = this;
         headers.each(function() {
-            CitruscartJQ(this).click(function(event){
+            citruscartJQ(this).click(function(event){
                 self.sectionClicked(event);
             });
         });
@@ -67,7 +67,7 @@ CitruscartOpc = CitruscartClass.extend({
     
     sectionClicked: function(event) {
         event.preventDefault();
-        section_id = CitruscartJQ(event.target).closest('.opc-section').attr('id');
+        section_id = citruscartJQ(event.target).closest('.opc-section').attr('id');
         this.setupSection(section_id);
         event.stopPropagation();
     },
@@ -79,7 +79,7 @@ CitruscartOpc = CitruscartClass.extend({
     gotoSection: function(section)
     {
         this.setupSection(section);
-        var sectionElement = CitruscartJQ('#opc-'+section);
+        var sectionElement = citruscartJQ('#opc-'+section);
         sectionElement.addClass('allow');
         this.accordion.openSection('opc-'+section);
     },
@@ -121,35 +121,35 @@ CitruscartOpc = CitruscartClass.extend({
     setupMethodForm: function() {
         this.validations.setMethod = new CitruscartValidation('#opc-checkout-method-form');
         var self = this;
-        var form = CitruscartJQ('#opc-checkout-method-form');         
+        var form = citruscartJQ('#opc-checkout-method-form');         
             
         if (form.length) {
-            CitruscartJQ('#opc-checkout-method-button').attr('disabled', 'disabled').off('click.opc').on('click.opc', function(){
-                if (!CitruscartJQ(this).attr('disabled') && self.validations.setMethod.validateForm()) {
+            citruscartJQ('#opc-checkout-method-button').attr('disabled', 'disabled').off('click.opc').on('click.opc', function(){
+                if (!citruscartJQ(this).attr('disabled') && self.validations.setMethod.validateForm()) {
                     self.setMethod();
                 }
             });
             
-            CitruscartJQ('#checkout-method-guest').click(function(){
-                CitruscartJQ('#email-password').show(); 
-                CitruscartJQ('#register-password').hide().find('input').each(function(){
-                    CitruscartJQ(this).data('required', false); 
+            citruscartJQ('#checkout-method-guest').click(function(){
+                citruscartJQ('#email-password').show(); 
+                citruscartJQ('#register-password').hide().find('input').each(function(){
+                    citruscartJQ(this).data('required', false); 
                 });
-                CitruscartJQ('#opc-checkout-method-button').removeAttr('disabled');
+                citruscartJQ('#opc-checkout-method-button').removeAttr('disabled');
             });
-            if (CitruscartJQ('#checkout-method-guest').attr('checked')) {
-                CitruscartJQ('#checkout-method-guest').click();
+            if (citruscartJQ('#checkout-method-guest').attr('checked')) {
+                citruscartJQ('#checkout-method-guest').click();
             }
             
-            CitruscartJQ('#checkout-method-register').click(function(){
-                CitruscartJQ('#email-password').show(); 
-                CitruscartJQ('#register-password').show().find('input').each(function(){
-                    CitruscartJQ(this).data('required', true);
+            citruscartJQ('#checkout-method-register').click(function(){
+                citruscartJQ('#email-password').show(); 
+                citruscartJQ('#register-password').show().find('input').each(function(){
+                    citruscartJQ(this).data('required', true);
                 });
-                CitruscartJQ('#opc-checkout-method-button').removeAttr('disabled');
+                citruscartJQ('#opc-checkout-method-button').removeAttr('disabled');
             });
-            if (CitruscartJQ('#checkout-method-register').attr('checked')) {
-                CitruscartJQ('#checkout-method-register').click();
+            if (citruscartJQ('#checkout-method-register').attr('checked')) {
+                citruscartJQ('#checkout-method-register').click();
             }
         }
     },
@@ -158,18 +158,18 @@ CitruscartOpc = CitruscartClass.extend({
         this.validations.setBilling = new CitruscartValidation('#opc-billing-form');
         var self = this;
         
-        CitruscartJQ("#existing-billing-address").change(function(){
-            if (CitruscartJQ(this).children(":selected").attr('id') == 'create-new-billing-address') {
-                CitruscartJQ('#new-billing-address').show();
+        citruscartJQ("#existing-billing-address").change(function(){
+            if (citruscartJQ(this).children(":selected").attr('id') == 'create-new-billing-address') {
+                citruscartJQ('#new-billing-address').show();
             } else {
-                CitruscartJQ('#new-billing-address').hide();
+                citruscartJQ('#new-billing-address').hide();
             }
         });
         
-        CitruscartJQ('#opc-billing-button').off('click.opc').on('click.opc', function(event){
+        citruscartJQ('#opc-billing-button').off('click.opc').on('click.opc', function(event){
             event.preventDefault();
             
-            if (!CitruscartJQ('#existing-billing-address').length || CitruscartJQ('#existing-billing-address').val() == 0) {
+            if (!citruscartJQ('#existing-billing-address').length || citruscartJQ('#existing-billing-address').val() == 0) {
                 if (self.validations.setBilling.validateForm()) {
                     self.setBilling();
                 }                
@@ -183,17 +183,17 @@ CitruscartOpc = CitruscartClass.extend({
         this.validations.setShipping = new CitruscartValidation('#opc-shipping-form');
         var self = this;
         
-        CitruscartJQ("#existing-shipping-address").change(function(){
-            if (CitruscartJQ(this).children(":selected").attr('id') == 'create-new-shipping-address') {
-                CitruscartJQ('#new-shipping-address').show();
+        citruscartJQ("#existing-shipping-address").change(function(){
+            if (citruscartJQ(this).children(":selected").attr('id') == 'create-new-shipping-address') {
+                citruscartJQ('#new-shipping-address').show();
             } else {
-                CitruscartJQ('#new-shipping-address').hide();
+                citruscartJQ('#new-shipping-address').hide();
             }
         });
         
-        CitruscartJQ('#opc-shipping-button').off('click.opc').on('click.opc', function(event){
+        citruscartJQ('#opc-shipping-button').off('click.opc').on('click.opc', function(event){
             event.preventDefault();
-            if (!CitruscartJQ('#existing-shipping-address').length || CitruscartJQ('#existing-shipping-address').val() == 0) {
+            if (!citruscartJQ('#existing-shipping-address').length || citruscartJQ('#existing-shipping-address').val() == 0) {
                 if (self.validations.setShipping.validateForm()) {
                     self.setShipping();
                 }                
@@ -206,21 +206,21 @@ CitruscartOpc = CitruscartClass.extend({
     setupShippingMethodForm: function() {
         var self = this;
         
-        if (!CitruscartJQ("input.shipping-plugin:checked").val()) {
-            CitruscartJQ('#opc-shipping-method-button').attr('disabled', 'disabled');
+        if (!citruscartJQ("input.shipping-plugin:checked").val()) {
+            citruscartJQ('#opc-shipping-method-button').attr('disabled', 'disabled');
         }
         
-        CitruscartJQ('#opc-shipping-method-button').off('click.opc').on('click.opc', function(event){
+        citruscartJQ('#opc-shipping-method-button').off('click.opc').on('click.opc', function(event){
             event.preventDefault();
-            if (!CitruscartJQ("input.shipping-plugin:checked").val()) {
-                CitruscartJQ('#opc-shipping-method-button').attr('disabled', 'disabled');
+            if (!citruscartJQ("input.shipping-plugin:checked").val()) {
+                citruscartJQ('#opc-shipping-method-button').attr('disabled', 'disabled');
             } else {
                 self.setShippingMethod();
             }
         });
         
-        CitruscartJQ('.shipping-plugin').on('click', function(){
-            CitruscartJQ('#opc-shipping-method-button').removeAttr('disabled');
+        citruscartJQ('.shipping-plugin').on('click', function(){
+            citruscartJQ('#opc-shipping-method-button').removeAttr('disabled');
         });
     },
     
@@ -228,14 +228,14 @@ CitruscartOpc = CitruscartClass.extend({
         this.validations.setPayment = new CitruscartValidation('#opc-payment-form');
         var self = this;
         
-        if (!CitruscartJQ("input.payment-plugin:checked").val()) {
-            CitruscartJQ('#opc-payment-button').attr('disabled', 'disabled');
+        if (!citruscartJQ("input.payment-plugin:checked").val()) {
+            citruscartJQ('#opc-payment-button').attr('disabled', 'disabled');
         }
         
-        CitruscartJQ('#opc-payment-button').off('click.opc').on('click.opc', function(event){
+        citruscartJQ('#opc-payment-button').off('click.opc').on('click.opc', function(event){
             event.preventDefault();
-            if (!CitruscartJQ("input.payment-plugin:checked").val()) {
-                CitruscartJQ('#opc-payment-button').attr('disabled', 'disabled');
+            if (!citruscartJQ("input.payment-plugin:checked").val()) {
+                citruscartJQ('#opc-payment-button').attr('disabled', 'disabled');
             } else {
                 if (self.validations.setPayment.validateForm()) {
                     self.setPayment();
@@ -243,47 +243,47 @@ CitruscartOpc = CitruscartClass.extend({
             }
         });
         
-        CitruscartJQ('.payment-plugin').on('click', function(){
-            CitruscartJQ('#opc-payment-button').removeAttr('disabled');
+        citruscartJQ('.payment-plugin').on('click', function(){
+            citruscartJQ('#opc-payment-button').removeAttr('disabled');
         });
-    	CitruscartJQ("#opc-payment-prepayment").addClass("opc-hidden");
+    	citruscartJQ("#opc-payment-prepayment").addClass("opc-hidden");
     },
     
     setupReviewForm: function() {
         var self = this;
-        CitruscartJQ('#opc-review-button').removeAttr('disabled').on('click', function(event){
+        citruscartJQ('#opc-review-button').removeAttr('disabled').on('click', function(event){
             event.preventDefault();
         });
         this.hidePreparePaymentFormLocal();
         
-        CitruscartJQ('#opc-review-button').one('click', function(){
+        citruscartJQ('#opc-review-button').one('click', function(){
             self.submitOrder();
-            CitruscartJQ('#'+self.options.validationElements.submitOrder).empty();
-            CitruscartJQ(this).attr('disabled', 'disabled');
+            citruscartJQ('#'+self.options.validationElements.submitOrder).empty();
+            citruscartJQ(this).attr('disabled', 'disabled');
         });
         
-        CitruscartJQ('#opc-coupon-button').on('click', function(event){
+        citruscartJQ('#opc-coupon-button').on('click', function(event){
             event.preventDefault();
-            if (CitruscartJQ("#coupon_code").val()) {
+            if (citruscartJQ("#coupon_code").val()) {
                 self.addCoupon();
             }
         });
         
-        CitruscartJQ('#opc-credit-button').on('click', function(event){
+        citruscartJQ('#opc-credit-button').on('click', function(event){
             event.preventDefault();
-            if (CitruscartJQ("#apply_credit_amount").val()) {
+            if (citruscartJQ("#apply_credit_amount").val()) {
                 self.addCredit();
             }
         });
     },
     
     submitPreparePaymentForm: function() {
-        var prepayment = CitruscartJQ("#opc-payment-prepayment");
-        var form = CitruscartJQ("form", prepayment);
+        var prepayment = citruscartJQ("#opc-payment-prepayment");
+        var form = citruscartJQ("form", prepayment);
         if (form.length) {
             form.submit();
         } else {
-        	var local = CitruscartJQ( ".payment-local", prepayment );
+        	var local = citruscartJQ( ".payment-local", prepayment );
         	if( local.length ) { // there's form which collects data for the gateway
         		this.setupPreparePaymentFormLocal( prepayment );
         	}
@@ -293,18 +293,18 @@ CitruscartOpc = CitruscartClass.extend({
     setupPreparePaymentFormLocal: function( prepayment ) { // for payment gateways which require collecting info on Citruscart side after the whole order is placed
     	// first, hide all useless UX controls except for the order summary table
     	var par = prepayment.parent(); // that's order summary parent div
-    	CitruscartJQ( ":not(#opc-payment-prepayment, #opc-payment-prepayment *, div.opc-section-title, div.opc-section-title *)", par ).hide(0);
+    	citruscartJQ( ":not(#opc-payment-prepayment, #opc-payment-prepayment *, div.opc-section-title, div.opc-section-title *)", par ).hide(0);
     	prepayment.removeClass("opc-hidden");
     },
 
     hidePreparePaymentFormLocal: function() { // display all order summary elements just in case somebody returned to a previous step and now is here again
-    	CitruscartJQ( ":not(#opc-payment-prepayment, #opc-payment-prepayment *, div.opc-section-title, div.opc-section-title *)", "#opc-review" ).show(0);
+    	citruscartJQ( ":not(#opc-payment-prepayment, #opc-payment-prepayment *, div.opc-section-title, div.opc-section-title *)", "#opc-review" ).show(0);
 	},
     
     setMethod: function() {
-    	var form_data = CitruscartJQ('#opc-checkout-method-form').serializeArray();
+    	var form_data = citruscartJQ('#opc-checkout-method-form').serializeArray();
         
-        if (CitruscartJQ('#checkout-method-guest').length && CitruscartJQ('#checkout-method-guest').attr('checked')) {
+        if (citruscartJQ('#checkout-method-guest').length && citruscartJQ('#checkout-method-guest').attr('checked')) {
             this.method = 'guest';
             var request = jQuery.ajax({
                 type: 'post', 
@@ -323,11 +323,11 @@ CitruscartOpc = CitruscartClass.extend({
 
             });
             
-            if (CitruscartJQ('#register-password').length) {
-                CitruscartJQ('#register-password').hide();
+            if (citruscartJQ('#register-password').length) {
+                citruscartJQ('#register-password').hide();
             }
         }
-        else if(CitruscartJQ('#checkout-method-register').length && (CitruscartJQ('#checkout-method-register').attr('checked') || !CitruscartJQ('#checkout-method-guest').length)) {
+        else if(citruscartJQ('#checkout-method-register').length && (citruscartJQ('#checkout-method-register').attr('checked') || !citruscartJQ('#checkout-method-guest').length)) {
             this.method = 'register';
             var request = jQuery.ajax({
                 type: 'post', 
@@ -346,8 +346,8 @@ CitruscartOpc = CitruscartClass.extend({
 
             });
             
-            if (CitruscartJQ('#register-password').length) {
-                CitruscartJQ('#register-password').show();
+            if (citruscartJQ('#register-password').length) {
+                citruscartJQ('#register-password').show();
             }
         }
         else {
@@ -362,21 +362,21 @@ CitruscartOpc = CitruscartClass.extend({
     
     setBilling: function() {
     	
-        if ((CitruscartJQ('#billing_input_use_for_shipping_yes').length) && (CitruscartJQ('#billing_input_use_for_shipping_yes').attr('checked'))) {
+        if ((citruscartJQ('#billing_input_use_for_shipping_yes').length) && (citruscartJQ('#billing_input_use_for_shipping_yes').attr('checked'))) {
             if (this.shipping) {
                 this.shipping.syncWithBilling();
-                CitruscartJQ('#opc-shipping').addClass('allow');
-                CitruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
+                citruscartJQ('#opc-shipping').addClass('allow');
+                citruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
             }
-        } else if ((CitruscartJQ('#billing_input_use_for_shipping_no').length) && (CitruscartJQ('#billing_input_use_for_shipping_no').attr('checked'))) {
-            CitruscartJQ('#shipping_input_same_as_billing').attr('checked', false).val('0');
+        } else if ((citruscartJQ('#billing_input_use_for_shipping_no').length) && (citruscartJQ('#billing_input_use_for_shipping_no').attr('checked'))) {
+            citruscartJQ('#shipping_input_same_as_billing').attr('checked', false).val('0');
         } else {
-            if (!CitruscartJQ('#existing-billing-address').length || CitruscartJQ('#existing-billing-address').val() == 0) {
-                CitruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
+            if (!citruscartJQ('#existing-billing-address').length || citruscartJQ('#existing-billing-address').val() == 0) {
+                citruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
             }            
         }
         
-        var form_data = CitruscartJQ('#opc-billing-form').serializeArray();
+        var form_data = citruscartJQ('#opc-billing-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -397,7 +397,7 @@ CitruscartOpc = CitruscartClass.extend({
     },
     
     setShipping: function() {
-        var form_data = CitruscartJQ('#opc-shipping-form').serializeArray();
+        var form_data = citruscartJQ('#opc-shipping-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -418,7 +418,7 @@ CitruscartOpc = CitruscartClass.extend({
     },
 
     setShippingMethod: function() {
-        var form_data = CitruscartJQ('#opc-shipping-method-form').serializeArray();
+        var form_data = citruscartJQ('#opc-shipping-method-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -439,7 +439,7 @@ CitruscartOpc = CitruscartClass.extend({
     },
 
     setPayment: function() {
-        var form_data = CitruscartJQ('#opc-payment-form').serializeArray();
+        var form_data = citruscartJQ('#opc-payment-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -460,7 +460,7 @@ CitruscartOpc = CitruscartClass.extend({
     },
     
     addCoupon: function() {
-        var form_data = CitruscartJQ('#opc-coupon-form').serializeArray();
+        var form_data = citruscartJQ('#opc-coupon-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -481,7 +481,7 @@ CitruscartOpc = CitruscartClass.extend({
     },
     
     addCredit: function() {
-        var form_data = CitruscartJQ('#opc-credit-form').serializeArray();
+        var form_data = citruscartJQ('#opc-credit-form').serializeArray();
 
         var request = jQuery.ajax({
             type: 'post', 
@@ -503,12 +503,12 @@ CitruscartOpc = CitruscartClass.extend({
     
     submitOrder: function() {
         var form_data = new Array();
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-checkout-method-form').serializeArray() );
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-billing-form').serializeArray() );
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-shipping-form').serializeArray() );
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-shipping-method-form').serializeArray() );
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-payment-form').serializeArray() );
-        CitruscartJQ.merge( form_data, CitruscartJQ('#opc-review-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-checkout-method-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-billing-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-shipping-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-shipping-method-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-payment-form').serializeArray() );
+        citruscartJQ.merge( form_data, citruscartJQ('#opc-review-form').serializeArray() );
         
         var request = jQuery.ajax({
             type: 'post', 
@@ -535,18 +535,18 @@ CitruscartOpc = CitruscartClass.extend({
      */
     handleSuccess: function(response) {
         if (response.summary) {
-            CitruscartJQ('#'+response.summary.id).html(response.summary.html);
+            citruscartJQ('#'+response.summary.id).html(response.summary.html);
         }
         
         if (response.summaries) {
-            CitruscartJQ.each(response.summaries, function(key, summary){
-                CitruscartJQ('#'+summary.id).html(summary.html);
+            citruscartJQ.each(response.summaries, function(key, summary){
+                citruscartJQ('#'+summary.id).html(summary.html);
             });
         }
         
         if (response.allow_sections) {
-            CitruscartJQ.each(response.allow_sections, function(key, section){
-                CitruscartJQ('#'+section).addClass('allow');
+            citruscartJQ.each(response.allow_sections, function(key, section){
+                citruscartJQ('#'+section).addClass('allow');
             });
         }
 
@@ -589,7 +589,7 @@ CitruscartShipping = CitruscartClass.extend({
     
     init: function (element, options) {
         this.__construct();
-        this.element = CitruscartJQ(element);
+        this.element = citruscartJQ(element);
         this.options = jQuery.extend( true, {}, this.defaults, options || {} );
     },
     
@@ -601,30 +601,30 @@ CitruscartShipping = CitruscartClass.extend({
     setSameAsBilling: function(flag) {
         var val = 0;
         if (flag) { val = 1; }
-        CitruscartJQ('#shipping_input_same_as_billing').attr('checked', flag).val(val);
+        citruscartJQ('#shipping_input_same_as_billing').attr('checked', flag).val(val);
         if (flag) {
             this.syncWithBilling();
         }
     },
 
     syncWithBilling: function () {
-        CitruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
+        citruscartJQ('#shipping_input_same_as_billing').attr('checked', true).val('1');
         
-        if (!CitruscartJQ('#existing-billing-address').length || CitruscartJQ('#existing-billing-address').val() == 0) {
-            CitruscartJQ('#existing-shipping-address').val( CitruscartJQ('#existing-billing-address').val() );
+        if (!citruscartJQ('#existing-billing-address').length || citruscartJQ('#existing-billing-address').val() == 0) {
+            citruscartJQ('#existing-shipping-address').val( citruscartJQ('#existing-billing-address').val() );
             arrElements = this.getFormElements(this.element);
 
             for (i=0,len=arrElements.length; i<len; i++) {
-                var targetFormElement = CitruscartJQ(arrElements[i]);
+                var targetFormElement = citruscartJQ(arrElements[i]);
                 if (targetFormElement.attr('id')) {
-                    var sourceField = CitruscartJQ( '#' + targetFormElement.attr('id').replace(this.options.shippingInputPrefix, this.options.billingInputPrefix) );
+                    var sourceField = citruscartJQ( '#' + targetFormElement.attr('id').replace(this.options.shippingInputPrefix, this.options.billingInputPrefix) );
                     if (sourceField.length) {
                         targetFormElement.val( sourceField.val() );
                     }
                 }
             }
         } else {
-            CitruscartJQ('#existing-shipping-address').val( CitruscartJQ('#existing-billing-address').val() );
+            citruscartJQ('#existing-shipping-address').val( citruscartJQ('#existing-billing-address').val() );
         }
     }
 });
@@ -640,7 +640,7 @@ CitruscartPayment = CitruscartClass.extend({
     
     init: function (element, options) {
         this.__construct();
-        this.element = CitruscartJQ(element);
+        this.element = citruscartJQ(element);
         this.options = jQuery.extend( true, {}, this.defaults, options || {} );
     },
     

@@ -31,7 +31,7 @@ class CitruscartUrl extends DSCUrl
 		JHTML::_( 'script', 'colorbox.js', 'media/com_citruscart/colorbox/' );
 
 		$document = JFactory::getDocument();
-		$js = "CitruscartJQ(document).ready(function() { CitruscartJQ('.Citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
+		$js = "citruscartJQ(document).ready(function() { citruscartJQ('.Citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
 		$document->addScriptDeclaration( $js );
 
 		if (!empty($options['update']))

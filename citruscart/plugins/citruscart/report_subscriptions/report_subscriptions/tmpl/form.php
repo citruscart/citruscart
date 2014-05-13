@@ -16,7 +16,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <p><?php echo JText::_('COM_CITRUSCART_THIS_REPORT_LISTS_ALL_USERS_WHO_OPENED_A_NEW_SUBSCRIPTION_DURING_THE_SELECTED_TIME_PERIOD'); ?></p>
 <div>
-	<table class="adminlist">
+
+    <!-- subscriptions table starts -->
+	<table class="adminlist table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th style="text-align: center; width: 485px;" class="key">
@@ -32,6 +34,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				<?php echo CitruscartSelect::reportrange( $state->filter_range ? $state->filter_range : 'custom', 'filter_range', $attribs, 'range', true ); ?>
 				<span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
 				<?php echo JHTML::calendar( $state->filter_date_from, "filter_date_from", "filter_date_from", '%Y-%m-%d %H:%M:%S' ); ?>
+			</th>
+			<th>	
 				<span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
 				<?php echo JHTML::calendar( $state->filter_date_to, "filter_date_to", "filter_date_to", '%Y-%m-%d %H:%M:%S' ); ?>
 				<input type="hidden" name="filter_datetype" value="created" />
@@ -44,5 +48,5 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			</th>
 		</tr>
     </thead>
-	</table>
+	</table><!-- subscriptions table ends -->
 </div>

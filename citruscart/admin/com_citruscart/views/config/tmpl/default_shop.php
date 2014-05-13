@@ -63,7 +63,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <td><?php
             // TODO Change this to use a task within the checkout controller rather than creating a new zones controller
             $url = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getzones&name=shop_zone&country_id=";
-            $attribs = array('onchange' => 'CitruscartDoTask( \'' . $url . '\'+document.getElementById(\'shop_country\').value, \'zones_wrapper\', \'\');');
+            $attribs = array('onchange' => 'citruscartDoTask( \'' . $url . '\'+document.getElementById(\'shop_country\').value, \'zones_wrapper\', \'\');');
             echo CitruscartSelect::country($this -> row -> get('shop_country', ''), 'shop_country', $attribs, 'shop_country', true);
             ?>
             </td>

@@ -31,9 +31,9 @@ class plgQuickiconCitruscartIcon extends JPlugin
         ){
             return array(array(
                 'link' => 'index.php?option=com_citruscart',
-                'image' => JURI::root().'/media/citruscart/images/Citruscart.png',
+                'image' => JURI::root().'/media/citruscart/images/citruscart.png',
                 'text' => 'Citruscart Dashboard',
-                'id' => 'plg_quickicon_Citruscarticon'
+                'id' => 'plg_quickicon_citruscarticon'
             ));
         } else return;
     }

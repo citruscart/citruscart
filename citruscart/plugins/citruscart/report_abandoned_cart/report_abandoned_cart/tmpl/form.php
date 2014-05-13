@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php // echo JText::_('COM_CITRUSCART_THIS_REPORTS_ON_DISPLAYING_LIST_OF_USERS_WITH_ITEMS_NOT_PURCHASED'); ?>
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">ABANDONED CARTS</a>
+    <a class="brand" href="#"><?php echo "ABANDONED CARTS"; ?></a>
 
     <ul class="nav navbar-form pull-left">
     	 <li class="divider-vertical"></li>
@@ -32,7 +32,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
       	<span class="add-on "><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
 	            <?php echo JHTML::calendar( $state->filter_date_from, "filter_date_from", "filter_date_from", '%Y-%m-%d 00:00:00' ); ?></div></li>
 	            <li class="divider-vertical"></li>
-      <li>
+                <li>
 	            <div class="input-prepend input-append">
 	            	<span class="add-on"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
 	            	<?php echo JHTML::calendar( $state->filter_date_to, "filter_date_to", "filter_date_to", '%Y-%m-%d 00:00:00' ); ?></div></li>

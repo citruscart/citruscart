@@ -46,7 +46,7 @@ $item = $this->row;
         <div>
             <span class="price"><?php echo CitruscartHelperBase::currency($item->price); ?></span><br />
             <?php $url = "index.php?option=com_citruscart&format=raw&controller=carts&task=addToCart&productid=".$item->product_id; ?>
-            <?php $onclick = 'CitruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
+            <?php $onclick = 'citruscartDoTask(\''.$url.'\', \'CitruscartUserShoppingCart\', \'\');' ?>
             <img class="addcart" src="media/citruscart/images/addcart.png" alt="" onclick="<?php echo $onclick; ?>" />
         </div>
     </div>

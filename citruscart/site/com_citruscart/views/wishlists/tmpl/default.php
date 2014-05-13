@@ -29,18 +29,18 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <script type="text/javascript">
-CitruscartJQ(document).ready(function(){
-    CitruscartJQ('.wishlistitem-select-wishlist').on('change', function(){
-        el = CitruscartJQ(this);
+citruscartJQ(document).ready(function(){
+    citruscartJQ('.wishlistitem-select-wishlist').on('change', function(){
+        el = citruscartJQ(this);
         Citruscart.addWishlistItemToWishlist(el.attr('data-wishlistitem_id'), el.val(), function(){
-            container = CitruscartJQ('#wishlist-column-'+el.attr('data-wishlistitem_id'));
+            container = citruscartJQ('#wishlist-column-'+el.attr('data-wishlistitem_id'));
             container.find('.confirmation').remove();
             container.append('<p class="confirmation">'+Joomla.JText._('COM_CITRUSCART_WISHLISTITEM_ADDED_TO_WISHLIST')+'</p>').find('.confirmation').fadeIn().delay(1500).fadeOut().delay(3000);
         });
     });
 
-    CitruscartJQ('.create-wishlist').on('click', function() {
-        el = CitruscartJQ(this);
+    citruscartJQ('.create-wishlist').on('click', function() {
+        el = citruscartJQ(this);
         Citruscart.createWishlist(null, '<?php echo JText::_("COM_CITRUSCART_PROVIDE_WISHLIST_NAME"); ?>', function(response){
             if (el.hasClass('update-value')) {
                 parent = el.parents('.wishlistitem-select-wishlist');
@@ -55,8 +55,8 @@ CitruscartJQ(document).ready(function(){
         });
     });
 
-    CitruscartJQ('.update-value').each(function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.update-value').each(function(){
+        el = citruscartJQ(this);
         if (el.attr('selected')) {
             el.removeAttr('selected');
             parent = el.parents('.wishlistitem-select-wishlist');
@@ -64,12 +64,12 @@ CitruscartJQ(document).ready(function(){
         }
     });
 
-    CitruscartJQ('.delete-wishlistitem').on('click', function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.delete-wishlistitem').on('click', function(){
+        el = citruscartJQ(this);
         wishlistitem_id = el.attr('data-wishlistitem_id');
         if (wishlistitem_id) {
             Citruscart.deleteWishlistItem(wishlistitem_id, '<?php echo JText::_("COM_CITRUSCART_CONFIRM_DELETE_WISHLISTITEM"); ?>', function(){
-                CitruscartJQ('.wishlistitem-'+wishlistitem_id).remove();
+                citruscartJQ('.wishlistitem-'+wishlistitem_id).remove();
             });
         }
     });

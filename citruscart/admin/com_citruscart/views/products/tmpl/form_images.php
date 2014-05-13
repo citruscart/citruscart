@@ -114,7 +114,7 @@ if (!empty($row->product_id)) {
 			'queueID'          : 'queue',
 			'uploadScript'     : 'index.php',
 			'onQueueComplete' : function() { Citruscart.refreshProductGallery(<?php echo $row->product_id; ?>); jQuery('#new_product_full_images').uploadifive('clearQueue'); },
-			'onFallback'   : function() { CitruscartJQ('#new_product_full_images').on('change', function(){ CitruscartMakeFileList(); }); },
+			'onFallback'   : function() { citruscartJQ('#new_product_full_images').on('change', function(){ CitruscartMakeFileList(); }); },
 			'onInit': function() { }
 		});
 	});

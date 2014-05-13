@@ -138,7 +138,7 @@ $addressTable = $this->getModel('addresses')->getTable();
     		<?php
     		$url = "index.php?option=com_citruscart&format=raw&controller=checkout&task=getzones&prefix={$this->form_prefix}&country_id=";
     
-    		$onchange = 'CitruscartDoTask( \''.$url.'\'+document.getElementById(\''.$this->form_prefix.'country_id\').value, \''.$this->form_prefix.'zones_wrapper\', \'\', \'\', false );';
+    		$onchange = 'citruscartDoTask( \''.$url.'\'+document.getElementById(\''.$this->form_prefix.'country_id\').value, \''.$this->form_prefix.'zones_wrapper\', \'\', \'\', false );';
     
     		$attribs = array('class' => 'required','size' => '1','onchange' => $onchange );
     		echo CitruscartSelect::country( $this->default_country_id, $this->form_prefix.'country_id', $attribs, $this->form_prefix.'country_id', false, true );

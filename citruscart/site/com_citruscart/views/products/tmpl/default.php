@@ -16,6 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 $state = $this->state;
 $items = $this->items;
+
 $citems = $this->citems;
 $form = $this->form;
 Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );

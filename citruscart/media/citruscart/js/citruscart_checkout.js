@@ -9,8 +9,8 @@ function CitruscartGetPaymentForm( element, container )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=getPaymentForm&format=raw&payment_element=' + element;
 
-   	CitruscartGrayOutAjaxDiv( container, Joomla.JText._( 'COM_CITRUSCART_UPDATING_PAYMENT_METHODS' ) );
-	CitruscartDoTask( url, container, document.adminForm, '', false, CitruscartDeletePaymentGrayDiv );    	
+   	citruscartGrayOutAjaxDiv( container, Joomla.JText._( 'COM_CITRUSCART_UPDATING_PAYMENT_METHODS' ) );
+	citruscartDoTask( url, container, document.adminForm, '', false, CitruscartDeletePaymentGrayDiv );    	
 }
 
 
@@ -19,9 +19,9 @@ function CitruscartGetShippingRates( container, form, callback )
     var url = 'index.php?option=com_citruscart&view=checkout&task=updateShippingRates&format=raw';
     
 	// loop through form elements and prepare an array of objects for passing to server
-	var str = CitruscartGetFormInputData( form );
+	var str = citruscartGetFormInputData( form );
 	
-   	CitruscartGrayOutAjaxDiv( container, Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
+   	citruscartGrayOutAjaxDiv( container, Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
    	
    	// execute Ajax request to server
     var a = new Request({
@@ -32,7 +32,7 @@ function CitruscartGetShippingRates( container, form, callback )
 		},
 		onSuccess : function(response) {
 			var resp = JSON.decode(response, false);
-            CitruscartJQ( container ).html( resp.msg );
+            citruscartJQ( container ).html( resp.msg );
             if( resp.default_rate && resp.default_rate != null ) { 
                 // if only one rate was found - set it as default
                 CitruscartSetShippingRate(resp.default_rate['name'], resp.default_rate['price'], resp.default_rate['tax'], resp.default_rate['extra'], resp.default_rate['code'], callback != null );                
@@ -56,14 +56,14 @@ function CitruscartGetShippingRates( container, form, callback )
 
 function CitruscartSetShippingRate(name, price, tax, extra, code, combined )
 {
-	CitruscartJQ('shipping_name').value = name;
-	CitruscartJQ('shipping_code').value = code;
-	CitruscartJQ('shipping_price').value = price;
-	CitruscartJQ('shipping_tax').value = tax;
-	CitruscartJQ('shipping_extra').value = extra;
+	citruscartJQ('shipping_name').value = name;
+	citruscartJQ('shipping_code').value = code;
+	citruscartJQ('shipping_price').value = price;
+	citruscartJQ('shipping_tax').value = tax;
+	citruscartJQ('shipping_extra').value = extra;
 
-	CitruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
-	CitruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );		
+	citruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
+	citruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );		
 	CitruscartGetCheckoutTotals( combined ); // combined = true - both shipping rates and addresses are updating at the same time
 }
 
@@ -79,11 +79,11 @@ function CitruscartGetCheckoutTotals( combined )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=setShippingMethod&format=raw';
 //    if( typeof( combined ) == 'undefined' )
- //   	CitruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false );
+ //   	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false );
     if( combined )
-    	CitruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteCombinedGrayDiv );    	
+    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteCombinedGrayDiv );    	
     else
-    	CitruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteShippingGrayDiv );
+    	citruscartDoTask( url, 'onCheckoutCart_wrapper', document.adminForm, '', false, CitruscartDeleteShippingGrayDiv );
 }
 
 /**
@@ -93,7 +93,7 @@ function CitruscartGetCheckoutTotals( combined )
 function CitruscartGetCurrencyTotals()
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=setCurrency&format=raw';
-    CitruscartDoTask( url, 'onCheckoutReview_wrapper', document.adminForm );    
+    citruscartDoTask( url, 'onCheckoutReview_wrapper', document.adminForm );    
 }
 
 /**
@@ -105,11 +105,11 @@ function CitruscartGetCurrencyTotals()
  */
 function CitruscartRefreshTotalAmountDue()
 {
-	if( CitruscartJQ( 'payment_info' ) )
+	if( citruscartJQ( 'payment_info' ) )
 	{
 		var url = 'index.php?option=com_citruscart&view=checkout&task=totalAmountDue&format=raw';
-		CitruscartGrayOutAjaxDiv( 'payment_info', Joomla.JText._( 'COM_CITRUSCART_UPDATING_BILLING' ) ); 
-	    CitruscartDoTask( url, 'totalAmountDue', document.adminForm, '', false, CitruscartDeleteTotalAmountDueGrayDiv );		
+		citruscartGrayOutAjaxDiv( 'payment_info', Joomla.JText._( 'COM_CITRUSCART_UPDATING_BILLING' ) ); 
+	    citruscartDoTask( url, 'totalAmountDue', document.adminForm, '', false, CitruscartDeleteTotalAmountDueGrayDiv );		
 	}
 }
 
@@ -149,7 +149,7 @@ function CitruscartDisableShippingAddressControls(checkbox, form)
             	if( fieldList[index] == 'zone_id' ) // special care for zones
             	{
             		if( disable )
-            			CitruscartDoTask( 'index.php?option=com_citruscart&format=raw&controller=checkout&task=getzones&prefix=shipping_input_&disabled=1&country_id='+document.getElementById('billing_input_country_id').value+'&zone_id='+document.getElementById('billing_input_zone_id').value, 'shipping_input_zones_wrapper', '');
+            			citruscartDoTask( 'index.php?option=com_citruscart&format=raw&controller=checkout&task=getzones&prefix=shipping_input_&disabled=1&country_id='+document.getElementById('billing_input_country_id').value+'&zone_id='+document.getElementById('billing_input_zone_id').value, 'shipping_input_zones_wrapper', '');
             		else
             			shippingControl.disabled = false;
             	}
@@ -162,12 +162,12 @@ function CitruscartDisableShippingAddressControls(checkbox, form)
         }
     }
     
-    CitruscartDeleteGrayDivs();
+    citruscartDeleteGrayDivs();
 }
 
 function CitruscartManageShippingRates()
 {
-	CitruscartJQ('shipping_form_div').getElements('input[name=shipping_rate]').addEvent('click', function() {
+	citruscartJQ('shipping_form_div').getElements('input[name=shipping_rate]').addEvent('click', function() {
 		CitruscartGetCheckoutTotals();
 	}
 	);
@@ -175,52 +175,52 @@ function CitruscartManageShippingRates()
 
 function CitruscartDeleteAddressGrayDiv()
 {
-	el_billing = $$( '#billingAddress .CitruscartAjaxGrayDiv' );
+	el_billing = $$( '#billingAddress .citruscartAjaxGrayDiv' );
 	if( !el_billing )
 		return;
-	CitruscartSetColorInContainer( 'billingAddress', '' );
+	citruscartSetColorInContainer( 'billingAddress', '' );
 	el_billing.destroy();
 	
-	if( CitruscartJQ( 'shippingAddress' ) && ( !CitruscartJQ( 'sameasbilling' ) || ( CitruscartJQ( 'sameasbilling' ) && !CitruscartJQ( 'sameasbilling' ).checked ) ) )
+	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
 	{
-		CitruscartSetColorInContainer( 'shippingAddress', '' );
-		$$( '#shippingAddress .CitruscartAjaxGrayDiv' ).destroy();		
+		citruscartSetColorInContainer( 'shippingAddress', '' );
+		$$( '#shippingAddress .citruscartAjaxGrayDiv' ).destroy();		
 	}
 }
 
 function CitruscartDeletePaymentGrayDiv()
 {
-	if( CitruscartJQ( 'onCheckoutPayment_wrapper' ) )
-		CitruscartSetColorInContainer( 'onCheckoutPayment_wrapper', '' );
+	if( citruscartJQ( 'onCheckoutPayment_wrapper' ) )
+		citruscartSetColorInContainer( 'onCheckoutPayment_wrapper', '' );
 }
 
 function CitruscartDeleteTotalAmountDueGrayDiv()
 {
-	el = $$( '#payment_info .CitruscartAjaxGrayDiv' );
+	el = $$( '#payment_info .citruscartAjaxGrayDiv' );
 	if( el != '' )
 		el.destroy();
 	
-	CitruscartSetColorInContainer( 'payment_info', '' );
+	citruscartSetColorInContainer( 'payment_info', '' );
 }
 
 function CitruscartDeleteShippingGrayDiv()
 {
-	if( CitruscartJQ( 'onCheckoutShipping_wrapper' ) == null )
+	if( citruscartJQ( 'onCheckoutShipping_wrapper' ) == null )
 		return;
 
-	el = $$( '#onCheckoutShipping_wrapper .CitruscartAjaxGrayDiv' );
+	el = $$( '#onCheckoutShipping_wrapper .citruscartAjaxGrayDiv' );
 	if( el != '' )
 		el.destroy();
 
 	
-	if( CitruscartJQ( 'onCheckoutShipping_wrapper' ).css( 'color' ) != '' )
+	if( citruscartJQ( 'onCheckoutShipping_wrapper' ).css( 'color' ) != '' )
 	{
-		CitruscartSetColorInContainer( 'onCheckoutShipping_wrapper', '' );
+		citruscartSetColorInContainer( 'onCheckoutShipping_wrapper', '' );
 		
 		// selected shipping rate has to be checked manually
-		if( CitruscartJQ( 'shipping_name' ) )
+		if( citruscartJQ( 'shipping_name' ) )
 		{
-			shipping_plugin = CitruscartJQ( 'shipping_name' ).get( 'value' );
+			shipping_plugin = citruscartJQ( 'shipping_name' ).get( 'value' );
 			$$( '#onCheckoutShipping_wrapper input[type=radio]' ).each( function( e ){
 				if( e.get( 'rel' ) == shipping_plugin )
 					e.set( 'checked', true );
@@ -232,15 +232,15 @@ function CitruscartDeleteShippingGrayDiv()
 
 function CitruscartDeleteCartGrayDiv()
 {
-	if( CitruscartJQ('onCheckoutCart_wrapper') )
-		CitruscartSetColorInContainer( 'onCheckoutCart_wrapper', '' );
+	if( citruscartJQ('onCheckoutCart_wrapper') )
+		citruscartSetColorInContainer( 'onCheckoutCart_wrapper', '' );
 }
 
 function CitruscartDeleteCombinedGrayDiv()
 {
 	CitruscartDeleteAddressGrayDiv();
 
-	if( CitruscartJQ( 'onCheckoutShipping_wrapper' ) )
+	if( citruscartJQ( 'onCheckoutShipping_wrapper' ) )
 		CitruscartDeleteShippingGrayDiv();
 	else // no shipping address so delete gray div from cart
 		CitruscartDeleteCartGrayDiv();
@@ -248,13 +248,13 @@ function CitruscartDeleteCombinedGrayDiv()
 
 function CitruscartGrayOutAddressDiv( prefix )
 {
-	if( !CitruscartJQ( 'shippingAddress' ) )
+	if( !citruscartJQ( 'shippingAddress' ) )
 		return;
-	values = CitruscartStoreFormInputs( document.adminForm );
-	CitruscartGrayOutAjaxDiv( 'billingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
-	if( CitruscartJQ( 'shippingAddress' ) && ( !CitruscartJQ( 'sameasbilling' ) || ( CitruscartJQ( 'sameasbilling' ) && !CitruscartJQ( 'sameasbilling' ).checked ) ) )
-		CitruscartGrayOutAjaxDiv( 'shippingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
-	CitruscartRestoreFormInputs( document.adminForm , values );
+	values = citruscartStoreFormInputs( document.adminForm );
+	citruscartGrayOutAjaxDiv( 'billingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
+	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
+		citruscartGrayOutAjaxDiv( 'shippingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
+	citruscartRestoreFormInputs( document.adminForm , values );
 }
 
 /*
@@ -282,18 +282,18 @@ function CitruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
 	    return;        
 	}		
 
-	only_shipping = !CitruscartJQ( 'sameasbilling' ) || !CitruscartJQ( 'sameasbilling' ).get( 'checked' );
+	only_shipping = !citruscartJQ( 'sameasbilling' ) || !citruscartJQ( 'sameasbilling' ).get( 'checked' );
 	if( only_shipping )
 	{
 		CitruscartGrayOutAddressDiv();
-		CitruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
+		citruscartGrayOutAjaxDiv( 'onCheckoutShipping_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_SHIPPING_RATES' ) );
 		if( obj_id.substr( 0, 9 ) == 'shipping_' ) // shipping input
 		{
 			CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm, CitruscartDeleteAddressGrayDiv );
 		}
 		else // billing input
 		{
-			CitruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );
+			citruscartGrayOutAjaxDiv( 'onCheckoutCart_wrapper', Joomla.JText._( 'COM_CITRUSCART_UPDATING_CART' ) );
 			CitruscartGetCheckoutTotals( true );
 		}
 	}
@@ -316,7 +316,7 @@ function CitruscartCheckPassword( container, form, psw, min_length, req_num, req
     val_errors = [];
 	var pass_ok = true;
 		
-	act_pass = CitruscartJQ( psw ).get( 'value' );
+	act_pass = citruscartJQ( psw ).get( 'value' );
 	if( act_pass.length < min_length ) // password is not long enough
 	{
 	    str = Joomla.JText._('COM_CITRUSCART_PASSWORD_MIN_LENGTH');
@@ -387,7 +387,7 @@ function CitruscartCheckPassword( container, form, psw, min_length, req_num, req
  */
 function CitruscartCheckPassword2( container, form, psw1, psw2 )
 {
-	if( CitruscartJQ( psw1 ).get( 'value' ) == CitruscartJQ( psw2 ).get( 'value' ) )
+	if( citruscartJQ( psw1 ).get( 'value' ) == citruscartJQ( psw2 ).get( 'value' ) )
 	{
 		val_img 	= 'accept_16.png';
 		val_alt	 	= Joomla.JText._( 'COM_CITRUSCART_SUCCESS' );
@@ -403,8 +403,8 @@ function CitruscartCheckPassword2( container, form, psw1, psw2 )
 	}
 	
 	content = '<div class="citruscart_validation"><img src="'+window.com_citruscart.jbase+'media/com_citruscart/images/'+val_img+'" alt="'+val_alt+'"><span class="'+val_class+'">'+val_text+'</span></div>';
-	if( CitruscartJQ( container ) )
-		CitruscartJQ( container ).set('html',  content );
+	if( citruscartJQ( container ) )
+		citruscartJQ( container ).set('html',  content );
 }
 
 
@@ -418,9 +418,9 @@ function CitruscartCheckoutCheckEmail( container, form )
 	var url = 'index.php?option=com_citruscart&controller=checkout&task=checkEmail&format=raw';
 		    
 	// loop through form elements and prepare an array of objects for passing to server
-    var str = CitruscartGetFormInputData( form );
+    var str = citruscartGetFormInputData( form );
     // execute Ajax request to server
-    CitruscartPutAjaxLoader( container, Joomla.JText._( 'COM_CITRUSCART_VALIDATING' ) );
+    citruscartPutAjaxLoader( container, Joomla.JText._( 'COM_CITRUSCART_VALIDATING' ) );
     var a = new Request({
             url: url,
             method:"post",
@@ -429,11 +429,11 @@ function CitruscartCheckoutCheckEmail( container, form )
            var resp=JSON.decode(response, false);
             if( resp.error != '0' )
             {
-        		CitruscartJQ(container).set('html', resp.msg);
+        		citruscartJQ(container).set('html', resp.msg);
             }
             else
        		{
-        		CitruscartJQ( container ).set('html',  resp.msg );
+        		citruscartJQ( container ).set('html',  resp.msg );
        		}
             return true;
         }
@@ -442,8 +442,8 @@ function CitruscartCheckoutCheckEmail( container, form )
 
 function CitruscartHideInfoCreateAccount( )
 {	
-	CitruscartJQ('create_account').addEvent('change', function() {
-		CitruscartJQ('citruscart_user_additional_info').toggleClass('hidden');
+	citruscartJQ('create_account').addEvent('change', function() {
+		citruscartJQ('citruscart_user_additional_info').toggleClass('hidden');
 	});
 }
 
@@ -454,10 +454,10 @@ function CitruscartGetPaymentOptions(container, form, msg, callback) {
         payment_plugin = payment_plugin.value;
     }       
         
-    var str = CitruscartGetFormInputData( form );
+    var str = citruscartGetFormInputData( form );
     var url = 'index.php?option=com_citruscart&view=checkout&task=updatePaymentOptions&format=raw';
     
-    CitruscartGrayOutAjaxDiv('onCheckoutPayment_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_PAYMENT_METHODS'));
+    citruscartGrayOutAjaxDiv('onCheckoutPayment_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_PAYMENT_METHODS'));
     
     // execute Ajax request to server
     var a = new Request({

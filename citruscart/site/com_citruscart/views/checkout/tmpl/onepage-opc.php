@@ -148,7 +148,7 @@
 					<!--    SHIPPING ADDRESS  -->	         
 	                <?php if (empty($this->shipping_address)) : ?>
 	                    <div>
-	                        <input id="sameasbilling" name="sameasbilling" type="checkbox" checked="checked" onclick="CitruscartShowHideDiv( 'shipping_input_addressForm' ); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); "/>&nbsp;
+	                        <input id="sameasbilling" name="sameasbilling" type="checkbox" checked="checked" onclick="citruscartShowHideDiv( 'shipping_input_addressForm' ); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); "/>&nbsp;
 	                        <?php echo JText::_('COM_CITRUSCART_SAME_AS_BILLING_ADDRESS'); ?>
 	                    </div>
 					<?php endif; ?>
@@ -368,11 +368,11 @@
 <script type="text/javascript">
 window.addEvent('domready', function() {
 <?php if( $this->billing_address->address_id ): ?>
-	CitruscartShowHideDiv( 'billing_input_addressForm' );
+	citruscartShowHideDiv( 'billing_input_addressForm' );
 <?php endif; ?>
 
 <?php if( $this->showShipping  ):?>	
-	CitruscartShowHideDiv( 'shipping_input_addressForm' );
+	citruscartShowHideDiv( 'shipping_input_addressForm' );
 	<?php if( !$this->shipping_address->address_id ): ?>
 		document.id( 'sameasbilling' ).addEvent( 'change', function() { CitruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm ) } );
 	<?php endif; ?>

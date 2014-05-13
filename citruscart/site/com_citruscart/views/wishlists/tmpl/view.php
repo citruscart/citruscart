@@ -27,15 +27,15 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <script type="text/javascript">
-CitruscartJQ(document).ready(function(){
+citruscartJQ(document).ready(function(){
 	DisplaySharingOptions( <?php echo $this->row->privacy; ?>, 0 );
 
-    CitruscartJQ('.privatize-wishlist').on('change', function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.privatize-wishlist').on('change', function(){
+        el = citruscartJQ(this);
         privacy = el.val();
         if (privacy > 0) {
             Citruscart.privatizeWishlist(<?php echo $this->row->wishlist_id; ?>, privacy, function(response){
-                container = CitruscartJQ('#message-container');
+                container = citruscartJQ('#message-container');
                 container.find('.confirmation').remove();
                 container.append('<p class="confirmation">'+response.html+'</p>').find('.confirmation').fadeIn().delay(1500).fadeOut().delay(3000);
             });
@@ -43,33 +43,33 @@ CitruscartJQ(document).ready(function(){
         }
     });
 
-    CitruscartJQ('.delete-wishlistitem').on('click', function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.delete-wishlistitem').on('click', function(){
+        el = citruscartJQ(this);
         wishlistitem_id = el.attr('data-wishlistitem_id');
         if (wishlistitem_id) {
             Citruscart.deleteWishlistItem(wishlistitem_id, '<?php echo JText::_("COM_CITRUSCART_CONFIRM_DELETE_WISHLISTITEM"); ?>', function(){
-                CitruscartJQ('.wishlistitem-'+wishlistitem_id).remove();
+                citruscartJQ('.wishlistitem-'+wishlistitem_id).remove();
             });
         }
     });
 
-    CitruscartJQ('.delete-wishlist').on('click', function(){
-        el = CitruscartJQ(this);
+    citruscartJQ('.delete-wishlist').on('click', function(){
+        el = citruscartJQ(this);
         Citruscart.deleteWishlist(<?php echo $this->row->wishlist_id; ?>, '<?php echo JText::_("COM_CITRUSCART_CONFIRM_DELETE_WISHLIST"); ?>', function(){
             window.location = '<?php echo JRoute::_('index.php?option=com_citruscart&view=wishlists&Itemid='.$router->findItemid( array('view'=>'wishlists') ) ); ?>';
         });
     });
 
-    CitruscartJQ('.rename-wishlist').on('click', function() {
-        el = CitruscartJQ(this);
+    citruscartJQ('.rename-wishlist').on('click', function() {
+        el = citruscartJQ(this);
         Citruscart.renameWishlist(<?php echo $this->row->wishlist_id; ?>, '<?php echo JText::_("COM_CITRUSCART_PROVIDE_WISHLIST_NAME"); ?>', function(response){
-            CitruscartJQ('.wishlist-name.wishlist-<?php echo $this->row->wishlist_id; ?>').html( response.wishlist_name );
+            citruscartJQ('.wishlist-name.wishlist-<?php echo $this->row->wishlist_id; ?>').html( response.wishlist_name );
         });
     });
 });
 
 function DisplaySharingOptions( privacy, t ) {
-	var obj = CitruscartJQ( '#wishlist-sharing' );
+	var obj = citruscartJQ( '#wishlist-sharing' );
 	console.log( privacy );
 	if( privacy == 3 ) {
 		obj.hide(t);

@@ -47,7 +47,7 @@ class CitruscartViewBase extends DSCViewSite
 	    JHTML::_('behavior.modal');
 	    JHTML::_('script', 'core.js', 'media/system/js/');
 
-	    DSC::loadJQuery('latest', true, 'CitruscartJQ');
+	    DSC::loadJQuery('latest', true, 'citruscartJQ');
 
 	    if ($this->defines->get('use_bootstrap', '0'))
 	    {

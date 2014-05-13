@@ -56,16 +56,18 @@ class plgCitruscartReport_abandoned_cart extends CitruscartReportPlugin
 		$state = $this->_getState();
         $model = $this->_getModel();
         $query = $model->getQuery();
-        $query->select( 'u.*' );
+        
+        /*$query->select( '*' );
 		$query->join('LEFT', '#__users AS u ON u.id = tbl.user_id');
 		$query->where('tbl.user_id != 0');
-				
+        */
+        	
         $model->setQuery( $query );
         $items = $model->getList();
-
-		$data = array();
+        $data = array();
 		$subtotals	 = array();
 		$total_items = array();
+		
 		foreach($items as $item)
 		{
 			if(empty($subtotals[$item->user_id])) $subtotals[$item->user_id] = 0;
@@ -80,7 +82,7 @@ class plgCitruscartReport_abandoned_cart extends CitruscartReportPlugin
 			$data[$item->user_id]->subtotal = $subtotals[$item->user_id];
 			$data[$item->user_id]->total_items = $total_items[$item->user_id];
 		}
-
+			
         return $data;
 	}
 

@@ -139,7 +139,7 @@ $helper_product = new CitruscartHelperProduct();
                                 <input type="radio" <?php if (empty($row->quantity_restriction)) { echo "checked='checked'"; } ?> value="0" name="quantity_restriction" id="quantity_restriction0" />
                                 <label for="quantity_restriction0"><?php echo JText::_('COM_CITRUSCART_NO'); ?> </label>
                                 	<input type="radio" <?php if (!empty($row->quantity_restriction)) { echo "checked='checked'"; } ?> value="1" name="quantity_restriction" id="quantity_restriction1" />
-                                	<label onclick="CitruscartShowHideDiv('quantity_restrictions');" for="quantity_restriction1"><?php echo JText::_('COM_CITRUSCART_YES'); ?> </label>
+                                	<label onclick="citruscartShowHideDiv('quantity_restrictions');" for="quantity_restriction1"><?php echo JText::_('COM_CITRUSCART_YES'); ?> </label>
                             </fieldset>
                         </div>
                     </div>

@@ -14,6 +14,9 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
+/* define DS constant */
+define('DS', '/');
+
 $app = JFactory::getApplication();
 // Check the registry to see if our Citruscart class has been overridden
 if ( !class_exists('Citruscart') )

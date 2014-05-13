@@ -150,7 +150,7 @@ defined('_JEXEC') or die('Restricted access');
                         $attribs = array(
                                                                 'class' => 'inputbox',
                                                                 'size' => '1',
-                                                                'onchange' => 'CitruscartDoTask( \''.$url.'\'+document.getElementById(\'billing_input_country_id\').value, \'billing_zones_wrapper\', \'\');' );
+                                                                'onchange' => 'citruscartDoTask( \''.$url.'\'+document.getElementById(\'billing_input_country_id\').value, \'billing_zones_wrapper\', \'\');' );
 
                         echo CitruscartSelect::country(0, 'billing_input_country_id', $attribs, 'billing_input_country_id', true ); ?>
                         </td>

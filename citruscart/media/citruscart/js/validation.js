@@ -9,7 +9,7 @@ CitruscartValidation = CitruscartClass.extend({
     
     init: function (element, options) {
         this.__construct();
-        this.element = CitruscartJQ(element);
+        this.element = citruscartJQ(element);
         this.options = jQuery.extend( true, {}, this.defaults, options || {} );
         
         this.setupForm();
@@ -26,7 +26,7 @@ CitruscartValidation = CitruscartClass.extend({
     setupForm: function(el) {
         arrElements = this.getFormElements(el);
         for (i=0,len=arrElements.length; i<len; i++) {
-            var formElement = CitruscartJQ(arrElements[i]);
+            var formElement = citruscartJQ(arrElements[i]);
             if (formElement.hasClass("required")) {
                 formElement.data("required", true);
             }
@@ -37,11 +37,11 @@ CitruscartValidation = CitruscartClass.extend({
         var validations = new Array();
         arrElements = this.getFormElements(el);
         for (i=0,len=arrElements.length; i<len; i++) {
-            var fieldElement = CitruscartJQ(arrElements[i]);
+            var fieldElement = citruscartJQ(arrElements[i]);
             validations.push(this.validateField(fieldElement, el));
         }
         
-        if (CitruscartJQ.inArray( false, validations ) != '-1') {
+        if (citruscartJQ.inArray( false, validations ) != '-1') {
             return false;
         }
         return true;

@@ -158,7 +158,7 @@
         <?php endif; ?>
 
     <p>
-        <input type="button" class="btn" onclick="CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'preparePayment', document.adminForm ); CitruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' );" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_REVIEW_ORDER_BEFORE_SUBMITTING_PAYMENT'); ?>" />
+        <input type="button" class="btn" onclick="CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'preparePayment', document.adminForm ); citruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' );" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_REVIEW_ORDER_BEFORE_SUBMITTING_PAYMENT'); ?>" />
         <a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
     </p>
         

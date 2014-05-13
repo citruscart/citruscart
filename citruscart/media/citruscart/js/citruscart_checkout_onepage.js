@@ -4,22 +4,22 @@
  * @param shippingprefix
  * @return
  */
-function CitruscartCopyBillingAdToShippingAd(checkbox, form) {
+function citruscartCopyBillingAdToShippingAd(checkbox, form) {
 	var disable = false;
 	if (checkbox.checked) {
 		disable = true;
-		CitruscartGrayOutAddressDiv();
-		CitruscartGetShippingRates('onCheckoutShipping_wrapper', form, CitruscartDeleteAddressGrayDiv);
-		CitruscartGetPaymentOptions('onCheckoutPayment_wrapper', form);
+		citruscartGrayOutAddressDiv();
+		citruscartGetShippingRates('onCheckoutShipping_wrapper', form, citruscartDeleteAddressGrayDiv);
+		citruscartGetPaymentOptions('onCheckoutPayment_wrapper', form);
 	}
 }
 
-function CitruscartSaveOnepageOrder(container, errcontainer, form) {
+function citruscartSaveOnepageOrder(container, errcontainer, form) {
 	var url = 'index.php?option=com_citruscart&view=checkout&controller=checkout&task=saveOrderOnePage&format=raw';
-	var str = CitruscartGetFormInputData(form);
+	var str = citruscartGetFormInputData(form);
 
 	// execute Ajax request to server
-	CitruscartPutAjaxLoader(errcontainer, Joomla.JText._('COM_CITRUSCART_VALIDATING'));
+	citruscartPutAjaxLoader(errcontainer, Joomla.JText._('COM_CITRUSCART_VALIDATING'));
 	var a = new Request({
 		url : url,
 		method : "post",
@@ -63,13 +63,13 @@ function CitruscartSaveOnepageOrder(container, errcontainer, form) {
 	}).send();
 }
 
-function CitruscartGetFinalForm(container, form, msg) {
+function citruscartGetFinalForm(container, form, msg) {
 	var url = 'index.php?option=com_citruscart&view=checkout&task=getRegisterForm&format=raw';
-	CitruscartDoTask(url, container, form, msg);
+	citruscartDoTask(url, container, form, msg);
 	$('citruscart-method-pane').set('html', $('hiddenregvalue').value);
 }
 
-function CitruscartGetView(url, container, labelcont) {
+function citruscartGetView(url, container, labelcont) {
 	// execute Ajax request to server
 	var a = new Request({
 		url : url,
@@ -89,15 +89,15 @@ function CitruscartGetView(url, container, labelcont) {
 	}).send();
 }
 
-function CitruscartGetRegistrationForm(container, form, msg) {
+function citruscartGetRegistrationForm(container, form, msg) {
 	var url = 'index.php?option=com_citruscart&view=checkout&task=getRegisterForm&format=raw';
-	CitruscartGetView(url, container, 'citruscart-method-pane');
+	citruscartGetView(url, container, 'citruscart-method-pane');
 }
 
 /**
  * method to hide billing fields
  */
-function CitruscartHideBillingFields() {
+function citruscartHideBillingFields() {
 	$('billingToggle_show').set('class', 'hidden');
 
 	$('field-toggle').addEvent('change', function() {
@@ -105,23 +105,23 @@ function CitruscartHideBillingFields() {
 	});
 }
 
-function CitruscartCheckoutSetBillingAddress(url, container, selected, form) {
+function citruscartCheckoutSetBillingAddress(url, container, selected, form) {
 	var divContainer = document.getElementById(container);
 	var divForm = document.getElementById('billing_input_addressForm');
 
 	if (selected > 0)// address was selected -> get shipping rates
 	{
-		values = CitruscartStoreFormInputs(form);
+		values = citruscartStoreFormInputs(form);
 		divContainer.style.display = "";
 		divForm.style.display = "none";
-		CitruscartGrayOutAddressDiv();
-		CitruscartDoTask(url, container, '', '', false);
+		citruscartGrayOutAddressDiv();
+		citruscartDoTask(url, container, '', '', false);
 		if ($('onCheckoutShipping_wrapper'))
-			CitruscartGrayOutAjaxDiv('onCheckoutShipping_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_SHIPPING_RATES'));
-		CitruscartGrayOutAjaxDiv('onCheckoutCart_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_CART'));
+			citruscartGrayOutAjaxDiv('onCheckoutShipping_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_SHIPPING_RATES'));
+		citruscartGrayOutAjaxDiv('onCheckoutCart_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_CART'));
 
-		CitruscartGetCheckoutTotals(true);
-		CitruscartRestoreFormInputs(form, values);
+		citruscartGetCheckoutTotals(true);
+		citruscartRestoreFormInputs(form, values);
 	} else// user wants to create a new address
 	{
 		divContainer.style.display = "none";
@@ -129,19 +129,19 @@ function CitruscartCheckoutSetBillingAddress(url, container, selected, form) {
 	}
 }
 
-function CitruscartCheckoutSetShippingAddress(url, container, form, selected) {
+function citruscartCheckoutSetShippingAddress(url, container, form, selected) {
 	var divContainer = document.getElementById(container);
 	var divForm = document.getElementById('shipping_input_addressForm');
 	if (selected > 0)// address was selected -> get shipping rates
 	{
-		values = CitruscartStoreFormInputs(form);
+		values = citruscartStoreFormInputs(form);
 		divContainer.style.display = "";
 		divForm.style.display = "none";
-		CitruscartGrayOutAddressDiv();
-		CitruscartDoTask(url, container, '', '', false);
-		CitruscartGrayOutAjaxDiv('onCheckoutShipping_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_SHIPPING_RATES'));
-		CitruscartGetShippingRates('onCheckoutShipping_wrapper', form, CitruscartDeleteAddressGrayDiv);
-		CitruscartRestoreFormInputs(form, values);
+		citruscartGrayOutAddressDiv();
+		citruscartDoTask(url, container, '', '', false);
+		citruscartGrayOutAjaxDiv('onCheckoutShipping_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_SHIPPING_RATES'));
+		citruscartGetShippingRates('onCheckoutShipping_wrapper', form, CitruscartDeleteAddressGrayDiv);
+		citruscartRestoreFormInputs(form, values);
 	} else// user wants to create a new address
 	{
 		divContainer.style.display = "none";

@@ -129,7 +129,7 @@
         <div id="validationmessage"></div>
         
         <!--    SUBMIT   -->
-            <input type="button" class="btn" onclick="CitruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' ); CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'selectpayment', document.adminForm )" value="<?php echo JText::_('COM_CITRUSCART_SELECT_PAYMENT_METHOD'); ?>" />
+            <input type="button" class="btn" onclick="citruscartPutAjaxLoader( 'validationmessage', '<?php echo JText::_('COM_CITRUSCART_VALIDATING');?>' ); CitruscartFormValidation( '<?php echo $form['validation']; ?>', 'validationmessage', 'selectpayment', document.adminForm )" value="<?php echo JText::_('COM_CITRUSCART_SELECT_PAYMENT_METHOD'); ?>" />
             <a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
             	
     		<input type="hidden" id="currency_id" name="currency_id" value="<?php echo $this->order->currency_id; ?>" />
