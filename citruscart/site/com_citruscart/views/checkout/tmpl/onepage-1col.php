@@ -14,22 +14,21 @@
 	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 	JHTML::_('script', 'Citruscart_checkout.js', 'media/citruscart/js/');
 	JHTML::_('script', 'Citruscart_checkout_onepage.js', 'media/citruscart/js/');
-	//JHTML::_('behavior.mootools' );
-	JHtml::_('behavior.framework');
+	JHTML::_('behavior.mootools' );
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);
 	$display_credits = Citruscart::getInstance()->get( 'display_credits', '0' );
 	$guest_enabled = Citruscart::getInstance()->get('guest_checkout_enabled', 0);
 
-	$this->section = 1;
+	$this->section = 1;	
 	$js_strings = array( 'COM_CITRUSCART_UPDATING_PAYMENT_METHODS', 'COM_CITRUSCART_CHECKING_COUPON',
-											 'COM_CITRUSCART_UPDATING_BILLING', 'COM_CITRUSCART_UPDATING_SHIPPING_RATES',
+											 'COM_CITRUSCART_UPDATING_BILLING', 'COM_CITRUSCART_UPDATING_SHIPPING_RATES', 
 											 'COM_CITRUSCART_UPDATING_CART', 'COM_CITRUSCART_UPDATING_ADDRESS', 'COM_CITRUSCART_VALIDATING' );
-
+	
 	CitruscartHelperImage::addJsTranslationStrings( $js_strings );
 ?>
-<a name="Citruscart-method"></a>
+<a name="Citruscart-method"></a> 
 
 <div id="citruscart_checkout_pane">
 <a name="CitruscartRegistration" id="citruscartRegistration"></a>
@@ -41,7 +40,7 @@
 			$uri = JFactory::getURI( );
 			$return_link = base64_encode( $uri->__toString( ) );
 			$asklink = "index.php?option=com_citruscart&view=checkout&task=registrationLink&tmpl=component&return=" . $return_link;
-
+				
 				$asktxt = CitruscartUrl::popup( "{$asklink}.&tmpl=component", JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN'),
 						array(
 							'width' => '490', 'height' => '320'
@@ -61,19 +60,19 @@
 	<!-- CUSTOMER, BILLING & SHIPPING ADDRESS FORMS -->
 	<div class="col1-customer-billship-address">
 		<div class="inner col3">
-
+			
 			<div class="contentheading">
 				<?php echo $this->section.'. '.JText::_('COM_CITRUSCART_CUSTOMER_INFORMATION'); $this->section++; ?>
 				<?php if( $enable_tooltips ): ?>
-				<a class="img_tooltip" href="" >
+				<a class="img_tooltip" href="" > 
 					<img src="<?php echo Citruscart::getUrl('images').$image; ?>" alt='<?php echo JText::_('COM_CITRUSCART_HELP'); ?>' />
 					<span>
-						<?php echo JText::_('COM_CITRUSCART_ORDER_INFORMATION_WILL_BE_SENT_TO_YOUR_ACCOUNT_E-MAIL_LISTED_BELOW'); ?>
+						<?php echo JText::_('COM_CITRUSCART_ORDER_INFORMATION_WILL_BE_SENT_TO_YOUR_ACCOUNT_E-MAIL_LISTED_BELOW'); ?>												
 					</span>
 				</a>
 				<?php endif; ?>
 			</div>
-
+				
 			<!-- ID-CUSTOMER PANE -->
 			<div id="citruscart_customer">
 				<div class="citruscart_checkout_method_user_email">
@@ -90,33 +89,33 @@
 				<div id="user_email_validation"></div>
 			</div>
 			<!-- ID-CUSTOMER PANE END -->
-
+			
 			<!-- BILLING-SHIPPING PANE -->
 			<div class="citruscart-expanded" id="billing-shipping-pane">
-
+				
 				<div class="contentheading">
 					<?php echo $this->showShipping ? JText::_('COM_CITRUSCART_BILLING_AND_SHIPPING_INFORMATION') : JText::_('COM_CITRUSCART_BILLING_INFORMATION'); ?>
 				</div>
-
+				
 				<div id="citruscart_billing-shipping">
-	        <div id="billingAddress">
+	        <div id="billingAddress">						
 						<div>
 							<?php echo JText::_('COM_CITRUSCART_BILLING_ADDRESS')?>
 						</div>
-        			<?php
-						$baseurl = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getAddress&address_id=";
+        			<?php 
+						$baseurl = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getAddress&address_id=";                   
 	            		$billattribs = array(
-	                		'class' => 'inputbox',
+	                		'class' => 'inputbox',    
 	                    	'size' => '1',
 	                    	'onchange' => "CitruscartCheckoutSetBillingAddress('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', this.options[this.selectedIndex].value, this.form );"
 	                	);
-
+	                        
 	                	// display select list of stored addresses
 	                	echo CitruscartSelect::address( $this->user->id, $this->billing_address->address_id, 'billing_address_id', 1, $billattribs, 'billing_address_id', false, true );
 	           		?>
-
+						
 						<div id="billingDefaultAddress">
-							<?php
+							<?php 
 								if ( !empty( $this->billing_address ) ):
 									echo $this->billing_address->title . " ". $this->billing_address->first_name . " ". $this->billing_address->last_name . "<br>";
 									echo $this->billing_address->company . "<br>";
@@ -126,7 +125,7 @@
 								endif;
 							?>
 						</div>
-
+						
 						<?php echo $this->billing_address_form; ?>
 					</div>
           			<div class="reset marginbot"></div>
@@ -139,15 +138,15 @@
             </div>
     			</div>
            			<?php endif; ?>
-
-           			<?php if($this->showShipping):?>
+           		
+           			<?php if($this->showShipping):?>				
           			<div class="reset marginbot"></div>
 							<div>
 								<?php echo JText::_('COM_CITRUSCART_SHIPPING_ADDRESS'); ?>
 							</div>
           			<div class="reset marginbot"></div>
 		            <div id="shippingAddress">
-					<!--    SHIPPING ADDRESS  -->
+					<!--    SHIPPING ADDRESS  -->	         
 	                <?php if (empty($this->shipping_address)) : ?>
 	                    <div>
 	                        <input id="sameasbilling" name="sameasbilling" type="checkbox" checked="checked" onclick="CitruscartShowHideDiv( 'shipping_input_addressForm' ); CitruscartGetShippingRates( 'onCheckoutShipping_wrapper', document.adminForm ); CitruscartGetPaymentOptions( 'onCheckoutPayment_wrapper', document.adminForm ); "/>&nbsp;
@@ -156,16 +155,16 @@
 					<?php endif; ?>
             		<?php
 		                $shipattribs = array(
-		                   'class' => 'inputbox',
+		                   'class' => 'inputbox',    
 		                   'size' => '1',
 		                   'onchange' => "CitruscartCheckoutSetShippingAddress('$baseurl'+this.options[this.selectedIndex].value, 'shippingDefaultAddress', '".JText::_('COM_CITRUSCART_UPDATING_SHIPPING_RATES')."', '".JText::_('COM_CITRUSCART_UPDATING_CART')."', '".JText::_('COM_CITRUSCART_UPDATING_ADDRESS')."', this.form, this.options[this.selectedIndex].value ); "
 		                );
-
+		                
 		                // display select list of stored addresses
 		                echo CitruscartSelect::address( JFactory::getUser()->id, $this->shipping_address->address_id, 'shipping_address_id', 2, $shipattribs, 'shipping_address_id', false, true );
 					?>
 						<div id="shippingDefaultAddress">
-							<?php
+							<?php 
 								if ( !empty( $this->shipping_address ) )
 								{
 					        		echo $this->shipping_address->title . " ". $this->shipping_address->first_name . " ". $this->shipping_address->last_name . "<br>";
@@ -180,63 +179,63 @@
 					</div>
 	           		<?php else :?>
 			             <input type="hidden" id="shippingrequired" name="shippingrequired" value="0"  />
-			        <?php endif;?>
-				</div>
-			</div>
+			        <?php endif;?>           
+				</div>		
+			</div> 
 			<!-- BILLING-SHIPPING PANE END -->
 		</div>
 	</div>
 	<!-- CUSTOMER, BILLING & SHIPPING ADDRESS FORMS -->
-
+	
 	<div class="reset marginbot"></div>
-
+	
 	<!-- SHIPPING METHOD -->
-		<div class="col1-method">
-			<div class="inner col3">
-				<?php if($this->showShipping):?>
+		<div class="col1-method">	
+			<div class="inner col3">	 
+				<?php if($this->showShipping):?>	
 				<div class="citruscart-expanded" id="shippingcost-pane">
 					<div class="contentheading">
 						<?php echo $this->section.'. '.JText::_('COM_CITRUSCART_SELECT_A_SHIPPING_METHOD'); $this->section++;?>
 					</div>
 					<div id="onCheckoutShipping_wrapper">
 						<?php echo $this->shipping_method_form;?>
-					</div>
-				</div>
+					</div>		
+				</div>  
 				<?php endif;?>
-			</div>
+			</div> 
 		</div>
 	<!-- SHIPPING METHOD END -->
-
+	
         <?php if (!empty($this->onBeforeDisplaySelectPayment)) : ?>
             <div id='onBeforeDisplaySelectPayment_wrapper'>
             <?php echo $this->onBeforeDisplaySelectPayment; ?>
             </div>
-        <?php endif; ?>
-
+        <?php endif; ?>	
+	
 	<!-- PAYMENT METHOD -->
 		<div class="col1-method">
-			<div class="inner col3">
+			<div class="inner col3">	
 				<div class="citruscart-expanded" id="paymentmethod-pane">
 					<div class="contentheading">
 						<?php echo $this->section.'. '.JText::_('COM_CITRUSCART_SELECT_A_PAYMENT_METHOD'); $this->section++; ?>
 								<?php if( $enable_tooltips ) : ?>
-								<a class="img_tooltip" href="" >
+								<a class="img_tooltip" href="" > 
 									<img src="<?php echo Citruscart::getUrl('images').$image; ?>" alt='<?php echo JText::_('COM_CITRUSCART_HELP'); ?>' />
 									<span class="img_tooltip_left">
-										<?php echo JText::_('COM_CITRUSCART_PLEASE_SELECT_YOUR_PREFERRED_PAYMENT_METHOD_BELOW'); ?>
+										<?php echo JText::_('COM_CITRUSCART_PLEASE_SELECT_YOUR_PREFERRED_PAYMENT_METHOD_BELOW'); ?>												
 									</span>
 								</a>
 								<?php endif; ?>
-					</div>
+					</div>		
 					<div id="onCheckoutPayment_wrapper">
 						<?php if(!count($this->payment_plugins)):?>
 								<div class="note">
 										<?php echo JText::_('COM_CITRUSCART_NO_PAYMENT_METHOD_AVAILABLE_FOR_YOUR_ADDRESS'); ?>
 								</div>
 						<?php endif;?>
-						<?php echo $this->payment_options_html;?>
-					</div>
-				</div>
+						<?php echo $this->payment_options_html;?>                   
+					</div>		
+				</div> 
 			</div>
 		</div>
 		<!-- PAYMENT METHOD END -->
@@ -244,50 +243,50 @@
             <div id='onAfterDisplaySelectPayment_wrapper'>
             <?php echo $this->onAfterDisplaySelectPayment; ?>
             </div>
-        <?php endif; ?>
-
+        <?php endif; ?>		
+		
 	<!-- REVIEW & PLACE ORDER -->
 		<div class="col1-review-place-order">
 			<div class="inner col3">
-
+				
 				<!--    ORDER SUMMARY   -->
 				<h3 class="contentheading">
 					<?php echo $this->section.'. '.JText::_('COM_CITRUSCART_REVIEW_AND_PLACE_ORDER'); $this->section++; ?>
 				</h3>
-				<div id='onCheckoutCart_wrapper'>
-					<?php echo $this->orderSummary; 	?>
+				<div id='onCheckoutCart_wrapper'> 
+					<?php echo $this->orderSummary; 	?> 
 				</div>
 				<!--    ORDER SUMMARY END  -->
-
+				
 				<div class="reset marginbot"></div>
-
+				
 				<?php $coupons_enabled = Citruscart::getInstance()->get('coupons_enabled'); ?>
 		 		<?php if ($coupons_enabled && $this->coupons_present) : ?>
-					<div class="citruscart-expanded" id="coupon-pane">
+					<div class="citruscart-expanded" id="coupon-pane">						
 						<div id="coupon_code_area">
-		            	 	<div id="coupon_code_form">
+		            	 	<div id="coupon_code_form">  
 		            	 		<div class="contentheading">
 									<?php echo JText::_('COM_CITRUSCART_COUPON_CODE')?>
 									<?php $mult_enabled = Citruscart::getInstance()->get('multiple_usercoupons_enabled'); ?>
 			            			<?php $string = "COM_CITRUSCART_COUPON_CODE_HELP"; if ($mult_enabled) { $string = "COM_CITRUSCART_COUPON_CODE_HELP_MULTIPLE"; } ?>
 			            	<?php if( $enable_tooltips ) : ?>
-			            			<a class="img_tooltip" href="" >
+			            			<a class="img_tooltip" href="" > 
 										<img src="<?php echo Citruscart::getUrl('images').$image; ?>" alt='<?php echo JText::_('COM_CITRUSCART_HELP'); ?>' />
 										<span>
-											<?php echo JText::_($string); ?>
+											<?php echo JText::_($string); ?>												
 										</span>
 									</a>
 									<?php endif; ?>
-								</div>
+								</div>    	           	 			
 		            			<div id="coupon_code_message"></div>
 		            			<input type="text" name="new_coupon_code" id="new_coupon_code" value="" />
 		            			<input type="button" name="coupon_submit" value="<?php echo JText::_('COM_CITRUSCART_ADD_COUPON_TO_ORDER'); ?>"  onClick="CitruscartAddCoupon( document.adminForm, '<?php if ($mult_enabled) { echo "1"; } else { echo "0"; } ?>' );"/>
 		            		</div>
 		            		<div id='coupon_codes' style="display: none;"></div>
-		        		</div>
-					</div>
+		        		</div>	
+					</div>  
 				<?php endif;?>
-
+				
 				<?php if( $display_credits ): ?>
 					<div class="reset marginbot"></div>
 					<?php if ($this->userinfo->credits_total > '0.00') : ?>
@@ -302,31 +301,31 @@
 		                </div>
 		            </div>
 		        <?php endif; ?>
-		        <div id='applied_credit' style="display: none;"></div>
-				<?php endif; ?>
+		        <div id='applied_credit' style="display: none;"></div>				
+				<?php endif; ?>				
 				<div class="reset marginbot"></div>
-
+				
 				<div class="citruscart-expanded" id="comments-pane">
 				<div class="contentheading">
 					<?php echo JText::_('COM_CITRUSCART_ORDER_COMMENTS')?>
 					<?php if( $enable_tooltips ): ?>
-					<a class="img_tooltip" href="" >
+					<a class="img_tooltip" href="" > 
 						<img src="<?php echo Citruscart::getUrl('images').$image; ?>" alt='<?php echo JText::_('COM_CITRUSCART_HELP'); ?>' />
 						<span>
-							<?php echo JText::_('COM_CITRUSCART_USE_THIS_AREA_FOR_SPECIAL_INSTRUCTIONS_OR_QUESTIONS_REGARDING_YOUR_ORDER');?>
+							<?php echo JText::_('COM_CITRUSCART_USE_THIS_AREA_FOR_SPECIAL_INSTRUCTIONS_OR_QUESTIONS_REGARDING_YOUR_ORDER');?>												
 						</span>
 					</a>
 					<?php endif; ?>
 				</div>
-
-				<div id="citruscart_comments">
-					<textarea id="customer_note" name="customer_note" rows="5" cols="41"></textarea>
-				</div>
-				</div>
-
-				<div class="reset marginbot"></div>
+			
+				<div id="citruscart_comments">	
+					<textarea id="customer_note" name="customer_note" rows="5" cols="41"></textarea>		
+				</div>		
+				</div>  
+				
+				<div class="reset marginbot"></div>	
 				<div class="citruscart-expanded" id="shipping_terms-pane">
-				 <?php
+				 <?php 
 		    		if( Citruscart::getInstance()->get('require_terms', '1') )
 		    		{
 		    			$terms_article = Citruscart::getInstance()->get('article_terms');
@@ -338,19 +337,19 @@
 						<input type="checkbox" name="shipping_terms" value="1" /> <a href="<?php echo $terms_link; ?>" target="_blank"><?php echo JText::_('COM_CITRUSCART_ACCEPT_TERMS_AND_CONDITIONS');?></a>
 	         			<br/>
 	            	</div>
-
+					
 	        	<?php } ?>
 				</div>
-				<div id="validationmessage" style="padding-top: 10px;"></div>
+				<div id="validationmessage" style="padding-top: 10px;"></div> 
 				<div id="citruscart_btns">
 					<input type="button" class="btn" onclick="CitruscartSaveOnepageOrder('Citruscart_checkout_pane', 'validationmessage', this.form, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>')" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_CONTINUE'); ?>" />
-					<div class="reset marginbot"></div>
-					<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
+					<div class="reset marginbot"></div>	
+					<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a> 
 				</div>
 			</div>
-		</div>
-		<!-- REVIEW & PLACE ORDER END -->
-
+		</div> 
+		<!-- REVIEW & PLACE ORDER END -->	
+	
 </div>
 <!-- END FLOATBOX -->
 
@@ -370,7 +369,7 @@ window.addEvent('domready', function() {
 	CitruscartShowHideDiv( 'billing_input_addressForm' );
 <?php endif; ?>
 
-<?php if( $this->showShipping  ):?>
+<?php if( $this->showShipping  ):?>	
 	CitruscartShowHideDiv( 'shipping_input_addressForm' );
 	<?php if( !$this->shipping_address->address_id ): ?>
 	document.id( 'sameasbilling' ).addEvent( 'change', function() { CitruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm, '<?php echo JText::_('COM_CITRUSCART_UPDATING_SHIPPING_RATES')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_CART')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_ADDRESS')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_PAYMENT_METHODS')?>' ) } );

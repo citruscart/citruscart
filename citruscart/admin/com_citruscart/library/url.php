@@ -27,11 +27,11 @@ class CitruscartUrl extends DSCUrl
 
 		$html = "";
 
-		JHTML::_('stylesheet', 'colorbox.css', 'media/citruscart/colorbox/');
-		JHTML::_( 'script', 'colorbox.js', 'media/citruscart/colorbox/' );
+		JHTML::_('stylesheet', 'colorbox.css', 'media/com_citruscart/colorbox/');
+		JHTML::_( 'script', 'colorbox.js', 'media/com_citruscart/colorbox/' );
 
 		$document = JFactory::getDocument();
-		$js = "CitruscartJQ(document).ready(function() { CitruscartJQ('.citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
+		$js = "CitruscartJQ(document).ready(function() { CitruscartJQ('.Citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
 		$document->addScriptDeclaration( $js );
 
 		if (!empty($options['update']))
@@ -43,7 +43,6 @@ class CitruscartUrl extends DSCUrl
 		    $onclose = '';
 		}
 
-		require_once JPATH_SITE.'/libraries/dioscouri/dioscouri.php';
 		// set the $handler_string based on the user's browser
         $handler_string = "{handler:'iframe', ". $onclose ." size:{x: window.innerWidth-80, y: window.innerHeight-80}, onShow:$('sbox-window').setStyles({'padding': 0})}";
 	    $browser = DSC::getClass( 'DSCBrowser', 'library.browser' );
@@ -67,10 +66,9 @@ class CitruscartUrl extends DSCUrl
 		}
 
 		$id = (!empty($options['id'])) ? $options['id'] : '';
-
 		$class = (!empty($options['class'])) ? $options['class'] : '';
 
-		$html	= "<a class=\"citruscart-modal\" href=\"$url\" rel=\"$handler\" >\n";
+		$html	= "<a class=\"Citruscart-modal\" href=\"$url\" rel=\"$handler\" >\n";
 		$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
         $html   .= "$text\n";
 		$html 	.= "</span>\n";
