@@ -12,7 +12,10 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+$doc = JFactory::getDocument();
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
+
 $state = $this->state;
 $items = $this->items;
 
@@ -124,7 +127,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
         				$img_dir = 'arrow_up.png';
         			}
         		?>
-        		<a href="<?php echo JRoute::_("&limitstart=".$state->limitstart."&filter_sortby=".$state->filter_sortby."&filter_dir=".$dir);?>">
+        		<a class="modal"  rel="{handler: 'iframe', size: {x: 800, y: 500}}" href="<?php echo JRoute::_("&limitstart=".$state->limitstart."&filter_sortby=".$state->filter_sortby."&filter_dir=".$dir);?>">
         			<img src="<?php echo Citruscart::getURL('images').$img_dir?>" alt="filter_direction"/>
         		</a>
         	</span>

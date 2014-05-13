@@ -33,9 +33,11 @@ class CitruscartViewBase extends DSCViewAdmin
 	 */
 	function display($tpl = null)
 	{
+		$doc = JFactory::getDocument();
 		//including core JS because it needs to be included in modals and since we have so many including here keeps that from failing.
 		JHTML::_('behavior.modal');
-		JHTML::_('script', 'core.js', 'media/system/js/');
+		$doc->addScript(JUri::root().'media/system/js/core.js');
+
 		DSC::loadBootstrap();
 		DSC::loadJQuery('latest', true, 'citruscartJQ');
 

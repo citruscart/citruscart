@@ -10,9 +10,15 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
-JHTML::_('script', 'joomla.javascript.js', 'includes/js/');
+
+$doc = JFactory::getDocument();
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addScript(JUri::root().'includes/js/joomla.javascript.js');
+
+//JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+//JHTML::_('script', 'joomla.javascript.js', 'includes/js/');
 Citruscart::load( 'CitruscartGrid', 'library.grid' );
 
 if($this->cartobj){
@@ -36,16 +42,16 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
 
 <div class="cartitems">
     <?php if (!empty($items)) { ?>
-    <form action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
+    <form id="adminForm" action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
 
         <div style="float: right;">
-        <a class="btn btn-primary" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout&Itemid='.$this->checkout_itemid ); ?>" onclick="return CitruscartCheckUpdateCartQuantities(document.adminForm, '<?php echo JText::_('COM_CITRUSCART_CHECK_CART_UPDATE'); ?>');">
+        <!-- <a class="btn btn-primary" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout&Itemid='.$this->checkout_itemid ); ?>" onclick="return CitruscartCheckUpdateCartQuantities(document.adminForm, '<?php echo JText::_('COM_CITRUSCART_CHECK_CART_UPDATE'); ?>');">
             <?php echo JText::_('COM_CITRUSCART_BEGIN_CHECKOUT'); ?>
-        </a>
+        </a> -->
         </div>
         <div class="reset"></div>
         <div id="onCheckoutCart_wrapper">
-        <table class="adminlist">
+        <table class="adminlist table table-striped table-bordered">
             <thead>
                 <tr>
                     <th style="width: 20px;">

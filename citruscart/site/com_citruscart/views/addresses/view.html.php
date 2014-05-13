@@ -24,9 +24,10 @@ class CitruscartViewAddresses extends CitruscartViewBase
 		parent::_default($tpl, $onlyPagination );
         //if (JRequest::getVar('tmpl') == 'component')
 
-        if ($app->input->getString('tmpl') == 'component')
+        if ($app->input->get('tmpl') == 'component')
         {
         	$this->assign( 'tmpl', '&amp;tmpl=component' );
         }
+
 	}
 }

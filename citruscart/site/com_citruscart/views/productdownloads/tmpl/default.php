@@ -26,7 +26,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
-    <table>
+    <table class="table table-striped table-bordered">
         <tr>
             <td align="left" width="100%">
                 <?php echo JText::_('COM_CITRUSCART_SEARCH_BY_APPLYING_FILTERS'); ?>
@@ -39,7 +39,7 @@ defined('_JEXEC') or die('Restricted access');
         </tr>
     </table>
 
-    <table class="adminlist" style="clear: both;" >
+    <table class="adminlist table table-striped table-bordered">
         <thead>
             <tr class="filterline">
                 <th>
