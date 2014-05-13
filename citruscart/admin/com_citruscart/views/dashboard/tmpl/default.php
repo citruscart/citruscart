@@ -19,6 +19,7 @@ require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/select.php'
 ?>
 <?php $items =$this->items;
 
+echo $this->loadTemplate('submenu');
 require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 ?>
 
@@ -44,13 +45,13 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 				<?php $attribs = array('class' => 'inputbox', 'onchange' => 'document.adminForm.submit();'); ?>
 				<?php
 				//this is dumb, but it makes the dashboard work until caching issue is resolve
-				 if(@$state->stats_interval) : ?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range(@$state->stats_interval, 'stats_interval', $attribs); ?></h3></td>
+				 if($state->stats_interval) : ?>
+				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs); ?></h3></td>
 				<?php else :?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range(@$state->stats_interval, 'stats_interval', $attribs, null, true ); ?></h3></td>
+				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs, null, true ); ?></h3></td>
 				<?php endif ?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::currency( @$this->sum ); ?></h3></td>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::number( @$this->total, array('num_decimals'=>'0') ); ?></h3></td>
+				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::currency( $this->sum ); ?></h3></td>
+				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::number( $this->total, array('num_decimals'=>'0') ); ?></h3></td>
 			</tr>
 			</tbody>
 			</table>
@@ -65,8 +66,8 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 
                 $chart->plotOptions = new stdClass();
                 $chart->plotOptions->column = new stdClass();
-                $chart->plotOptions->column->pointStart = strtotime( @$this->revenue[0][0] ) * 1000;
-                $chart->plotOptions->column->pointInterval = @$this->interval->pointinterval;
+                $chart->plotOptions->column->pointStart = strtotime( $this->revenue[0][0] ) * 1000;
+                $chart->plotOptions->column->pointInterval = $this->interval->pointinterval;
                 $chart->plotOptions->line = new stdClass();
                 $chart->plotOptions->line->pointStart = strtotime( $this->orders[0][0] ) * 1000;
                 $chart->plotOptions->line->pointInterval = $this->interval->pointinterval;
