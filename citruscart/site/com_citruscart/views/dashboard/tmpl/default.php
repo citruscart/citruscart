@@ -73,7 +73,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php echo JText::_('COM_CITRUSCART_ADDRESSES'); ?>
                 </th>
                 <td>
-                    <a href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
+                    <a class="modal"  rel="{handler: 'iframe', size: {x: 800, y: 500}}" href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
                         <?php echo JText::_('COM_CITRUSCART_MANAGE_BILLING_AND_SHIPPING_ADDRESSES'); ?>
                     </a>
                 </td>
