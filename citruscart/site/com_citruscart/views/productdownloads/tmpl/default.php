@@ -22,8 +22,29 @@ defined('_JEXEC') or die('Restricted access');
 <div class='componentheading'>
 	<span><?php echo JText::_('COM_CITRUSCART_MY_DOWNLOADS'); ?></span>
 </div>
-
-	<?php if ( $menu ) { $menu->display(); } ?>
+<div class="naviagtion header">
+<ul class="nav nav-tabs">
+	<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=dashboard');?>" ><?php echo JText::_('COM_CITRUSCART_DASHBOARD')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=accounts');?>" ><?php echo JText::_('COM_CITRUSCART_PROFILE')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=orders');?>" ><?php echo JText::_('COM_CITRUSCART_ORDER_HISTORY')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=subscriptions');?>" ><?php echo JText::_('COM_CITRUSCART_SUBSCRIPTIONS')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=productdownloads');?>" ><?php echo JText::_('COM_CITRUSCART_MY_DOWNLOADS')?></a>
+	</li>
+	<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts');?>" ><?php echo JText::_('COM_CITRUSCART_SHOPPING_CART')?></a>
+	</li>
+</ul>
+</div>
+	<?php  //if ( $menu ) { $menu->display(); } ?>
 
 <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
 

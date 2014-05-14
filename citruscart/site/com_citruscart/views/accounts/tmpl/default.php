@@ -20,8 +20,30 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 <div class='componentheading'>
 	<span><?php echo JText::_('COM_CITRUSCART_MY_PROFILE'); ?></span>
 </div>
+<div class="naviagtion header">
+<ul class="nav nav-tabs">
+	<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=dashboard');?>" ><?php echo JText::_('COM_CITRUSCART_DASHBOARD')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=accounts');?>" ><?php echo JText::_('COM_CITRUSCART_PROFILE')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=orders');?>" ><?php echo JText::_('COM_CITRUSCART_ORDER_HISTORY')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=subscriptions');?>" ><?php echo JText::_('COM_CITRUSCART_SUBSCRIPTIONS')?></a>
+	</li>
+		<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=productdownloads');?>" ><?php echo JText::_('COM_CITRUSCART_MY_DOWNLOADS')?></a>
+	</li>
+	<li>
+		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=carts');?>" ><?php echo JText::_('COM_CITRUSCART_SHOPPING_CART')?></a>
+	</li>
+</ul>
+</div>
 
-	<?php if ($menu = CitruscartMenu::getInstance()) { $menu->display(); } ?>
+	<?php // if ($menu = CitruscartMenu::getInstance()) { $menu->display(); } ?>
 
 <table style="width: 100%;">
 <tr>
