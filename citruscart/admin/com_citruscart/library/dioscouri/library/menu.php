@@ -53,19 +53,25 @@ class DSCMenu
         if (file_exists($xmlfile)) {
 
             // the NULL and TRUE, make it so we can load a file
-            $xml = new SimpleXMLElement($xmlfile, NULL, TRUE);
+        	$xml = new SimpleXMLElement($xmlfile, NULL, TRUE);
 
-            // Parse the file
+
+
+
+        	// Parse the file
             if ($xml) {
                 $items = array();
-                foreach ($xml->children() as $child) {
-                    $name = $url = NULL;
-
+                foreach ($xml->children() as $i=> $child) {
+                      $name = $url = NULL;
                     // If we have both a URL and name, add a new link
                     if (!empty($child->name) && !empty($child->url)) {
                         $object          = new JObject();
                         $object->name    = JText::_($child->name);
-                        $object->url     = ($admin) ? $child->url : JRoute::_($child->url);
+
+                        //TODO : to be fixed with JRoute::_($object->url);
+
+                        $object->url = $child->url;
+                        $object->url =  ($admin) ? $child->url: $child->path;
                         $object->url_raw = $child->url;
                         $object->active  = false;
                         $items[]         = $object;
@@ -73,26 +79,38 @@ class DSCMenu
                 }
 
                 // find an exact URL match
-                $uri         = JURI::getInstance();
-                $uri_string  = "index.php" . $uri->__toString(array(
+/*               	$uri         = JURI::getInstance();
+
+
+                 $uri_string  = "index.php" . $uri->__toString(array(
                     'query'
-                ));
+                ));  */
+                 $uri_string = JUri::root();
+
+                 //
                 $exact_match = false;
                 foreach ($items as $item) {
-                    if ($item->url_raw == $uri_string) {
+                	if ($item->url_raw == $uri_string) {
+                    //if ($item->url_raw == $uri_string) {
                         $exact_match = $item->url_raw;
                     }
                 }
 
                 // if no exact match, then match on view
                 foreach ($items as $item) {
-                    parse_str($item->url_raw, $urlvars);
-                    $active = (strtolower($input->getString('view')) == strtolower($urlvars['view']));
+
+                	parse_str($item->url_raw, $urlvars);
+
+                	$active = (strtolower($input->getString('view')) == strtolower($urlvars['view']));
+
                     if ($exact_match == $item->url_raw || (empty($exact_match) && $active)) {
                         $item->active = true;
                     }
+
                     $this->_menu->appendButton($item->name, $item->url, $item->active);
                 }
+
+
 
             }
         }

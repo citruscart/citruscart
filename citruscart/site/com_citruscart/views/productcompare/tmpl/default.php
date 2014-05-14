@@ -22,6 +22,7 @@ $show_rating = Citruscart::getInstance()->get('show_rating_productcompare', '1')
 $show_model = Citruscart::getInstance()->get('show_model_productcompare', '1');
 $show_sku = Citruscart::getInstance()->get('show_sku_productcompare', '1');
 ?>
+
 <a name="citruscart-compare"></a>
 <h1><?php echo JText::_('COM_CITRUSCART_COMPARE')?></h1>
 <?php if(count($items)):?>

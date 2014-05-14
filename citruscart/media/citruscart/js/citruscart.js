@@ -386,6 +386,7 @@ function citruscartFormValidation(url, container, task, form, doModal, msg, onCo
  * @return
  */
 function citruscartSubmitForm(task, form) {
+	console.log(task,form);
 	Dsc.submitForm(task, form);
 }
 
