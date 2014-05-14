@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-if ( !class_exists('Citruscart') ) 
+if ( !class_exists('Citruscart') )
     JLoader::register( "Citruscart", JPATH_ADMINISTRATOR."/components/com_citruscart/defines.php" );
 
 
@@ -31,16 +31,16 @@ if(!class_exists('JFakeElementBase')) {
 class JFakeElementCitruscartProduct extends JFakeElementBase
 {
 var	$_name = 'CitruscartProduct';
-	
-	public function getInput() 
+
+	public function getInput()
 	{
 		return JFakeElementCitruscartProduct::fetchElement($this->name, $this->value, $this->element, $this->options['control']);
 	}
-	
+
 
 	public function fetchElement($name, $value, &$node, $control_name)
 	{
-	    
+
 		$html = "";
 		$doc 		= JFactory::getDocument();
 		$fieldName	= $control_name ? $control_name.'['.$name.']' : $name;
@@ -67,7 +67,7 @@ var	$_name = 'CitruscartProduct';
 			$js .= 'document.getElementById(\'sbox-window\').close()';
 		}
 	$js.=	"}";
-		
+
 		$doc->addScriptDeclaration($js);
 
 		$link = 'index.php?option=com_citruscart&controller=elementproduct&view=elementproduct&tmpl=component&object='.$name;
@@ -76,12 +76,12 @@ var	$_name = 'CitruscartProduct';
 		$html = "\n".'<div style="float: left;"><input style="background: #ffffff;" type="text" id="'.$name.'_name" value="'.htmlspecialchars($title, ENT_QUOTES, 'UTF-8').'" disabled="disabled" /></div>';
 		$html .= '<div class="button2-left"><div class="blank"><a class="modal" title="'.JText::_('COM_CITRUSCART_SELECT_A_PRODUCT').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 800, y: 500}}">'.JText::_('COM_CITRUSCART_SELECT').'</a></div></div>'."\n";
 		$html .= "\n".'<input type="hidden" id="'.$name.'_id" name="'.$fieldName.'" value="'.(int)$value.'" />';
-		
+
 		return $html;
 	}
-	
-	
-	
+
+
+
 }
 
 if(version_compare(JVERSION,'1.6.0','ge')) {

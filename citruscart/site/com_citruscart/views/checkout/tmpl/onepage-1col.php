@@ -20,7 +20,7 @@
 	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
 	JHTML::_('script', 'citruscart_checkout.js', 'media/citruscart/js/');
 	JHTML::_('script', 'citruscart_checkout_onepage.js', 'media/citruscart/js/'); */
-	JHTML::_('behavior.framework' );
+	//JHTML::_('behavior.framework' );
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);

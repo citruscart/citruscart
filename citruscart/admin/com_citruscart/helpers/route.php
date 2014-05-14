@@ -313,9 +313,9 @@ class CitruscartHelperRoute extends DSCHelperRoute
                 // this is a product detail page
 
             	// Make sure we have the product id and the alias
-				if (strpos($query['id'], ':') === false) {
+				if (strpos(@$query['id'], ':') === false) {
 					$pmodel = Citruscart::getClass('CitruscartModelProducts', 'models.products');
-					$alias = $pmodel->getAlias((int) $query['id']);
+					$alias = $pmodel->getAlias((int) @$query['id']);
 					if (!empty($alias)) {
 					    $query['id'] = $query['id'].':'.$alias;
 					}

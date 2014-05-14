@@ -15,7 +15,7 @@
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout_onepage.js');
-	JHTML::_('behavior.framework' );
+	//JHTML::_('behavior.framework' );
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);

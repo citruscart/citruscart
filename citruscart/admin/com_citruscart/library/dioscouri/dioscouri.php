@@ -346,25 +346,14 @@ class DSC extends JObject
 	    }
 
 	    DSC::loadJQuery();
-	    $doc = JFactory::getDocument();
-
-	    $doc->addStyleSheet(JUri::root().'media/citruscart/bootstrap/'.$version.'/css/bootstrap.min.css');
-	    //$doc->addScript(JUri::root().'media/citruscart/bootstrap/'.$version.'/js/bootstrap.min.js');
-
-	   // JHTML::_( 'script', 'bootstrap.min.js', 'media/citruscart/bootstrap/'.$version.'/js/' );
-	 //   JHTML::_( 'stylesheet', 'bootstrap.min.css', 'media/citruscart/bootstrap/'.$version.'/css/' );
-
-	    if ($joomla) {
-	        //JHTML::_( 'stylesheet', 'joomla.bootstrap.css', 'media/citruscart/css/' );
-
-	        $doc->addStyleSheet(JUri::root().'media/citruscart/css/joomla.bootstrap.css');
+	    JHtml::_('stylesheet', 'media/citruscart/bootstrap/'.$version.'/css/bootstrap.min.css');
+	    JHtml::_('script', 'media/citruscart/bootstrap/'.$version.'/js/bootstrap.min.js', false, false);
+	      if ($joomla) {
+	    	JHtml::_('stylesheet', 'media/citruscart/css/joomla.bootstrap.css');
 	    }
-
 	    if ($responsive) {
-	    	$doc->addStyleSheet(JUri::root().'media/citruscart/bootstrap/'.$version.'/css/bootstrap-responsive.min.css');
-	        //JHTML::_( 'stylesheet', 'bootstrap-responsive.min.css', 'media/citruscart/bootstrap/'.$version.'/css/' );
+	    	JHtml::_('stylesheet', 'media/citruscart/bootstrap/'.$version.'/css/bootstrap-responsive.min.css');
 	    }
-
 	    $loaded = true;
 	}
 

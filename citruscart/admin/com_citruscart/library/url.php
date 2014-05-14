@@ -26,11 +26,15 @@ class CitruscartUrl extends DSCUrl
 	    }
 
 		$html = "";
-		$doc = JFactory::getDocument();
-		$doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
-		$doc->addScript(JUri::root().'media/citruscart/colorbox/colorbox.js');
+
+		JHtml::_('script', 'media/citruscart/js/colorbox.js', false, false);
+
+		JHtml::_('stylesheet', 'media/citruscart/colorbox/colorbox.css');
+
 		$document = JFactory::getDocument();
+
 		$js = "citruscartJQ(document).ready(function() { citruscartJQ('.citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
+
 		$document->addScriptDeclaration( $js );
 
 		if (!empty($options['update']))
@@ -69,7 +73,7 @@ class CitruscartUrl extends DSCUrl
 		$id = (!empty($options['id'])) ? $options['id'] : '';
 		$class = (!empty($options['class'])) ? $options['class'] : '';
 
-		$html	= "<a class=\"citruscart_modal\" href=\"$url\" rel=\"$handler\" >\n";
+		$html	= "<a class=\"modal\" href=\"$url\" rel=\"$handler\" >\n";
 		$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
         $html   .= "$text\n";
 		$html 	.= "</span>\n";
@@ -89,8 +93,9 @@ class CitruscartUrl extends DSCUrl
 	{
 	    $version = isset($options['version']) ? $options['version'] : 'default';
 	    DSC::loadBootstrap();
-	    JHTML::_( 'script', 'bootstrap-modal.js', 'media/citruscart/bootstrap/'.$version.'/js/' );
 
+
+	    JHtml::_('script', 'media/citruscart/bootstrap/'.$version.'/js/bootstrap-modal.js', false, false);
 	    $time = time();
 	    $modal_id = isset($options['modal_id']) ? $options['modal_id'] : 'modal-' . $time;
 	    $button_class = isset($options['button_class']) ? $options['button_class'] : 'btn';

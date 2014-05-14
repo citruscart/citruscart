@@ -11,8 +11,14 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+<?php
+
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/select.php');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+JHtml::_('script', 'libraries/dioscouri/highroller/highcharts/highcharts.js', false, false);
+JHtml::_('script', 'libraries/dioscouri/highroller/highcharts/highcharts.src.js', false, false);
+
+
 ?>
 <?php $state =$this->state; ?>
 <?php $form = $this->form;

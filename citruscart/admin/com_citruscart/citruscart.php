@@ -30,7 +30,7 @@ require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.ph
 
 require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/version.php');
 
-JHtml::_('jquery.framework');
+JHtml::_('behavior.core');
 
 JHtml::_('bootstrap.framework');
 // Check the registry to see if our Citruscart class has been overridden
@@ -102,26 +102,25 @@ DSCLoader::discover('Citruscart', $parentPath, true);
 
 $doc->addScript(JUri::root().'media/citruscart/js/common.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_admin.js');
-$doc->addScript(JUri::root().'media/citruscart/bootstrap/default/js/bootstrap.min.js');
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'libraries/dioscouri/highroller/highcharts/highcharts.js');
-$doc->addScript(JUri::root().'libraries/dioscouri/highroller/highcharts/highcharts.src.js');
-$doc->addScript(JUri::root().'media/citruscart/js/pos.js');
-$doc->addScript(JUri::root().'media/citruscart/colorbox/colorbox.js');
-$doc->addScript(JUri::root().'media/citruscart/js/jquery.uploadifive.min.js');
+//$doc->addScript(JUri::root().'media/citruscart/bootstrap/default/js/bootstrap.min.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/class.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/pos.js');
+//$doc->addScript(JUri::root().'media/citruscart/colorbox/colorbox.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/jquery.uploadifive.min.js');
 //$doc->addScript(JUri::root().'media/citruscart/js/modernizr.custom.js');
 //$doc->addScript(JUri::root().'media/citruscart/js/Stickman.MultiUpload.js');
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart_orders.js');
+//$doc->addScript(JUri::root().'media/citruscart/js/citruscart_orders.js');
 
-$doc->addStyleSheet(JUri::root().'dioscouri/bootstrap/default/css/bootstrap.min.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/joomla.bootstrap.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/admin.css');
+//$doc->addStyleSheet(JUri::root().'dioscouri/bootstrap/default/css/bootstrap.min.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/joomla.bootstrap.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/admin.css');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/common.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/uploadifive.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/bootstrapped-advanced-ui.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/leftmenu_admin.css');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/uploadifive.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/bootstrapped-advanced-ui.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/leftmenu_admin.css');
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 
 // load the plugins
 JPluginHelper::importPlugin( 'citruscart' );

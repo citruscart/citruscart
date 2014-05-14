@@ -930,6 +930,7 @@ function citruscartRestoreFormInputs(form, values) {
  */
 function citruscartGetFormInputData(form) {
 	var str = new Array();
+	console.log(form);
 	for ( i = 0; i < form.elements.length; i++) {
 		postvar = {
 			name : form.elements[i].name,
@@ -939,6 +940,7 @@ function citruscartGetFormInputData(form) {
 		};
 		str[i] = postvar;
 	}
+	console.log(str);
 	return str;
 }
 

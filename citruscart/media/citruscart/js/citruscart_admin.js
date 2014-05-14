@@ -165,7 +165,7 @@ function citruscartSetShippingRate(name, price, tax, extra, code) {
  *
  * @return
  */
-function CitruscartGetCheckoutTotals() {
+function citruscartGetCheckoutTotals() {
 	var url = 'index.php?option=com_citruscart&view=pos&task=setShippingMethod&format=raw';
 	citruscartDoTask( url, 'orderSummary', document.adminForm, '', false );
 }
@@ -213,7 +213,7 @@ function citruscartGetShippingRates( container, form, msg, doModal ) {
 	 }).send();
 }
 
-function CitruscartGetPaymentForm( element, container ) {
+function citruscartGetPaymentForm( element, container ) {
 	var url = 'index.php?option=com_citruscart&view=pos&task=getPaymentForm&format=raw&payment_element=' + element;
 	citruscartDoTask( url, container, document.adminForm );
 }
@@ -221,7 +221,7 @@ function CitruscartGetPaymentForm( element, container ) {
 /**
  *
  */
-function CitruscartAddCoupon( form, mult_enabled ) {
+function citruscartAddCoupon( form, mult_enabled ) {
 	var new_coupon_code = document.getElementById('new_coupon_code').value;
 
 	var url = 'index.php?option=com_citruscart&view=pos&task=validateCouponCode&format=raw&coupon_code='+new_coupon_code;

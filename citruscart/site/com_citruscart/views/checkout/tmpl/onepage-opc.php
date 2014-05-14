@@ -10,12 +10,15 @@
 -------------------------------------------------------------------------*/
 
 	defined('_JEXEC') or die('Restricted access');
+	JHTML::_('behavior.modal');
+	//JHTML::_('behavior.framework' );
 	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
 	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout_onepage.js');
-	JHTML::_('behavior.framework' );
+
+
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);
@@ -28,33 +31,42 @@
 											 'COM_CITRUSCART_UPDATING_CART', 'COM_CITRUSCART_UPDATING_ADDRESS', 'COM_CITRUSCART_VALIDATING' );
 
 	CitruscartHelperImage::addJsTranslationStrings( $js_strings );
+
+
 ?>
-<a name="citruscart-method"></a>
+
+<a name="citruscart-method">
+</a>
 
 <div id="citruscart_checkout_pane">
-<a name="citruscartRegistration" id="citruscartRegistration"></a>
 
-<?php // login link ?>
+      <a class="modal" href="<?php echo JRoute::_($asklink);?>" rel="{handler: 'iframe', size: {x: 800, y: 500}}" name="citruscartRegistration" id="citruscartRegistration" >
+
+
+ </a>
+
 <?php if(!$this->user->id ) : ?>
 	<div class="citruscart_checkout_method">
 		<?php
-			$uri = JFactory::getURI( );
-			$return_link = base64_encode( $uri->__toString( ) );
+		 	$uri = JUri::root();
+			$return_link = base64_encode( $uri );
 			$asklink = "index.php?option=com_citruscart&view=checkout&task=registrationLink&tmpl=component&return=" . $return_link;
-
-				$asktxt = CitruscartUrl::popup( "{$asklink}.&tmpl=component", JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN'),
+/*
+		 		$asktxt = CitruscartUrl::popup( "{$asklink}.&tmpl=component", JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN'),
 						array(
 							'width' => '490', 'height' => '320'
 						) );
-				$asktxt = "<a class=\"citruscart-modal\" href='{$asklink}'>";
+				$asktxt = "<a class=\"modal\" href='{$asklink}' rel='{handler: 'iframe', size: {x: 800, y: 500}}' >";
 				$asktxt .= JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN');
-				$asktxt .= "</a>";
+				$asktxt .= "</a>"; */
 		?>
-		[<?php echo $asktxt; ?>]
+		[<a href="<?php echo JRoute::_($asklink);?>"  class="modal" rel="{handler: 'iframe', size: {x: 800, y: 500}}">
+			<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_LOGIN');?>
+		</a> "]
 	</div>
 <?php endif; ?>
 
-<form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" id="adminForm" name="adminForm" enctype="multipart/form-data">
 
 <div class="floatbox">
 

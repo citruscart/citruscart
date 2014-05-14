@@ -8,11 +8,10 @@
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
-
 defined('_JEXEC') or die('Restricted access');
-$doc = JFactory::getDocument();
 
-$doc->addStyleSheet(JUri::root().'/media/citruscart/css/leftmenu_admin.css');
+JHtml::_('stylesheet', 'media/citruscart/css/leftmenu_admin.css');
+
 
 ?>
 

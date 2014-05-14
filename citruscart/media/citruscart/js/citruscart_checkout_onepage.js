@@ -15,11 +15,10 @@ function citruscartCopyBillingAdToShippingAd(checkbox, form) {
 }
 
 function citruscartSaveOnepageOrder(container, errcontainer, form) {
-	console.log(container);
+	
 	var url = 'index.php?option=com_citruscart&view=checkout&controller=checkout&task=saveOrderOnePage&format=raw';
 	var str = citruscartGetFormInputData(form);
-
-	// execute Ajax request to server
+		// execute Ajax request to server
 	citruscartPutAjaxLoader(errcontainer, Joomla.JText._('COM_CITRUSCART_VALIDATING'));
 	var a = new Request({
 		url : url,
@@ -28,6 +27,7 @@ function citruscartSaveOnepageOrder(container, errcontainer, form) {
 			"elements" : JSON.encode(str)
 		},
 		onSuccess : function(response) {
+			//console.log(response);			
 			var resp = JSON.decode(response, false);
 
 			if (resp.error != '1') {

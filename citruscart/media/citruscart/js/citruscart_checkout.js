@@ -5,6 +5,7 @@
  * 
  * @return
  */
+
 function citruscartGetPaymentForm( element, container )
 {
     var url = 'index.php?option=com_citruscart&view=checkout&task=getPaymentForm&format=raw&payment_element=' + element;
@@ -421,6 +422,8 @@ function citruscartCheckoutCheckEmail( container, form )
     var str = citruscartGetFormInputData( form );
     // execute Ajax request to server
     citruscartPutAjaxLoader( container, Joomla.JText._( 'COM_CITRUSCART_VALIDATING' ) );
+    
+    
     var a = new Request({
             url: url,
             method:"post",
@@ -430,10 +433,12 @@ function citruscartCheckoutCheckEmail( container, form )
             if( resp.error != '0' )
             {
         		citruscartJQ(container).set('html', resp.msg);
+        		     		
             }
             else
-       		{
-        		citruscartJQ( container ).set('html',  resp.msg );
+       		{	
+            	$( container ).set('html',  resp.msg );
+        		//citruscartJQ( container ).set('html',  resp.msg );
        		}
             return true;
         }
@@ -441,9 +446,13 @@ function citruscartCheckoutCheckEmail( container, form )
 }
 
 function citruscartHideInfoCreateAccount( )
-{	
+{	/*
 	citruscartJQ('create_account').addEvent('change', function() {
 		citruscartJQ('citruscart_user_additional_info').toggleClass('hidden');
+	}); */
+
+	$('create_account').addEvent('change', function() {
+		$('citruscart_user_additional_info').toggleClass('hidden');
 	});
 
 }

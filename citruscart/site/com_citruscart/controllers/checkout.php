@@ -187,6 +187,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $model->setState("filter_deleted", 0);
             $addresses = $model->getList();
 
+
             // Checking whether shipping is required
             $showShipping = false;
 
@@ -199,9 +200,11 @@ class CitruscartControllerCheckout extends CitruscartController
             $billingAddress = $order->getBillingAddress();
 
             $billing_address_form = $this->getAddressForm( $this->billing_input_prefix, !$user->id );
+
             $view->assign( 'billing_address_form', $billing_address_form );
 
             $view->assign( 'showShipping', $showShipping );
+
             $view->assign( 'billing_address', $billingAddress);
 
             if($showShipping)
@@ -216,10 +219,10 @@ class CitruscartControllerCheckout extends CitruscartController
 
             Citruscart::load( 'CitruscartHelperPlugin', 'helpers.plugin' );
 
-
             if($showShipping)
             {
                 $rates = $this->getShippingRates();
+
                 $default_rate = array();
                 if (count($rates) == 1)
                 {
@@ -897,14 +900,17 @@ class CitruscartControllerCheckout extends CitruscartController
             }
 
             echo ( json_encode( $response ) );
-            return true;
+            $app->close();
         }
 
+
+        if(isset($submitted_values['billing_address_id'])){
         // fail if billing address is invalid
         if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix , $submitted_values['billing_address_id'], true ))
         {
             $response['msg'] = $helper->generateMessage( JText::_('COM_CITRUSCART_BILLING_ADDRESS_ERROR')." :: ".$this->getError() );
             $response['error'] = '1';
+        }
         }
 
         // fail if shipping address is invalid
@@ -1104,7 +1110,8 @@ class CitruscartControllerCheckout extends CitruscartController
         if(($this->defines->get('guest_checkout_enabled', '1') && $user_id == 0) || $register )
             $addressArray['user_id'] = -1; // Fake id for the checkout process
 
-        $table->bind( $addressArray );
+       // $table->bind( $addressArray );
+
         $table->addresstype_id = $address_type;
 
         if (!$table->check())
@@ -1193,37 +1200,48 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $billing_zone_id = 0;
-        $billingAddressArray = $this->getAddressArray( $billing_address_id, $billing_input_prefix, $values );
-        if (array_key_exists('zone_id', $billingAddressArray))
+    	   $billingAddressArray = $this->getAddressArray( $billing_address_id, $billing_input_prefix, $values );
+	        //print_r($billingAddressArray); exit;
+        if($billingAddressArray['zone_id'])
+        //if (array_key_exists('zone_id', $billingAddressArray))
         {
             $billing_zone_id = $billingAddressArray['zone_id'];
         }
 
+        //echo $billing_zone_id;
+        //exit;
+
         //SHIPPING ADDRESS: get shipping address from dropdown or form (depending on selection)
-        $shipping_zone_id = 0;
+
+       /*  $shipping_zone_id = 0;
         if ($same_as_billing)
         {
             $shippingAddressArray = $billingAddressArray;
-        }
-        else
-        {
+        }else{
             $shippingAddressArray = $this->getAddressArray($shipping_address_id, $shipping_input_prefix, $values);
         }
+ */
+		if(isset($shippingAddressArray)){
 
-        if (array_key_exists('zone_id', $shippingAddressArray))
-        {
-            $shipping_zone_id = $shippingAddressArray['zone_id'];
-        }
+        	if (array_key_exists('zone_id', $shippingAddressArray))
+        	{
+            	$shipping_zone_id = $shippingAddressArray['zone_id'];
+        	}
+
+        	$this->_orderinfoShippingAddressArray = $this->filterArrayUsingPrefix($shippingAddressArray, '', 'shipping_', true);
+        	$this->_shippingAddressArray = $shippingAddressArray;
+        	$shippingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
+		}
 
         // keep the array for binding during the save process
         $this->_orderinfoBillingAddressArray = $this->filterArrayUsingPrefix($billingAddressArray, '', 'billing_', true);
-        $this->_orderinfoShippingAddressArray = $this->filterArrayUsingPrefix($shippingAddressArray, '', 'shipping_', true);
+
         $this->_billingAddressArray = $billingAddressArray;
-        $this->_shippingAddressArray = $shippingAddressArray;
+
 
         JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
         $billingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
-        $shippingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
+
 
         // set the order billing address
         $billingAddress->bind( $billingAddressArray );
@@ -1239,6 +1257,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $order->setAddress( $billingAddress);
 
         // set the order shipping address
+        if( isset($shippingAddressArray)){
         $shippingAddress->bind( $shippingAddressArray );
         $shippingAddress->user_id = $user_id;
         $shippingAddress->addresstype_id = 2;
@@ -1250,7 +1269,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $order->setAddress( $shippingAddress, 'shipping' );
-
+        }
         return;
     }
 
@@ -1285,45 +1304,45 @@ class CitruscartControllerCheckout extends CitruscartController
         //if addess id exsits
         if ($address_id)
         {
-            $new_address = $this->retrieveAddressIntoArray($address_id);
-
-            $addressArray = $new_address;
-            	/* $new_key=array();
-
-            	$key=array_keys($new_address );
-
-				for($a=0; $a<count($key); $a++){
-            		$new_key[$a]=$input_prefix.$key[$a];
-            	}
-
-            	$addressArray=array_combine($new_key,array_values($new_address ));
-
-            	$zone = JTable::getInstance('Zones', 'CitruscartTable');
-            	$zone->load( $new_address['zone_id'] );
-            	$addressArray['zone_name'] = $zone->zone_name;
-            	// set the country name
-            	$country = JTable::getInstance('Countries', 'CitruscartTable');
-            	$country->load( $new_address['country_id'] );
-            	$addressArray['country_name'] = $country->country_name;
-
-            	print_r($addressArray); exit; */
+             $addressArray = $this->retrieveAddressIntoArray($address_id);
+             $addressArray['zone'] =$addressArray['zone_id'];
 
 
         }else{
 
             $addressArray = $this->filterArrayUsingPrefix($form_input_array, $input_prefix, '', false );
-
-            // set the zone name
+  	         // set the zone name
+			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables/');
             $zone = JTable::getInstance('Zones', 'CitruscartTable');
-            $zone->load( $addressArray['zone_id'] );
-            $addressArray['zone_name'] = $zone->zone_name;
-            // set the country name
+            $zone->load($addressArray['zone_id']);
+
+            $addressArray['zone_name'] = ($zone->zone_name)  ? $zone->zone_name : $this->getZoneName($addressArray['zone_id']);
+
             $country = JTable::getInstance('Countries', 'CitruscartTable');
             $country->load( $addressArray['country_id'] );
-            $addressArray['country_name'] = $country->country_name;
+            //$addressArray['country_name'] = $country->country_name;
+           $addressArray['country_name'] = ($country->country_name)  ? $country->country_name : $this->getCountryName($addressArray['country_id']);
         }
 
+
         return $addressArray;
+    }
+
+    public function getCountryName($id){
+    	$db = JFactory::getDbo();
+    	$query = $db->getQuery(true);
+    	$query->select("country_name")->from("#__citruscart_countries");
+    	$query->where("country_id = " .$id);
+    	return $db->loadResult();
+    }
+
+
+    public function getZoneName($id){
+    	$db = JFactory::getDbo();
+    	$query = $db->getQuery(true);
+    	$query->select("zone_name")->from("#__citruscart_zones");
+    	$query->where("zone_id = " .$id);
+    	return $db->loadResult();
     }
 
     /**
@@ -1596,9 +1615,9 @@ class CitruscartControllerCheckout extends CitruscartController
             // if it fails check, return message
             $response['error'] = '1';
             $response['msg'] = $this->getShippingHtml('shipping_calculate');
-            $response['msg'] .= $helper->generateMessage(JText::_('COM_CITRUSCART_ERROR_WHILE_VALIDATING_THE_PARAMETERS'));
+            $response['msg'] .= $helper->generateMessage($msg=JText::_('COM_CITRUSCART_ERROR_WHILE_VALIDATING_THE_PARAMETERS'));
             echo ( json_encode( $response ) );
-            return;
+            $app->close();
         }
 
         // convert elements to array that can be binded
@@ -2794,8 +2813,11 @@ class CitruscartControllerCheckout extends CitruscartController
 
     function saveOrderOnePage( $submitted_values=null )
     {
-    	$input =JFactory::getApplication()->input;
+    	$app = JFactory::getApplication();
+    	$input =$app->input;
         $values = array();
+
+        //print_r($_POST); exit;
 
         $response = array();
         $response['msg'] = '';
@@ -2808,8 +2830,10 @@ class CitruscartControllerCheckout extends CitruscartController
 
         if (empty($submitted_values))
         {
+
             // get elements from post
             $elements = json_decode( preg_replace('/[\n\r]+/', '\n',  $input->get( 'elements', '', 'post', 'string' ) ) );
+
 
             // Test if elements are empty
             // Return proper message to user
@@ -2820,12 +2844,14 @@ class CitruscartControllerCheckout extends CitruscartController
                 $response['error'] = '1';
                 $response['msg'] = $helper->generateMessage(JText::_('COM_CITRUSCART_ERROR_WHILE_VALIDATING_THE_PARAMETERS'));
                 echo ( json_encode( $response ) );
-                return;
+                $app->close();
+
             }
 
             // convert elements to array that can be binded
             Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
             $helper = CitruscartHelperBase::getInstance();
+
             $submitted_values = $helper->elementsToArray( $elements );
         }
 
@@ -2845,6 +2871,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $this->populateOrder($guest);
+
         $this->addCouponCodes( $submitted_values );
 
         // bind what you can from the post
@@ -2852,12 +2879,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // set the shipping method
         $this->_order->shipping = new JObject();
-        $this->_order->shipping->shipping_price      = $submitted_values['shipping_price'];
-        $this->_order->shipping->shipping_extra      = $submitted_values['shipping_extra'];
-        $this->_order->shipping->shipping_code      	= $submitted_values['shipping_code'];
-        $this->_order->shipping->shipping_name       = $submitted_values['shipping_name'];
-        $this->_order->shipping->shipping_tax        = $submitted_values['shipping_tax'];
-        $this->_order->shipping->shipping_type				= $submitted_values['shipping_plugin'];
+        $this->_order->shipping->shipping_price      = (isset($submitted_values['shipping_price'])) ? $submitted_values['shipping_price'] : "";
+        $this->_order->shipping->shipping_extra      = (isset($submitted_values['shipping_extra'])) ? $submitted_values['shipping_extra'] : "" ;
+        $this->_order->shipping->shipping_code      	= (isset($submitted_values['shipping_code'])) ? $submitted_values['shipping_code'] : "";
+        $this->_order->shipping->shipping_name       = (isset($submitted_values['shipping_name'])) ? $submitted_values['shipping_name'] : "" ;
+        $this->_order->shipping->shipping_tax        = (isset($submitted_values['shipping_tax']) ) ? $submitted_values['shipping_tax'] : "";
+        $this->_order->shipping->shipping_type				= (isset($submitted_values['shipping_plugin'])) ? $submitted_values['shipping_plugin'] : "" ;
 
         $this->_order->calculateTotals();
 
@@ -2867,8 +2894,9 @@ class CitruscartControllerCheckout extends CitruscartController
             $response['msg'] = $helper->generateMessage(JText::_('Please select payment method'));
             $response['error'] = '1';
             echo ( json_encode( $response ) );
-            return;
+            $app->close();
         }
+
 
         // fail if not checked terms & condition
         if( $config->get('require_terms') && empty($submitted_values['_checked']['shipping_terms']) )
@@ -2876,7 +2904,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $response['msg'] = $helper->generateMessage(JText::_('COM_CITRUSCART_PLEASE_CHECK_THE_TERMS_CONDITIONS'));
             $response['error'] = '1';
             echo ( json_encode( $response ) );
-            return;
+            $app->close();
         }
 
         // check if "Same as billing address" was checked
@@ -2894,14 +2922,17 @@ class CitruscartControllerCheckout extends CitruscartController
             $submitted_values['payment_plugin'] = $submitted_values['_checked']['payment_plugin'];
         }
 
+
+
         // return error message
         $svalidate = $this->validateSelectShipping($submitted_values);
+
         if(!$svalidate || $svalidate['error'])
         {
             $response['msg'] = $svalidate['msg'];
             $response['error'] = '1';
             echo ( json_encode( $response ) );
-            return;
+            $app->close();
         }
 
         // check shipping hash
@@ -2910,7 +2941,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $response['msg'] = $helper->generateMessage(JText::_('COM_CITRUSCART_INVALID_SHIPPING_VALUES'));
             $response['error'] = '1';
             echo ( json_encode( $response ) );
-            return;
+			$app->close();
         }
 
         $pvalidate = $this->validateSelectPayment($submitted_values);
@@ -2929,7 +2960,8 @@ class CitruscartControllerCheckout extends CitruscartController
             $response['msg'] = $helper->generateMessage(JText::_('COM_CITRUSCART_PLEASE_ENTER_CORRECT_EMAIL'));
             $response['error'] = '1';
             echo json_encode($response);
-            return;
+            //return;
+            $app->close();
         }
 
         $user_id = -1;
@@ -2938,6 +2970,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $guest_checkout = $config->get('guest_checkout_enabled', '1');
         if ( !$create_account && $guest_checkout && !$this->user->id ) // guest checkout
         {
+
             Citruscart::load( 'CitruscartHelperUser', 'helpers.user' );
 
             if ($userHelper->emailExists($submitted_values['email_address']))
@@ -2952,10 +2985,12 @@ class CitruscartControllerCheckout extends CitruscartController
             // save the real user's info in the userinfo table
             JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
             $userinfo = JTable::getInstance('UserInfo', 'CitruscartTable');
+
             $userinfo->user_id = $user_id;
             $userinfo->email = $submitted_values['email_address'];
             $userinfo->save();
             $this->setAddresses($submitted_values, true, true);
+
         }
         else // register or the user is already logged in
         {
@@ -2965,19 +3000,24 @@ class CitruscartControllerCheckout extends CitruscartController
                 $user_id = $user->id;
                 if( $user->email != $submitted_values['email_address'] ) // user wants to change his email
                 {
+
                     if ($userHelper->emailExists($submitted_values['email_address']))
                     {
                         $response['msg'] = $helper->generateMessage(JText::_('COM_CITRUSCART_EMAIL_ALREADY_EXIST'));
                         $response['error'] = '1';
                         echo ( json_encode($response) );
-                        return false;
+                        //return false;
+                        $app->close();
                     }
 
                     JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
                     $userinfo = JTable::getInstance('UserInfo', 'CitruscartTable');
+
                     $userinfo->load( array('user_id' => $user_id ) );
                     $userinfo->email = $submitted_values['email_address'];
                     $userinfo->save();
+
+
 
                     if( $user->username == $user->email ) // user is using email as his login
                         $user->username = $submitted_values['email_address'];
@@ -3040,9 +3080,12 @@ class CitruscartControllerCheckout extends CitruscartController
                     $userinfo->phone_1 = $submitted_values['billing_input_phone_1'];
                     $userinfo->email = $submitted_values['email_address'];
                     $userinfo->save();
+
+
                 }
                 else
                 {
+
                     $response['msg'] = $helper->generateMessage( 'COM_CITRUSCART_CHECKOUT_USER_ACCOUNT_REQUIRED' );
                     $response['error'] = '1';
                     echo ( json_encode($response) );
@@ -3050,6 +3093,8 @@ class CitruscartControllerCheckout extends CitruscartController
                 }
                 $this->setAddresses($submitted_values, true, true);
         }
+
+
 
         //save order
         if(!$this->saveOrder($submitted_values, $user_id, true ))
@@ -3080,7 +3125,7 @@ class CitruscartControllerCheckout extends CitruscartController
         // encode and echo (need to echo to send back to browser)
         echo ( json_encode($response) );
 
-        return;
+        $app->close();
     }
 
     /**
@@ -3358,7 +3403,9 @@ class CitruscartControllerCheckout extends CitruscartController
         $row->order_id = $order->order_id;
         $row->user_email = $this->user->get('email');
         $row->bind( $this->_orderinfoBillingAddressArray );
+        if(!empty($this->_orderinfoShippingAddressArray)){
         $row->bind( $this->_orderinfoShippingAddressArray );
+        }
         $row->user_id = $order->user_id;
 
         // Get Addresses
@@ -3371,6 +3418,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $row->shipping_zone_id      = $shipping_address->zone_id;
         $row->shipping_country_id   = $shipping_address->country_id;
 
+
         if (!$row->save())
         {
             $this->setError( $row->getError() );
@@ -3378,6 +3426,8 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $order->orderinfo = $row;
+
+
         return true;
     }
 
@@ -3569,24 +3619,26 @@ class CitruscartControllerCheckout extends CitruscartController
     {
         // create array with input form keys and values
         $address_input = array();
-
         foreach ($oldArray as $key => $value)
         {
             if (($append) || (strpos($key, $old_prefix) !== false))
             {
                 $new_key = '';
                 if ($append){
-                    $new_key = $new_prefix.$key;
+                  $new_key = $new_prefix.$key;
                 }
                 else{
-                    $new_key = str_replace($old_prefix, $new_prefix, $key);
+
+                	$new_key = str_replace($old_prefix, $new_prefix, $key);
                 }
                 if (strlen($new_key)>0){
-                    $address_input[$new_key] = $value;
+
+                	$address_input[$new_key] = $value;
                 }
             }
         }
-        return $address_input;
+
+       return $address_input;
     }
 
     /**
@@ -3806,6 +3858,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $response = array();
         $response['msg'] = '';
         $response['error'] = '0';
+
 
         // get elements from post
         $elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string','string' ) ) );

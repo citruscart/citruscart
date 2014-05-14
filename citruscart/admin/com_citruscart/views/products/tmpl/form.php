@@ -12,7 +12,12 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.model');
+
+JHTML::_('behavior.modal');
+$doc = JFactory::getDocument();
+//$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart_admin.js');
 
 JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php JHTML::_('script', 'Citruscart_admin.js', 'media/citruscart/js/'); ?>

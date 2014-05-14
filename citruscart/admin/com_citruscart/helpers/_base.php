@@ -650,10 +650,12 @@ class CitruscartHelperBase extends DSCHelper
 	function generateMessage($msg, $include_li=true, $add_fade = true )
 	{
 		$fade = $add_fade ? ' fade' : '';
+		//<dd class="notice message '.$fade.'">
 		$html = '
 		<dl id="system-message">
             <dt class="notice">'.JText::_('COM_CITRUSCART_NOTICE').'</dt>
-            <dd class="notice message '.$fade.'">
+            <dd class="notice message alert alert-warning">
+
                 <ul>';
 
 		if ($include_li) {

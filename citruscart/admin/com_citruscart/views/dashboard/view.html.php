@@ -20,6 +20,8 @@ class CitruscartViewDashboard extends CitruscartViewBase
 	function dispaly($tpl=null){
 
 		//$this->addToolBar();
+
+
 		parent::display($tpl);
 
 
@@ -30,6 +32,7 @@ class CitruscartViewDashboard extends CitruscartViewBase
      */
     function _defaultToolbar()
     {
+
     }
 
 

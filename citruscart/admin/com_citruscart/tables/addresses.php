@@ -27,7 +27,7 @@ class CitruscartTableAddresses extends CitruscartTable
         if (empty($db)) {
             $db = JFactory::getDBO();
         }
-        
+
         parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
     }
 
@@ -92,10 +92,12 @@ class CitruscartTableAddresses extends CitruscartTable
         Citruscart::load( 'CitruscartHelperAddresses', 'helpers.addresses' );
         $elements  = CitruscartHelperAddresses::getAddressElementsData( $address_type );
 
+
+
         if (empty($this->address_name)) {
             $this->address_name = $this->address_1;
         }
-        
+
         if (empty($this->address_name) && $elements['address_name'][1] )
         {
             $this->setError( JText::_("COM_CITRUSCART_PLEASE_INCLUDE_AN_ADDRESS_TITLE".$address_type) );
@@ -135,9 +137,16 @@ class CitruscartTableAddresses extends CitruscartTable
         }
 
         $countryA = explode(',', trim($config->get('ignored_countries', '83,188,190')));
+
+        print_r($countryA); exit;
+
+
+
+
+
         if ( empty( $this->zone_id ) && !in_array( $this->country_id, $countryA ) )
         {
-            if( $elements['zone'][1] )
+            if(isset($elements['zone'][1] ))
             {
                 $this->setError( JText::_('COM_CITRUSCART_ZONE_REQUIRED') );
             }
@@ -146,38 +155,38 @@ class CitruscartTableAddresses extends CitruscartTable
                 $this->zone_id = 9999;
             }
         }
-        
+
         return parent::check();
     }
-    
+
     public function getZone()
     {
         if (empty($this->zone_id))
         {
             return false;
         }
-        
+
         DSCModel::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
         $model = DSCModel::getInstance( 'Zones', 'CitruscartModel' );
         $model->setId( $this->zone_id );
-        
+
         return $model->getItem();
     }
-    
+
     public function getCountry()
     {
-        if (empty($this->country_id)) 
+        if (empty($this->country_id))
         {
             return false;
         }
-        
+
         DSCModel::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
         $model = DSCModel::getInstance( 'Countries', 'CitruscartModel' );
         $model->setId( $this->country_id );
-        
+
         return $model->getItem();
     }
-    
+
     public function getSummary( $item=null )
     {
         if (!empty($item) && is_numeric($item)) {
@@ -187,7 +196,7 @@ class CitruscartTableAddresses extends CitruscartTable
         }
 
         $lines = array();
-    
+
         // TODO Get the fields enabled in config,
         $lines[] = $this->first_name . " " . $this->last_name;
         $lines[] = $this->address_1;
@@ -202,7 +211,7 @@ class CitruscartTableAddresses extends CitruscartTable
         if ($country = $this->getCountry()) {
             $lines[] = $country->country_name;
         }
-         
+
         $return = implode(', ', $lines);
         return $return;
     }

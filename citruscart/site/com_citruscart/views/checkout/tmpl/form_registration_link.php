@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -13,13 +13,13 @@ defined('_JEXEC') or die('Restricted access');?>
 <?php $url = JRoute::_( "index.php?option=com_citruscart&view=checkout", false ); ?>
 
 
-    <div id="returnUserLoginWrapper" class="dsc-full">
+    <div id="returnUserLoginWrapper" class="dsc-full well">
         <div class='componentheading'>
             <span><?php echo JText::_('COM_CITRUSCART_RETURNING_USERS'); ?></span>
         </div>
-            
+
         <!-- LOGIN FORM -->
-        
+
         <?php if (JPluginHelper::isEnabled('authentication', 'openid')) :
                 $lang->load( 'plg_authentication_openid', JPATH_ADMINISTRATOR );
                 $langScript =   'var JLanguage = {};'.
@@ -31,12 +31,12 @@ defined('_JEXEC') or die('Restricted access');?>
                 $document->addScriptDeclaration( $langScript );
                 JHTML::_('script', 'openid.js');
         endif; ?>
-        
+
       <?php $url = JRoute::_( "index.php?option=com_citruscart&view=checkout", false ); ?>
  <?php if(version_compare(JVERSION,'1.6.0','ge')) {     // Joomla! 1.6+ code here ?>
 
    <form action="<?php echo JRoute::_( 'index.php', true, Citruscart::getInstance()->get('usesecure', '0') ); ?>" method="post" name="login" id="form-login" >
-        
+
             <table>
             <tr>
                 <td style="height: 40px;">
@@ -63,7 +63,7 @@ defined('_JEXEC') or die('Restricted access');?>
                     <span style="float: left">
                         <input id="citruscart-remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
                     </span>
-                 
+
                 </td>
             </tr>
             <?php endif; ?>
@@ -93,16 +93,16 @@ defined('_JEXEC') or die('Restricted access');?>
                 </td>
             </tr>
             </table>
-        
+
            <input type="hidden" name="option" value="com_users" />
 			<input type="hidden" name="task" value="user.login" />
             <input type="hidden" name="return" value="<?php echo base64_encode( $url ); ?>" />
             <?php echo JHTML::_( 'form.token' ); ?>
-        </form>   
-<?php } else {     // Joomla! 1.5 code here ?> 
+        </form>
+<?php } else {     // Joomla! 1.5 code here ?>
 
   <form action="<?php echo JRoute::_( 'index.php', true, Citruscart::getInstance()->get('usesecure', '0') ); ?>" method="post" name="login" id="form-login" >
-        
+
             <table>
             <tr>
                 <td style="height: 40px;">
@@ -158,12 +158,11 @@ defined('_JEXEC') or die('Restricted access');?>
                 </td>
             </tr>
             </table>
-        
+
            <input type="hidden" name="option" value="com_user" />
 			<input type="hidden" name="task" value="login" />
             <input type="hidden" name="return" value="<?php echo base64_encode( $url ); ?>" />
             <?php echo JHTML::_( 'form.token' ); ?>
-        </form> 
+        </form>
 <?php } ?>
     </div>
-       
