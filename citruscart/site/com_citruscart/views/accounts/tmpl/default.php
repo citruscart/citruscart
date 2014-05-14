@@ -10,7 +10,12 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/'); ?>
+<?php
+JHTML::_('behavior.modal');
+$doc = JFactory::getDocument();
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+?>
 
 <div class='componentheading'>
 	<span><?php echo JText::_('COM_CITRUSCART_MY_PROFILE'); ?></span>

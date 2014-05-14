@@ -571,10 +571,10 @@ class CitruscartHelperCarts extends CitruscartHelperBase
 			$productModel->setId($cartitem->product_id);
 			if ($productItem = $productModel->getItem(false))
 			{
-				$productItem->price = $productItem->product_price = !$cartitem->product_price_override->override ? $cartitem->product_price : $productItem->price;
+				$productItem->price = $productItem->product_price = (isset($cartitem->product_price_override->override) ? !$cartitem->product_price_override->override : "") ? $cartitem->product_price : $productItem->price;
 
 				//we are not overriding the price if its a recurring && price
-				if(!$productItem->product_recurs && $cartitem->product_price_override->override)
+				if(!$productItem->product_recurs && isset($cartitem->product_price_override->override) ? $cartitem->product_price_override->override : "")
 				{
 					// at this point, ->product_price holds the default price for the product,
 					// but the user may qualify for a discount based on volume or date, so let's get that price override

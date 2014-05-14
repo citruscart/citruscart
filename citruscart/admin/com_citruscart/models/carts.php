@@ -176,11 +176,11 @@ class CitruscartModelCarts extends CitruscartModelEav
 				$item->product_price_override = $product_helper->getPrice( $item->product_id, $item->product_qty, $filter_group , JFactory::getDate()->toSql() );
 
 				//checking if we do price override
-				$item->product_price_override->override = true;
+				isset($item->product_price_override->override) ? $item->product_price_override = true : "";
 
 				if (!empty($item->product_price_override))
 				{
-					$item->product_price = $item->product_price_override->product_price;
+					$item->product_price = isset($item->product_price_override->product_price) ? $item->product_price_override->product_price : "";
 				}
 
 				if ($item->product_recurs)
