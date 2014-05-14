@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = $this->form; ?>
 <?php $row = $this->row; ?>
-<?php $tmpl = $this->tmpl; ?>
+<?php $tmpl = isset($this->tmpl) ? $this->tmpl : ""; ?>
 <?php JFilterOutput::objectHTMLSafe( $row ); ?>
 
 <div class='componentheading'>

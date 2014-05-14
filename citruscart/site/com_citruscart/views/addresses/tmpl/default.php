@@ -18,7 +18,7 @@
 	$state = $this->state;
 	$form = $this->form;
 	$items = $this->items;
-	$tmpl = $this->tmpl;
+	$tmpl = isset($this->tmpl) ? $this->tmpl : "";
 	$menu = CitruscartMenu::getInstance();
 
 	/* Get the applications */
@@ -81,8 +81,12 @@
                 </td>
                 <td style="text-align: center;">
                     <a href="<?php echo JRoute::_( $item->link.$tmpl ); ?>">
-                        <?php echo $item->address_name; ?>
-                    </a>
+                        <b><?php echo $item->first_name; ?> <?php echo $item->middle_name; ?> <?php echo $item->last_name; ?></b><br/>
+                        <?php 
+                        //echo $item->first_name;                        
+                        //echo $item->address_name; 
+                        ?>
+    				</a>
                 </td>
                 <td style="text-align: left;">
                     <?php // TODO Use sprintf to enable formatting?  How best to display addresses? ?>

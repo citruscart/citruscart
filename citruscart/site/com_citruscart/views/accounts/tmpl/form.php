@@ -10,9 +10,13 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-JHtml::_('stylesheet', 'media/citruscart/css/citruscart_checkout_onepage.css');
+//JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+//JHtml::_('stylesheet', 'media/citruscart/css/citruscart_checkout_onepage.css');
 
+$doc = JFactory::getDocument();
+JHTML::_('behavior.modal');
+$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 ?>
 <?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = $this->form; ?>
@@ -44,7 +48,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	            <input name="title" id="title"
 	            type="text" size="5" maxlength="250"
-	            value="<?php echo $row->title; ?>" />
+	            value="<?php echo isset($row->title) ? $row->title : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -54,7 +58,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	            <input name="first_name" id="first_name"
 	            type="text" size="35" maxlength="250"
-	            value="<?php echo $row->first_name; ?>" />
+	            value="<?php echo isset($row->first_name) ? $row->first_name : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -64,7 +68,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	           <input type="text" name="middle_name"
 	            id="middle_name" size="25" maxlength="250"
-	            value="<?php echo $row->middle_name; ?>" />
+	            value="<?php echo isset($row->middle_name) ? $row->middle_name : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -74,7 +78,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	           <input type="text" name="last_name"
 	            id="last_name" size="45" maxlength="250"
-	            value="<?php echo $row->last_name; ?>" />
+	            value="<?php echo isset($row->last_name) ? $row->last_name : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -83,7 +87,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        </th>
 	        <td><input type="text" name="company" id="company"
 	            size="48" maxlength="250"
-	            value="<?php echo $row->company; ?>" /></td>
+	            value="<?php echo isset($row->company) ? $row->company : ""; ?>" /></td>
 	    </tr>
 	    <tr>
 	        <th style="width: 100px; text-align: right;" class="key">
@@ -92,7 +96,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	            <input type="text" name="phone_1" id="phone_1"
 	            size="25" maxlength="250"
-	            value="<?php echo $row->phone_1; ?>" />
+	            value="<?php echo isset($row->phone_1) ? $row->phone_1 : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -102,7 +106,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	            <input type="text" name="phone_2" id="phone_2"
 	            size="25" maxlength="250"
-	            value="<?php echo $row->phone_2; ?>" />
+	            value="<?php echo isset($row->phone_2) ? $row->phone_2 : ""; ?>" />
 	        </td>
 	    </tr>
 	    <tr>
@@ -112,7 +116,7 @@ JFilterOutput::objectHTMLSafe( $row );
 	        <td>
 	            <input type="text" name="fax" id="fax"
 	            size="25" maxlength="250"
-	            value="<?php echo $row->fax; ?>" />
+	            value="<?php echo isset($row->fax) ? $row->fax : ""; ?>" />
 	        </td>
 	    </tr>
         <tr>
@@ -120,7 +124,7 @@ JFilterOutput::objectHTMLSafe( $row );
                 <?php echo JText::_('COM_CITRUSCART_EMAIL_FORMAT'); ?>
             </th>
             <td>
-                <?php echo CitruscartSelect::booleans( $row->html_emails, 'html_emails', '', '', '', '', JText::_('COM_CITRUSCART_HTML'), JText::_('COM_CITRUSCART_PLAIN_TEXT') ); ?>
+                <?php echo CitruscartSelect::booleans( isset($row->html_emails) ? $row->html_emails : "", 'html_emails', '', '', '', '', JText::_('COM_CITRUSCART_HTML'), JText::_('COM_CITRUSCART_PLAIN_TEXT') ); ?>
             </td>
         </tr>
 	    </tbody>
@@ -131,4 +135,4 @@ JFilterOutput::objectHTMLSafe( $row );
     <input type="hidden" name="id" value="<?php echo $row->user_id; ?>" />
     <input type="hidden" name="task" id="task" value="" />
     <?php echo $form['validate']; ?>
-</form>ss
+</form>
