@@ -18,6 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.plugin.plugin');
 jimport('joomla.utilities.string');
 require_once(JPATH_SITE.'/libraries/dioscouri/library/plugin.php');
+
 class CitruscartPluginBase extends DSCPlugin
 {
 	/**

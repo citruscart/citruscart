@@ -16,10 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
 ?>
-<?php
-
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-	//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items;
@@ -164,7 +161,8 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 
 					<div class="product_categories">
 						<span style="float: right;">[<?php echo CitruscartUrl::popup( "index.php?option=com_citruscart&controller=products&task=selectcategories&id=".$item->product_id."&tmpl=component", JText::_('COM_CITRUSCART_SELECT_CATEGORIES'), array('update' => true) ); ?>]</span>
-						<?php $categories = $helper_product->getCategories( $item->product_id ); ?>
+						<?php $categories = $helper_product->getCategories( $item->product_id );
+						?>
 						<?php for ($n='0'; $n<count($categories) && $n<'1'; $n++) : ?>
 							<?php $category = $categories[$n]; ?>
 							<?php echo $helper_category->getPathName( $category ); ?>
@@ -178,6 +176,7 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
                     </div>
 
                     <?php
+
                     $layout = $helper_product->getLayout( $item->product_id );
                     if ($layout != 'view')
                     {

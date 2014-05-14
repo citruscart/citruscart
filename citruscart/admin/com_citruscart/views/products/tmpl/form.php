@@ -14,8 +14,11 @@ defined('_JEXEC') or die('Restricted access');
 
 
 JHTML::_('behavior.modal');
+
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+
+JHtml::_('stylesheet', 'media/citruscart/css/leftmenu_admin.css');
 $doc = JFactory::getDocument();
-//$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart_admin.js');
 
