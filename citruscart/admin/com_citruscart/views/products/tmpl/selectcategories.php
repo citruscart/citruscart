@@ -12,10 +12,12 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php
-$doc = JFactory::getDocument();
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+JHtml::_('script', 'media/system/js/core.js', false, false);
 
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'media/citruscart/js/core.js');
+
+
+
 //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php //JHTML::_('script', 'core.js', 'media/system/js/'); ?>
 <?php $state = $this->state;

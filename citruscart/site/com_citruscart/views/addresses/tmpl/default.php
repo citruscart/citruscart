@@ -13,11 +13,8 @@
 	jimport('joomla.application.component.model');
 
 	JHTML::_('behavior.modal');
-
-	$doc = JFactory::getDocument();
-	$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
-	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-
+	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+	JHtml::_('stylesheet', 'media/citruscart/css/menu.css');
 	$state = $this->state;
 	$form = $this->form;
 	$items = $this->items;

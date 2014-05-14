@@ -10,10 +10,7 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php
-	$doc = JFactory::getDocument();
-	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 <?php $row = $this->row; ?>
 <?php $config = Citruscart::getInstance(); ?>
 

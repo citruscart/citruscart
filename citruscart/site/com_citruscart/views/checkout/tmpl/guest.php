@@ -10,12 +10,9 @@
 -------------------------------------------------------------------------*/
 
     defined('_JEXEC') or die('Restricted access');
-
-    $doc = JFactory::getDocument();
-
-    $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-    $doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
-	$form = $this->form;
+    JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+    JHtml::_('script', 'media/citruscart/js/citruscart_checkout.js', false, false);
+    $form = $this->form;
 	$row = $this->row;
 	$register = $this->register;
 	$baseurl = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getAddress&address_id=";

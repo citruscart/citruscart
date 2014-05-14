@@ -12,14 +12,10 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-$doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-
-$state = @$this->state;
-$items = @$this->items;
-$citems = @$this->citems;
-
-
+	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+	$state = @$this->state;
+	$items = @$this->items;
+	$citems = @$this->citems;
 ?>
 
 <div id="citruscart" class="products directory">

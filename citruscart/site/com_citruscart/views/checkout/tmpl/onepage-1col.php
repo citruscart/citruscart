@@ -10,17 +10,12 @@
 -------------------------------------------------------------------------*/
 
 	defined('_JEXEC') or die('Restricted access');
-	$doc = JFactory::getDocument();
-	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
-	$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout.js');
-	$doc->addScript(JUri::root().'media/citruscart/js/citruscart_checkout_onepage.js');
-	/*
-	JHTML::_('stylesheet', 'citruscart_checkout_onepage.css', 'media/citruscart/css/');
-	JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
-	JHTML::_('script', 'citruscart_checkout.js', 'media/citruscart/js/');
-	JHTML::_('script', 'citruscart_checkout_onepage.js', 'media/citruscart/js/'); */
-	//JHTML::_('behavior.framework' );
+
+	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+	JHtml::_('script', 'media/citruscart/js/citruscart_checkout.js', false, false);
+	JHtml::_('script', 'media/citruscart/js/citruscart_checkout_onepage.js', false, false);
+	JHtml::_('stylesheet', 'media/citruscart/css/citruscart_checkout_onepage.css');
+
 	Citruscart::load('CitruscartHelperImage', 'helpers.image');
 	$image = CitruscartHelperImage::getLocalizedName("help_tooltip.png", Citruscart::getPath('images'));
 	$enable_tooltips = Citruscart::getInstance()->get('one_page_checkout_tooltips_enabled', 0);
