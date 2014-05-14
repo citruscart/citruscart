@@ -10,12 +10,8 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-
-$doc = JFactory::getDocument();
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
-
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart_checkout_onepage.css');
 
 ?>
 <?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>

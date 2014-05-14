@@ -11,14 +11,10 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-$doc = JFactory::getDocument();
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'includes/js/joomla.javascript.js');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+JHtml::_('script', 'includes/js/joomla.javascript.js', false, false);
+JHtml::_('stylesheet', 'media/citruscart/css/menu.css');
 
-//JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
-//JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
-//JHTML::_('script', 'joomla.javascript.js', 'includes/js/');
 Citruscart::load( 'CitruscartGrid', 'library.grid' );
 
 if($this->cartobj){

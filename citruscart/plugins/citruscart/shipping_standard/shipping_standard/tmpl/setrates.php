@@ -13,15 +13,14 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-$doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addStyleSheet(JUri::root().'media/citruscart/css/Citruscart.css');
- $form = $this->form2;
-   $row = $this->row;
-   $state = $this->state;
-   $items = $this->items;
-   $baseLink = $this->baseLink;
-  $default_group = Citruscart::getInstance()->get( 'default_user_group', 1 );
+	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+	JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
+ 	$form = $this->form2;
+   	$row = $this->row;
+   	$state = $this->state;
+   	$items = $this->items;
+   	$baseLink = $this->baseLink;
+  	$default_group = Citruscart::getInstance()->get( 'default_user_group', 1 );
 ?>
 <h3><?php echo JText::_('COM_CITRUSCART_SET_RATES_FOR'); ?>: <?php echo $row->shipping_method_name; ?></h3>
 

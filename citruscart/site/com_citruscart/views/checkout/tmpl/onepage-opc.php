@@ -11,6 +11,9 @@
 
 	defined('_JEXEC') or die('Restricted access');
 	JHTML::_('behavior.modal');
+
+
+
 	//JHTML::_('behavior.framework' );
 	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
