@@ -18,7 +18,7 @@ $row = JArrayHelper::fromObject($this->row);
 
 JFilterOutput::objectHTMLSafe( $row );
 Citruscart::load( 'CitruscartHelperCoupon', 'helpers.coupon' );
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHTML::_('behavior.tooltip');
 
 ?>

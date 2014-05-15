@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <?php $active = false; ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php JHTML::_('script', 'class.js', 'media/citruscart/js/'); ?>
 <?php JHTML::_('script', 'validation.js', 'media/citruscart/js/'); ?>
 <?php JHTML::_('script', 'opcaccordion.js', 'media/citruscart/js/'); ?>

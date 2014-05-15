@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 /*Layout for displaying refreshed total amount.*/
 JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHTML::_('script', 'joomla.javascript.js', 'includes/js/');
 Citruscart::load( 'CitruscartGrid', 'library.grid' );
 $state = $this->state;

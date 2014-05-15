@@ -18,7 +18,7 @@ JHTML::_('behavior.modal');
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 ?>
-<?php //JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php //JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $form = $this->form; ?>
 <?php $row = $this->row;
 JFilterOutput::objectHTMLSafe( $row );

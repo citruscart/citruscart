@@ -29,10 +29,14 @@ $quantities = array();
 Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );
 Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
 ?>
+ <div class="naviagtion header">
+	<?php
+		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');
+	 	$toolbar = new CitruscartToolBar();
+	 	$toolbar->renderLinkbar();
 
-<?php require_once(JPATH_SITE.'/components/com_citruscart/views/sitemenu.php');?>
-<?php // if ($menu = CitruscartMenu::getInstance( $this->submenu )) { $menu->display(); } ?>
-
+	?>
+</div>
 <div class="cartitems">
     <?php if (!empty($items)) { ?>
     <form id="adminForm" action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data">
@@ -47,12 +51,12 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
         <table class="adminlist table table-striped table-bordered">
             <thead>
                 <tr>
-                
+
                     <!-- check all table heading statements -->
                     <th style="width: 20px;">
-                    	          
+
                         <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
-                    
+
                     </th>
                     <th colspan="2" style="text-align: left;"><?php echo JText::_('COM_CITRUSCART_PRODUCT'); ?></th>
                     <th style="width: 50px;"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?></th>

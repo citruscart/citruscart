@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $row = $this -> row; ?>
 <?php
 
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 
 <form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
 

@@ -15,7 +15,7 @@
 defined('_JEXEC') or die('Restricted access');
  ?>
 <?php
-	$doc = JFactory::getApplication();
+	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'modules/mod_citruscart_compared_products/tmpl/citruscart_compared_products.css');
 	//JHTML::_('stylesheet', 'citruscart_compared_products.css', 'modules/mod_citruscart_compared_products/tmpl/'); ?>
 <?php $items = $helper -> getComparedProducts(); ?>

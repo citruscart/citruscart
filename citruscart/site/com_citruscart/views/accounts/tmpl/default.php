@@ -16,7 +16,15 @@ $doc = JFactory::getDocument();
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 ?>
-<?php require_once(JPATH_SITE.'/components/com_citruscart/views/sitemenu.php');?>
+ <div class="naviagtion header">
+	<?php
+		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');
+	 	$toolbar = new CitruscartToolBar();
+	 	$toolbar->renderLinkbar();
+
+	?>
+</div>
+
 
 <table style="width: 100%;">
 <tr>

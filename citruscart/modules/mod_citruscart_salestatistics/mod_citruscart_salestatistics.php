@@ -21,5 +21,6 @@ $helper = new modCitruscartSaleStatisticsHelper($params);
 
 $stats =$helper->_statistics();
 
+
 require JModuleHelper::getLayoutPath('mod_citruscart_salestatistics', $params->get('layout', 'default'));
 

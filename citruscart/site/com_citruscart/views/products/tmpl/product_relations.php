@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 $items = $this->product_relations_data->items;
 $products_model = Citruscart::getClass('CitruscartModelProducts', 'models.products');
 ?>

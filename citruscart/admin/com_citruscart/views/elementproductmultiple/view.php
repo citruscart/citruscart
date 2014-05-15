@@ -59,7 +59,7 @@ class CitruscartViewElementProductMultiple extends JView
 
 		Citruscart::load( 'CitruscartGrid', 'library.grid' );
 		?>
-		<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+		<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 
 <form action="<?php echo $link; ?>" method="post" name="adminForm">
 
