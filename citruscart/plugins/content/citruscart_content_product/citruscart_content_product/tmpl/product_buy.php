@@ -15,7 +15,7 @@ $item = $vars->item;
 $form = $vars->form;
 $values = $vars->values;
 $formName = 'adminForm_'.$item->product_id;
-JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 Citruscart::load( 'CitruscartUrl', 'library.url' );
 $working_image = Citruscart::getInstance()->get( 'dispay_working_image_product', 1);

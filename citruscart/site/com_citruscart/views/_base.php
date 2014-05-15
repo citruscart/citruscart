@@ -67,7 +67,7 @@ class CitruscartViewBase extends DSCViewSite
 	    if ($this->defines->get('include_site_css', '0'))
 	    {
 	    	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart.css');
-	    	//JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+	    	//JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
 	    }
 
 		parent::display($tpl);

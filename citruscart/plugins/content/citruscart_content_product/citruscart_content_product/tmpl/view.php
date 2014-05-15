@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHTML::_('script', 'citruscart_inventory_check.js', 'media/citruscart/js/');
 $item = $row;

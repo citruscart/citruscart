@@ -16,7 +16,6 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $items = $this->items; ?>
 <?php $app = JFactory::getApplication(); ?>
 
-
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
     <?php
