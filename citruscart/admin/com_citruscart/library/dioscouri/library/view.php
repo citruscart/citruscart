@@ -115,8 +115,6 @@ class DSCView extends DSCViewBase
     {
     	$input = JFactory::getApplication()->input;
         $model = $this->getModel();
-
-
         // set the model state
             $state = new JObject();
             if (empty($this->no_state) && method_exists( $model, 'getState') ) {

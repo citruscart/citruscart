@@ -72,7 +72,7 @@ class CitruscartPluginBase extends DSCPlugin
 	 * @param $plugin the name of the plugin in which the model is stored
 	 * @param $group the group of the plugin
 	 */
-	protected function includeCustomModel($name, $plugin = '', $group = 'Citruscart') {
+	protected function includeCustomModel($name, $plugin = '', $group = 'citruscart') {
 		if (empty($plugin)) {
 			$plugin = $this -> _element;
 		}

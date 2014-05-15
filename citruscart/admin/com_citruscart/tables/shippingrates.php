@@ -16,21 +16,21 @@ Citruscart::load( 'CitruscartTable', 'tables._base' );
 
 class CitruscartTableShippingRates extends CitruscartTable
 {
-	function CitruscartTableShippingRates ( &$db ) 
+	function __construct ( &$db )
 	{
         $tbl_key    = 'shipping_rate_id';
         $tbl_suffix = 'shippingrates';
         $this->set( '_suffix', $tbl_suffix );
         $name       = 'citruscart';
-        
-        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );   
+
+        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
 	}
-	
+
 	/**
 	 * Checks row for data integrity.
-	 * Assumes working dates have been converted to local time for display, 
+	 * Assumes working dates have been converted to local time for display,
 	 * so will always convert working dates to GMT
-	 *  
+	 *
 	 * @return unknown_type
 	 */
 	function check()
@@ -51,10 +51,10 @@ class CitruscartTableShippingRates extends CitruscartTable
 			$date = JFactory::getDate();
 			$this->created_date = $date->toSql();
 		}
-		
+
 		$date = JFactory::getDate();
 		$this->modified_date = $date->toSql();
-		
+
 		return true;
 	}
 }

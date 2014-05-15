@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 Citruscart::load( 'CitruscartSelect', 'library.select' );
 
 $document = JFactory::getDocument();
-$document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_categories/tmpl/Citruscart_categories.css'); ?>
+$document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_categories/tmpl/citruscart_categories.css'); ?>
 
 <ul id="citruscart_categories_mod">
 <?php foreach ($items as $item) : ?>

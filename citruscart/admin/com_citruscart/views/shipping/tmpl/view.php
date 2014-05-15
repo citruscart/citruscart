@@ -10,20 +10,18 @@
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
-defined('_JEXEC') or die('Restricted access'); ?>
-<?php
-$row = $this->row;
-
+defined('_JEXEC') or die('Restricted access');
+JHtml::_('script','media/citruscart/js/citruscart.js',false,false);
 ?>
+<?php	$row = $this->row;	?>
 
 	<h3>
 	    <?php echo $row->name; ?>
 	</h3>
 
 	<?php
-		JPluginHelper::importPlugin('Citruscart');
-     	$results = JFactory::getApplication()->triggerEvent( 'onGetShippingView1', array( $row ) );
-
+		JPluginHelper::importPlugin('citruscart');
+     	$results = JFactory::getApplication()->triggerEvent( 'onGetShippingView', array( $row ) );
         for ($i=0; $i<count($results); $i++)
         {
             $result = $results[$i];

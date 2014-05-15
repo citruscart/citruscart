@@ -13,6 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 Citruscart::load( 'CitruscartModelBase', 'models._base' );
 
+
 class CitruscartModelShippingMethods extends CitruscartModelBase
 {
     public $cache_enabled = false;
@@ -99,9 +100,21 @@ class CitruscartModelShippingMethods extends CitruscartModelBase
 
     public function getList($refresh = false)
     {
-        $list = parent::getList($refresh);
+        //$list = parent::getList($refresh);
 
-    	// If no item in the list, return an array()
+        $db = JFactory::getDbo();
+        $query=$db->getQuery(true);
+        $this->_buildQueryFields($query);
+        $this->_buildQueryFrom($query);
+        $this->_buildQueryJoins($query);
+        $this->_buildQueryWhere($query);
+        $this->_buildQueryGroup($query);
+        $this->_buildQueryHaving($query);
+        $this->_buildQueryOrder($query);
+        $db->setQuery($query);
+        $list = $db->loadObjectList();
+
+        // If no item in the list, return an array()
         if( empty( $list ) ){
         	return array();
         }

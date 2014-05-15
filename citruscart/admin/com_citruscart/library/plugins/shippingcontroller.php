@@ -32,10 +32,10 @@ class CitruscartControllerShippingPlugin extends CitruscartController {
     	$view = parent::getView( $name, $type, $prefix, $config );
 		  if(version_compare(JVERSION,'1.6.0','ge')) {
 			   // Joomla! 1.6+ code
-    	   $view->addTemplatePath(JPATH_SITE.'/plugins/Citruscart/'.$this->_element.'/'.$this->_element.'/tmpl/');
+    	   $view->addTemplatePath(JPATH_SITE.'/plugins/citruscart/'.$this->_element.'/'.$this->_element.'/tmpl/');
       }
       else {
-    	   $view->addTemplatePath(JPATH_SITE.'/plugins/Citruscart/'.$this->_element.'/tmpl/');
+    	   $view->addTemplatePath(JPATH_SITE.'/plugins/citruscart/'.$this->_element.'/tmpl/');
       }
     	return $view;
     }
@@ -52,17 +52,17 @@ class CitruscartControllerShippingPlugin extends CitruscartController {
 
     protected function includeCustomTables(){
    		// Include the custom table
-    	
+
 		JFactory::getApplication()->triggerEvent('includeCustomTables', array() );
     }
 
     protected function includeCustomModel( $name ){
-    	
+
 		JFactory::getApplication()->triggerEvent('includeCustomModel', array($name, $this->_element) );
     }
 
     protected function includeCitruscartModel( $name ){
-    	
+
 		JFactory::getApplication()->triggerEvent('includeCitruscartModel', array($name) );
     }
 

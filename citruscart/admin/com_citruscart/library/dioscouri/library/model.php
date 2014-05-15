@@ -182,7 +182,7 @@ class DSCModel extends DSCModelBase
 	 */
 	protected function prepareList( &$list, $refresh=false )
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 	    //$dispatcher = JDispatcher::getInstance( );
 	    $app->triggerEvent( 'onPrepareList' . $this->getTable( )->get( '_suffix' ), array( &$list ) );
@@ -206,7 +206,7 @@ class DSCModel extends DSCModelBase
 	        }
 	    }
 
-	    JPluginHelper::importPlugin('Citruscart');
+	    JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 	    $app->triggerEvent( 'onPrepare' . $this->getTable( )->get( '_suffix' ), array( &$item ) );
 	}

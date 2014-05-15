@@ -16,7 +16,13 @@ defined('_JEXEC') or die('Restricted access');
 JHTML::_('behavior.modal');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHtml::_('script', 'media/citruscart/js/citruscart_admin.js', false, false);
+JHtml::_('script', 'media/citruscart/js/citruscart_admin.js', false, false);
+JHtml::_('script', 'media/citruscart/js/jquery.uploadifive.min.js',false,false);
+
 JHtml::_('stylesheet', 'media/citruscart/css/leftmenu_admin.css');
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
+JHtml::_('stylesheet', 'media/citruscart/css/common.css');
+
 ?>
 <?php JHTML::_('behavior.tooltip'); ?>
 <?php

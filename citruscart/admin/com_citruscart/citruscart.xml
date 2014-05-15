@@ -38,7 +38,7 @@
 	
 	<!-- Application/administrator -->
 	<administration>
-		<menu img="../media/citruscart/images/Citruscart_16.png">COM_CITRUSCART</menu>
+		<menu img="../media/citruscart/images/citruscart_16.png">COM_CITRUSCART</menu>
 
 		<files folder="admin/com_citruscart">
 			<file>citruscart.php</file>

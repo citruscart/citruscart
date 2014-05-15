@@ -172,6 +172,7 @@ class CitruscartModelCategories extends CitruscartModelBase
 		$this->_buildQueryOrder($query);
 		$db->setQuery($query);
 		$list = $db->loadObjectList();
+
 		//$list = parent::getList($refresh);
 
 		// If no item in the list, return an array()

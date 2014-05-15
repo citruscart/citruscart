@@ -3,7 +3,7 @@
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
 # author    Citruscart Team - Citruscart http://www.citruscart.com
-# copyright Copyright (C) 2014 - 2019 Citruscart.com All Rights Reserved.
+# copyright Copyright (C) 2012 Citruscart.com All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
@@ -173,7 +173,7 @@ class CitruscartControllerShipping extends CitruscartController
 			$controllerName = str_ireplace('shipping_', '', $element);
 			$controllerName = ucfirst($controllerName);
 
-	    	 $path = JPATH_SITE.'/plugins/Citruscart/';
+	    	 $path = JPATH_SITE.'/plugins/citruscart/';
 
 			if(version_compare(JVERSION,'1.6.0','ge')) {
 	        // Joomla! 1.6+ code here
@@ -197,7 +197,8 @@ class CitruscartControllerShipping extends CitruscartController
 			}
 
 
-		 $className    = 'CitruscartControllerShipping'.$controllerName;
+			$className    = 'CitruscartControllerShipping'.$controllerName;
+
 
 			if ($controllerName != '' && class_exists($className)){
 
@@ -207,10 +208,6 @@ class CitruscartControllerShipping extends CitruscartController
 				// Add the view Path
 				//$controller->addViewPath($path);
 				$controller->addViewPath($path);
-
-
-
-
 				// Perform the requested task
 				$controller->execute( $shippingTask );
 

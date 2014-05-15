@@ -30,22 +30,22 @@ class CitruscartModelShipping extends CitruscartModelBase
        	    $where = array();
        	    $where[] = 'LOWER(tbl.id) LIKE '.$key;
        	    $where[] = 'LOWER(tbl.name) LIKE '.$key;
-       	    $query->where('('.implode(' OR ', $where).')');
+       	   // $query->where('('.implode(' OR ', $where).')');
        	}
-        if (strlen($filter_id_from))
+         if (strlen($filter_id_from))
         {
             if (strlen($filter_id_to))
             {
-                $query->where('tbl.id >= '.(int) $filter_id_from);
+               // $query->where('tbl.id >= '.(int) $filter_id_from);
             }
             else
             {
-                $query->where('tbl.id = '.(int) $filter_id_from);
+                //$query->where('tbl.id = '.(int) $filter_id_from);
             }
         }
         if (strlen($filter_id_to))
         {
-            $query->where('tbl.id <= '.(int) $filter_id_to);
+            //$query->where('tbl.id <= '.(int) $filter_id_to);
         }
         if (strlen($filter_enabled))
         {
@@ -56,41 +56,43 @@ class CitruscartModelShipping extends CitruscartModelBase
                 // Joomla! 1.5 code here
                 $query->where('tbl.published = 1');
             }
-            	
-             
+
+
         }
         if ($filter_name)
         {
             $key    = $this->_db->q('%'.$this->_db->escape( trim( strtolower( $filter_name ) ) ).'%');
             $where = array();
             $where[] = 'LOWER(tbl.name) LIKE '.$key;
-            $query->where('('.implode(' OR ', $where).')');
+           // $query->where('('.implode(' OR ', $where).')');
         }
 
         // force returned records to only be Citruscart shipping
-        $query->where("tbl.folder = 'Citruscart'");
+        $query->where("tbl.folder = 'citruscart'");
         $query->where("tbl.element LIKE 'shipping_%'");
 
+
+
     }
-     
+
     public function getList($refresh = false)
     {
         //$list = parent::getList($refresh);
         if (empty( $this->_list ))
         {
         	$query = $this->getQuery(true);
-        		
+
         	$this->_list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
         }
-        $list = $this->_list;        
-        
+        $list = $this->_list;
+
         foreach($list as $item)
         {
             if(version_compare(JVERSION,'1.6.0','ge')) {
                 // Joomla! 1.6+ code here
                 $item->id = $item->extension_id;
             }
-            	
+
             $item->link = 'index.php?option=com_citruscart&view=shipping&task=view&id='.$item->id;
             $item->link_edit = 'index.php?option=com_citruscart&view=shipping&task=edit&id='.$item->id;
         }

@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');?>
 		$img_file = "dioscouri_logo_transparent.png";
 		$img_path = "../media/citruscart/images";
 
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 
 		$results = JFactory::getApplication()->triggerEvent( 'onGetFooter', array() );
 

@@ -14,4 +14,4 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/elements/Citruscartcategory.php');
+require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/elements/citruscartcategory.php');

@@ -39,6 +39,7 @@ class plgCitruscartShipping_Standard extends CitruscartShippingPlugin
 
         $html = $this->viewList();
 
+
         return $html;
     }
 
@@ -133,9 +134,7 @@ class plgCitruscartShipping_Standard extends CitruscartShippingPlugin
 
         $vars = new JObject();
         $vars->state = $this->_getState();
-
         $this->includeCustomModel('ShippingMethods');
-
         $model = JModelLegacy::getInstance('ShippingMethods', 'CitruscartModel');
         $list = $model->getList();
 		$vars->list = $list;
@@ -146,8 +145,7 @@ class plgCitruscartShipping_Standard extends CitruscartShippingPlugin
 		$vars->form = $form;
 
 		$vars->sid = $id;
-        $html = $this->_getLayout('default', $vars);
-
+		$html = $this->_getLayout('default', $vars);
 
         return $html;
     }

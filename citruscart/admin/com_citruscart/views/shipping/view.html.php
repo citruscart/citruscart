@@ -32,9 +32,7 @@ class CitruscartViewShipping extends CitruscartViewBase
 				$this->set( 'leftMenu', 'leftmenu_configuration' );
 				$this->_form($tpl);
 				break;
-
 			case "form":
-
 				JFactory::getApplication()->input->set('hidemainmenu', '1');
 				$this->_form($tpl);
 				break;
@@ -65,62 +63,6 @@ class CitruscartViewShipping extends CitruscartViewBase
 		}
 	}
 
-/*	function _form($tpl=null)
-	{
-		$model = $this->getModel();
-
-		// set the model state
-		$this->assign( 'state', $model->getState() );
-
-		// get the data
-		// not using getItem here to enable ->checkout (which requires JTable object)
-		$row = $model->getTable();
-		$row->load( (int) $model->getId() );
-		// TODO Check if the item is checked out and if so, setlayout to view
-
-		if (empty($this->hidemenu))
-		{
-			// set toolbar
-			$layout = $this->getLayout();
-			$isNew = ($row->id < 1);
-			switch(strtolower($layout))
-			{
-				case "view":
-					$this->_viewToolbar($isNew);
-					break;
-				case "form":
-				default:
-					// Checkout the item if it isn't already checked out
-					$row->checkout( JFactory::getUser()->id );
-					$this->_formToolbar($isNew);
-					break;
-			}
-			$view = strtolower( JRequest::getVar('view') );
-			$this->displayTitle( 'Edit '.$view );
-		}
-
-		// load the plugin
-		$row = $this->getModel()->getItem();
-
-    	if(version_compare(JVERSION,'1.6.0','ge'))
-	    {
-    	  // Joomla! 1.6+ code
-	      $row->params = json_decode( $row->params );
-	   	  if( !get_object_vars( $row->params ) )
-    	  	$row->params = '';
-	    }
-	    echo JApplicationHelper::getPath( 'plg_xml', $row->folder.DIRECTORY_SEPARATOR.$row->element ).'###';
-		$params = new DSCParameter( $row->params, JApplicationHelper::getPath( 'plg_xml', $row->folder.DIRECTORY_SEPARATOR.$row->element ) );
-		$this->assignRef('params',$params);
-
-		$this->assign('row', $model->getItem() );
-
-		// load the plugin
-		$row = $this->getModel()->getItem();
-		$import = JPluginHelper::importPlugin( 'Citruscart', $row->element );
-	}
- * *
- */
 
 	function _defaultToolbar()
 	{
