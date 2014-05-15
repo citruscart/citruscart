@@ -1,8 +1,18 @@
 <?php
+/*------------------------------------------------------------------------
+# com_citruscart - citruscart
+# ------------------------------------------------------------------------
+# author    Citruscart Team - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 - 2019 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-JHTML::_('script', 'citruscart_admin.js', 'media/citruscart/js/');
+JHtml::_('script',  'media/citruscart/js/citruscart_admin.js', false, false);
 Citruscart::load( 'citruscartGrid', 'library.grid' );
 $state = @$this->state;
 $order = @$this->order;
