@@ -17,7 +17,7 @@
             <td align="left" width="100%">
                 <input name="filter" value="<?php echo @$state->filter; ?>" />
                 <button onclick="this.form.submit();"><?php echo JText::_('COM_CITRUSCART_SEARCH'); ?></button>
-                <button onclick="CitruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
+                <button onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
             <td nowrap="nowrap">
                 <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>              

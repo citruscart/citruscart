@@ -38,7 +38,7 @@ defined('_JEXEC') or die('Restricted access');
 	<div style="text-align: right;">
 			<input name="filter" size="40" value="<?php echo $state->filter; ?>" />
             <button class="btn btn-primary" onclick="this.form.submit();"><?php echo JText::_('COM_CITRUSCART_SEARCH'); ?></button>
-            <button class="btn btn-danger" onclick="CitruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
+            <button class="btn btn-danger" onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
 	</div>
 
 	<table class="table table-striped table-bordered" style="clear: both;">
@@ -48,7 +48,7 @@ defined('_JEXEC') or die('Restricted access');
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th style="width: 20px;">
-                	<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="width: 50px;">
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.id", $state->direction, $state->order ); ?>

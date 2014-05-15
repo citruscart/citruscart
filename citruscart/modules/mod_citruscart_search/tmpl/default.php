@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 // for some reason adding the models from the front end makes it so it will load the select list something is wierd
 JModelLegacy::addIncludePath( JPATH_SITE.'/components/com_citruscart/models' );
 Citruscart::load( 'CitruscartSelect', 'library.select' );
+
 ?>
 
 <div id="productSearch">
@@ -23,9 +24,9 @@ Citruscart::load( 'CitruscartSelect', 'library.select' );
         <?php if ($category_filter != '0') : ?>
             <?php echo CitruscartSelect::category('', 'filter_category', '', '', false, false, 'All Categories', '', '1'); ?>
         <?php else: ?>
-            <input type="hidden" name="filter_category" value="1" />    
+            <input type="hidden" name="filter_category" value="1" />
         <?php endif; ?>
-        <input type="text" name="filter" value="<?php echo JText::_( $filter_text ); ?>" onclick="this.value='';"/> 
+        <input type="text" name="filter" value="<?php echo JText::_( $filter_text ); ?>" onclick="this.value='';"/>
         <input type="submit" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />
         <input type="hidden" name="option" value="com_citruscart" />
         <input type="hidden" name="view" value="products" />

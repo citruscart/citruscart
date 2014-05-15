@@ -39,7 +39,7 @@ $doc = JFactory::getDocument();
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th style="width: 20px;">
-                	<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="width: 50px;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.product_id", $state->direction, $state->order ); ?>

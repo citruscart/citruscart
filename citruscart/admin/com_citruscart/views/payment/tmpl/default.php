@@ -143,7 +143,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<tfoot>
 			<tr>
 				<td colspan="20">
-					<?php echo $this->pagination->getListFooter(); ?>
+					<div class="pagination pagination-toolbar">
+						<?php echo $this->pagination->getListFooter(); ?>
+					</div>
 				</td>
 			</tr>
 		</tfoot>

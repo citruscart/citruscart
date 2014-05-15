@@ -89,7 +89,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<thead>
             <tr>
                 <th>
-                	<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th>
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_OPTION', "tbl.productattributeoption_name", $state->direction, $state->order ); ?>
