@@ -1,5 +1,4 @@
 <?php
-
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -91,6 +90,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function jump()
 	{
+		/* Get the applicaiton */
 		$app = JFactory::getApplication();
 		$model  = $this->getModel( $this->get('suffix') );
 		$row = $model->getTable();

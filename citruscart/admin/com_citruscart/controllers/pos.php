@@ -35,6 +35,7 @@ class CitruscartControllerPOS extends CitruscartController
 
 	function display($cachable=false, $urlparams = false)
 	{
+		/* Get the application */
 		$app = JFactory::getApplication();
 
 		$post =$app->input->getArray($_POST);

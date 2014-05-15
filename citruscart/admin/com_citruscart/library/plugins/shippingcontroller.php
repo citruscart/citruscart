@@ -67,7 +67,12 @@ class CitruscartControllerShippingPlugin extends CitruscartController {
     }
 
     protected function baseLink(){
-    	$id = JRequest::getInt('id', '');
+    	
+    	/* Get the application */
+    	$app = JFactory::getApplication();
+    	$id = $app->input->getInt('id', '');
+    	
+    	//$id = JRequest::getInt('id', '');
     	return "index.php?option=com_citruscart&view=shipping&task=view&id={$id}";
     }
 }

@@ -96,6 +96,7 @@ class CitruscartControllerTaxclasses extends CitruscartController
      */
     function saverates()
     {
+    	/* Get the applicaiton */
         $app = JFactory::getApplication();
     	$error = false;
         $this->messagetype  = '';
