@@ -33,6 +33,9 @@ $helper = new modCitruscartRecentOrdersHelper( $params );
 $cache = JFactory::getCache('com_citruscart');
 $cache->setCaching(true);
 $cache->setLifeTime('900');
-$orders = $cache->call(array($helper, 'getOrders'));
+$orders = $helper->getOrders();
+
+
+//$orders = $cache->call(array($helper, 'getOrders'));
 
 require JModuleHelper::getLayoutPath('mod_citruscart_recentorders', $params->get('layout', 'default'));

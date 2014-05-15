@@ -10,6 +10,11 @@ class CitruscartToolBar30 extends JToolbar
 
 	protected function renderSubmenu()
 	{
+
+		$app =JFactory::getApplication();
+
+
+
 		$views = array(
 				'dashboard',
 				'COM_CITRUSCART_ORDERS' => array('orders','orderpayments','subscriptions','orderitems'),
@@ -21,6 +26,19 @@ class CitruscartToolBar30 extends JToolbar
 				'COM_CITRUSCART_MAINMENU_REPORTS' => array('reports', 'tools'),
 				'config'
 		);
+		if($app->isSite()){
+
+		$views = array(
+				'dashboard',
+				'accounts',
+				'orders',
+				'subscriptions',
+				'productdownloads',
+				'carts'
+			);
+		}
+
+
 
 		//show product attribute migration menu only for the upgraded users
 
@@ -45,6 +63,7 @@ class CitruscartToolBar30 extends JToolbar
 
 	private function addSubmenuLink($view, $parent = null)
 	{
+		$app =JFactory::getApplication();
 		static $activeView = null;
 		if(empty($activeView)) {
 			$activeView = JFactory::getApplication()->input->getCmd('view','dashboard');
@@ -74,7 +93,42 @@ class CitruscartToolBar30 extends JToolbar
 			$name = JText::_('COM_CITRUSCART_MIGRATE');
 		}
 
-		$this->appendLink($name, $link, $active, null, $parent);
+	if($app->isSite()){
+			$key = strtoupper('COM_CITRUSCART_'.strtoupper($view));
+
+			$name = JText::_($key);
+
+			$link = 'index.php?option=com_citruscart&view='.$view;
+
+			$active = $view == $activeView;
+
+			if(strtolower($view) == 'dashboard') {
+				$name = JText::_('COM_CITRUSCART_DASHBOARD');
+			}
+
+			if(strtolower($view) == 'accounts') {
+				$name = JText::_('COM_CITRUSCART_PROFILE');
+			}
+
+			if(strtolower($name) == 'orders') {
+				$name = JText::_('COM_CITRUSCART_ORDER_HISTORY');
+			}
+
+			if(strtolower($name) == 'subscriptions') {
+				$name = JText::_('COM_CITRUSCART_SUBSCRIPTIONS');
+			}
+			if(strtolower($name) == 'productdownloads') {
+				$name = JText::_('COM_CITRUSCART_MY_DOWNLOADS');
+			}
+			if(strtolower($name) == 'carts') {
+				$name = JText::_('COM_CITRUSCART_SHOPPING_CART');
+			}
+
+		}
+			$this->appendLink($name, $link, $active, null, $parent);
+
+
+
 	}
 
 
@@ -226,6 +280,12 @@ class CitruscartToolBar30 extends JToolbar
 		// Add a new button
 		$bar->appendButton( static::$_name, 'new', $alt, $task, false, false, $taskName );
 	}
+
+
+
+
+
+
 }
 
 
