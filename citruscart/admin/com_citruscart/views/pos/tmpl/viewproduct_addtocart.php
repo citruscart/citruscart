@@ -1,6 +1,6 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
-	JHTML::_('stylesheet', 'pos.css', 'media/citruscart/css/');
+	JHtml::_('stylesheet', 'media/citruscart/css/pos.css');
 	JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');
 	
 	$row = @$this->product;

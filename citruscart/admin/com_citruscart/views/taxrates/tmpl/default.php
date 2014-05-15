@@ -11,7 +11,7 @@
 
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
-<?php JHTML::_('stylesheet', 'component.css', 'media/citruscart/css/'); ?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/component.css'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>

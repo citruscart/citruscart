@@ -1,7 +1,7 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
 	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-	JHTML::_('stylesheet', 'pos.css', 'media/citruscart/css/');
+	JHtml::_('stylesheet', 'media/citruscart/css/pos.css');
 	$state = @$this->state;
 	$row = @$this->product;
 	Citruscart::load('CitruscartHelperProduct', 'helpers.product');

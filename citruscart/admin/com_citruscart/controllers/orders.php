@@ -1,4 +1,5 @@
 <?php
+
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -1332,7 +1333,10 @@ class CitruscartControllerOrders extends CitruscartController
 			return;
 		}
 
-		$post = JRequest::get('post');
+		//$post = JRequest::get('post');
+		$app = JFactory::getApplication();
+		$post = $app->input->get($_POST);
+		
 		$orderinfo->bind($post);
 
 		// do the countries and zones names

@@ -35,15 +35,13 @@ class CitruscartViewEavAttributes extends CitruscartViewBase
         	 case "selectproducts":
 
         	 	$app->input->set('hidemainmenu', '1');
-        	 	//JRequest::setVar('hidemainmenu', '1');
-                $this->_default($tpl);
+        	 	$this->_default($tpl);
               break;
             case "view":
                 $this->_form($tpl);
               break;
             case "form":
             	$app->input->set('hidemainmenu', '1');
-                //JRequest::setVar('hidemainmenu', '1');
                 $this->_form($tpl);
               break;
             case "default":

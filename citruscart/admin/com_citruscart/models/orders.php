@@ -16,6 +16,8 @@ defined('_JEXEC') or die('Restricted access');
 
 Citruscart::load( 'CitruscartModelBase', 'models._base' );
 
+require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
+
 class CitruscartModelOrders extends CitruscartModelBase
 {
     var $_order                = null;

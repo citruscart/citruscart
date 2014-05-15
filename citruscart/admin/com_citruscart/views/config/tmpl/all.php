@@ -20,10 +20,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
-    <?php echo CitruscartGrid::pagetooltip($app->input->getString('view'));
-
-    //CitruscartGrid::pagetooltip(JRequest::getVar('view'));
-    ?>
+    <?php echo CitruscartGrid::pagetooltip($app->input->getString('view')); ?>
 
     <div id='onBeforeDisplay_wrapper'>
         <?php

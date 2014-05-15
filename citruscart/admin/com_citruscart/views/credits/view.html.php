@@ -1,5 +1,4 @@
 <?php
-
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -41,8 +40,6 @@ class CitruscartViewCredits extends CitruscartViewBase
         }
     }
 
-
-
     function _form($tpl=null){
 
     	$model = $this->getModel();
@@ -51,14 +48,8 @@ class CitruscartViewCredits extends CitruscartViewBase
 
        	if(empty($this->row->credit_id)){
     		$item = JTable::getInstance('Credits', 'CitruscartTable');
-    		//$state->coupon_params = new DSCParameter($state->coupon_params);
-    		//print_r($state->coupon_params);
     		$this->assign('row', $item);
-
     	}
     	parent::_form($tpl);
     }
-
-
-
 }
