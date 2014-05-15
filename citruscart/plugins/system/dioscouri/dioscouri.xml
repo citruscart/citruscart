@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="system" method="upgrade" version="3.0">
-    <name>System - Dioscouri</name>
-    <author>Citruscart Team</author>
-    <authorEmail>support@citruscart.com</authorEmail>
-    <authorUrl>http://www.citruscart.com</authorUrl>
-    <version>1.0</version>
-    <creationDate>June 2014 -2019</creationDate>
-    <copyright>2014 -2019 Citruscart.com</copyright>
+    <name>System - Citruscart</name>
+    <author>Citruscart Design</author>
+    <authorEmail>info@Citruscart.com</authorEmail>
+    <authorUrl>http://www.Citruscart.com</authorUrl>
+    <version>3.8.0</version>
+    <creationDate>June 2012</creationDate>
+    <copyright>2012 Citruscart.com</copyright>
     <license>GNU General Public License</license>
     <description>Adds the Citruscart Library to the Autoloader</description>
-        <files>
-        <filename plugin="dioscouri">dioscouri.php</filename>
-        <folder>dioscouri</folder>   
+    
+    <files>
+        <filename plugin="Citruscart">Citruscart.php</filename>
+        <folder>Citruscart</folder>   
     </files>
 
     <updateservers>
-       <server type="extension" priority="1" name="Citruscart System Plugin Updates">http://updates.citruscart.com/plg_system_citruscart/updates.xml</server>
+       <server type="extension" priority="1" name="Citruscart System Plugin Updates">http://updates.Citruscart.com/plg_system_Citruscart/updates.xml</server>
     </updateservers>
     
     <config>
