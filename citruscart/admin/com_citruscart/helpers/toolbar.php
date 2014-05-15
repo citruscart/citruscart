@@ -19,7 +19,7 @@ if (version_compare(JVERSION, '3.0', 'ge'))
 	require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar30.php');
 	class CitruscartToolBar extends CitruscartToolBar30
 	{
-	
+
 		public static function &getAnInstance($option = null, $config = array()) {
 
 			if (!class_exists( $className )) {
@@ -34,7 +34,8 @@ if (version_compare(JVERSION, '3.0', 'ge'))
 
 		public function __construct($config = array()) {}
 
-		}
+	}
+
 
 		class JToolbarButtonCitruscart extends JToolbarButtonCitruscart30 {
 
@@ -50,7 +51,7 @@ else
 		public static function &getAnInstance($option = null, $config = array()) {
 
 			if (!class_exists( $className )) {
-				$className = 'J2StoreToolbar';
+				$className = 'CitruscartToolbar';
 			}
 			$instance = new $className($config);
 

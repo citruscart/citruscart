@@ -17,25 +17,25 @@ Citruscart::load( 'CitruscartQuery', 'library.query' );
 class modCitruscartRecentOrdersHelper extends CitruscartHelperBase
 {
 	var $_orders = null;
-	
+
 	var $_params = null;
-	
+
 	/**
 	 * Constructor to set the object's params
-	 * 
+	 *
 	 * @param $params
 	 * @return unknown_type
 	 */
 	function __construct( $params )
 	{
         parent::__construct();
-        $this->_params = $params;	
+        $this->_params = $params;
 	}
-	
+
 	/**
-	 * Gets the sales statistics object, 
+	 * Gets the sales statistics object,
 	 * creating it if it doesn't exist
-	 * 
+	 *
 	 * @return unknown_type
 	 */
 	function getOrders()
@@ -44,12 +44,13 @@ class modCitruscartRecentOrdersHelper extends CitruscartHelperBase
 		{
 			$this->_orders = $this->_orders();
 		}
+
 		return $this->_orders;
 	}
-	
+
     /**
      * _lastfive function.
-     * 
+     *
      * @access private
      * @return void
      */
@@ -62,16 +63,17 @@ class modCitruscartRecentOrdersHelper extends CitruscartHelperBase
         $model->setState( 'direction', 'DESC' );
         $model->setState( 'limit', $this->_params->get('num_orders', '5') );
         $model->setState( 'limitstart', '0' );
-        
+		$orders = $model->getList();
         $csv = Citruscart::getInstance()->get('orderstates_csv', '2, 3, 5, 17');
         $array = explode(',', $csv);
+
         $this->_statesCSV = "'".implode("','", $array)."'";
         // set query for orderstate range
         $ordersQuery = $model->getQuery();
-        $ordersQuery->where("tbl.order_state_id IN (".$this->_statesCSV.")");
+	    $ordersQuery->where("tbl.order_state_id IN (".$this->_statesCSV.")");
         $model->setQuery($ordersQuery);
-            
         $return = $model->getList();
         return $return;
+
     }
 }

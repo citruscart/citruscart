@@ -2688,10 +2688,10 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $row->_product_quantity = $product_qty;
 
         if ($page == 'product' || $isPOS ) {
-            $display_cartbutton = Citruscart::getInstance( )->get( 'display_product_cartbuttons', '1' );
+            $display_cartbutton = Citruscart::getInstance()->get( 'display_product_cartbuttons', '1' );
         }
         else {
-            $display_cartbutton = Citruscart::getInstance( )->get( 'display_category_cartbuttons', '1' );
+            $display_cartbutton = Citruscart::getInstance()->get( 'display_category_cartbuttons', '1' );
         }
 
         $view->page = $page;

@@ -29,7 +29,14 @@
     <span><?php echo JText::_('COM_CITRUSCART_MANAGE_YOUR_ADDRESSES'); ?></span>
 </div>
 
-    <?php if ($menu && $tmpl == '') { $menu->display(); } ?>
+  <div class="naviagtion header">
+	<?php
+		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');
+	 	$toolbar = new CitruscartToolBar();
+	 	$toolbar->renderLinkbar();
+
+	?>
+</div>
 
 
 <form action="<?php echo JRoute::_( $form['action'].$tmpl )?>" method="post" name="adminForm" enctype="multipart/form-data">
@@ -82,9 +89,9 @@
                 <td style="text-align: center;">
                     <a href="<?php echo JRoute::_( $item->link.$tmpl ); ?>">
                         <b><?php echo $item->first_name; ?> <?php echo $item->middle_name; ?> <?php echo $item->last_name; ?></b><br/>
-                        <?php 
-                        //echo $item->first_name;                        
-                        //echo $item->address_name; 
+                        <?php
+                        //echo $item->first_name;
+                        //echo $item->address_name;
                         ?>
     				</a>
                 </td>

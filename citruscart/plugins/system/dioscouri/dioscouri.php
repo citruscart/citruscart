@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 
 
 jimport('joomla.plugin.plugin');
-class plgSystemCitruscart extends JPlugin
+class plgSystemDioscouri extends JPlugin
 {
     function onAfterInitialise()
     {

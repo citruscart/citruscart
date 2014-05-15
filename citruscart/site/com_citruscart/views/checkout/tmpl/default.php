@@ -22,7 +22,14 @@
 <div class='componentheading'>
     <span><?php echo JText::_('COM_CITRUSCART_SELECT_ADDRESSES_AND_SHIPPING_METHOD'); ?></span>
 </div>
+  <div class="naviagtion header">
+	<?php
+		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');
+	 	$toolbar = new CitruscartToolBar();
+	 	$toolbar->renderLinkbar();
 
+	?>
+</div>
     <?php // if ($menu = CitruscartMenu::getInstance()) { $menu->display(); } ?>
 
 <div id='onCheckout_wrapper'>
