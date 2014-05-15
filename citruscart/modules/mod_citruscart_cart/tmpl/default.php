@@ -16,6 +16,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Add CSS
+
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/Citruscart_cart.css');
 
 $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
