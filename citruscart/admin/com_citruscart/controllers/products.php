@@ -133,8 +133,7 @@ class CitruscartControllerProducts extends CitruscartController
 	    $task = $app->input->getString( 'task' );
 
 		$post = $app->input->getArray($_POST);
-
-
+        
 		$model 	= $this->getModel( $this->get('suffix') );
 
 		$isSaveAs = false;
@@ -554,7 +553,7 @@ class CitruscartControllerProducts extends CitruscartController
 				$redirect .= "&view=".$this->get('suffix');
 				break;
 		}
-
+                
 		$redirect = JRoute::_( $redirect, false );
 		$this->setRedirect( $redirect, $this->message, $this->messagetype );
 	}
@@ -595,7 +594,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 * @return unknown_type
 	 */
 	function addimage( $fieldname = 'product_full_image_new', $num = 0, $path = 'products_images' )
-	{
+	{	
 		Citruscart::load( 'CitruscartImage', 'library.image' );
 		$upload = new CitruscartImage();
 		// handle upload creates upload object properties

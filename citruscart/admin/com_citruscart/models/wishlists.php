@@ -150,7 +150,11 @@ class CitruscartModelWishlists extends CitruscartModelBase
 
 	                if (!$allow_null)
 	                {
-                        $return = JRequest::getInt('Itemid');
+	                	/* Get the application */
+	                	$app = JFactory::getApplication();
+	                	$return = $app->input->getInt('Itemid');
+	                	
+                        //$return = JRequest::getInt('Itemid');
 
 	                    if (!$return) {
 	                        $menu	= JFactory::getApplication()->getMenu();

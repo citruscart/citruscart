@@ -110,12 +110,6 @@ class CitruscartControllerTaxclasses extends CitruscartController
         $levels = $app->input->get('levels', array(0), 'request', 'array');
         $descriptions = $app->input->get('description', array(0), 'request', 'array');
 
-
-        /* $cids = JRequest::getVar('cid', array(0), 'request', 'array');
-        $rates = JRequest::getVar('rate', array(0), 'request', 'array');
-        $levels = JRequest::getVar('levels', array(0), 'request', 'array');
-        $descriptions = JRequest::getVar('description', array(0), 'request', 'array');
- */
         foreach ($cids as $cid)
         {
             $row->load( $cid );

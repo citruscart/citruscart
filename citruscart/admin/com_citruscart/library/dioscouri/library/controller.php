@@ -341,6 +341,8 @@ class DSCController extends DSCControllerBase
 	 */
 	protected function displayEdit($cachable=false, $urlparams = false)
 	{
+		/* Get the application */
+		$app = JFactory::getApplication();
 		$view   = $this->getView( $this->get('suffix'), 'html' );
 		$model 	= $this->getModel( $this->get('suffix') );
 		$row = $model->getTable();
@@ -350,14 +352,14 @@ class DSCController extends DSCControllerBase
 		// Checks if item is checkedout, and if so, redirects to view
 		if (empty($row->id))
 		{
-		    JRequest::setVar( 'hidemainmenu', '1' );
+			$app->input->set('hidemainmenu', '1');
 		    $view->setLayout( 'form' );
 		}
 		elseif (!$row->isCheckedOut($userid, $row->checked_out))
 		{
 			if ($row->checkout( $userid ))
 			{
-				JRequest::setVar( 'hidemainmenu', '1' );
+				$app->input->set('hidemainmenu', '1');
 				$view->setLayout( 'form' );
 			}
 			    else

@@ -12,8 +12,8 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
-<?php JHTML::_('stylesheet', 'pos.css', 'media/citruscart/css/'); ?>
-<?php JHTML::_('stylesheet', 'component.css', 'media/citruscart/css/'); ?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/pos.css'); ?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/component.css'); ?>
 <?php $state = $this->state; ?>
 <?php $row = $this->row; ?>
 
@@ -26,7 +26,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
         <input type="hidden" name="task" id="task" value="addproducts" />
     </div>
 </form>
-<?php $added=JRequest::getInt('added', '0')?>
+<?php 
+$app = JFactory::getApplication();
+$added = $app->input->getInt('addded', '0');
+//$added=JRequest::getInt('added', '0')?>
 <?php if($added):?>
 <script type="text/javascript">
 	window.onload = window.top.document.location.reload(true);

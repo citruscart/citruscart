@@ -602,9 +602,12 @@ class CitruscartControllerPOS extends CitruscartController
 		$response = array();
 		$response['msg'] = '';
 		$response['error'] = '';
+		
+		/* Get the application */
+		$app = JFactory::getApplication();
 
 		// get elements from post
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', JRequest::getVar('elements', '', 'post', 'string')));
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements', '', 'post', 'string')));
 
 		// validate it using table's ->check() method
 		if(empty($elements))
@@ -954,7 +957,8 @@ class CitruscartControllerPOS extends CitruscartController
 		$values = $helper->elementsToArray($elements);
        	$values['sameasbilling'] = isset($values['_checked']['sameasbilling']) && !empty( $values['_checked']['sameasbilling']);
 
-		$coupon_code = JRequest::getVar('coupon_code', '');
+       	$coupon_code = $app->input->getString('coupon_code', '');
+		//$coupon_code = JRequest::getVar('coupon_code', '');
 
 		$response = array();
 		$response['msg'] = '';
@@ -2152,7 +2156,9 @@ class CitruscartControllerPOS extends CitruscartController
 	 */
 	function setShippingMethod()
 	{
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', JRequest::getVar('elements', '', 'post', 'string')));
+		/* Get the application */
+		$app = JFactory::getApplication();
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements', '', 'post', 'string')));
 
 		// convert elements to array that can be binded
 		Citruscart::load('CitruscartHelperBase', 'helpers._base');
@@ -2341,13 +2347,17 @@ class CitruscartControllerPOS extends CitruscartController
 	{
 		// Use AJAX to show plugins that are available
 		JLoader::import('com_citruscart.library.json', JPATH_ADMINISTRATOR.'/components');
-		$values = JRequest::get('post');
+		$app = JFactory::getApplication();		
+		
+		$values = $app->input->get($_POST);
+		//$values = JRequest::get('post');
 		$html = '';
 		$text = "";
 		$user = JFactory::getUser();
 		if(empty($element))
 		{
-			$element = JRequest::getVar('payment_element');
+			$element = $app->input->getString('payment_element');
+			//$element = JRequest::getVar('payment_element');
 		}
 		$results = array();
 
@@ -2488,8 +2498,14 @@ class CitruscartControllerPOS extends CitruscartController
 		$html = '';
 		$text = '';
 
-		$country_id = JRequest::getVar('country_id');
-		$prefix = JRequest::getVar('prefix');
+		/* Get the application */
+		$app = JFactory::getApplication();
+		
+		$country_id = $app->input->getInt('country_id');
+		//$country_id = JRequest::getVar('country_id');
+		
+		$prefix = $app->input->getString('prefix');
+		//$prefix = JRequest::getVar('prefix');
 
 		if (empty($country_id))
 		{
@@ -2846,7 +2862,10 @@ class CitruscartControllerPOS extends CitruscartController
 
 		$row->notify_customer = '0';
 		// don't notify the customer on prepayment
-		$row->comments = JRequest::getVar('order_history_comments', '', 'post');
+		
+		/* Get the applicaiton */
+		$app = JFactory::getApplication();
+		$row->comments = $app->input->get('order_history_comments', '', 'post');
 
 		if(!$row->save())
 		{
@@ -3091,7 +3110,12 @@ class CitruscartControllerPOS extends CitruscartController
 	function addaddress()
 	{
 		$this->set('suffix', 'addresses');
-		$post = JRequest::get('post');
+		
+		/* Get the applicaiton */
+		$app = JFactory::getApplication();
+		$post = $app->input->get($_POST);
+		
+		//$post = JRequest::get('post');
 
 		$model = $this->getModel( $this->get('suffix') );
         $row = $model->getTable();
@@ -3100,7 +3124,8 @@ class CitruscartControllerPOS extends CitruscartController
         $row->_isNew = empty($row->address_id);
 
         $redirect = "index.php?option=com_citruscart&view=pos&task=addresses";
-    	if (JRequest::getVar('tmpl') == 'component')
+    	//if (JRequest::getVar('tmpl') == 'component')
+    	if($app->input->getString('tmpl') == 'component')
     	{
         	$redirect .= "&tmpl=component";
         }
@@ -3149,7 +3174,12 @@ class CitruscartControllerPOS extends CitruscartController
         $this->messagetype  = '';
         $this->message      = '';
         $redirect = 'index.php?option=com_citruscart&view=pos&task=addresses';
-    	if (JRequest::getVar('tmpl') == 'component')
+        
+        /* Get the applicaiton */
+        $app = JFactory::getApplication();
+        
+    	//if (JRequest::getVar('tmpl') == 'component')
+        if($app->input->getString('tmpl') == 'component')
     	{
         	$redirect .= "&tmpl=component";
         }
@@ -3159,7 +3189,9 @@ class CitruscartControllerPOS extends CitruscartController
         $model = $this->getModel($this->get('suffix'));
         $row = $model->getTable();
 
-        $task = JRequest::getVar( 'task' );
+        //$task = JRequest::getVar( 'task' );
+        $task = $app->input->getString('task');
+        
         $actions = explode( '_', $task );
         if (!is_array($actions))
         {
@@ -3172,7 +3204,9 @@ class CitruscartControllerPOS extends CitruscartController
         $act = $actions['1'];
         $errors = array();
 
-        $cids = JRequest::getVar('cid', array (0), 'post', 'array');
+        $cids = $app->input->get('cid', array (0), 'post', 'array');
+        //$cids = JRequest::getVar('cid', array (0), 'post', 'array');
+        
         foreach (@$cids as $cid)
         {
             switch($act)
