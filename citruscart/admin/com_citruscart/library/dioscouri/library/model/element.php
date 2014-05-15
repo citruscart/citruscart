@@ -65,7 +65,13 @@ class DSCModelElement extends DSCModel
 
         if ($value)
         {
-            $table = $this->getTable();
+        	$app = JFactory::getApplication();
+        	
+        	$view = $app->input->getString('view');
+        	
+        	$table = JTable::getInstance($view,'CitruscartTable');
+        	
+        	//$table = $this->getTable();
             $table->load($value);
             $title_key = $this->title_key;
             $title = $table->$title_key;

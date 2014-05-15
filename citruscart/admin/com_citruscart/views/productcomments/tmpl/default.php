@@ -37,7 +37,7 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 		<tr>
 			<th style="width: 5px;"><?php echo JText::_('COM_CITRUSCART_NUM'); ?></th>
 			<th style="width: 20px;">
-                <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+			  	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
 			</th>
 			<th style="width: 50px;">
                 <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.productcomment_id", $state->direction, $state->order ); ?>

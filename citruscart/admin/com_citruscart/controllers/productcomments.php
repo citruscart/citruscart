@@ -1,6 +1,5 @@
 <?php
 /**
- * @version	1.5
  * @package	Citruscart
  * @author 	Dioscouri Design
  * @link 	http://www.dioscouri.com
@@ -49,17 +48,26 @@ class CitruscartControllerProductComments extends CitruscartController
 		}
 		return $state;
 	}
+	
 	/**
 	 *
 	 */
 	function save()
 	{
+		
 		$app = JFactory::getApplication();
+		
 		$model 	= $this->getModel( $this->get('suffix') );
-		$row = $model->getTable();
-	    $row->load( $model->getId() );
-	    $row->bind( $app->input->get($_POST) );
-	   	$row->user_name =$app->input->getString( 'user_id_name_hidden' );
+				
+		$view = $app->input->getString('view');
+		
+		$row = JTable::getInstance($view,'CitruscartTable');
+	
+		$row->load( $model->getId() );
+	        
+	    $row->bind( $app->input->getArray($_POST) );	   	
+	    
+	    $row->user_name =$app->input->getString( 'user_id_name_hidden' );
 
 	   if ( $row->save() )
 		{
@@ -92,10 +100,4 @@ class CitruscartControllerProductComments extends CitruscartController
     	$redirect = JRoute::_( $redirect, false );
 		$this->setRedirect( $redirect, $this->message, $this->messagetype );
 	}
-
-
 }
-
-
-
-

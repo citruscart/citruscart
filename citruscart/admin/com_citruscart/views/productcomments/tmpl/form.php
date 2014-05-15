@@ -13,6 +13,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $form = $this->form; ?>
 <?php $row = $this->row;
+;
+
 JFilterOutput::objectHTMLSafe( $row );
 Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 ?>
@@ -72,7 +74,7 @@ Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 					</td>
 				</tr>
 			</table>
-			<input type="hidden" name="id" value="<?php echo $row->manufacturer_id; ?>" />
+			<input type="hidden" name="id" value="<?php echo $row->productcomment_id; ?>" />
 			<input type="hidden" name="task" value="" />
 
 </form>

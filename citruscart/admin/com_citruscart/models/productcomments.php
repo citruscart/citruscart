@@ -99,11 +99,15 @@ class CitruscartModelProductComments extends CitruscartModelBase
 
 	public function getList($refresh = false)
 	{
-		$list = parent::getList($refresh);
-		if(empty($list))
+		
+		if (empty( $this->_list ))
 		{
-			return $list;
+			$query = $this->getQuery(true);
+		
+			$this->_list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
 		}
+		$list = $this->_list;
+		
 		foreach($list as $item)
 		{
 

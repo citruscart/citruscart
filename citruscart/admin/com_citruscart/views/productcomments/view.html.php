@@ -58,17 +58,14 @@ class CitruscartViewProductComments extends CitruscartViewBase
 	 */
 	function _form($tpl=null)
 	{
-				
 			$model = $this->getModel();
 			$item = $model->getItem();
-						
 			$this->assign( 'item', $item);
-									
 		    // Products
 			$productModel 	= JModelLegacy::getInstance( 'ElementProduct', 'CitruscartModel' );
          	// terms
-			$elementArticle_product 		= $productModel->_fetchElement( 'product_id',$item->product_id) ;
-			$resetArticle_product		= $productModel->_clearElement( 'product_id', '0' );
+			$elementArticle_product 		= $productModel->fetchElement( 'product_id',$item->product_id) ;
+			$resetArticle_product		= $productModel->clearElement( 'product_id', '0' );
 			$this->assign('elementArticle_product', $elementArticle_product);
 			$this->assign('resetArticle_product', $resetArticle_product);
 			$userModel 	= JModelLegacy::getInstance( 'ElementUser', 'CitruscartModel' );
@@ -79,6 +76,8 @@ class CitruscartViewProductComments extends CitruscartViewBase
 			$this->assign('resetUser_product', $resetUser_product);
 
 		parent::_form($tpl);
+
+
 	}
 
 	function _defaultToolbar()
