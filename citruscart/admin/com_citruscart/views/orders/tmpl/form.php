@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHTML::_('script', 'citruscart_orders.js', 'media/citruscart/js/');
 $form = $this->form;
 $row = $this->row;

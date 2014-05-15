@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 JHTML::_('stylesheet', 'citruscart.css', 'media/citruscart/css/');
-JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 JHTML::_('script', 'citruscart_admin.js', 'media/citruscart/js/');
 Citruscart::load( 'citruscartGrid', 'library.grid' );
 $state = @$this->state;

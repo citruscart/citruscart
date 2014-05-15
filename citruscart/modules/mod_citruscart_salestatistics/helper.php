@@ -115,7 +115,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 * @return void
 	 */
 	function _today()
-	{		
+	{
 		return $this->_getDateDb( CitruscartHelperBase::getCorrectBeginDayTime( JFactory::getDate() ), '', true, false, false );
 	}
 
@@ -149,7 +149,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 		$database->setQuery( $query );
 		$startdate = $database->loadResult();
 		$return = $this->_getDateDb( $startdate, $enddate,  true, true );
-		
+
 		$days = ($return->days_in_business > 0) ? $return->days_in_business : 1;
 		$return->average_daily = $return->num / $days;
 		return $return;
@@ -167,7 +167,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 		$today = $date->format( "%Y-%m-%d %H:%M:%S" );
 		$start_month = $date->format( "%Y-%m-01 00:00:00" );
 		$startdate = CitruscartHelperBase::getCorrectBeginDayTime( $start_month );
-		
+
 		$return = $this->_getDateDb( $startdate, $today, true );
 
 		$days = ($return->days_in_business > 0) ? $return->days_in_business : 1;
@@ -191,7 +191,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 		$query = new CitruscartQuery();
 		$query = " SELECT DATE_SUB('".$last_day."', INTERVAL 1 MONTH) ";
 		$database->setQuery( $query );
-		$first_day = $database->loadResult();				
+		$first_day = $database->loadResult();
 		$startdate = CitruscartHelperBase::getCorrectBeginDayTime( $first_day );
 		$return = $this->_getDateDb( $startdate, $enddate, true, true );
 
@@ -261,7 +261,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 		Citruscart::load( 'CitruscartHelperOrder','helpers.order' );
 		$firstsale_date = CitruscartHelperOrder::getDateMarginalOrder( $this->getStatesCSV(), 'ASC' );
 		$lastsale_date = CitruscartHelperOrder::getDateMarginalOrder( $this->getStatesCSV(), 'DESC' );
-		
+
 		$return = $this->_getDateDb( $firstsale_date, $lastsale_date );
 		$days = ($return->days_in_business > 0) ? $return->days_in_business : 1;
 		$return->average_daily = $return->num / $days;
@@ -271,8 +271,9 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	function _getDateDb( $start_date, $end_date, $restrict_start = false, $restrict_end = false, $count_days = true )
 	{
 		$db = JFactory::getDbo();
-		
-		$q = new CitruscartQuery();
+
+		//$q = new CitruscartQuery();
+		$q = $db->getQuery(true);
 		$q->select( 'COUNT(*) AS num' );
 		$q->select( 'SUM(order_total) AS amount' );
 		$q->select( 'AVG(order_total) AS average' );
@@ -286,5 +287,6 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 			$q->where("tbl.created_date >= '$start_date'");
 		$db->setQuery( (string) $q);
 		return $db->loadObject();
+
 	}
 }

@@ -12,7 +12,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');?>
 <?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/');?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 <?php $items = $this -> items;?>
 <div class="cartitems">
 

@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $state = $vars->state; ?>
 
 <p><?php echo JText::_('COM_CITRUSCART_THIS_REPORT_LISTS_ALL_USERS_WHO_OPENED_A_NEW_SUBSCRIPTION_DURING_THE_SELECTED_TIME_PERIOD'); ?></p>

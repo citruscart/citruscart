@@ -18,9 +18,13 @@ defined('_JEXEC') or die('Restricted access');
 	$items = $this->items;
 	$menu = CitruscartMenu::getInstance();
 ?>
-
-<?php require_once(JPATH_SITE.'/components/com_citruscart/views/sitemenu.php');?>
-<?php // if( $menu ) { $menu->display(); } ?>
+ <div class="naviagtion header">
+	<?php
+		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');
+	 	$toolbar = new CitruscartToolBar();
+	 	$toolbar->renderLinkbar();
+	?>
+</div>
 
 <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" class="adminform" id="adminForm" name="adminForm" enctype="multipart/form-data">
 
