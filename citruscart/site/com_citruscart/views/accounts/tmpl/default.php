@@ -3,7 +3,7 @@
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
 # author    Citruscart Team - Citruscart http://www.citruscart.com
-# copyright Copyright (C) 2012 Citruscart.com All Rights Reserved.
+# copyright Copyright (C) 2014 - 2019 Citruscart.com All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
@@ -16,34 +16,7 @@ $doc = JFactory::getDocument();
 $doc->addStyleSheet(JUri::root().'media/citruscart/css/menu.css');
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 ?>
-
-<div class='componentheading'>
-	<span><?php echo JText::_('COM_CITRUSCART_MY_PROFILE'); ?></span>
-</div>
-<div class="naviagtion header">
-<ul class="nav nav-tabs">
-	<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=dashboard');?>" ><?php echo JText::_('COM_CITRUSCART_DASHBOARD')?></a>
-	</li>
-		<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=accounts');?>" ><?php echo JText::_('COM_CITRUSCART_PROFILE')?></a>
-	</li>
-		<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=orders');?>" ><?php echo JText::_('COM_CITRUSCART_ORDER_HISTORY')?></a>
-	</li>
-		<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=subscriptions');?>" ><?php echo JText::_('COM_CITRUSCART_SUBSCRIPTIONS')?></a>
-	</li>
-		<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=productdownloads');?>" ><?php echo JText::_('COM_CITRUSCART_MY_DOWNLOADS')?></a>
-	</li>
-	<li>
-		<a href="<?php echo JRoute::_('index.php?option=com_citruscart&#38;view=carts');?>" ><?php echo JText::_('COM_CITRUSCART_SHOPPING_CART')?></a>
-	</li>
-</ul>
-</div>
-
-	<?php // if ($menu = CitruscartMenu::getInstance()) { $menu->display(); } ?>
+<?php require_once(JPATH_SITE.'/components/com_citruscart/views/sitemenu.php');?>
 
 <table style="width: 100%;">
 <tr>

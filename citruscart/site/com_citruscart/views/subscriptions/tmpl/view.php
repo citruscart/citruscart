@@ -53,4 +53,4 @@ defined('_JEXEC') or die('Restricted access');
 
          // fire plugin event here to enable extending the form
         JDispatcher::getInstance()->trigger('onAfterDisplaySubscriptionView', array( $row ) );
-    ?>
+    

@@ -11,16 +11,18 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php JHtml::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
+<?php $app = JFactory::getApplication(); ?>
 
 <div id="citruscart" class="search default">
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
-	<?php echo CitruscartGrid::pagetooltip( JRequest::getVar('view') ); ?>
+	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
+	
     <div id="citruscart_searchfilters">
         <h2><?php echo JText::_('COM_CITRUSCART_ADVANCED_SEARCH'); ?></h2>
         <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>

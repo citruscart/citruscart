@@ -28,7 +28,10 @@ class CitruscartViewProductComments extends CitruscartViewBase
         switch(strtolower($layout))
         {
             case "form":
-                JRequest::setVar('hidemainmenu', '1');
+            	/* Get the application */
+                $app = JFactory::getApplication();
+            	$app->input->set('hidemainmenu', '1');
+                //JRequest::setVar('hidemainmenu', '1');
                 $this->_form($tpl);
               break;
             case "default":
@@ -61,13 +64,13 @@ class CitruscartViewProductComments extends CitruscartViewBase
 		    // Products
 			$productModel 	= JModelLegacy::getInstance( 'ElementProduct', 'CitruscartModel' );
          	// terms
-			$elementArticle_product 		= $productModel->_fetchElement( 'product_id',@$item->product_id) ;
-			$resetArticle_product		= $productModel->_clearElement( 'product_id', '0' );
+			$elementArticle_product 		= $productModel->fetchElement( 'product_id',$item->product_id) ;
+			$resetArticle_product		= $productModel->clearElement( 'product_id', '0' );
 			$this->assign('elementArticle_product', $elementArticle_product);
 			$this->assign('resetArticle_product', $resetArticle_product);
 			$userModel 	= JModelLegacy::getInstance( 'ElementUser', 'CitruscartModel' );
          	// terms
-			$elementUser_product 		= $userModel->fetchElement( 'user_id',@$item->user_id ) ;
+			$elementUser_product 		= $userModel->fetchElement( 'user_id',$item->user_id ) ;
 			$resetUser_product		= $userModel->clearElement( 'user_id','0' );
 			$this->assign('elementUser_product',$elementUser_product);
 			$this->assign('resetUser_product', $resetUser_product);

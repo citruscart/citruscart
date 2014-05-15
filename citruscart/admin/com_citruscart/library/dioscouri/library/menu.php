@@ -55,19 +55,18 @@ class DSCMenu
             // the NULL and TRUE, make it so we can load a file
         	$xml = new SimpleXMLElement($xmlfile, NULL, TRUE);
 
-
-
-
         	// Parse the file
             if ($xml) {
                 $items = array();
                 foreach ($xml->children() as $i=> $child) {
+                	
                       $name = $url = NULL;
+                      
                     // If we have both a URL and name, add a new link
                     if (!empty($child->name) && !empty($child->url)) {
                         $object          = new JObject();
                         $object->name    = JText::_($child->name);
-
+						                        
                         //TODO : to be fixed with JRoute::_($object->url);
 
                         $object->url = $child->url;

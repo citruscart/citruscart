@@ -11,8 +11,8 @@
     <description>Adds the Citruscart Library to the Autoloader</description>
     
     <files>
-        <filename plugin="Citruscart">Citruscart.php</filename>
-        <folder>Citruscart</folder>   
+        <filename plugin="citruscart">citruscart.php</filename>
+        <folder>citruscart</folder>   
     </files>
 
     <updateservers>

@@ -3,7 +3,7 @@
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
 # author    Citruscart Team - Citruscart http://www.citruscart.com
-# copyright Copyright (C) 2012 Citruscart.com All Rights Reserved.
+# copyright Copyright (C) 2014 - 2019 Citruscart.com All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
@@ -16,7 +16,7 @@ Citruscart::load( 'CitruscartTable', 'tables._base' );
 
 class CitruscartTableProductComments extends CitruscartTable 
 {
-	function CitruscartTableProductComments( &$db ) 
+	function __construct( &$db ) 
 	{
 		$tbl_key 	= 'productcomment_id';
 		$tbl_suffix = 'productcomments';
@@ -102,6 +102,7 @@ class CitruscartTableProductComments extends CitruscartTable
 	 */
 	function save($src='', $orderingFilter = '', $ignore = '')
 	{
+		
 	    $isNew = false;
         if (empty($this->productcomment_id))
         {
