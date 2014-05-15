@@ -20,8 +20,7 @@ JHtml::_('script', 'media/citruscart/js/citruscart_admin.js', false, false);
 JHtml::_('script', 'media/citruscart/js/jquery.uploadifive.min.js',false,false);
 
 JHtml::_('stylesheet', 'media/citruscart/css/leftmenu_admin.css');
-JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
-JHtml::_('stylesheet', 'media/citruscart/css/common.css');
+JHtml::_('stylesheet', 'media/citruscart/css/uploadifive.css');
 
 ?>
 <?php JHTML::_('behavior.tooltip'); ?>
