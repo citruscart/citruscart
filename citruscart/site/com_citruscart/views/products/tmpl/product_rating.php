@@ -1,5 +1,4 @@
 <?php
-
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -13,11 +12,15 @@
 defined('_JEXEC') or die('Restricted access');
 $rating = $this->rating;
 
+/* Get the document */
+$doc = JFactory::getDocument();
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
 if( $rating->clickable )
 {
 	for( $i = 1; $i <= $rating->count; $i++ ) : ?>
 		<span id="rating_<?php echo $i; ?>">
-	   	<a href="javascript:void(0);" onclick="javascript:CitruscartRating(<?php echo $i; ?>);">
+	   	<a href="javascript:void(0);" onclick="citruscartRating(<?php echo $i; ?>);">
 		   	<img id="rate_<?php echo $i; ?>" src="media/citruscart/images/star_00.png" alt="<?php echo $i?>">
 			</a>
 		</span>

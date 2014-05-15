@@ -24,7 +24,11 @@ $url = JURI::getInstance()->__toString();
 $root  = JURI::getInstance()->root();
 $return_url = str_replace($root , '', $url);
 $linkurl= CitruscartHelperProduct::getSocialBookMarkUri( $url );
-$Itemid = JRequest::getInt('Itemid', '0');
+
+/* Get the application */
+$app = JFactory::getApplication();
+$Itemid = $app->input->getInt('Itemid', '0');
+//$Itemid = JRequest::getInt('Itemid', '0');
 $publickey = "6LcAcbwSAAAAAIEtIoDhP0cj7AAQMK9hqzJyAbeD";
 $baseurl=$this->baseurl;
 $user = JFactory::getUser();
@@ -56,7 +60,7 @@ if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
     </div>
     <div id="new_review_form" class="rowPaddingDiv" style="display: none;">
     		<div id="validationmessage_comments" style="padding-top: 10px;"></div>
-        <form action="<?php echo $click;?>" method="post" class="adminform" name="commentsForm" enctype="multipart/form-data" >
+        <form action="<?php echo $click;?>" method="post" class="adminform" name="commentsForm" id="adminForm" enctype="multipart/form-data" >
             <div><?php echo JText::_('COM_CITRUSCART_RATING'); ?>: *</div>
             <?php echo CitruscartHelperProduct::getRatingImage( 5, $this, true  ); ?>
             <?php if ($user->guest || !$user->id) {?>
@@ -77,7 +81,7 @@ if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
             ?>
             <div><?php echo $recaptcha->recaptcha_get_html($publickey); ?></div>
             <?php endif;?>
-            <input type="button" name="review" id="review" onclick="javscript:CitruscartFormValidation( '<?php echo $url_validate; ?>','validationmessage_comments', 'addReview', document.commentsForm );" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT_COMMENT'); ?>" />
+            <input type="button" name="review" id="review" onclick="javscript:citruscartFormValidation( '<?php echo $url_validate; ?>','validationmessage_comments', 'addReview', document.commentsForm );" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT_COMMENT'); ?>" />
             <input type="hidden" name="product_id"   value="<?php echo $this->comments_data->product_id;?>" />
             <input type="hidden" name="user_id" value="<?php echo $user->id; ?>" />
             <input type="hidden" name="productcomment_rating" id="productcomment_rating" value="" />

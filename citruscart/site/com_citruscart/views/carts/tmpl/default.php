@@ -30,48 +30,12 @@ Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );
 Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
 ?>
 
-<div class='componentheading'>
-    <span><?php echo JText::_('COM_CITRUSCART_MY_SHOPPING_CART'); ?></span>
-</div>
-<div class="naviagtion header">
-	<ul class="nav nav-tabs">
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=dashboard');?>">
-				<?php echo JText::_('COM_CITRUSCART_DASHBOARD')?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=accounts');?>" >
-				<?php echo JText::_('COM_CITRUSCART_PROFILE')?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=orders');?>" >
-				<?php echo JText::_('COM_CITRUSCART_ORDER_HISTORY')?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=subscriptions');?>" >
-				<?php echo JText::_('COM_CITRUSCART_SUBSCRIPTIONS')?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=productdownloads');?>" >
-				<?php echo JText::_('COM_CITRUSCART_MY_DOWNLOADS')?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts');?>" >
-				<?php echo JText::_('COM_CITRUSCART_SHOPPING_CART')?>
-			</a>
-		</li>
-	</ul>
-</div>
-    <?php // if ($menu = CitruscartMenu::getInstance( $this->submenu )) { $menu->display(); } ?>
+<?php require_once(JPATH_SITE.'/components/com_citruscart/views/sitemenu.php');?>
+<?php // if ($menu = CitruscartMenu::getInstance( $this->submenu )) { $menu->display(); } ?>
 
 <div class="cartitems">
     <?php if (!empty($items)) { ?>
-    <form id="adminForm" action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
+    <form id="adminForm" action="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts&task=update&Itemid='.$router->findItemid( array('view'=>'carts') ) ); ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data">
 
         <div style="float: right;">
         <!-- <a class="btn btn-primary" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout&Itemid='.$this->checkout_itemid ); ?>" onclick="return citruscartCheckUpdateCartQuantities(document.adminForm, '<?php echo JText::_('COM_CITRUSCART_CHECK_CART_UPDATE'); ?>');">
@@ -83,8 +47,12 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
         <table class="adminlist table table-striped table-bordered">
             <thead>
                 <tr>
+                
+                    <!-- check all table heading statements -->
                     <th style="width: 20px;">
-                	   <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                    	          
+                        <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
+                    
                     </th>
                     <th colspan="2" style="text-align: left;"><?php echo JText::_('COM_CITRUSCART_PRODUCT'); ?></th>
                     <th style="width: 50px;"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?></th>

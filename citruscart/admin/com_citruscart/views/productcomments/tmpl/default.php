@@ -1,11 +1,24 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
-<?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
+<?php 
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+
+defined('_JEXEC') or die('Restricted access'); ?>
+<?php $doc = JFactory::getDocument();
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+?>
 <?php $state = $this->state; ?>
 <?php  $form = $this->form; ?>
 <?php $items = $this->items; ?>
 <?php Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' ); ?>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 <table>
         <tr>
@@ -14,7 +27,7 @@
             <td nowrap="nowrap">
                 <input type="text" name="filter" value="<?php echo $state->filter; ?>" />
                 <button class="btn btn-primary" onclick="this.form.submit();"><?php echo JText::_('COM_CITRUSCART_SEARCH'); ?></button>
-                <button class="btn btn-danger"onclick="CitruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
+                <button class="btn btn-danger"onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
         </tr>
     </table>

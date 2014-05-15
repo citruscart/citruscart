@@ -1,12 +1,23 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php 
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+-------------------------------------------------------------------------*/
+
+defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHTML::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
-<?php $form = @$this->form; ?>
-<?php $row = @$this->row;
+<?php $form = $this->form; ?>
+<?php $row = $this->row;
 JFilterOutput::objectHTMLSafe( $row );
 Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 ?>
 
-<form action="<?php echo JRoute::_( @$form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data" >
+<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data" >
 
 
 			<table class="table table-striped table-bordered" style="width: 100%">
@@ -36,7 +47,7 @@ Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 						<?php echo JText::_('COM_CITRUSCART_COMMENT'); ?>:
 					</td>
 					<td>
-					<?php echo @$row->productcomment_text; ?>
+					<?php echo $row->productcomment_text; ?>
 						<!--
 							<textarea name="productcomment_text" id="productcomment_text" style="width: 100%;" rows="10"><?php echo @$row->productcomment_text; ?></textarea>
 						 -->
@@ -48,8 +59,8 @@ Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 					</td>
 					<td>
                         <?php Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' ); ?>
-                        <?php echo CitruscartHelperProduct::getRatingImage( @$row->productcomment_rating, $this ); ?>
-						<input type="hidden" id="productcomment_rating" name="productcomment_rating" value="<?php echo @$row->productcomment_rating; ?>" size="10" />
+                        <?php echo CitruscartHelperProduct::getRatingImage( $row->productcomment_rating, $this ); ?>
+						<input type="hidden" id="productcomment_rating" name="productcomment_rating" value="<?php echo $row->productcomment_rating; ?>" size="10" />
 					</td>
 				</tr>
 				<tr>
@@ -57,11 +68,11 @@ Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );
 						<?php echo JText::_('COM_CITRUSCART_PUBLISHED'); ?>:
 					</td>
 					<td>
-							<?php echo CitruscartSelect::btbooleanlist(  'productcomment_enabled', '', @$row->productcomment_enabled ); ?>
+							<?php echo CitruscartSelect::btbooleanlist(  'productcomment_enabled', '', $row->productcomment_enabled ); ?>
 					</td>
 				</tr>
 			</table>
-			<input type="hidden" name="id" value="<?php echo @$row->manufacturer_id; ?>" />
+			<input type="hidden" name="id" value="<?php echo $row->manufacturer_id; ?>" />
 			<input type="hidden" name="task" value="" />
 
 </form>

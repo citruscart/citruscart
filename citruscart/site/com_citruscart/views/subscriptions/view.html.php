@@ -26,8 +26,13 @@ class CitruscartViewSubscriptions extends CitruscartViewBase
                 $this->_form($tpl);
               break;
             case "form":
-                JRequest::setVar('hidemainmenu', '1');
-                $this->_form($tpl);
+            	
+            	/* Get the application */
+                $app = JFactory::getApplication();
+            	$app->input->get('hidemainmenu', '1');
+                //JRequest::setVar('hidemainmenu', '1');
+                
+            	$this->_form($tpl);
               break;
             case "default":
             default:
