@@ -61,7 +61,7 @@ class CitruscartModelBase extends DSCModel
      */
     public function getList($refresh = false)
     {
-    	JPluginHelper::importPlugin('Citruscart');
+    	JPluginHelper::importPlugin('citruscart');
     	
     	$app = JFactory::getApplication();
         

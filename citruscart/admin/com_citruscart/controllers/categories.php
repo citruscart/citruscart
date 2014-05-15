@@ -94,7 +94,7 @@ class CitruscartControllerCategories extends CitruscartController
 	{
 		$app =JFactory::getApplication();
 
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 
 		if (!$row = parent::save())
 		{

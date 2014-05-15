@@ -33,7 +33,9 @@ class CitruscartViewShippingMethods extends CitruscartViewBase
 		switch(strtolower($layout))
 		{
 			case "view":
+
 				$this->_form($tpl);
+
 			  break;
 			case "form":
 				$app->input>set('hidemainmenu', '1');
@@ -47,4 +49,5 @@ class CitruscartViewShippingMethods extends CitruscartViewBase
 			  break;
 		}
 	}
+
 }

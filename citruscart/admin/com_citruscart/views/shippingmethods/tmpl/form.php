@@ -10,8 +10,8 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php $form = $this->form; ?>
-<?php $row = $this->row;
+<?php $form = @$this->form; ?>
+<?php $row = @$this->row;
 JFilterOutput::objectHTMLSafe( $row );
 ?>
 

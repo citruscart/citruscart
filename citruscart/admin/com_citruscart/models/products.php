@@ -511,7 +511,7 @@ class CitruscartModelProducts extends CitruscartModelEav
      * Builds a generic SELECT COUNT(*) query that takes group by into account
      */
     protected function _buildResultQuery( )
-    {	JPluginHelper::importPlugin('Citruscart');
+    {	JPluginHelper::importPlugin('citruscart');
         $app = JFactory::getApplication();
         $grouped_query = new DSCQuery( );
         $grouped_query->select( $this->getState( 'select', 'COUNT(tbl.product_id)' ) );

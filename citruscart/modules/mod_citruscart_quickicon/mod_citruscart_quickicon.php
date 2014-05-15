@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 // if DSC is not loaded all is lost anyway
 /*if (!defined('_DSC')) { return; } */
 
- $text = $params->get( 'text', 'Citruscart Dashboard' ); 
+ $text = $params->get( 'text', 'Citruscart Dashboard' );
 
 $doc = JFactory::getDocument();
 
@@ -23,6 +23,6 @@ $doc = JFactory::getDocument();
 /*if ( !class_exists('Citruscart') )
     JLoader::register( "Citruscart", JPATH_ADMINISTRATOR."/components/com_citruscart/defines.php" );
   */
-$img = Citruscart::getURL()."images/Citruscart.png";
+$img = Citruscart::getURL()."images/citruscart.png";
 
 require JModuleHelper::getLayoutPath('mod_citruscart_quickicon', $params->get('layout', 'default'));

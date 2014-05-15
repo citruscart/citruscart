@@ -43,20 +43,6 @@ class DSCButton extends JToolbarButton
 		return $html;
 	}
 
-	/* function fetchButton( $type='DSC', $name = '', $text = '', $task = '', $list = true, $hideMenu = false, $taskName = 'shippingTask' )
-	{
-		$i18n_text	= JText::_($text);
-		$class	= $this->fetchIconClass($name);
-		$doTask	= $this->_getCommand($text, $task, $list, $hideMenu, $taskName);
-
-		$html	= "<a href=\"#\" onclick=\"$doTask\" class=\"toolbar\">\n";
-		$html .= "<span class=\"$class\" title=\"$i18n_text\">\n";
-		$html .= "</span>\n";
-		$html	.= "$i18n_text\n";
-		$html	.= "</a>\n";
-
-		return $html;
-	} */
 	/**
 	 * Get the JavaScript command for the button
 	 *
@@ -91,11 +77,6 @@ class DSCButton extends JToolbarButton
 	 * @access	public
 	 * @return	string	Button CSS Id
 	 */
-	/* function fetchId( $type='Confirm', $name = '', $text = '', $task = '', $list = true, $hideMenu = false )
-	{
-		return $this->_name.'-'.$name;
-	} */
-
 
 	function fetchId( $type='Confirm', $name = '', $text = '', $task = '', $list = true, $hideMenu = false )
 	{
@@ -105,13 +86,13 @@ class DSCButton extends JToolbarButton
 	function _getCommand($name, $task, $list, $hide, $taskName)
 	{
 		$todo		= JString::strtolower(JText::_( $name ));
-		$message	= JText::sprintf( 'J2STORE_PLEASE_MAKE_A_SELECTION_FROM_THE_LIST_TO', $todo );
+		$message	= JText::sprintf( 'COM_CITRUSCART_PLEASE_MAKE_A_SELECTION_FROM_THE_LIST_TO', $todo );
 		$message	= addslashes($message);
 
 		if ($list) {
-			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ submitJ2StoreButton('$task', '$taskName')}";
+			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ submitCitruscartButton('$task', '$taskName')}";
 		} else {
-			$cmd = "javascript:submitJ2StoreButton('$task', '$taskName')";
+			$cmd = "javascript:submitCitruscartButton('$task', '$taskName')";
 		}
 
 

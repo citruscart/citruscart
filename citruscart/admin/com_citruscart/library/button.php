@@ -17,7 +17,7 @@ require_once(JPATH_SITE.'/libraries/dioscouri/library/button16.php');
 require_once(JPATH_SITE.'/libraries/dioscouri/library/toolbarhelper16.php');
 
 
-class JToolbarButtonCitruscart extends DSCButton{
+class JToolbarButtonCitruscartButton extends DSCButton{
 	/**
 	 * Button type
 	 *
@@ -47,9 +47,9 @@ class JToolbarButtonCitruscart extends DSCButton{
 		$message	= addslashes($message);
 
 		if ($list) {
-			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ submitCitruscartbutton('$task', '$taskName')}";
+			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ citruscartSubmitForm('$task', '$taskName')}";
 		} else {
-			$cmd = "javascript:submitCitruscartbutton('$task', '$taskName')";
+			$cmd = "javascript:citruscartSubmitForm('$task', '$taskName')";
 		}
 
 

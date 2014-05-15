@@ -953,7 +953,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function createprice()
 	{	$app = JFactory::getApplication();
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$this->set('suffix', 'productprices');
 		$model 	= $this->getModel( $this->get('suffix') );
 		$row = $model->getTable();
@@ -1109,7 +1109,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function createissue()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$this->set('suffix', 'productissues');
 		$model 	= $this->getModel( $this->get('suffix') );
@@ -1247,7 +1247,7 @@ class CitruscartControllerProducts extends CitruscartController
 	{
 		$app = JFactory::getApplication();
 
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 
 
 
@@ -1414,7 +1414,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function createattributeoption()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$this->set('suffix', 'productattributeoptions');
 		$model  = $this->getModel( $this->get('suffix') );
@@ -1456,7 +1456,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function createattributeoptionvalue()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$this->set('suffix', 'productattributeoptionvalues');
 		$model  = $this->getModel( $this->get('suffix') );
@@ -1491,7 +1491,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function saveattributeoptions()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$error = false;
 		$this->messagetype  = '';
@@ -1558,7 +1558,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function saveattributeoptionvalues()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$error = false;
 		$this->messagetype  = '';
@@ -1652,7 +1652,7 @@ class CitruscartControllerProducts extends CitruscartController
 	function createfile()
 	{
 
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
         $app = JFactory::getApplication();
 		$this->set('suffix', 'productfiles');
 		$model  = $this->getModel( $this->get('suffix') );
@@ -1709,7 +1709,7 @@ class CitruscartControllerProducts extends CitruscartController
 	 */
 	function createfilefromdisk()
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$this->set('suffix', 'productfiles');
 		$model  = $this->getModel( $this->get('suffix') );

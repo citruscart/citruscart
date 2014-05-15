@@ -194,7 +194,7 @@ class DSCTable extends DSCTableBase
 	 */
 	function load( $oid=null, $reset=true )
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app  = JFactory::getApplication();
 
 
@@ -321,7 +321,7 @@ class DSCTable extends DSCTableBase
 	function store( $updateNulls=false )
 	{
 		$app = JFactory::getApplication();
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 
 		$before = $app->triggerEvent( 'onBeforeStore'.$this->get('_suffix'), array( &$this ) );
 		if (in_array(false, $before, true))

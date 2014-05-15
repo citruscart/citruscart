@@ -52,7 +52,7 @@ $multiupload_script = $this->defines->get( 'multiupload_script', 0 );
                 </div>
 
                 <div class="control-group">
-                    <input id="new_product_full_images" name="product_full_image_new[]" type="file" multiple="multiple" <?php if (empty($row->product_id) || !in_array($multiupload_script, array('0', 'uploadify'))) { ?> onchange="CitruscartMakeFileList();" size="40" <?php } ?> />
+                    <input id="new_product_full_images"  name="product_full_image_new[]" type="file" multiple="multiple" <?php if (empty($row->product_id) || !in_array($multiupload_script, array('0', 'uploadify'))) { ?> onchange="citruscartMakeFileList();" size="40" <?php } ?> />
                 </div>
 
                 <div class="help-block dsc-clear">
@@ -114,13 +114,13 @@ if (!empty($row->product_id)) {
 			'queueID'          : 'queue',
 			'uploadScript'     : 'index.php',
 			'onQueueComplete' : function() { Citruscart.refreshProductGallery(<?php echo $row->product_id; ?>); jQuery('#new_product_full_images').uploadifive('clearQueue'); },
-			'onFallback'   : function() { citruscartJQ('#new_product_full_images').on('change', function(){ CitruscartMakeFileList(); }); },
+			'onFallback'   : function() { citruscartJQ('#new_product_full_images').on('change', function(){ citruscartMakeFileList(); }); },
 			'onInit': function() { }
 		});
 	});
 	<?php } ?>
 
-    function CitruscartMakeFileList() {
+    function citruscartMakeFileList() {
     	var input = document.getElementById("new_product_full_images");
     	var ul = document.getElementById("fileList");
     	var title = document.getElementById("fileList-title");

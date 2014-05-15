@@ -323,9 +323,9 @@ class JToolbarButtonCitruscart30 extends JToolbarButton {
 		$message	= addslashes($message);
 
 		if ($list) {
-			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ submitCitruscartButton('$task', '$taskName')}";
+			$cmd = "javascript:if(document.adminForm.boxchecked.value==0){alert('$message');}else{ submitCitruscartform('$task', '$taskName')}";
 		} else {
-			$cmd = "javascript:submitCitruscartButton('$task', '$taskName')";
+			$cmd = "javascript:submitCitruscartform('$task', '$taskName')";
 		}
 
 

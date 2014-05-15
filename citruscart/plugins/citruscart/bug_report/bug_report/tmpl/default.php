@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -11,10 +11,10 @@
 
 defined('_JEXEC') or die('Restricted access'); ?>
 
-<?php 
+<?php
 if(version_compare(JVERSION,'1.6.0','ge')) { ?>
-	<a target="_blank" href="http://projects.citruscart.com/projects/Citruscart/"><?php echo JText::_('COM_CITRUSCART_SUBMIT_BUG'); ?></a>
-<?php } else {?>	
+	<a target="_blank" href="http://projects.citruscart.com/projects/citruscart/"><?php echo JText::_('COM_CITRUSCART_SUBMIT_BUG'); ?></a>
+<?php } else {?>
 	<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&task=doTask&element=bug_report&elementTask=submitBug' ); ?>"><?php echo JText::_('COM_CITRUSCART_SUBMIT_BUG'); ?></a>
 	<?php
 }

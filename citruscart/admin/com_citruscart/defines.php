@@ -14,7 +14,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-//require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/library/dioscouri/dioscouri.php');
+
 require_once (JPATH_SITE.'/libraries/dioscouri/dioscouri.php');
 
 class Citruscart extends DSC

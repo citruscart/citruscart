@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 //JLoader::import( 'com_citruscart.library.plugins.shippingcontroller', JPATH_ADMINISTRATOR.'/components' );
 Citruscart::load( 'CitruscartControllerShippingPlugin', 'library.plugins.shippingcontroller' );
 
+
 class CitruscartControllerShippingStandard extends CitruscartControllerShippingPlugin
 {
 
@@ -28,14 +29,15 @@ class CitruscartControllerShippingStandard extends CitruscartControllerShippingP
 		parent::__construct();
 		if(version_compare(JVERSION,'1.6.0','ge')) {
 			// Joomla! 1.6+ code
-			JModelLegacy::addIncludePath(JPATH_SITE.'/plugins/Citruscart/shipping_standard/shipping_standard/models');
-			JTable::addIncludePath(JPATH_SITE.'/plugins/Citruscart/shipping_standard/shipping_standard/tables');
+			JModelLegacy::addIncludePath(JPATH_SITE.'/plugins/citruscart/shipping_standard/shipping_standard/models');
+			JTable::addIncludePath(JPATH_SITE.'/plugins/citruscart/shipping_standard/shipping_standard/tables');
 		}
 		else {
-			JModelLegacy::addIncludePath(JPATH_SITE.'/plugins/Citruscart/shipping_standard/models');
-			JTable::addIncludePath(JPATH_SITE.'/plugins/Citruscart/shipping_standard/tables');
+			JModelLegacy::addIncludePath(JPATH_SITE.'/plugins/citruscart/shipping_standard/models');
+			JTable::addIncludePath(JPATH_SITE.'/plugins/citruscart/shipping_standard/tables');
 		}
 		$this->registerTask( 'newMethod', 'newMethod' );
+
 	}
 
 	/**
@@ -50,6 +52,7 @@ class CitruscartControllerShippingStandard extends CitruscartControllerShippingP
 	}
 
 	function newMethod(){
+
 		return $this->view();
 	}
 
@@ -143,13 +146,16 @@ class CitruscartControllerShippingStandard extends CitruscartControllerShippingP
 
 		$id = $input->getInt('id', 0);
 		$sid = CitruscartShippingPlugin::getShippingId();
-		$this->includeCustomModel('ShippingMethods');
 
+		$this->includeCustomModel('ShippingMethods');
 		$model = JModelLegacy::getInstance('ShippingMethods', 'CitruscartModel');
 		$model->setId((int)$sid);
-
 		$item = $model->getItem();
 
+
+		if(!isset($item)) {
+			$item = JTable::getInstance('ShippingMethods', 'Table');
+		}
 		// Form
 		$form = array();
 		$form['action'] = $this->baseLink();
@@ -157,6 +163,7 @@ class CitruscartControllerShippingStandard extends CitruscartControllerShippingP
 		//We are calling a view from the ShippingMethods we isn't actually the same  controller this has, however since all it does is extend the base view it is
 		// all good, and we don't need to remake getView()
 		$view = $this->getView( 'ShippingMethods', 'html' );
+
 		$view->hidemenu = true;
 		$view->hidestats = true;
 		$view->setTask(true);
@@ -168,9 +175,62 @@ class CitruscartControllerShippingStandard extends CitruscartControllerShippingP
 
 	}
 
+/*
+	function view()
+	{
+
+		$app = JFactory::getApplication();
+		require_once(JPATH_ADMINISTRATOR.'/components/com_j2store/library/select.php');
+		J2StoreToolBar::_custom( 'save', 'save', 'save', 'JTOOLBAR_SAVE', false, 'shippingTask' );
+		J2StoreToolBar::_custom( 'cancel', 'cancel', 'cancel', 'JTOOLBAR_CLOSE', false, 'shippingTask' );
+		JToolBarHelper::title(JText::_('J2STORE_SHIPM_SHIPPING_METHODS'),'j2store-logo');
+
+		$id = $app->input->getInt('id', '0');
+		$sid = $app->input->getInt('sid', '0');
+		$this->includeCustomModel('ShippingMethods');
+		$this->includeCustomTables();
+		$model = JModelLegacy::getInstance('ShippingMethods', 'J2StoreModel');
+		$model->setId((int)$sid);
+
+		$item = $model->getItem();
+
+		if(!isset($item)) {
+			$item = JTable::getInstance('ShippingMethods', 'Table');
+		}
+
+		$data = array();
+
+		$data ['published'] = JHTML::_('select.booleanlist',  'published', 'class=""', $item->published );
+		$data ['taxclass'] =  J2StoreSelect::taxclass($item->tax_class_id, 'tax_class_id');
+		$data ['shippingtype'] =  J2StoreSelect::shippingtype( $item->shipping_method_type, 'shipping_method_type', '', 'shipping_method_type', false );
+
+		$options=array();
+		$options[]= JHtml::_('select.option', 'no', JText::_('JNO'));
+		$options[]= JHtml::_('select.option', 'store', JText::_('J2STORE_SHIPPING_STORE_ADDRESS'));
+		$data ['address_override'] = JHtmlSelect::genericlist($options, 'address_override', array(), 'value', 'text', $item->address_override);
+
+		// Form
+		$form = array();
+		$form['action'] = $this->baseLink();
+		$form['shippingTask'] = 'save';
+		//We are calling a view from the ShippingMethods we isn't actually the same  controller this has, however since all it does is extend the base view it is
+		// all good, and we don't need to remake getView()
+		$view = $this->getView( 'ShippingMethods', 'html' );
+		$view->hidemenu = true;
+		$view->hidestats = true;
+		//$view->setTask(true);
+		$view->setModel( $model, true );
+		$view->assign('item', $item);
+		$view->assign('data', $data );
+		$view->assign('form2', $form);
+		$view->setLayout('view');
+		$view->display();
+	}
+ */
+
 	/**
 	 * Deletes a shipping method
-	 * @see Citruscart/admin/library/plugins/CitruscartControllerShippingPlugin::delete()
+	 * @see Citruscart/admin/library/plugins/citruscartControllerShippingPlugin::delete()
 	 */
 	function delete()
 	{

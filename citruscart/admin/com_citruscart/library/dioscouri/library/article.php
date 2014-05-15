@@ -73,7 +73,7 @@ class DSCArticle extends JObject
 	 */
 	public static function display( $articleid )
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$html = '';
 		$mainframe = JFactory::getApplication();
 		$article = JTable::getInstance('content');

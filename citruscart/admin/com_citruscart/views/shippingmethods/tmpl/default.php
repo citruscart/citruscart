@@ -11,8 +11,8 @@
 
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
-<?php $state = $this->state; ?>
-<?php $form = $this->form; ?>
+<?php $state =@$this->state; ?>
+<?php $form = @$this->form; ?>
 <?php $items = $this->items;
 
 ?>
@@ -32,7 +32,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <td align="left" width="100%">
             </td>
             <td nowrap="nowrap">
-                <input type="text" name="filter" value="<?php echo $state->filter; ?>" />
+                <input type="text" name="filter" value="<?php  echo $state->filter; ?>" />
                 <button class="btn btn-primary" onclick="this.form.submit();"><?php echo JText::_('COM_CITRUSCART_SEARCH'); ?></button>
                 <button class="btn btn-danger"onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
@@ -74,7 +74,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </div>
                 </th>
                 <th style="text-align: left;">
-                	<input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="15"/>
+                	<input id="filter_name" name="filter_name" value="<?php //echo $state->filter_name; ?>" size="15"/>
                 	<?php echo CitruscartSelect::shippingtype( $state->filter_shippingtype, 'filter_shippingtype', $attribs, 'shippingtype', true ); ?>
                 </th>
                 <th>
@@ -162,6 +162,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<input type="hidden" name="id" value="" />
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="" />
+	<input type="hidden" name="filter" value="" />
+
 	<input type="hidden" name="filter_order" value="<?php echo $state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo $state->direction; ?>" />
 

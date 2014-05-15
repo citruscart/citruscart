@@ -55,7 +55,7 @@ class CitruscartViewProducts extends CitruscartViewBase
 
 	function _form($tpl=null)
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		parent::_form($tpl);
 

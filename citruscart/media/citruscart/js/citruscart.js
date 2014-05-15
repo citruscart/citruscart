@@ -386,10 +386,10 @@ function citruscartFormValidation(url, container, task, form, doModal, msg, onCo
  * @return
  */
 function citruscartSubmitForm(task, form) {
-	alert(task);
 	console.log(task,form);
 	Dsc.submitForm(task, form);
 }
+
 
 /**
  * Overriding core submitbutton task to perform our onsubmit function
@@ -507,6 +507,7 @@ function submitCitruscartbutton(pressbutton, fieldname) {
  * Submit the admin form using a custom task field name
  */
 function submitCitruscartform(pressbutton, fieldname) {
+	
 	if (pressbutton) {
 		document.adminForm.elements[fieldname].value = pressbutton;
 	}

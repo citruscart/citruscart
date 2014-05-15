@@ -28,7 +28,7 @@ class CitruscartTableXref extends CitruscartTable
 	 */
 	function store( $updateNulls=false )
 	{
-		JPluginHelper::importPlugin('Citruscart');
+		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$db = JFactory::getDbo();
 		$before = $app->triggerEvent( 'onBeforeStore'.$this->get('_suffix'), array( $this ) );
@@ -84,7 +84,7 @@ class CitruscartTableXref extends CitruscartTable
 	 * @see Citruscart/admin/tables/CitruscartTable#delete($oid)
 	 */
 	function delete( $oid='' )
-	{	JPluginHelper::importPlugin('Citruscart');
+	{	JPluginHelper::importPlugin('citruscart');
         $app = JFactory::getApplication();
 	    if (empty($oid))
         {
