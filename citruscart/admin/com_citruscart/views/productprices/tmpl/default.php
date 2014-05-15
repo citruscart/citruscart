@@ -28,12 +28,10 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 
 	<?php echo CitruscartGrid::pagetooltip( $app->input->get('view') ); ?>
 
-<div class="note" style="width: 96%; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
-    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_PRICE'); ?></div>
-    <div style="float: right;">
-        <button class="btn btn-primary" onclick="document.getElementById('task').value='createprice'; document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_CREATE_PRICE'); ?></button>
-    </div>
-    <div class="reset"></div>
+<div class="note" style="width: 96%; margin-left: auto; margin-right: auto;">
+    <h5><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_PRICE'); ?></h5>
+     <button class="btn btn-primary" onclick="document.getElementById('task').value='createprice'; document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_CREATE_PRICE'); ?></button>
+  	<div class="reset"></div>
 	<table class="table table-striped table-bordered">
     	<thead>
         	<tr>
@@ -67,16 +65,17 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 </div>
 
 <div class="note_green" style="width: 96%; margin-left: auto; margin-right: auto;">
-    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_CURRENT_PRICES'); ?></div>
+	<h5><?php echo JText::_('COM_CITRUSCART_CURRENT_PRICES'); ?></h5>
     <div style="float: right;">
         <button class="btn btn-success" onclick="document.adminForm.toggle.checked=true;Joomla.checkAll(<?php echo count( $items ); ?>); document.getElementById('task').value='saveprices'; document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_SAVE_ALL_CHANGES'); ?></button>
     </div>
+
     <div class="reset"></div>
 	<table class="table table-striped table-bordered">
 		<thead>
             <tr>
                 <th style="width: 20px;">
-                	<input type="checkbox" name="toggle" value="" onclick="Joomla.checkAll(<?php echo count( $items ); ?>);" />
+                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="text-align: center;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_PRICE', "tbl.product_price", $state->direction, $state->order ); ?>

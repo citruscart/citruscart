@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SELECT_PRODUCTS_FOR'); ?>: <?php echo $row->coupon_name; ?></h1>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 <div class="note_green" style="width: 96%; text-align: center; margin-left: auto; margin-right: auto;">
     <?php echo JText::_('COM_CITRUSCART_FOR_CHECKED_ITEMS'); ?>:
     <button class="btn btn-success" onclick="document.getElementById('task').value='selected_switch'; document.adminForm.submit();"> <?php echo JText::_('COM_CITRUSCART_CHANGE_STATUS'); ?></button>
@@ -28,7 +28,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <td align="left" width="100%">
                 <input name="filter" value="<?php echo $state->filter; ?>" />
                 <button class="btn btn-primary" onclick="this.form.submit();"><?php echo JText::_('COM_CITRUSCART_SEARCH'); ?></button>
-                <button class="btn btn-danger" onclick="CitruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
+                <button class="btn btn-danger" onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
             <td nowrap="nowrap">
                 <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>
@@ -44,11 +44,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th style="width: 20px;">
-                	<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+	                <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="width: 50px;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.product_id", $state->direction, $state->order ); ?>
-                </th>                
+                </th>
                 <th style="text-align: left;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_NAME', "tbl.product_name", $state->direction, $state->order ); ?>
                 </th>
@@ -69,12 +69,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				</td>
 				<td style="text-align: center;">
 					<?php echo $item->product_id; ?>
-				</td>	
+				</td>
 				<td style="text-align: left;">
 					<?php echo $item->product_name; ?>
 				</td>
 				<td style="text-align: center;">
-					<?php 
+					<?php
 					Citruscart::load('CitruscartTableProductCoupons', 'tables.productcoupons');
 					$table = JTable::getInstance('ProductCoupons', 'CitruscartTable');
                     $keynames = array();
@@ -87,7 +87,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count($items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -109,7 +109,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo $state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo $state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
 </div>
 </form>

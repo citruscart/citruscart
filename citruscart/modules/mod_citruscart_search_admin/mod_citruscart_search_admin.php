@@ -34,6 +34,4 @@ if ( !class_exists('Citruscart') )
     JLoader::register( "Citruscart", JPATH_ADMINISTRATOR."/components/com_citruscart/defines.php" );
 }
 Citruscart::load( 'CitruscartSelect', 'library.select' );
-
-
 require JModuleHelper::getLayoutPath('mod_citruscart_search_admin', $params->get('layout', 'default'));

@@ -31,7 +31,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th>
-                	<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
+                	<!-- <?php //echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>-->
                 </th>
                 <th>
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.orderitem_id", $state->direction, $state->order ); ?>
@@ -122,8 +123,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<tfoot>
 			<tr>
 				<td colspan="20">
-					<div style="float: right; padding: 5px;"><?php echo $this->pagination->getResultsCounter(); ?></div>
-					<?php echo $this->pagination->getPagesLinks(); ?>
+					<div style="float: right; padding: 5px;">
+
+					<?php echo $this->pagination->getResultsCounter(); ?></div>
+					 <div class="pagination pagination-toolbar">
+						<?php echo $this->pagination->getPagesLinks(); ?>
+					</div>
 				</td>
 			</tr>
 		</tfoot>

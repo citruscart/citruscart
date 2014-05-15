@@ -25,14 +25,14 @@ input.Citruscart_search_admin_keyword {
 }
 </style>
 
-<form action="index.php?option=com_citruscart&view=dashboard&task=search" method="post">
+<form action="index.php?option=com_citruscart&view=dashboard&task=search" id="adminForm" method="post">
     <div class="mod_citruscart_search_admin<?php echo $class_suffix; ?>">
 		<!-- class="citruscart_search_admin_keyword  echo $class_suffix; -->
-        <input type="text" class="input-small" name="Citruscart_search_admin_keyword" value="" />
-        <?php echo CitruscartSelect::view( "", "Citruscart_search_admin_view",array("class"=>"input-small") ); ?>
-        <button type="submit" class="btn btn-primary" name="Citruscart_search_admin_submit" ><?php echo JText::_('COM_CITRUSCART_QUICK_SEARCH'); ?></button>
+        <input type="text" class="input-small" name="citruscart_search_admin_keyword" value="" />
+        <?php echo CitruscartSelect::view( "", "citruscart_search_admin_view",array("class"=>"input-small") ); ?>
+        <button type="submit" class="btn btn-primary" name="citruscart_search_admin_submit" ><?php echo JText::_('COM_CITRUSCART_QUICK_SEARCH'); ?></button>
         <?php if (empty($display_outside)) : ?>
-            <input type="hidden" class="input-mini" name="task" value="search" />
+            <input type="hidden" class="input-mini" id="task" name="task" value="search" />
         <?php endif; ?>
     </div>
 </form>

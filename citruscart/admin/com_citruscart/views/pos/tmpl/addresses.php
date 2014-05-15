@@ -64,7 +64,7 @@ defined('_JEXEC') or die('Restricted access');?>
         <thead>
             <tr>
                 <th style="width: 20px;">
-                    <input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $items ); ?>);" />
+                    <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th style="text-align: center;">
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_NAME', "tbl.address_name", $state->direction, $state->order ); ?>
