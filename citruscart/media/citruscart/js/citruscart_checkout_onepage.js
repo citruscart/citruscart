@@ -102,7 +102,11 @@ function citruscartHideBillingFields() {
 	$('billingToggle_show').set('class', 'hidden');
 
 	$('field-toggle').addEvent('change', function() {
-		$$('#billingDefaultAddress', '#billingToggle_show', '#billingToggle_hide').toggleClass('hidden');
+		///$$('#billingDefaultAddress', '#billingToggle_show', '#billingToggle_hide').toggleClass('hidden');
+		document.getElementById('billingDefaultAddress').toggleClass('hidden');
+		document.getElementById('billingToggle_show').toggleClass('hidden');
+		document.getElementById('billingToggle_hide').toggleClass('hidden');
+		
 	});
 }
 

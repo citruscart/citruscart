@@ -115,10 +115,8 @@ Dsc.formValidation = function( url, container, task, form, doModal, msg, onCompl
                 form.task.value = task;
                 form.submit();
             } else {
-            	if(document.getElementById(container)){
-            		
-            		document.getElementById(container).html(resp.msg);
-            		
+            	if(document.getElementById(container)){            		
+            		document.getElementById(container).html(resp.msg);            		
             	}
                 //if (document.id(container)) { document.id(container).set( 'html', resp.msg); }
             }
