@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 
 JHTML::_('behavior.modal');
 $doc = JFactory::getDocument();
-
-JHtml::_('script','media/citruscart/js/citruscart.js',false,false);
-JHtml::_('script','media/citruscart/js/citruscart_inventory_check.js',false,false);
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+$doc->addScript(JUri::root().'media/citruscart/js/common.js');
+$doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
 
 $state = $this->state;
 $item = $this->row;
@@ -102,7 +102,7 @@ $app = JFactory::getApplication();
         </div>
 
         <div id="product_image" class="dsc-wrap product_image">
-            <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true  ) ); ?>
+            <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
             <div>
 	            <?php
 				if ( isset( $item->product_full_image ) )
