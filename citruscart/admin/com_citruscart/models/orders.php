@@ -377,6 +377,7 @@ class CitruscartModelOrders extends CitruscartModelBase
                 $model->setState( 'order', 'tbl.date_added' );
                 $model->setState( 'direction', 'ASC' );
                 $item->orderhistory = $model->getList($refresh);
+
                 $item->link_view = 'index.php?option=com_citruscart&view=orders&task=view&id='.$item->order_id;
 
                 //retrieve the order's payments

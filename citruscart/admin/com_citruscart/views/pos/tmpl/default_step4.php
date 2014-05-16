@@ -1,5 +1,5 @@
 <?php defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_( 'behavior.modal' ); ?> 
+<?php JHTML::_( 'behavior.modal' ); ?>
 
 
 <?php $display_credits = Citruscart::getInstance()->get( 'display_credits', '0' ); ?>
@@ -38,9 +38,9 @@
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
       <div id="orderSummary">
-				<?php echo $this->orderSummary;?>				
+				<?php echo $this->orderSummary;?>
 			</div>
-            
+
       </div>
     </div>
   </div>
@@ -52,9 +52,9 @@
     </div>
     <div id="collapseThree" class="accordion-body collapse">
       <div class="accordion-inner">
-       
-		
-            
+
+
+
       </div>
     </div>
   </div>
@@ -112,8 +112,8 @@
 			</div>
 			<div class="reset">
 			</div>
-			
-		
+
+
 			<?php if(!empty($this->order->customer_note)):?>
 			<div id="shipping_comments">
 				<h3>
@@ -124,24 +124,26 @@
 			<?php endif; ?>
 			<?php }?>
 		    <div class="reset"></div>
-		    
-		    
+
+
 			<div class="continue">
-				<?php 
+				<?php
+
 				$link = JURI::root();
 				$link .= 'index.php?option=com_citruscart&amp;controller=checkout&amp;task=poscheckout';
-				$link .= '&amp;orderid=' . $this->order->order_id;
-				$link .= '&amp;userid='.$this->session->get('user_id', '', 'citruscart_pos');			
-				$link .= '&amp;posid='.$this->values['pos_id'];
-				$link .= '&amp;token='.$this->values['pos_token'];
+				$link .= '&amp;orderid=' . @$this->order->order_id;
+				$link .= '&amp;userid='.@$this->session->get('user_id', '', 'citruscart_pos');
+				$link .= '&amp;posid='.@$this->values['pos_id'];
+				$link .= '&amp;token='.@$this->values['pos_token'];
 				$link .= '&amp;tmpl=component';
+
 				?>
 				<a id="modalWindowPayment" rel="{handler:'iframe',size:{x: window.innerWidth-400, y: window.innerHeight-200}, onShow:$('sbox-window').setStyles({'padding': 0})}" href="<?php echo $link;?>" class="modal">
-					<button><?php echo JText::_('COM_CITRUSCART_CLICK_TO_COMPLETE_ORDER');?></button>					
+					<button><?php echo JText::_('COM_CITRUSCART_CLICK_TO_COMPLETE_ORDER');?></button>
 				</a>
 			</div>
-		
-            
+
+
       </div>
     </div>
   </div>
@@ -150,9 +152,9 @@
 <input type="hidden" name="nextstep" id="nextstep" value="step5" />
 
 <script type="text/javascript" >
-	 window.addEvent('domready', function() {	 	
+	 window.addEvent('domready', function() {
 	 	window.addEvent('load', function(){
 	 		 SqueezeBox.fromElement($('modalWindowPayment'));
-	 	});	 
+	 	});
 	 });
 </script>

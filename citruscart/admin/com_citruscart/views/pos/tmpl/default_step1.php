@@ -86,16 +86,9 @@ defined('_JEXEC') or die('Restricted access'); ?>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-            <div class="continue">
-                <?php $onclick = "CitruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveStep1', document.adminForm, true, '".JText::_('COM_CITRUSCART_VALIDATING')."' );"; ?>
-                <input onclick="<?php echo $onclick; ?>" value="<?php echo JText::_('COM_CITRUSCART_CONTINUE_STEP1'); ?>" type="button" class="button btn btn-success" />
+	<div class="continue">
+        <?php $onclick = "citruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveStep1', document.adminForm, true, '".JText::_('COM_CITRUSCART_VALIDATING')."' );"; ?>
+               <input onclick="<?php echo $onclick; ?>" value="<?php echo JText::_('COM_CITRUSCART_CONTINUE_STEP1'); ?>" type="button" class="button btn btn-success" />
             </div>
         </div>
 

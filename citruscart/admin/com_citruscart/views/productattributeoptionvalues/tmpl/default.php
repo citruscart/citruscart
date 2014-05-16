@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -16,19 +16,17 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $items = $this->items; ?>
 <?php $row = $this->row; ?>
 <?php $app = JFactory::getApplication(); ?>
-                            
+
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SET_VALUES_FOR'); ?>: <?php echo $row->productattributeoption_name; ?></h1>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
 
 	<div class="note" style="width: 96%; margin-left: auto; margin-right: auto;">
-	
-	    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION_VALUE'); ?></div>
-
+		<h5><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION_VALUE'); ?></h5>
 	    <div class="reset"></div>
-	    
+
                 <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -37,7 +35,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                      <th><?php echo JText::_('COM_CITRUSCART_OPERATOR'); ?></th>
                     <th><?php echo JText::_('COM_CITRUSCART_VALUE'); ?></th>
                     <th></th>
-                    
+
                 </tr>
                 </thead>
                 <tbody>
@@ -60,7 +58,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </tr>
                 </tbody>
                 </table>
-                
+
 	</div>
 
 <div class="note_green" style="width: 96%; margin-left: auto; margin-right: auto;">
@@ -69,7 +67,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
         <button class="btn btn-success" onclick="document.getElementById('task').value='saveattributeoptionvalues'; document.adminForm.toggle.checked=true; checkAll(<?php echo count( @$items ); ?>); document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_SAVE_ALL_CHANGES'); ?></button>
     </div>
     <div class="reset"></div>
-        
+
 	<table class="table table-striped table-bordered" style="clear: both;">
 		<thead>
             <tr>
@@ -107,14 +105,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </td>
 				<td style="text-align: center;">
 					[<a href="index.php?option=com_citruscart&controller=productattributeoptionvalues&task=delete&cid[]=<?php echo $item->productattributeoptionvalue_id; ?>&return=<?php echo base64_encode("index.php?option=com_citruscart&controller=products&task=setattributeoptionvalues&id={$row->productattributeoption_id}&tmpl=component"); ?>">
-						<?php echo JText::_('COM_CITRUSCART_DELETE_VALUE'); ?>	
+						<?php echo JText::_('COM_CITRUSCART_DELETE_VALUE'); ?>
 					</a>
 					]
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count($items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -139,7 +137,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo $state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo $state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
-	
+
 </form>

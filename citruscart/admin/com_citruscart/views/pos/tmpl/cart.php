@@ -84,10 +84,10 @@ defined('_JEXEC') or die('Restricted access');?>
 			<?php endforeach;?>
 			<tr>
 				<td colspan="3" style="border-bottom: 1px solid #E5E5E5; text-align: left;">
-				<input type="submit" class="btn btn-danger" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED');?>" onclick="CitruscartSubmitForm('removeItems')" name="remove" />
+				<input type="submit" class="btn btn-danger" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED');?>" onclick="citruscartSubmitForm('removeItems')" name="remove" />
 				</td>
 				<td colspan="2" style="border-bottom: 1px solid #E5E5E5; ">
-				<input style="float: right;" type="submit" class="button btn btn-primary" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES');?>" onclick="CitruscartSubmitForm('updateQty')" name="update" />
+				<input style="float: right;" type="submit" class="button btn btn-primary" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES');?>" onclick="citruscartSubmitForm('updateQty')" name="update" />
 
 				</td>
 			</tr>

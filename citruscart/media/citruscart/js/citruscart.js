@@ -651,7 +651,14 @@ function citruscartValidation(url, container, task, form, doModal, msg) {
 					document.getElementById(container).set('html', resp.msg);
 				}
 			}
-			if (doModal != false) { (function() { document.body.removeChild(citruscartJQ('dscModal')); }).delay(500); }
+			if (doModal != false) { (function() { 
+				console.log(citruscartJQ('dscModal'));
+				//document.body.removeChild(citruscartJQ('dscModal')); }).delay(500);
+				var b = document.body(citruscartJQ('dscModal'));
+				b.removeChild();
+				
+			}).delay(500);
+			}
 			if (resp.error != '1') {
 				form.task.value = task;
 				form.submit();
@@ -843,6 +850,9 @@ function citruscartRefreshCartTotalAmountDue() {
  * @param suffix Suffix of the AJAX loader gif (in case it's empty '_transp' is used)
  */
 function citruscartPutAjaxLoader(container, text, suffix) {
+	
+	console.log(container);
+	
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 

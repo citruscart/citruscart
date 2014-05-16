@@ -116,7 +116,7 @@ Dsc.formValidation = function( url, container, task, form, doModal, msg, onCompl
                 form.submit();
             } else {
             	if(document.getElementById(container)){            		
-            		document.getElementById(container).html(resp.msg);            		
+            		document.getElementById(container).set('html',resp.msg);            		
             	}
                 //if (document.id(container)) { document.id(container).set( 'html', resp.msg); }
             }
@@ -240,7 +240,7 @@ Dsc.doTask = function( url, container, form, msg, doModal, onCompleteFunction )
                 var resp = JSON.decode(response, false);
                 //if (document.id(container)) { document.id(container).set( 'html', resp.msg); }
                 if(document.getElementById(container)){
-                	document.getElementById(container).html(resp.msg);
+                	document.getElementById(container).set('html',resp.msg);
                 }
                 if (doModal != false) { (function() { document.body.removeChild( document.getElementById('dscModal') ); }).delay(500); }
                 if (typeof onCompleteFunction == 'function') {
@@ -260,8 +260,7 @@ Dsc.doTask = function( url, container, form, msg, doModal, onCompleteFunction )
 	                var resp = JSON.decode(response, false);
 	                //if (document.id(container)) { document.id(container).set( 'html', resp.msg); }
 	                if(document.getElementById(container)){
-	                	
-	                	document.getElementById(container).html(resp.msg);
+	                   	document.getElementById(container).set('html' ,resp.msg);
 	                }
 	                if (doModal != false) { (function() { document.body.removeChild( document.getElementById('dscModal') ); }).delay(500); }
 	                if (typeof onCompleteFunction == 'function') {

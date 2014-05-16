@@ -184,11 +184,11 @@ defined('_JEXEC') or die('Restricted access');?>
 				<?php endif;?>
 			<div class="continue">
 				<?php if (empty($this->billingAddress)): ?>
-					<?php $onclick = "CitruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveAddress', document.adminForm, true, '" . JText::_('COM_CITRUSCART_VALIDATING') . "' );";?>
+					<?php $onclick = "citruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveAddress', document.adminForm, true, '" . JText::_('COM_CITRUSCART_VALIDATING') . "' );";?>
 					<input onclick="<?php echo $onclick;?>" value="<?php echo JText::_('COM_CITRUSCART_CONTINUE_STEP3');?>" type="button" class="button btn btn-success" />
 				<?php else:?>
 					<?php $subtask = $this->subtask == 'shipping' ? 'saveShipping' : 'display';?>
-                	<?php $onclick = "CitruscartValidation( '" . $this->validation_url . "', 'validation_message', '" . $subtask . "', document.adminForm, true, '" . JText::_('COM_CITRUSCART_VALIDATING') . "' );";?>
+                	<?php $onclick = "citruscartValidation( '" . $this->validation_url . "', 'validation_message', '" . $subtask . "', document.adminForm, true, '" . JText::_('COM_CITRUSCART_VALIDATING') . "' );";?>
                 	<input onclick="<?php echo $onclick;?>" value="<?php echo JText::_('COM_CITRUSCART_CONTINUE_STEP3');?>" type="button" class="button btn btn-success" />
 				<?php endif;?>
             </div>
