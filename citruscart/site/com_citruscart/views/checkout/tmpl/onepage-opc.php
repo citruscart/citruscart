@@ -12,8 +12,6 @@
 	defined('_JEXEC') or die('Restricted access');
 	JHTML::_('behavior.modal');
 
-
-
 	//JHTML::_('behavior.framework' );
 	$doc = JFactory::getDocument();
 	$doc->addStyleSheet(JUri::root().'media/citruscart/css/citruscart_checkout_onepage.css');
@@ -68,6 +66,8 @@
 		</a> "]
 	</div>
 <?php endif; ?>
+
+<?php $form['action'] = 'index.php?option=com_citruscart&view=checkout'; ?>
 
 <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" id="adminForm" name="adminForm" enctype="multipart/form-data">
 

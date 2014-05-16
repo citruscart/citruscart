@@ -55,6 +55,8 @@
 	</div>
 <?php endif; ?>
 
+<?php $form['action'] = 'index.php?option=com_citruscart&view=checkout'; ?>
+
 <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
 
 <div class="floatbox">
@@ -113,7 +115,7 @@
 	                	);
 
 	                	// display select list of stored addresses
-	                	echo CitruscartSelect::address( $this->user->id, $this->billing_address->address_id, 'billing_address_id', 1, $billattribs, 'billing_address_id', false, true );
+	                	echo CitruscartSelect::address( $this->user->id, isset($this->billing_address->address_id) ? $this->billing_address->address_id : "", 'billing_address_id', 1, $billattribs, 'billing_address_id', false, true );
 	           		?>
 
 						<div id="billingDefaultAddress">

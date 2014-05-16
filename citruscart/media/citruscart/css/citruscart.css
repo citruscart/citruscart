@@ -43,7 +43,8 @@ div#citruscart_products div.product_thumb{float:left;margin:0 5px 5px 0;min-widt
 div#citruscart_products div.product_buy{max-width:25%;}
 div#product_quantity_input span.title{font-weight:bold;vertical-align:middle;}
 div#product_attributeoptions{text-align:right;}
-div#citruscart_product_header{border-bottom:1px solid #cccccc;margin-bottom:20px;padding:5px;}
+div#citruscart_product_header h2{border-bottom:1px solid #cccccc; margin-bottom:10px; padding:5px;}
+div#citruscart_product_header{margin-bottom:10px;padding:5px;}
 div.product_listimage img{max-width:96px;}
 div.pao{padding-bottom:2px;}
 div.product_image{float:left;text-align:center;}

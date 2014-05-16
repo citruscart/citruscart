@@ -17,30 +17,44 @@ $display_gp = Citruscart::getInstance( )->get( 'display_google_plus1', '1' );
 ?>
 
 <?php if ( $display_fb || $display_tw || $display_gp ) : ?>
-<div class="product_like">
-	<?php if ( $display_fb ) : ?>
-	<div class="product_facebook_like">
-		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-		<fb:like show_faces="false" width="375"></fb:like>
-	</div>
-	<?php endif; ?>
-
-	<div class="product_share_buttons">
-	<?php if ( $display_tw ) : ?>
-		<div class="product_tweet">
-			<a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>" data-count="horizontal">Tweet</a>
-			<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<div>
+	
+	<!-- social buttons unorder list starts -->
+	<ul class="unstyled pull-left">
+	    
+	    <!-- facebook like button list starts -->
+		<li>
+	
+			<?php if ( $display_fb ) : ?>
+			<div>
+				<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+				<fb:like show_faces="false" width="375"></fb:like>
+			</div>
+			<?php endif; ?>
+			
+		</li><!-- facebook like button list ends -->
+        
+        <!-- twitter share button list starts -->
+        <li style="margin-top:5px;">
+		<div>
+		<?php if ( $display_tw ) : ?>
+			<div class="product_tweet">
+				<a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>" data-count="horizontal">Tweet</a>
+				<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			</div>
+		<?php endif; ?>
+			
+		<?php if ( $display_gp ) : ?>
+		<?php $google_plus1_size = Citruscart::getInstance( )->get( 'display_google_plus1_size', 'medium' ); ?>
+			<div class="product_google_plus1">
+				<g:plusone <?php if( strlen( $google_plus1_size ) ) echo 'size="'.$google_plus1_size.'"' ?>></g:plusone>
+				<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+			</div>
+		<?php endif; ?>
 		</div>
-	<?php endif; ?>
-
-	<?php if ( $display_gp ) : ?>
-	<?php $google_plus1_size = Citruscart::getInstance( )->get( 'display_google_plus1_size', 'medium' ); ?>
-		<div class="product_google_plus1">
-			<g:plusone <?php if( strlen( $google_plus1_size ) ) echo 'size="'.$google_plus1_size.'"' ?>></g:plusone>
-			<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-		</div>
-	<?php endif; ?>
-	</div>
+		</li><!-- twitter share button list ends -->
+		</ul>
+		
 <div class="reset"></div>
 </div>
 <?php endif; ?>
