@@ -14,18 +14,17 @@ defined('_JEXEC') or die('Restricted access');
 
 JHTML::_('behavior.modal');
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
-$doc->addScript(JUri::root().'media/citruscart/js/common.js');
-$doc->addScript(JUri::root().'media/citruscart/js/citruscart_inventory_check.js');
-
+JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
+<?php JHtml::_('script', 'media/citruscart/js/common.js', false, false); ?>
+<?php JHtml::_('script', 'media/citruscart/js/citruscart_inventory_check.js', false, false); ?>
+<?php 
 $state = $this->state;
 $item = $this->row;
 
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
-$product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'thumb', false, false, array(), true );
+$product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'full', false, false, array(), true );
 
 $app = JFactory::getApplication();
-
 ?>
 
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
@@ -35,7 +34,7 @@ $app = JFactory::getApplication();
             <?php echo CitruscartHelperCategory::getPathName( $this->cat->category_id, 'links', true ); ?>
         </div>
     <?php endif; ?>
-
+   
     <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
         <div class="pagination">
             <ul id='citruscart_product_navigation'>
@@ -69,19 +68,8 @@ $app = JFactory::getApplication();
             <h2 class="product_name">
                 <?php echo htmlspecialchars_decode( $item->product_name ); ?>
             </h2>
-
-            <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>
-
-            <?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
-            <div class="dsc-wrap product_rating">
-                <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
-                <?php if ( !empty( $item->product_comments ) ) : ?>
-                <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
-                <?php endif; ?>
-            </div>
-            <?php } ?>
-
-            <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
+        
+            <!-- <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
             <div class="dsc-wrap product_numbers">
                 <?php if ( !empty( $item->product_model ) ) : ?>
                     <span class="model">
@@ -98,10 +86,12 @@ $app = JFactory::getApplication();
                 <?php endif; ?>
             </div>
             <?php endif; ?>
+            -->
 
         </div>
 
         <div id="product_image" class="dsc-wrap product_image">
+        
             <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
             <div>
 	            <?php
@@ -115,13 +105,58 @@ $app = JFactory::getApplication();
 				?>
             </div>
         </div>
+        
+        <div class="pull-right">
+        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
+            <div id='citruscart_product_header'>
+                
+                <?php if ( !empty( $item->product_model ) ) : ?>
+                    <span class="model">
+                        <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
+                        <?php echo $item->product_model; ?>
+                    </span>
+                <?php endif; ?>
 
+                <?php if ( !empty( $item->product_sku ) ) : ?>
+                    <span class="sku">
+                        <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
+                        <?php echo $item->product_sku; ?>
+                    </span>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+        </div>
+                
         <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
             <div class="dsc-wrap product_buy" id="product_buy_<?php echo $item->product_id; ?>">
                 <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
             </div>
         <?php endif; ?>
-
+        
+        <div style="width:120px;">
+        <!-- unorder list starts -->
+        <ul class="unstyled">       
+	       <!-- list starts -->
+	       <li>
+	        <?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
+	            <div class="dsc-wrap">
+	              <div class="pull-left">
+	                <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
+	                <?php if ( !empty( $item->product_comments ) ) : ?>
+	                <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
+	                <?php endif; ?>
+	               </div>
+	            </div>
+	        <?php } ?> 
+	        
+	        </li> 
+	        <li>                       
+	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>      
+	        </li>
+	        
+        </ul><!-- unorder list ends -->
+        </div> 
+         
         <?php if ( $this->defines->get( 'ask_question_enable', '1' ) ) : ?>
         <div id="product_questions" class="dsc-wrap dsc-clear">
             <?php

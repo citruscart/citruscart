@@ -22,7 +22,7 @@ $app = JFactory::getApplication();
 
 //j3 compatibility
 if(!defined('DS')){
-	define('DS','DIRECTORY_SEPARATOR');
+	define('DS','/');
 }
 require_once(JPATH_SITE.'/libraries/dioscouri/loader.php');
 

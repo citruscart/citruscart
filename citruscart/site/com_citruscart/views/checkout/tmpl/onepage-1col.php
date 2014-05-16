@@ -54,6 +54,8 @@
 	</div>
 <?php endif; ?>
 
+<?php $form['action'] = 'index.php?option=com_citruscart&view=checkout'; ?>
+
 <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" name="adminForm" enctype="multipart/form-data">
 
 <div class="floatbox">

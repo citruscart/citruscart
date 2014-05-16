@@ -13,7 +13,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 require_once JPATH_SITE .'/libraries/dioscouri/library/element/media.php';
-
 ?>
 <?php
 $form = $this->form;

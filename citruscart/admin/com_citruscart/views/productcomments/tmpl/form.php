@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $form = $this->form; ?>
 <?php $row = $this->row;
-;
+
 
 JFilterOutput::objectHTMLSafe( $row );
 Citruscart::load( 'CitruscartHelperManufacturer', 'helpers.manufacturer' );

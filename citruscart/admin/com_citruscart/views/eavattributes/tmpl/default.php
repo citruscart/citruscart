@@ -34,9 +34,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
                 <th>
-                	<!--<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
-                	-->
-                	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
+                   	<?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 </th>
                 <th>
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.eavattribute_id", $state->direction, $state->order ); ?>
