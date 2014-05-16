@@ -341,15 +341,23 @@ if ( !class_exists( 'CitruscartShippingPlugin' ) )
 				$this->shopAddress->city = $config->get( 'shop_city' );
 				$this->shopAddress->country = $config->get( 'shop_country' );
 
-				$this->includeCitruscartTables( );
+				$this->includeCitruscartTables();
+
+				JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
+
 				$table = JTable::getInstance( 'Countries', 'CitruscartTable' );
+
 				$table->load( $this->shopAddress->country );
+
 				$this->shopAddress->country_isocode_2 = $table->country_isocode_2;
 
 				$this->shopAddress->zone = $config->get( 'shop_zone' );
 
+
 				$table = JTable::getInstance( 'Zones', 'CitruscartTable' );
+
 				$table->load( $this->shopAddress->zone );
+
 				$this->shopAddress->zone_code = $table->code;
 
 				$this->shopAddress->zip = $config->get( 'shop_zip' );

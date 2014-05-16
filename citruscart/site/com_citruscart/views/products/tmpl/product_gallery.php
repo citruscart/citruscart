@@ -13,6 +13,9 @@
 defined('_JEXEC') or die('Restricted access');
 
 $gallery_data = $this->gallery_data;
+?>
+
+<?php
 if ( $gallery_data->show_gallery )
 {
 	?>
@@ -33,7 +36,7 @@ if ( $gallery_data->show_gallery )
     	<div class="dsc-wrap product_gallery_thumb" id="product_gallery_thumb_<?php echo $i;?>">
 
     	<?php
-    		echo CitruscartUrl::popup( $gallery_data->uri . $image, '<img src="' . $src . '" alt="' . $gallery_data->product_name . '" />', array( 'update' => false, 'img' => true ) ); ?>
+    		echo CitruscartUrl::popup( $gallery_data->uri . $image, '<img class="mouseoverzoom"  style="width : 467 height:700; " src="' . $src . '" alt="' . $gallery_data->product_name . '" />', array( 'update' => false, 'img' => true ) ); ?>
     	</div>
     	<?php
     	$i++;

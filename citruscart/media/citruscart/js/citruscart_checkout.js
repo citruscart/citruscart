@@ -168,7 +168,7 @@ function citruscartDisableShippingAddressControls(checkbox, form)
 
 function citruscartManageShippingRates()
 {
-	citruscartJQ('shipping_form_div').getElements('input[name=shipping_rate]').addEvent('click', function() {
+	citruscartJQ('shipping_form_div').getElementsByTagName('input[name=shipping_rate]').addEvent('click', function() {
 		citruscartGetCheckoutTotals();
 	}
 	);
@@ -176,16 +176,22 @@ function citruscartManageShippingRates()
 
 function citruscartDeleteAddressGrayDiv()
 {
-	el_billing = $$( '#billingAddress .citruscartAjaxGrayDiv' );
+	el_billing =document.getElementById('billingAddress').getElementsByClassName('citruscartAjaxGrayDiv');
+	
+	//$$( '#billingAddress .citruscartAjaxGrayDiv' );
+	
 	if( !el_billing )
 		return;
 	citruscartSetColorInContainer( 'billingAddress', '' );
-	el_billing.destroy();
+	el_billing.remove();
+	//el_billing.destroy();
 	
 	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
 	{
 		citruscartSetColorInContainer( 'shippingAddress', '' );
-		$$( '#shippingAddress .citruscartAjaxGrayDiv' ).destroy();		
+		//document.getElementById('shippingAddress').getElementsByClassName('citruscartAjaxGrayDiv').destroy();
+		document.getElementById('shippingAddress').getElementsByClassName('citruscartAjaxGrayDiv').remove();
+		//$$( '#shippingAddress .citruscartAjaxGrayDiv' ).destroy();		
 	}
 }
 
@@ -197,7 +203,8 @@ function citruscartDeletePaymentGrayDiv()
 
 function citruscartDeleteTotalAmountDueGrayDiv()
 {
-	el = $$( '#payment_info .citruscartAjaxGrayDiv' );
+	//el = $$( '#payment_info .citruscartAjaxGrayDiv' );
+	el = document.getElementById('payment_info').getElementsByClassName('citruscartAjaxGrayDiv');
 	if( el != '' )
 		el.destroy();
 	
@@ -209,7 +216,8 @@ function citruscartDeleteShippingGrayDiv()
 	if( citruscartJQ( 'onCheckoutShipping_wrapper' ) == null )
 		return;
 
-	el = $$( '#onCheckoutShipping_wrapper .citruscartAjaxGrayDiv' );
+	//el = $$( '#onCheckoutShipping_wrapper .citruscartAjaxGrayDiv' );
+	el = document.getElementById('onCheckoutShipping_wrapper').getElementsByClassName('citruscartAjaxGrayDiv');
 	if( el != '' )
 		el.destroy();
 
@@ -222,7 +230,8 @@ function citruscartDeleteShippingGrayDiv()
 		if( citruscartJQ( 'shipping_name' ) )
 		{
 			shipping_plugin = citruscartJQ( 'shipping_name' ).get( 'value' );
-			$$( '#onCheckoutShipping_wrapper input[type=radio]' ).each( function( e ){
+			document.getElementById('onCheckoutShipping_wrapper').getElements('input[type=radio]').each(function(e){
+			//$$( '#onCheckoutShipping_wrapper input[type=radio]' ).each( function( e ){
 				if( e.get( 'rel' ) == shipping_plugin )
 					e.set( 'checked', true );
 			} );			
@@ -458,7 +467,8 @@ function citruscartHideInfoCreateAccount( )
 }
 
 function citruscartGetPaymentOptions(container, form, msg, callback) {
-    var payment_plugin = $$('input[name=payment_plugin]:checked');
+    //var payment_plugin = $$('input[name=payment_plugin]:checked');
+    var payment_pugin = document.getElementsByTagName('input[name=payment_plugin]:checked');
 
     if (payment_plugin) {
         payment_plugin = payment_plugin.value;
@@ -498,7 +508,8 @@ function citruscartGetPaymentOptions(container, form, msg, callback) {
     }).send();  
 
     if (payment_plugin) {
-        $$('#onCheckoutPayment_wrapper input[name=payment_plugin]').each(function(e) {
+    	document.getElementById("#onCheckoutPayment_wrapper").getElementsByTagName("input[name=payment_plugin]").each(function(e){
+        //$$('#onCheckoutPayment_wrapper input[name=payment_plugin]').each(function(e) {
             if (e.get('value') == payment_plugin)
                 e.set('checked', true);
         });

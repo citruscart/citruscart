@@ -160,8 +160,8 @@ class CitruscartModelCarts extends CitruscartModelEav
 		{
 			JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
 			$items = parent::getList($refresh);
-            		
-			
+
+
 			// If no item in the list, return an array()
 			if( empty( $items ) ){
 				return array();
@@ -234,7 +234,8 @@ class CitruscartModelCarts extends CitruscartModelEav
 							$item->product_price = $item->product_price + floatval( "$table->productattributeoption_prefix"."$table->productattributeoption_price");
 							// store the attribute's price impact
 							$item->orderitem_attributes_price = $item->orderitem_attributes_price + floatval( "$table->productattributeoption_prefix"."$table->productattributeoption_price");
-							$item->product_price_override->override = true;
+							//$item->product_price_override->override = true;
+							$item->product_price_override = true;
 						}
 						// only if prefix is =
 						else

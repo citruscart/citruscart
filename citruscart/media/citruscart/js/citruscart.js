@@ -751,7 +751,8 @@ function citruscartAddCoupon(form, mult_enabled) {
 				}
 			}
 
-			el = $$('#coupon_code_area .citruscartAjaxGrayDiv');
+			//el = $$('#coupon_code_area .citruscartAjaxGrayDiv');
+			el = document.getElementById("coupon_code_area").getElementsByClassName("citruscartAjaxGrayDiv");
 			if (el != '')
 				el.destroy();
 			citruscartSetColorInContainer('coupon_code_area', '');
