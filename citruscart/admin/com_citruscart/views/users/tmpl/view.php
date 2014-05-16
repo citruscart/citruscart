@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -49,7 +49,7 @@ if( $name == ' ' ) {
 			<fieldset>
 				<legend><?php echo JText::_('COM_CITRUSCART_BASIC_USER_INFO'); ?></legend>
 				<div id="citruscart_header">
-					<table class="table table-striped table-bordered">					
+					<table class="table table-striped table-bordered">
 						<tr>
 							<td  align="right" class="key">
 		                        <label for="name">
@@ -57,15 +57,15 @@ if( $name == ' ' ) {
 		                        </label>
 	                    	</td>
 	                    	<td style="width:120px;">
-	                        	<div class="name"><?php echo $row->username; ?></div>          
+	                        	<div class="name"><?php echo $row->username; ?></div>
 	                    	</td>
-	                    	<td  align="right" class="key">	
+	                    	<td  align="right" class="key">
 		                        <label for="registerDate">
 		                        	<?php echo JText::_('COM_CITRUSCART_REGISTERED'); ?>:
 		                        </label>
 		                    </td>
 		                    <td>
-		                        <div class="registerDate"><?php echo JHTML::_('date', $row->registerDate, $this->defines->get('date_format')); ?></div>         
+		                        <div class="registerDate"><?php echo JHTML::_('date', $row->registerDate, $this->defines->get('date_format')); ?></div>
 		                    </td>
 		                    <td rowspan="3" align="center" valign="top">
 		                    	<div style="padding:0px; margin-bottom:5px;width:auto;">
@@ -83,9 +83,9 @@ if( $name == ' ' ) {
 
 										$url .= $row->id;
 										$text = '<button class="btn btn-primary" >'.JText::_('COM_CITRUSCART_EDIT_USER').'</button>';
-								?>		                        
+								?>
 		                        <div ><?php echo CitruscartUrl::popup( $url, $text, array('update' => true) ); ?></div>
-		                    </td>  
+		                    </td>
 						</tr>
 						<tr>
 							<td align="right" class="key" key">
@@ -94,15 +94,15 @@ if( $name == ' ' ) {
 		                        </label>
 	                    	</td>
 	                    	<td>
-	                        	<div class="name"><?php echo $row->email; ?></div>          
-	                    	</td>  
+	                        	<div class="name"><?php echo $row->email; ?></div>
+	                    	</td>
 	                    	<td align="right" class="key">
 		                        <label for="lastvisitDate">
 		                        	<?php echo JText::_('COM_CITRUSCART_LAST_VISITED'); ?>:
 		                        </label>
 		                    </td>
 		                    <td>
-		                        <div class="lastvisitDate"><?php echo JHTML::_('date', $row->lastvisitDate, $this->defines->get('date_format')); ?></div>           
+		                        <div class="lastvisitDate"><?php echo JHTML::_('date', $row->lastvisitDate, $this->defines->get('date_format')); ?></div>
 		                    </td>
 						</tr>
 						<tr>
@@ -112,7 +112,7 @@ if( $name == ' ' ) {
 		                        </label>
 		                    </td>
 		                    <td>
-		                        <div class="id"><?php echo $row->id; ?></div>          
+		                        <div class="id"><?php echo $row->id; ?></div>
 		                    </td>
 		                    <td align="right" class="key" style="width:85px;">
 		                        <label for="group_name">
@@ -120,7 +120,7 @@ if( $name == ' ' ) {
 		                        </label>
 		                    </td>
 		                    <td>
-		                      	<div class="id"><?php echo $row->group_name; ?></div>		                      	
+		                      	<div class="id"><?php echo $row->group_name; ?></div>
 		                    </td>
 						</tr>
 						<?php if( $this->defines->get( 'display_subnum', 0 ) ) :?>
@@ -134,7 +134,7 @@ if( $name == ' ' ) {
 		                        <div class="sub_number"><input name="sub_number" id="sub_number" value="<?php echo $row->sub_number; ?>" /></div>
 		                    </td>
 	                    	<td >
-	                    			<button name="submit_number" id="submit_number" onclick="CitruscartSubmitForm('change_subnum')"><?php echo JText::_('COM_CITRUSCART_CHANGE_SUB_NUM'); ?></button>
+	                    			<button name="submit_number" id="submit_number" onclick="citruscartSubmitForm('change_subnum')"><?php echo JText::_('COM_CITRUSCART_CHANGE_SUB_NUM'); ?></button>
 		                    </td>
 		                    <td></td>
 						</tr>
@@ -185,7 +185,7 @@ if( $name == ' ' ) {
 			    </div>
 			  </div>
 			</div>
-			
+
 			<div class="accordion" id="accordion2">
 			  <div class="accordion-group">
 			    <div class="accordion-heading">
@@ -227,7 +227,7 @@ if( $name == ' ' ) {
 										</a>
 									</td>
 									<td style="text-align:right;">
-										<?php echo CitruscartHelperBase::currency($order->order_total); ?>										
+										<?php echo CitruscartHelperBase::currency($order->order_total); ?>
 									</td>
 								</tr>
 								<?php if ($i==4) break;?>
@@ -245,9 +245,9 @@ if( $name == ' ' ) {
 			    </div>
 			  </div>
 			</div>
-			
+
 		</td>
-		<td width="50%" valign="top">					
+		<td width="50%" valign="top">
 			<div class="accordion" id="accordion3">
 			  <div class="accordion-group">
 			    <div class="accordion-heading">
@@ -271,7 +271,7 @@ if( $name == ' ' ) {
 								</th>
 								<th style="text-align: center;  width: 200px;">
 									<?php echo JText::_('COM_CITRUSCART_EXPIRES'); ?>
-								</th>								
+								</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -293,30 +293,30 @@ if( $name == ' ' ) {
 									</td>
 									<td style="text-align:center;">
 										<a href="	index.php?option=com_citruscart&view=subscriptions&task=view&id=<?php echo $sub->subscription_id; ?>" >
-											<?php echo $sub->order_id; ?>										
+											<?php echo $sub->order_id; ?>
 										</a>
-									</td>									
+									</td>
 									<td style="text-align:center;">
-										<a href="	index.php?option=com_citruscart&view=subscriptions&task=view&id=<?php echo $sub->subscription_id; ?>" >											
+										<a href="	index.php?option=com_citruscart&view=subscriptions&task=view&id=<?php echo $sub->subscription_id; ?>" >
 											<?php if($sub->subscription_lifetime == 1)
 												{
-													 echo JText::_('COM_CITRUSCART_LIFETIME'); 
+													 echo JText::_('COM_CITRUSCART_LIFETIME');
 												}
-											?>											
+											?>
 											<?php echo JHTML::_('date', $sub->expires_datetime, $this->defines->get('date_format')); ?>
 										</a>
-									</td>				
+									</td>
 								</tr>
 							<?php ++$i; ?>
 							<?php endforeach; ?>
-							
+
 							<?php if (!count($subs)) : ?>
 								<tr>
 									<td colspan="10" align="center"><?php echo JText::_('COM_CITRUSCART_NO_ITEMS_FOUND'); ?>
 									</td>
 								</tr>
 							<?php endif; ?>
-							
+
 						</tbody>
 					</table>
 			      </div>
@@ -371,13 +371,13 @@ if( $name == ' ' ) {
 										</a>
 									</td>
 									<td style="text-align:right;">
-										<?php echo CitruscartHelperBase::currency($cart->product_price); ?>										
+										<?php echo CitruscartHelperBase::currency($cart->product_price); ?>
 									</td>
 									<td style="text-align:center;">
 										<?php echo $cart->product_qty;?>
 									</td>
 									<td style="text-align:right;">
-										<?php echo CitruscartHelperBase::currency($cart->total_price); ?>									
+										<?php echo CitruscartHelperBase::currency($cart->total_price); ?>
 									</td>
 								</tr>
 							<?php ++$i; ?>
@@ -405,7 +405,7 @@ if( $name == ' ' ) {
 									<?php echo JText::_('COM_CITRUSCART_TOTAL'); ?>
 								</th>
 								<th style="width: 150px; text-align: right;">
-									<?php echo CitruscartHelperBase::currency($total_cart); ?>	
+									<?php echo CitruscartHelperBase::currency($total_cart); ?>
 								</th>
 							</tr>
 						</thead>
@@ -414,7 +414,7 @@ if( $name == ' ' ) {
 				</div>
 			</div>
 		</div>
-				
+
 			<div class="accordion" id="accordion5">
 			  <div class="accordion-group">
 			    <div class="accordion-heading">
@@ -435,9 +435,9 @@ if( $name == ' ' ) {
 								</th>
 								<th style="width: 200px;">
 									<?php echo JText::_('COM_CITRUSCART_USER_RATING'); ?>
-								</th>													
+								</th>
 							</tr>
-						</thead>		
+						</thead>
 						<tfoot>
 							<tr>
 								<td colspan="20"></td>
@@ -467,7 +467,7 @@ if( $name == ' ' ) {
 									</td>
 								</tr>
 							<?php endif; ?>
-						</tbody>	
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -478,14 +478,14 @@ if( $name == ' ' ) {
 </table>
 <table style="width: 100%;">
 	<tr>
-		<td style="width: 70%; max-width: 70%; vertical-align: top; padding: 0px 5px 0px 5px;">		
+		<td style="width: 70%; max-width: 70%; vertical-align: top; padding: 0px 5px 0px 5px;">
 			<?php
             $modules = JModuleHelper::getModules("citruscart_user_main");
-            $document   = JFactory::getDocument();	
+            $document   = JFactory::getDocument();
             $renderer   = $document->loadRenderer('module');
             $attribs    = array();
-            $attribs['style'] = 'xhtml';	
-            foreach ( $modules as $mod ) 
+            $attribs['style'] = 'xhtml';
+            foreach ( $modules as $mod )
             {
                 echo $renderer->render($mod, $attribs);
             }
@@ -496,16 +496,16 @@ if( $name == ' ' ) {
             $modules = JModuleHelper::getModules("citruscart_user_right");
             $attribs    = array();
             $attribs['style'] = 'xhtml';
-            foreach ( $modules as $mod ) 
+            foreach ( $modules as $mod )
             {
                 echo $renderer->render($mod, $attribs);
             }
-            ?> 
+            ?>
 		</td>
 	</tr>
 </table>
 	<input type="hidden" name="prev" value="<?php echo intval($surrounding["prev"]); ?>" />
-    <input type="hidden" name="next" value="<?php echo intval($surrounding["next"]); ?>" /> 
+    <input type="hidden" name="next" value="<?php echo intval($surrounding["next"]); ?>" />
     <input type="hidden" name="id" value="<?php echo $row->id; ?>" />
     <input type="hidden" name="task" value="" />
 </form>

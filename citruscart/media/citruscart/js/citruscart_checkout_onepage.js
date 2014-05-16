@@ -67,7 +67,8 @@ function citruscartSaveOnepageOrder(container, errcontainer, form) {
 function citruscartGetFinalForm(container, form, msg) {
 	var url = 'index.php?option=com_citruscart&view=checkout&task=getRegisterForm&format=raw';
 	citruscartDoTask(url, container, form, msg);
-	$('citruscart-method-pane').set('html', $('hiddenregvalue').value);
+	document.getElementById('citruscart-method-pane').set('html', $('hiddenregvalue').value);
+	
 }
 
 function citruscartGetView(url, container, labelcont) {
@@ -121,7 +122,7 @@ function citruscartCheckoutSetBillingAddress(url, container, selected, form) {
 		divForm.style.display = "none";
 		citruscartGrayOutAddressDiv();
 		citruscartDoTask(url, container, '', '', false);
-		if ($('onCheckoutShipping_wrapper'))
+		if (document.getElementById('onCheckoutShipping_wrapper'))
 			citruscartGrayOutAjaxDiv('onCheckoutShipping_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_SHIPPING_RATES'));
 		citruscartGrayOutAjaxDiv('onCheckoutCart_wrapper', Joomla.JText._('COM_CITRUSCART_UPDATING_CART'));
 

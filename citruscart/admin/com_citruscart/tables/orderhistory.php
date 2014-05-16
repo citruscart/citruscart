@@ -14,18 +14,18 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 Citruscart::load( 'CitruscartTable', 'tables._base' );
 
-class CitruscartTableOrderHistory extends CitruscartTable 
+class CitruscartTableOrderHistory extends CitruscartTable
 {
-	function CitruscartTableOrderHistory( &$db ) 
+	function CitruscartTableOrderHistory( &$db )
 	{
 		$tbl_key 	= 'orderhistory_id';
 		$tbl_suffix = 'orderhistory';
 		$this->set( '_suffix', $tbl_suffix );
 		$name 		= 'citruscart';
-		
-		parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );	
+
+		parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
 	}
-	
+
 	function check()
 	{
 		$nullDate	= $this->_db->getNullDate();
@@ -34,28 +34,29 @@ class CitruscartTableOrderHistory extends CitruscartTable
 		{
 			$date = JFactory::getDate();
 			$this->date_added = $date->toSql();
-		}		
+		}
 		return true;
 	}
-	
+
     /**
-     * 
+     *
      * @param unknown_type $updateNulls
      * @return unknown_type
      */
     function store( $updateNulls=false )
     {
+
         if ( $return = parent::store( $updateNulls ))
         {
         	if ($this->notify_customer == '1')
         	{
         		Citruscart::load( "CitruscartHelperBase", 'helpers._base' );
         		$helper = CitruscartHelperBase::getInstance('Email');
-        		
         		$model = Citruscart::getClass("CitruscartModelOrders", "models.orders");
-        		$model->setId($this->order_id); // this isn't necessary because you specify the requested PK id as a getItem() argument 
+
+        		$model->setId($this->order_id); // this isn't necessary because you specify the requested PK id as a getItem() argument
         		$order = $model->getItem($this->order_id, true);
-        		
+
         		$helper->sendEmailNotices($order, 'order');
         	}
         }

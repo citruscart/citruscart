@@ -19,13 +19,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <h1><?php echo JText::_('COM_CITRUSCART_SET_OPTIONS_FOR'); ?>: <?php echo $row->productattribute_name; ?></h1>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
 
 	<div class="note" style="width: 96%; margin-left: auto; margin-right: auto;">
 
-	    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION'); ?></div>
+	    <h5><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION'); ?></h5>
 
 	    <div class="reset"></div>
 
@@ -78,8 +78,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 	</div>
 
-<div class="note_green">
-    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_CURRENT_ATTRIBUTE_OPTIONS'); ?></div>
+<div class="note_green"  style="width: 96%; margin-left: auto; margin-right: auto;">
+    <h5 style="float: left;"><?php echo JText::_('COM_CITRUSCART_CURRENT_ATTRIBUTE_OPTIONS'); ?></h5>
     <div style="float: right;">
         <button class="btn btn-success" onclick="document.getElementById('task').value='saveattributeoptions'; document.adminForm.toggle.checked=true; checkAll(<?php echo count( $items ); ?>); document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_SAVE_ALL_CHANGES'); ?></button>
     </div>

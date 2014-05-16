@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php $options_decimal = array('num_decimals'=>'2'); ?>
 <?php $options_int = array('num_decimals'=>'0'); ?>
-    
+
 <table class="table table-striped table-bordered" style="margin-bottom: 5px;">
 <thead>
 <tr>

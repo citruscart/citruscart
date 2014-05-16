@@ -1,8 +1,8 @@
-<?php 
+<?php
 	defined('_JEXEC') or die('Restricted access');
 	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-	JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');
-	
+	JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
+
 	switch($this->form_prefix)
 	{
 		case 'shipping_input_':
@@ -20,7 +20,7 @@
 	$guest = true;
 	if( $user_type == "existing" || $user_type == "new" )
 		$guest = false;
-	
+
 	$key_style = 'width: 140px; text-align: right;';
 ?>
 
@@ -43,7 +43,7 @@
 					<input name="<?php echo $this->form_prefix; ?>address_name" id="<?php echo $this->form_prefix; ?>address_name" class="inputbox" type="text" maxlength="250" />
 				</td>
 			</tr>
-			<?php 
+			<?php
 					endif;
 				endif;
 				if( $elements['title'][0] ) :
@@ -67,7 +67,7 @@
 			?>
 			<tr>
 				<th style="<?php echo $key_style;?>" class="key">
-				<?php 
+				<?php
 					if( $elements['name'][1] ):
 						echo CitruscartGrid::required();
 					endif;
@@ -84,7 +84,7 @@
 			?>
 			<tr>
 				<th style="<?php echo $key_style;?>" class="key">
-				<?php 
+				<?php
 					if( $elements['middle'][1] ):
 						echo CitruscartGrid::required();
 					endif;
@@ -101,7 +101,7 @@
 			?>
 			<tr>
 				<th style="<?php echo $key_style;?>" class="key">
-				<?php 
+				<?php
 					if( $elements['last'][1] ):
 						echo CitruscartGrid::required();
 					endif;
@@ -118,7 +118,7 @@
 			?>
 			<tr>
 				<th style="<?php echo $key_style;?>" class="key">
-				<?php 
+				<?php
 					if( $elements['company'][1] ):
 						echo CitruscartGrid::required();
 					endif;
@@ -135,7 +135,7 @@
 			?>
 			<tr>
 				<th style="<?php echo $key_style;?>" class="key">
-				<?php 
+				<?php
 					if( $elements['address1'][1] ):
 						echo CitruscartGrid::required();
 					endif;
@@ -222,6 +222,7 @@
 					if(!empty($this->zones))
 					{
 						echo $this->zones;
+
 					}
 					else
 					{
@@ -285,9 +286,9 @@
 			</tr>
 			<?php
 				endif;
-				
+
 				$data = new JObject();
-				
+
 				JFactory::getApplication()->triggerEvent('onAfterDisplayAddressDetails', array($data, $this->form_prefix));
 		?>
 </tbody>

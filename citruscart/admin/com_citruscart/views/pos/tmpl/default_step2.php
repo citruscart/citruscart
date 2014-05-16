@@ -61,7 +61,7 @@ defined('_JEXEC') or die('Restricted access');?>
 
             	<!--<input type="checkbox" value="1" name="skippayment" id="skippayment"> <?php echo JText::_('COM_CITRUSCART_SKIP_PAYMENT');?>-->
             	<!--<a class="modal" href="" />[?]</a>-->
-                <?php $onclick = "CitruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveStep2', document.adminForm, true, '".JText::_('COM_CITRUSCART_VALIDATING')."' );"; ?>
+                <?php $onclick = "citruscartValidation( '" . $this->validation_url . "', 'validation_message', 'saveStep2', document.adminForm, true, '".JText::_('COM_CITRUSCART_VALIDATING')."' );"; ?>
                 <input onclick="<?php echo $onclick; ?>" value="<?php echo JText::_('COM_CITRUSCART_CONTINUE_STEP2'); ?>" type="button" class="button btn btn-success" />
             </div>
 

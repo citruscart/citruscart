@@ -270,14 +270,15 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 
 	function _getDateDb( $start_date, $end_date, $restrict_start = false, $restrict_end = false, $count_days = true )
 	{
-		$db = JFactory::getDbo();
 
-		//$q = new CitruscartQuery();
+		$db = JFactory::getDbo();
+		$q = new CitruscartQuery();
 		$q = $db->getQuery(true);
 		$q->select( 'COUNT(*) AS num' );
 		$q->select( 'SUM(order_total) AS amount' );
 		$q->select( 'AVG(order_total) AS average' );
-		if( $count_days )
+		//$q->from('#__citruscart_orders AS tbl');
+		 if( $count_days )
 			$q->select( "DATEDIFF('{$end_date}','{$start_date}') AS days_in_business" );
 		$q->from('#__citruscart_orders AS tbl');
 		$q->where("tbl.order_state_id IN (".$this->getStatesCSV().")");
@@ -286,7 +287,10 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 		if( $restrict_start )
 			$q->where("tbl.created_date >= '$start_date'");
 		$db->setQuery( (string) $q);
-		return $db->loadObject();
+
+		//$db->setQuery($q);
+		$row = $db->loadObject();
+		return $row;
 
 	}
 }

@@ -30,8 +30,11 @@ $helper_product = new CitruscartHelperProduct();
                 <td class="dsc-key"><?php echo JText::_('COM_CITRUSCART_ITEM_FOR_SALE'); ?>
                 </td>
                 <td>
-                <?php //swapping yes and no because  this is a NOT for SALE so the logic is in reverse.
-                echo CitruscartSelect::btbooleanlist( 'product_notforsale', '', $row->product_notforsale,  'JYES','JNO' ); ?>
+                <?php  /*
+                		* swapping yes and no because  this is a NOT for SALE so the logic is in reverse.
+                		*/
+                	echo CitruscartSelect::btbooleanlist( 'product_notforsale', '', $row->product_notforsale,  'JNO','JYES' ); ?>
+                	<small><?php echo JText::_('COM_CITRUSCART_PRODUCT_NOT_FOR_SALE_HELP')?></small>
                 </td>
             </tr>
             <?php

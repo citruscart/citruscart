@@ -755,7 +755,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
         if ( !empty( $options['height'] ) )
         {
-            $dimensions .= "height=\"" . $options['height'] . "\" ";
+             $dimensions .= "height=\"" . $options['height'] . "\" ";
         }
 
         if ( !empty( $options['height'] ) )
@@ -769,16 +769,20 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         if ( !empty( $height_style ) || !empty( $width_style ) )
         {
             $style = "style='$height_style $width_style'";
+
         }
 
         switch ( $type )
         {
             case "full":
                 $path = 'products_images';
+                $class ="citruscart_main_image";
                 break;
             case "thumb":
             default:
                 $path = 'products_thumbs';
+                $class ="citruscart_alt_image";
+
                 break;
         }
 
@@ -792,7 +796,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
             // if url is true, just return the url of the file and not the whole img tag
             $tmpl = ( $url ) ? $src
-            : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+            : "<img class='".$class."  " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
             . "' align='middle' border='0' " . $style . " />";
 
         }
@@ -826,6 +830,8 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                         $image_ref = $thumb_image;
                         break;
                 }
+
+
 
                 if (filter_var($image_ref, FILTER_VALIDATE_URL) !== false) {
                     // $full_image contains a valid URL
@@ -938,7 +944,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
 
                 $tmpl = ( $url ) ? $src
-                : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+                : "<img class='".$class."'  " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
                 . "' align='middle' border='0' " . $style . " />";
             }
         }

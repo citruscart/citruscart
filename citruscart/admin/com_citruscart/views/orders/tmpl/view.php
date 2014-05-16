@@ -23,7 +23,7 @@ defined('_JEXEC') or die('Restricted access');
 	$guest = $row->user_id < Citruscart::getGuestIdStart();
 ?>
 
-<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
+<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data" >
 
     <table>
         <tr>
@@ -51,7 +51,9 @@ defined('_JEXEC') or die('Restricted access');
 
     <?php
         // fire plugin event here to enable extending the form
-        JDispatcher::getInstance()->trigger('onBeforeDisplayOrderView', array( $row ) );
+        JPluginHelper::importPlugin('citruscart');
+        $app = JFactory::getApplication();
+        $app->triggerEvent('onBeforeDisplayOrderView', array( $row ) );
     ?>
 
 	<table style="width: 100%;">
@@ -270,7 +272,7 @@ defined('_JEXEC') or die('Restricted access');
 
         <?php
             // fire plugin event here to enable extending the form
-            JDispatcher::getInstance()->trigger('onBeforeDisplayOrderViewOrderItems', array( $row ) );
+            $app->triggerEvent('onBeforeDisplayOrderViewOrderItems', array( $row ) );
         ?>
 
         <div id="orderitems">
@@ -507,7 +509,7 @@ defined('_JEXEC') or die('Restricted access');
         </div>
         <?php
             // fire plugin event here to enable extending the form
-            JDispatcher::getInstance()->trigger('onAfterDisplayOrderViewOrderItems', array( $row ) );
+            $app->triggerEvent('onAfterDisplayOrderViewOrderItems', array( $row ) );
         ?>
 
     </td>
@@ -536,7 +538,9 @@ defined('_JEXEC') or die('Restricted access');
             </thead>
             <tbody>
             <?php $i=0; $k=0; ?>
-            <?php foreach ($histories as $history) : ?>
+            <?php
+
+            foreach ($histories as $history) : ?>
                 <tr class='row<?php echo $k; ?>'>
                     <td style="text-align: left;">
                         <?php echo JHTML::_('date', $history->date_added, Citruscart::getInstance()->get('date_format')); ?>
