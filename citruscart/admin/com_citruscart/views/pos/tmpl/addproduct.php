@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $state = $this->state; ?>
 <?php $row = $this->row; ?>
 
-<form action="index.php?option=com_citruscart&view=pos&tmpl=component" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="index.php?option=com_citruscart&view=pos&tmpl=component" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
     <div class="pos">
         <?php echo $this->loadTemplate( 'search' ); ?>
         <br/>
@@ -26,7 +26,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
         <input type="hidden" name="task" id="task" value="addproducts" />
     </div>
 </form>
-<?php 
+<?php
 $app = JFactory::getApplication();
 $added = $app->input->getInt('addded', '0');
 //$added=JRequest::getInt('added', '0')?>

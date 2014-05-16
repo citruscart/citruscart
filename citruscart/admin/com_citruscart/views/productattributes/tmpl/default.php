@@ -20,7 +20,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SET_ATTRIBUTES_FOR'); ?>: <?php echo $row->product_name; ?></h1>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
 

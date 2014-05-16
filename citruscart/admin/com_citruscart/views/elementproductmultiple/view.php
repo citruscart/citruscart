@@ -61,7 +61,7 @@ class CitruscartViewElementProductMultiple extends JView
 		?>
 		<?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 
-<form action="<?php echo $link; ?>" method="post" name="adminForm">
+<form action="<?php echo $link; ?>" method="post" name="adminForm" id="adminForm">
 
 <table>
 	<tr>
@@ -126,10 +126,10 @@ class CitruscartViewElementProductMultiple extends JView
 				{
 					?>
 					<img src="<?php echo Citruscart::getURL( 'products_thumbs').$row->product_thumb_image; ?>" style="display: block;" />
-					<?php	
+					<?php
 				}
-			?>	
-			</td>				
+			?>
+			</td>
 			<td><a style="cursor: pointer;"
 				onclick="<?php echo $onclick; ?>"> <?php echo htmlspecialchars($row->product_name, ENT_QUOTES, 'UTF-8'); ?>
 			</a></td>

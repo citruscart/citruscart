@@ -24,7 +24,7 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 
-<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
+<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data" >
 
     <?php
         // fire plugin event here to enable extending the form

@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');?>
 <?php JFilterOutput::objectHTMLSafe($row);?>
 <?php $config = Citruscart::getInstance(); ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_citruscart&view=pos&tmpl=component');?>" method="post" class="adminForm" name="adminForm" >
+<form action="<?php echo JRoute::_('index.php?option=com_citruscart&view=pos&tmpl=component');?>" method="post" class="adminForm" name="adminForm" id="adminForm">
 	<fieldset>
 		<div class="header icon-48-Citruscart" style="float: left;">
 			<?php if($row->address_id):?>
@@ -225,7 +225,7 @@ defined('_JEXEC') or die('Restricted access');?>
 				</td>
 			</tr>
 			<?php
-			
+
 			JFactory::getApplication()->triggerEvent('onAfterDisplayAddressDetails', array($row,
 			''));
 			?>

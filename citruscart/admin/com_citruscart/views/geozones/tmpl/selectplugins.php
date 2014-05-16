@@ -33,7 +33,7 @@ defined('_JEXEC') or die('Restricted access');
 			<button class="btn" onclick="document.adminForm.toggle.checked=true; checkAll(<?php echo count( $items ); ?>);document.getElementById('task').value='plugin_switch'; document.adminForm.submit();"> <?php echo JText::_('COM_CITRUSCART_TOGGLE_ALL_STATUS'); ?></button>
 		</li>
    </ul>
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<div style="text-align: right;">
 			<input name="filter" size="40" value="<?php echo $state->filter; ?>" />

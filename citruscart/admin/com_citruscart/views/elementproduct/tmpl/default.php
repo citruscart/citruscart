@@ -24,7 +24,7 @@ JHTML::_('behavior.tooltip');
 $model = $this->getModel();
 $page = $this->get('Pagination');
 ?>
-<form action="<?php echo JRoute::_( $form['action'] .'&tmpl=component&object='.$this->object )?>" method="post" name="adminForm">
+<form id="adminForm" action="<?php echo JRoute::_( $form['action'] .'&tmpl=component&object='.$this->object )?>" method="post" name="adminForm">
 <div class="pull-left">
 	<?php echo CitruscartSelect::productstates($state->filter_state, 'product_state', array('class' => 'inputbox', 'onchange' => 'this.form.submit();' ) ); ?>
 </div>

@@ -36,7 +36,7 @@ JHtml::_('script', 'media/system/js/core.js', false, false);
 	<?php echo JText::_('COM_CITRUSCART_FOR_CHECKED_ITEMS'); ?>:
 	<button class="btn btn-success" onclick="document.getElementById('task').value='selected_switch'; document.adminForm.submit();"> <?php echo JText::_('COM_CITRUSCART_CHANGE_STATUS'); ?></button>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
     <table>
         <tr>

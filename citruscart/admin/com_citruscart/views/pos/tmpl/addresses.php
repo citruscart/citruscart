@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
 
-<form action="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=pos&tmpl=component' ); ?>" method="post" class="adminForm" name="adminForm" >
+<form id="adminForm" action="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=pos&tmpl=component' ); ?>" method="post" class="adminForm" name="adminForm" >
 
 		<div class="header " style="float: left;">
 			<h2>

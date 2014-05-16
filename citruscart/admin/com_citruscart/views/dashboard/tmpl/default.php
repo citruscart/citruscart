@@ -36,7 +36,7 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 	<tr>
 		<td style="width: 70%; max-width: 70%; vertical-align: top; padding: 0px 5px 0px 5px;">
 
-		    <form action="<?php echo JRoute::_($form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+		    <form action="<?php echo JRoute::_($form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 			<table class="table table-striped table-bordered" style="margin-bottom: 5px;">
 			<thead>

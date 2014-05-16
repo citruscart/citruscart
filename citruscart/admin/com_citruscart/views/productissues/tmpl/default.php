@@ -7,10 +7,10 @@
 
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SET_ISSUES_FOR'); ?>: <?php echo $row->product_name; ?></h1>
 
-<form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( JRequest::getVar('view') ); ?>
-	
+
 <div class="note" style="width: 96%; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
     <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ISSUE'); ?></div>
     <div style="float: right;">
@@ -34,7 +34,7 @@
         			<input id="issue_num" name="issue_num" value="" size="5" />
         		</td>
         		<td style="text-align: center;">
-        			<?php echo JHTML::calendar( "", "publishing_date", "publishing_date", '%Y-%m-%d %H:%M:%S' ); ?> 
+        			<?php echo JHTML::calendar( "", "publishing_date", "publishing_date", '%Y-%m-%d %H:%M:%S' ); ?>
         		</td>
         	</tr>
     	</tbody>
@@ -83,7 +83,7 @@
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count(@$items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -107,7 +107,7 @@
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo @$state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo @$state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
 </div>
 </form>

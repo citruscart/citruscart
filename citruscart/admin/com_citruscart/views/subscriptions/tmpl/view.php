@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $row = $this->row; JFilterOutput::objectHTMLSafe( $row ); ?>
 <?php $histories = Citruscart::getClass( 'CitruscartHelperSubscription', 'helpers.subscription' )->getHistory( $row->subscription_id ); ?>
 
-<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
+<form id="adminForm" action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
 
 <table style="width: 100%;">
 <tr>
