@@ -8,6 +8,7 @@
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
+
 /** ensure this file is being included by a parent file */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
@@ -745,7 +746,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $style = "";
         $height_style = "";
         $width_style = "";
-        
+
         $dimensions = "";
         if ( !empty( $options['width'] ) )
         {
@@ -769,7 +770,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         {
             $style = "style='$height_style $width_style'";
         }
-       
+
         switch ( $type )
         {
             case "full":
@@ -780,18 +781,15 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 $path = 'products_thumbs';
                 break;
         }
-        
-        
 
         $tmpl = "";
-       
+
         if ( strpos( $id, '.' ) )
         {
             // then this is a filename, return the full img tag if file exists, otherwise use a default image
             $src = ( JFile::exists( Citruscart::getPath( $path ) . '/' . $id ) ) ? Citruscart::getUrl( $path ) . $id
             : JURI::root( true ) . '/media/citruscart/images/placeholder_239.gif';
-           
-            
+
             // if url is true, just return the url of the file and not the whole img tag
             $tmpl = ( $url ) ? $src
             : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
@@ -810,14 +808,14 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 {
                     $helper = CitruscartHelperBase::getInstance( 'Product' );
                 }
-                
+
+
                 $model = Citruscart::getClass('CitruscartModelProducts', 'models.products');
                 $model->setId((int)$id);
                 $item = $model->getItem();
 
                 $full_image = !empty($item->product_full_image) ? $item->product_full_image : null;
                 $thumb_image = !empty($item->product_thumb_image) ? $item->product_thumb_image : $full_image;
-                                
                 switch ( $type )
                 {
                     case "full":
@@ -827,7 +825,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     default:
                         $image_ref = $thumb_image;
                         break;
-                }                
+                }
 
                 if (filter_var($image_ref, FILTER_VALIDATE_URL) !== false) {
                     // $full_image contains a valid URL
@@ -845,22 +843,20 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 // load the item, get the filename, create tmpl
                 $urli = $row->getImageUrl( );
                 $dir = $row->getImagePath( );
-                                
+
                 if ( $path == 'products_thumbs' )
                 {
                     $dir .= 'thumbs';
                     $urli .= 'thumbs/';
                 }
 
-                
                 if( $main_product )
                 {
+
                     JFactory::getApplication()->triggerEvent('onGetProductMainImage', array( $row->product_id, &$full_image, $options ) );
                 }
 
                 $dirname = dirname($image_ref);
-                
-                
                 if (!empty($dirname) && $dirname !== ".")
                 {
                     $dir = JPath::clean( JPATH_SITE . "/" . dirname($image_ref) );
@@ -872,17 +868,16 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 {
                     $file = $dir . '/' . $image_ref;
                     $id = $urli . $image_ref;
-                }                  
-               
+                }
+
                 // Gotta do some resizing first?
                 if ( $resize )
                 {
                     // Add a suffix to the thumb to avoid conflicts with user settings
                     $suffix = '';
-                    
+
                     if ( isset( $options['width'] ) && isset( $options['height'] ) )
                     {
-                    	
                         $suffix = '_' . $options['width'] . 'x' . $options['height'];
                     }
                     elseif ( isset( $options['width'] ) )
@@ -897,7 +892,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     // Add suffix to file path
                     $dot = strrpos( $file, '.' );
                     $resize = substr( $file, 0, $dot ) . $suffix . substr( $file, $dot );
-                  
+
                     if ( !JFile::exists( $resize ) )
                     {
 
@@ -910,7 +905,6 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                             // If width is larger, proportionally
                             if ( ( $options['width'] / $image->getWidth( ) ) < ( $options['height'] / $image->getHeight( ) ) )
                             {
-                            	
                                 $image->resizeToWidth( $options['width'] );
                                 $image->save( $resize );
                             }
@@ -923,7 +917,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                         }
                         // If only width is set
                         elseif ( isset( $options['width'] ) )
-                        {                        	
+                        {
                             $image->resizeToWidth( $options['width'] );
                             $image->save( $resize );
                         }
@@ -940,13 +934,12 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     $dot = strrpos( $id, '.' );
                     $id = substr( $id, 0, $dot ) . $suffix . substr( $id, $dot );
                 }
-                                
+
                 $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
-                      
+
                 $tmpl = ( $url ) ? $src
                 : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='300px' height='180px'/>";
-                                
+                . "' align='middle' border='0' " . $style . " />";
             }
         }
         return $tmpl;
