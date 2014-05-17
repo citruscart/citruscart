@@ -382,7 +382,7 @@ class CitruscartSelect extends DSCSelect
  	{
         $list = array();
 		if($allowAny) {
-			$list[] =  self::option('', "- ".JText::_('COM_CITRUSCART_SELECT_GEO_ZONE_TYPE')." -", 'geozonetype_id', 'geozonetype_name' );
+			//$list[] =  self::option('', "- ".JText::_('COM_CITRUSCART_SELECT_GEO_ZONE_TYPE')." -", 'geozonetype_id', 'geozonetype_name' );
 		}
 
 		JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );

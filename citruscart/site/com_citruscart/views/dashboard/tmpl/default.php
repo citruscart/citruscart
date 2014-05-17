@@ -21,10 +21,10 @@
 
 
 ?>
-
+<!--
 <div class='componentheading'>
 	<span><?php echo JText::_('COM_CITRUSCART_MY_ACCOUNT'); ?></span>
-</div>
+</div> -->
   <div class="naviagtion header">
 	<?php
 		require_once(JPATH_SITE.'/administrator/components/com_citruscart/helpers/toolbar.php');

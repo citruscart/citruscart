@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/'); ?>
+<?php JHTML::_('stylesheet', 'media/citruscart/css/citruscart.css'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
@@ -59,7 +59,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				</tr>
 			</table>
 		</div>
-	</fieldset>	     
+	</fieldset>
     <table class="adminlist" style="clear: both;">
         <thead>
             <tr>
@@ -76,7 +76,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </th>
             </tr>
         </thead>
-        <tbody>     
+        <tbody>
         <?php if (!count($items)) : ?>
             <tr>
                 <td colspan="10" align="center">
@@ -115,11 +115,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     {
                         echo JText::_( "DEFAULT BILLING AND SHIPPING ADDRESS" );
                     }
-                    elseif ($item->is_default_shipping) 
+                    elseif ($item->is_default_shipping)
                     {
                     	echo JText::_( "DEFAULT SHIPPING ADDRESS" );
                     }
-                    elseif ($item->is_default_billing) 
+                    elseif ($item->is_default_billing)
                     {
                     	echo JText::_( "DEFAULT BILLING ADDRESS" );
                     }
@@ -128,12 +128,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
             </tr>
             <?php $i=$i1; $k = (1 - $k); ?>
             <?php endforeach; ?>
-        	
+
        	<?php endif;?>
         </tbody>
 	</table>
-	
-	
+
+
     <input type="hidden" name="order_change" value="0" />
     <input type="hidden" name="id" value="" />
     <input type="hidden" name="task" id="task" value="" />

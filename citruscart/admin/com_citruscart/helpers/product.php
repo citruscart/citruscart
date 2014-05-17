@@ -755,7 +755,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
         if ( !empty( $options['height'] ) )
         {
-             $dimensions .= "height=\"" . $options['height'] . "\" ";
+            $dimensions .= "height=\"" . $options['height'] . "\" ";
         }
 
         if ( !empty( $options['height'] ) )
@@ -769,22 +769,20 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         if ( !empty( $height_style ) || !empty( $width_style ) )
         {
             $style = "style='$height_style $width_style'";
-
         }
 
         switch ( $type )
         {
             case "full":
                 $path = 'products_images';
-                $class ="citruscart_main_image";
                 break;
             case "thumb":
             default:
                 $path = 'products_thumbs';
-                $class ="citruscart_alt_image";
-
                 break;
         }
+
+
 
         $tmpl = "";
 
@@ -794,9 +792,10 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             $src = ( JFile::exists( Citruscart::getPath( $path ) . '/' . $id ) ) ? Citruscart::getUrl( $path ) . $id
             : JURI::root( true ) . '/media/citruscart/images/placeholder_239.gif';
 
+
             // if url is true, just return the url of the file and not the whole img tag
             $tmpl = ( $url ) ? $src
-            : "<img class='".$class."  " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+            : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
             . "' align='middle' border='0' " . $style . " />";
 
         }
@@ -813,13 +812,13 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     $helper = CitruscartHelperBase::getInstance( 'Product' );
                 }
 
-
                 $model = Citruscart::getClass('CitruscartModelProducts', 'models.products');
                 $model->setId((int)$id);
                 $item = $model->getItem();
 
                 $full_image = !empty($item->product_full_image) ? $item->product_full_image : null;
                 $thumb_image = !empty($item->product_thumb_image) ? $item->product_thumb_image : $full_image;
+
                 switch ( $type )
                 {
                     case "full":
@@ -830,8 +829,6 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                         $image_ref = $thumb_image;
                         break;
                 }
-
-
 
                 if (filter_var($image_ref, FILTER_VALIDATE_URL) !== false) {
                     // $full_image contains a valid URL
@@ -856,13 +853,15 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     $urli .= 'thumbs/';
                 }
 
+
                 if( $main_product )
                 {
-
                     JFactory::getApplication()->triggerEvent('onGetProductMainImage', array( $row->product_id, &$full_image, $options ) );
                 }
 
                 $dirname = dirname($image_ref);
+
+
                 if (!empty($dirname) && $dirname !== ".")
                 {
                     $dir = JPath::clean( JPATH_SITE . "/" . dirname($image_ref) );
@@ -884,6 +883,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
                     if ( isset( $options['width'] ) && isset( $options['height'] ) )
                     {
+
                         $suffix = '_' . $options['width'] . 'x' . $options['height'];
                     }
                     elseif ( isset( $options['width'] ) )
@@ -911,6 +911,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                             // If width is larger, proportionally
                             if ( ( $options['width'] / $image->getWidth( ) ) < ( $options['height'] / $image->getHeight( ) ) )
                             {
+
                                 $image->resizeToWidth( $options['width'] );
                                 $image->save( $resize );
                             }
@@ -944,8 +945,9 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
 
                 $tmpl = ( $url ) ? $src
-                : "<img class='".$class."'  " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='220px' height='180px' />";
+                : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+                . "' align='middle' border='0' width='220px' height='180px'/>";
+
             }
         }
         return $tmpl;
@@ -1425,7 +1427,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 			$not_finished = true;
 			$act_pos = -1; // actual attribute
 			$attr_order = array(); // order of attribute IDs
-			$cq = count( $map['q']);
+			$cq = count( @$map['q']);
 			$prev = array();
 			foreach( $map['pa'] as $key => $value ) {
 				$attr_order[$map['ord'][$key]] = $key;
@@ -1494,7 +1496,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
      * @param int $id
      * @return array
      */
-    function getDefaultAttributes( $id )
+  public static  function getDefaultAttributes( $id )
     {
         static $sets;
 
@@ -1514,7 +1516,8 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             $m_quantity->setState( 'order', 'tbl.product_attributes' );
             $m_quantity->setState( 'direction', 'ASC' );
 			$res = $m_quantity->getList();
-			if( count( $res ) && strlen( $res[0]->product_attributes ) ) {
+
+			if( isset($res)  && count( $res ) && strlen( $res[0]->product_attributes ) ) {
 				// combination of product attributes with quantity in stock being higher than 0 exists
 				$opts = explode( ',', $res[0]->product_attributes );
 				for( $i = 0, $c = count( $opts ); $i < $c; $i++ ) {

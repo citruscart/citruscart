@@ -51,7 +51,15 @@ $multiupload_script = $this->defines->get( 'multiupload_script', 0 );
                 </div>
 
                 <div class="control-group">
+                	 <?php $app = JFactory::getApplication();
+							$product_id = $app->input->get('id');
+							if(!$product_id):
+                    	?>
+
+                    	<span class="alert alert-error"><?php echo JText::_('COM_CITRUSCART_PRODUCT_IMAGE_HELP_UPLOAD')?></span>
+                    	<?php else:?>
                     <input id="new_product_full_images"  name="product_full_image_new[]" type="file" multiple="multiple" <?php if (empty($row->product_id) || !in_array($multiupload_script, array('0', 'uploadify'))) { ?> onchange="citruscartMakeFileList();" size="40" <?php } ?> />
+							<?php endif; ?>
                 </div>
 
                 <div class="help-block dsc-clear">

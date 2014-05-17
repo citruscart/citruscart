@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -14,7 +14,7 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 $state = $this->state;
 $items = $this->items;
 $title = $this->title;
-$citems = $this->citems;
+$citems = @$this->citems;
 ?>
 
 <div id="citruscart" class="products default">
@@ -40,7 +40,7 @@ $citems = $this->citems;
                 <div id="product_buy_<?php echo $item->product_id; ?>" class="product_buy">
                     <?php echo $item->product_buy; ?>
                 </div>
-                
+
                 <div class="product_info">
                     <div class="product_name">
                         <span>
@@ -49,7 +49,7 @@ $citems = $this->citems;
                             </a>
                         </span>
                     </div>
-                    <?php if ( Citruscart::getInstance()->get('product_review_enable', '0') ) { ?>  
+                    <?php if ( Citruscart::getInstance()->get('product_review_enable', '0') ) { ?>
                     <div class="product_rating">
                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating ); ?>
                        <?php if (!empty($item->product_comments)) : ?>
@@ -61,13 +61,13 @@ $citems = $this->citems;
                         <div class="product_numbers">
                             <span class="model">
                                 <?php if (!empty($item->product_model)) : ?>
-                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span> 
+                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
                                     <?php echo $item->product_model; ?>
                                 <?php endif; ?>
                             </span>
                             <span class="sku">
                                 <?php if (!empty($item->product_sku)) : ?>
-                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span> 
+                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
                                     <?php echo $item->product_sku; ?>
                                 <?php endif; ?>
                             </span>
@@ -81,14 +81,14 @@ $citems = $this->citems;
                             echo $item->product_description_short;
                         }
                             else
-                        {                  
+                        {
                             $str = wordwrap($item->product_description, 200, '`|+');
                             $wrap_pos = strpos($str, '`|+');
                             if ($wrap_pos !== false) {
                                 echo substr($str, 0, $wrap_pos).'...';
                             } else {
                                 echo $str;
-                            }    
+                            }
                         }
                     ?>
                     </div>
@@ -99,8 +99,8 @@ $citems = $this->citems;
             <div class="reset"></div>
             <?php endforeach; ?>
         </div>
-        
-        <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">        
+
+        <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
             <div id="results_counter"><?php echo $this->pagination->getResultsCounter(); ?></div>
             <?php echo $this->pagination->getListFooter(); ?>
@@ -109,5 +109,5 @@ $citems = $this->citems;
         </form>
 
     <?php endif; ?>
-    
+
 </div>

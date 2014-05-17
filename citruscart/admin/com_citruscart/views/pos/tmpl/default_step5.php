@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/'); ?>
-<?php 
+<?php JHtml::_('stylesheet','media/citruscart/css/citruscart.css'); ?>
+<?php
 $order_link = @$this->order_link;
 $plugin_html = @$this->plugin_html;
 ?>
@@ -42,9 +42,9 @@ $plugin_html = @$this->plugin_html;
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
       <div id="orderSummary">
-				<?php echo $this->orderSummary;?>				
+				<?php echo $this->orderSummary;?>
 			</div>
-            
+
       </div>
     </div>
   </div>
@@ -56,9 +56,9 @@ $plugin_html = @$this->plugin_html;
     </div>
     <div id="collapseThree" class="accordion-body collapse">
       <div class="accordion-inner">
-       
-		
-            
+
+
+
       </div>
     </div>
   </div>
@@ -70,9 +70,9 @@ $plugin_html = @$this->plugin_html;
     </div>
     <div id="collapseFour" class="accordion-body collapse in">
       <div class="accordion-inner">
-       
-		
-            
+
+
+
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@ $plugin_html = @$this->plugin_html;
     <div id="collapseFive" class="accordion-body collapse in">
       <div class="accordion-inner">
        <?php echo $plugin_html; ?>
-			
+
 			<div class="note">
 				<a href="<?php echo JRoute::_($order_link);?>">
 				<?php echo JText::_('COM_CITRUSCART_CLICK_TO_VIEW_OR_EDIT_ORDER');?>
@@ -96,8 +96,8 @@ $plugin_html = @$this->plugin_html;
 				<?php echo $article;?>
 			</div>
 			<?php endforeach;?>
-		
-            
+
+
       </div>
     </div>
   </div>

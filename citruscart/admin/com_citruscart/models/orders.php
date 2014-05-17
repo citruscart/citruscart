@@ -377,7 +377,6 @@ class CitruscartModelOrders extends CitruscartModelBase
                 $model->setState( 'order', 'tbl.date_added' );
                 $model->setState( 'direction', 'ASC' );
                 $item->orderhistory = $model->getList($refresh);
-
                 $item->link_view = 'index.php?option=com_citruscart&view=orders&task=view&id='.$item->order_id;
 
                 //retrieve the order's payments
@@ -1269,22 +1268,21 @@ class CitruscartModelOrders extends CitruscartModelBase
 	    }else{
 
 	    	$addressArray = $this->filterArrayUsingPrefix($form_input_array, $input_prefix, '', false );
+			// set the zone name
+			/*
+	    	$zone_id = $addressArray['zone_id'];
+			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
+		    $zone = JTable::getInstance('Zones', 'CitruscartTable');
 
-	  //  	print_r($addressArray);
-
-	    	// set the zone name
-	        $zone = JTable::getInstance('Zones', 'CitruscartTable');
-
-	        $zone->load( $addressArray['zone_id'] );
-
+		    $zone->load((int) $zone_id );
+	        //echo $zone->zone_name; exit;
 	        $addressArray['zone_name'] = $zone->zone_name;
+
 	        // set the country name
 	        $country = JTable::getInstance('Countries', 'CitruscartTable');
-	        $country->load( $addressArray['country_id'] );
-	        $addressArray['country_name'] = $country->country_name;
+	        $country->load( (int) $addressArray['country_id'] );
+	        $addressArray['country_name'] = $country->country_name; */
 	    }
-
-	    //print_r($addressArray); exit;
 	    return $addressArray;
 	}
 
@@ -1337,7 +1335,8 @@ class CitruscartModelOrders extends CitruscartModelBase
 	            }
 	        }
 	    }
-	    return $address_input;
+
+    return $address_input;
 	}
 
 	public function addCoupons( $values )

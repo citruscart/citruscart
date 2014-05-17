@@ -136,15 +136,16 @@ class CitruscartTableAddresses extends CitruscartTable
             }
         }
 
-
         $countryA = explode(',', trim($config->get('ignored_countries', '83,188,190')));
 
         if ( empty( $this->zone_id ) && !in_array( $this->country_id, $countryA ) )
         {
-            if(isset($elements['zone'][0] ) && ($elements['zone']))
+            if(isset($elements['zone'][1] ))
             {
                 $this->setError( JText::_('COM_CITRUSCART_ZONE_REQUIRED') );
-            }else{
+            }
+            else
+            {
                 $this->zone_id = 9999;
             }
         }

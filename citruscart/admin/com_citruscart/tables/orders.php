@@ -262,7 +262,7 @@ class CitruscartTableOrders extends CitruscartTable
         // and with different attribs
         $hash = intval($orderItem->product_id).".".intval($orderItem->vendor_id).".".$orderItem->orderitem_attributes;
 
-        
+
                 $results = JFactory::getApplication()->triggerEvent( "onGetAdditionalOrderitemKeyValues", array( $orderItem ) );
 //              JFactory::getApplication()->enqueueMessage( 'orders.php - line 236 - '.Citruscart::dump( $results ) );
                 foreach ($results as $result)
@@ -400,7 +400,7 @@ class CitruscartTableOrders extends CitruscartTable
 
         // We fire just a single plugin event here and pass the entire order object
         // so the plugins can override whatever they need to
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateOrderTotals", array( $this ) );
     }
 
@@ -440,7 +440,7 @@ class CitruscartTableOrders extends CitruscartTable
         $this->order_subtotal   = $subtotal;
 
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateProductTotals", array( $this ) );
     }
 
@@ -515,7 +515,7 @@ class CitruscartTableOrders extends CitruscartTable
         $this->order_tax = $taxes->tax_total;
 
         // Allow tax calculation to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateTaxTotals", array( $this ) );
     }
 
@@ -579,7 +579,7 @@ class CitruscartTableOrders extends CitruscartTable
             $this->order_shipping = 0.00;
         }
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateShippingTotals", array( $this ) );
     }
 
@@ -645,7 +645,7 @@ class CitruscartTableOrders extends CitruscartTable
         $this->order_discount = $total > ($this->order_subtotal + $this->order_tax) ? $this->order_subtotal + $this->order_tax : $total;
 
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateCouponTotals", array( $this ) );
 
     }
@@ -695,7 +695,7 @@ class CitruscartTableOrders extends CitruscartTable
         // at this point, each vendor's TableOrderVendor object is populated
 
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculateVendorTotals", array( $this ) );
     }
 
@@ -897,8 +897,8 @@ class CitruscartTableOrders extends CitruscartTable
         // TODO If $this->_billing_address is null, attempt to populate it with the orderinfo fields, or using the billing_address_id (if present)
 		/* if(empty($this->_billing_address)){
 
-			if($session->has('Citruscart.opc.billingAddress')){
-			$new_address = unserialize($session->get('Citruscart.opc.billingAddress'));
+			if($session->has('citruscart.opc.billingAddress')){
+			$new_address = unserialize($session->get('citruscart.opc.billingAddress'));
 
 			print_r($new_address);
 
@@ -946,7 +946,7 @@ class CitruscartTableOrders extends CitruscartTable
         // TODO If $this->_shipping_address is null, attempt to populate it with the orderinfo fields, or using the shipping_address_id (if present)
     	/* if(empty($this->_billing_address)){
 
-    		$new_address = unserialize($session->get('Citruscart.opc.shippingAddress'));
+    		$new_address = unserialize($session->get('citruscart.opc.shippingAddress'));
 			$new_address = JArrayHelper::fromObject($new_address);
     		$new_key=array();
 
@@ -1503,7 +1503,7 @@ class CitruscartTableOrders extends CitruscartTable
         }
 
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculatePerProductCouponValue", array( $this ) );
 
         if( $total > $value )
@@ -1570,7 +1570,7 @@ class CitruscartTableOrders extends CitruscartTable
         }
 
         // Allow this to be modified via plugins
-        
+
         JFactory::getApplication()->triggerEvent( "onCalculatePerOrderCouponValue", array( $this ) );
 
        return $total;

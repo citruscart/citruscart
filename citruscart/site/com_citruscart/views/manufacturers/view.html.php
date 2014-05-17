@@ -16,14 +16,14 @@ Citruscart::load( 'CitruscartViewBase', 'views._base', array( 'site'=>'site', 't
 Citruscart::load( "CitruscartHelperProduct", 'helpers.product' );
 Citruscart::load( 'CitruscartUrl', 'library.url' );
 
-class CitruscartViewManufacturers extends CitruscartViewBase  
+class CitruscartViewManufacturers extends CitruscartViewBase
 {
 	/**
-	 * 
+	 *
 	 * @param $tpl
 	 * @return unknown_type
 	 */
-	function display($tpl=null) 
+	function display($tpl=null, $perform = true)
 	{
 		$layout = $this->getLayout();
 		switch(strtolower($layout))

@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 
 
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-JHtml::_('script', 'media/citruscart/js/citruscart_orders.js',false,false);
+JHTML::_('script', 'citruscart_orders.js', 'media/citruscart/js/');
 $form = $this->form;
 $row = $this->row;
 JFilterOutput::objectHTMLSafe( $row );
@@ -31,7 +31,6 @@ JFilterOutput::objectHTMLSafe( $row );
             <thead>
                 <tr>
                     <th style="text-align: left;">
-
                        <?php echo JText::_('COM_CITRUSCART_PRODUCTS_IN_ORDER'); ?>
                     </th>
                     <th style="text-align: center; width: 20%;" >
@@ -170,7 +169,7 @@ JFilterOutput::objectHTMLSafe( $row );
 
     <?php // TODO Could this go up top? Or must it be at the bottom of the form? ?>
 	<script language="javascript">
-		citruscartSelectDefaultAddresses();
+		CitruscartSelectDefaultAddresses();
 	</script>
 
 	<input type="hidden" name="id" value="<?php echo $row->id; ?>" />

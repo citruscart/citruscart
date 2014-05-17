@@ -7,7 +7,7 @@
 
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SELECT_PRODUCTS_FOR'); ?>: <?php echo $row->category_name; ?></h1>
 
-<form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
 <div class="note_green" style="width: 96%; text-align: center; margin-left: auto; margin-right: auto;">
     <?php echo JText::_('COM_CITRUSCART_FOR_CHECKED_ITEMS'); ?>:
     <button onclick="document.getElementById('task').value='selected_switch'; document.adminForm.submit();"> <?php echo JText::_('COM_CITRUSCART_CHANGE_STATUS'); ?></button>
@@ -20,7 +20,7 @@
                 <button onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
             <td nowrap="nowrap">
-                <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>
+                <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>              
             </td>
         </tr>
     </table>
@@ -36,7 +36,7 @@
                 </th>
                 <th style="width: 50px;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.product_id", @$state->direction, @$state->order ); ?>
-                </th>
+                </th>                
                 <th style="text-align: left;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_NAME', "tbl.product_name", @$state->direction, @$state->order ); ?>
                 </th>
@@ -57,7 +57,7 @@
 				</td>
 				<td style="text-align: center;">
 					<?php echo $item->product_id; ?>
-				</td>
+				</td>	
 				<td style="text-align: left;">
 					<?php echo $item->product_name; ?>
 				</td>
@@ -74,7 +74,7 @@
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-
+			
 			<?php if (!count(@$items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -96,7 +96,7 @@
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo @$state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo @$state->direction; ?>" />
-
+	
 	<?php echo $this->form['validate']; ?>
 </div>
 </form>

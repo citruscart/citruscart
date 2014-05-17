@@ -233,7 +233,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$layout = Citruscart::getClass( 'CitruscartHelperProduct', 'helpers.product' )->getLayout( $row->product_id, array( 'category_id'=>$cat->category_id ) );
 		$view->setLayout($layout);
 
-		
+
 
 		ob_start();
 		JFactory::getApplication()->triggerEvent( 'onDisplayProductAttributeOptions', array( $row->product_id ) );
@@ -339,6 +339,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		if (empty($values))
 		{
 			$product_qty = '1';
+
 			// get the default set of attribute_csv
 			$default_attributes = CitruscartHelperProduct::getDefaultAttributes( $product_id );
 			sort($default_attributes);
@@ -407,7 +408,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$view->assign( 'availableQuantity', $availableQuantity );
 		$view->assign( 'invalidQuantity', $invalidQuantity );
 
-		
+
 
 		ob_start();
 		JFactory::getApplication()->triggerEvent( 'onDisplayProductAttributeOptions', array( $row->product_id ) );
@@ -830,7 +831,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 		// no matter what, fire this validation plugin event for plugins that extend the checkout workflow
 		$results = array();
-		
+
 		$results = JFactory::getApplication()->triggerEvent( "onValidateAddToCart", array( $item, $values ) );
 
 		for ($i=0; $i<count($results); $i++)
@@ -969,7 +970,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 		// onAfterCreateItemForAddToCart: plugin can add values to the item before it is being validated /added
 		// once the extra field(s) have been set, they will get automatically saved
-		
+
 		$results = JFactory::getApplication()->triggerEvent( "onAfterCreateItemForAddToCart", array( $item, $values ) );
 		foreach ($results as $result)
 		{
@@ -991,7 +992,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 		// no matter what, fire this validation plugin event for plugins that extend the checkout workflow
 		$results = array();
-		
+
 		$results = JFactory::getApplication()->triggerEvent( "onBeforeAddToCart", array( $item, $values ) );
 
 		for ($i=0; $i<count($results); $i++)
@@ -1018,7 +1019,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$cartitem = $cart_helper->addItem( $item );
 
 		// fire plugin event
-		
+
 		JFactory::getApplication()->triggerEvent( 'onAfterAddToCart', array( $cartitem, $values ) );
 
 		// get the 'success' redirect url
@@ -1297,7 +1298,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 				// no matter what, fire this validation plugin event for plugins that extend the checkout workflow
 				$results = array();
-				
+
 				$results = JFactory::getApplication()->triggerEvent( "onValidateAddToCart", array( $item, $values ) );
 
 				for ($i=0; $i<count($results); $i++)
@@ -1462,7 +1463,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 				// no matter what, fire this validation plugin event for plugins that extend the checkout workflow
 				$results = array();
-				
+
 				$results = JFactory::getApplication()->triggerEvent( "onBeforeAddToCart", array( $item, $values ) );
 
 				for ($i=0; $i<count($results); $i++)
@@ -1492,7 +1493,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 				$cartitem = $cart_helper->addItem( $item );
 
 				// fire plugin event
-				
+
 				JFactory::getApplication()->triggerEvent( 'onAfterAddToCart', array( $cartitem, $values ) );
 			}
 
@@ -1580,7 +1581,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 			}
 			else
 			{
-				
+
 				JFactory::getApplication()->triggerEvent( 'onAfterSaveProductComments', array( $productreviews ) );
 				$this->messagetype  = 'message';
 				$this->message      = JText::_('COM_CITRUSCART_SUCCESSFULLY_SUBMITTED_REVIEW');

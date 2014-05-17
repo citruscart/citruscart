@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
  # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -25,7 +25,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
     <?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
 
 <div class="note" style="width: 96%; margin-left: auto; margin-right: auto;">
-    <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_TAX_RATE'); ?></div>
+    <h5><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_TAX_RATE'); ?></h5>
     <div style="float: right;">
         <input type="hidden" name="tax_class_id" value="<?php echo $row->tax_class_id; ?>" />
         <button class="btn btn-primary" onclick="document.getElementById('task').value='createrate'; document.adminForm.submit();"><?php echo JText::_('COM_CITRUSCART_CREATE_RATE'); ?></button>
@@ -58,8 +58,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
         </tbody>
     </table>
 
- </div>    
- 
+ </div>
+
  <div class="note_green" style="width: 96%; margin-left: auto; margin-right: auto;">
     <div style="float: left; font-size: 1.3em; font-weight: bold; height: 30px;"><?php echo JText::_('COM_CITRUSCART_CURRENT_TAX_RATES'); ?></div>
     <div style="float: right;">
@@ -74,7 +74,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </th>
                 <th style="width: 50px;">
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.tax_rate_id", $state->direction, $state->order ); ?>
-                </th>                
+                </th>
                 <th style="text-align: left;">
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_GEO_ZONE', "tbl.geozone_id", $state->direction, $state->order ); ?>
                 </th>
@@ -100,14 +100,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </td>
                 <td style="text-align: center;">
                     <?php echo $item->tax_rate_id; ?>
-                </td>   
+                </td>
                 <td style="text-align: left;">
                     <?php echo JText::_( $item->geozone_name ); ?>
                 </td>
                 <td style="text-align: left;">
                     <?php echo $this->listRateLevels( $item->level, $item->tax_rate_id, $item->tax_class_id ); ?><br />
-                    (<?php 
-                    		echo implode( ' | ', $this->getAssociatedTaxRates( $item->level, $item->geozone_id, $item->tax_class_id ) ); 
+                    (<?php
+                    		echo implode( ' | ', $this->getAssociatedTaxRates( $item->level, $item->geozone_id, $item->tax_class_id ) );
                     ?>)
                 </td>
                 <td style="text-align: center;">
@@ -118,14 +118,14 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 </td>
                 <td style="text-align: center;">
                     [<a href="index.php?option=com_citruscart&controller=taxrates&task=delete&cid[]=<?php echo $item->tax_rate_id; ?>&return=<?php echo base64_encode("index.php?option=com_citruscart&controller=taxclasses&task=setrates&id={$row->tax_class_id}&tmpl=component"); ?>">
-                        <?php echo JText::_('COM_CITRUSCART_DELETE_RATE'); ?>   
+                        <?php echo JText::_('COM_CITRUSCART_DELETE_RATE'); ?>
                     </a>
                     ]
                 </td>
             </tr>
             <?php $i=$i+1; $k = (1 - $k); ?>
             <?php endforeach; ?>
-            
+
             <?php if (!count($items)) : ?>
             <tr>
                 <td colspan="10" align="center">
@@ -149,7 +149,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
     <input type="hidden" name="boxchecked" value="" />
     <input type="hidden" name="filter_order" value="<?php echo $state->order; ?>" />
     <input type="hidden" name="filter_direction" value="<?php echo $state->direction; ?>" />
-    
+
     <?php echo $this->form['validate']; ?>
 </div>
 </form>

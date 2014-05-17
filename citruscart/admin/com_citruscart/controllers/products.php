@@ -131,7 +131,9 @@ class CitruscartControllerProducts extends CitruscartController
 		$app = JFactory::getApplication();
 
 	    $task = $app->input->getString( 'task' );
-		$post = $_POST;
+
+		$post = $app->input->getArray($_POST);
+
 		$model 	= $this->getModel( $this->get('suffix') );
 
 		$isSaveAs = false;

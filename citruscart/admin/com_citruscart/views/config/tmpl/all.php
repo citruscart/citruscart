@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php JFilterOutput::objectHTMLSafe($row); ?>
 
-<form id="adminForm" action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
     <?php echo CitruscartGrid::pagetooltip($app->input->getString('view')); ?>
 
