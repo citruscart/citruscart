@@ -1,13 +1,14 @@
 <?php
-
 /*------------------------------------------------------------------------
-# com_example
+# com_citruscart - citruscart
 # ------------------------------------------------------------------------
-# author   Weblogicx Team  - Weblogicx India http://www.weblogicxindia.com
-# copyright Copyright (C) 2014 Weblogicxindia.com. All Rights Reserved.
-# license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://example.org
-# Technical Support:  Forum - http://example.org/forum/index.html
+# author    Citruscart Team - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 - 2019 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
