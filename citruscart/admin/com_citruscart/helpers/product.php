@@ -8,7 +8,6 @@
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
-
 /** ensure this file is being included by a parent file */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 

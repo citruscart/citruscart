@@ -20,7 +20,6 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php 
 $state = $this->state;
 $item = $this->row;
-
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
 $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'full', false, false, array(), true );
 
