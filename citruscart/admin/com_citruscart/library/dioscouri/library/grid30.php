@@ -167,7 +167,6 @@ class DSCGrid extends JGrid
 	{
 		$img 	= $enable ? $imgY : $imgX;
 		$task 	= $enable ? 'disable' : 'enable';
-		print_r($task);exit;
 		$alt 	= $enable ? JText::_( 'Enabled' ) : JText::_( 'Disabled' );
 		$action = $enable ? JText::_( 'Disable Item' ) : JText::_( 'Enable Item' );
 

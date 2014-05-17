@@ -13,7 +13,7 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport('joomla.log.log');
-JLog::addLogger(array('text_file' => 'Citruscart.baseeav.php'), JLog::ALL, array('BaseEAV'));
+JLog::addLogger(array('text_file' => 'citruscart.baseeav.php'), JLog::ALL, array('BaseEAV'));
 
 Citruscart::load( 'CitruscartTable', 'tables._base' );
 
@@ -56,7 +56,7 @@ class CitruscartTableEav extends CitruscartTable
 
 		 /* Get the application */
 		$app = JFactory::getApplication();
-		
+
 		$before = JFactory::getApplication()->triggerEvent( 'onBeforeStore'.$this->get('_suffix'), array( &$this ) );
 		if (in_array(false, $before, true))
 		{
@@ -233,7 +233,7 @@ class CitruscartTableEav extends CitruscartTable
 				}
 			}
 
-			
+
 			JFactory::getApplication()->triggerEvent( 'onAfterStore'.$this->get('_suffix'), array( $this ) );
 		}
 		return $return;
@@ -246,7 +246,7 @@ class CitruscartTableEav extends CitruscartTable
 	function delete( $oid='' )
 	{
 		$app = JFactory::getApplication();
-		
+
 		$before = JFactory::getApplication()->triggerEvent( 'onBeforeDelete'.$this->get('_suffix'), array( $this, $oid ) );
 		if (in_array(false, $before, true))
 		{
@@ -297,7 +297,7 @@ class CitruscartTableEav extends CitruscartTable
 				return false;
 			}
 
-			
+
 			JFactory::getApplication()->triggerEvent( 'onAfterDelete'.$this->get('_suffix'), array( $this, $oid ) );
 		}
 		return $return;

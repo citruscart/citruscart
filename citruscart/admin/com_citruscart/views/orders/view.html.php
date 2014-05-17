@@ -103,8 +103,8 @@ class CitruscartViewOrders extends CitruscartViewBase
 		JLoader::import('com_citruscart.library.select', JPATH_ADMINISTRATOR.'/components');
 		JLoader::import('com_citruscart.library.grid', JPATH_ADMINISTRATOR.'/components');
 		JLoader::import('com_citruscart.library.url', JPATH_ADMINISTRATOR.'/components');
-		$model = JModelLegacy::getInstance($view,'CitruscartModel');
-		//$model = $this->getModel();
+		$model = $this->getModel();
+
 		// set the model state
 		$this->assign('state', $model->getState());
 

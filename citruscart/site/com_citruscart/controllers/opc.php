@@ -1,15 +1,13 @@
 <?php
 
 /*------------------------------------------------------------------------
-# com_citruscart
+# com_example
 # ------------------------------------------------------------------------
-# author   Citruscart Team  - Citruscart http://www.citruscart.com
-# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# author   Weblogicx Team  - Weblogicx India http://www.weblogicxindia.com
+# copyright Copyright (C) 2014 Weblogicxindia.com. All Rights Reserved.
 # @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://citruscart.com
-# Technical Support:  Forum - http://citruscart.com/forum/index.html
-# Fork of Tienda
-# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+# Websites: http://example.org
+# Technical Support:  Forum - http://example.org/forum/index.html
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
@@ -30,14 +28,14 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
     public function display($cachable=false, $urlparams = false)
     {
         $session = JFactory::getSession();
-        $session->clear('Citruscart.opc.method');
-        $session->clear('Citruscart.opc.billingAddress');
-        $session->clear('Citruscart.opc.shippingAddress');
-        $session->clear('Citruscart.opc.shippingRates');
-        $session->clear('Citruscart.opc.shippingMethod');
-        $session->clear('Citruscart.opc.userCoupons');
-        $session->clear('Citruscart.opc.userCredit');
-        $session->clear('Citruscart.opc.requireShipping');
+        $session->clear('citruscart.opc.method');
+        $session->clear('citruscart.opc.billingAddress');
+        $session->clear('citruscart.opc.shippingAddress');
+        $session->clear('citruscart.opc.shippingRates');
+        $session->clear('citruscart.opc.shippingMethod');
+        $session->clear('citruscart.opc.userCoupons');
+        $session->clear('citruscart.opc.userCredit');
+        $session->clear('citruscart.opc.requireShipping');
 
         if ( !$this->user->id )
         {
@@ -68,7 +66,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $showShipping = $order->isShippingRequired();
         $view->assign( 'showShipping', $showShipping );
 
-        $session->set('Citruscart.opc.requireShipping', serialize($showShipping) );
+        $session->set('citruscart.opc.requireShipping', serialize($showShipping) );
 
         $view->assign('default_country', $this->default_country);
         $view->assign('default_country_id', $this->default_country_id);
@@ -84,7 +82,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $method = $input->getString('checkout_method');
         $session = JFactory::getSession();
 
-        $session->set('Citruscart.opc.method', $method);
+        $session->set('citruscart.opc.method', $method);
 
         $response = $this->getResponseObject();
 
@@ -130,9 +128,9 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
         $address = $this->getAddress( $addressArray, $address_type, $user_id );
 
-        $session->set('Citruscart.opc.billingAddress', serialize( (object) $addressArray) );
+        $session->set('citruscart.opc.billingAddress', serialize( (object) $addressArray) );
 
-        $ship = $session->get('Citruscart.opc.billingAddress');
+        $ship = $session->get('citruscart.opc.billingAddress');
 
         $order = $this->_order;
 
@@ -211,9 +209,9 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
         $address = $this->getAddress( $addressArray, $address_type, $user_id );
 
-        $session->set('Citruscart.opc.shippingAddress', serialize((object)$addressArray) );
+        $session->set('citruscart.opc.shippingAddress', serialize((object)$addressArray) );
 
-        //$session->set('Citruscart.opc.shippingAddress', serialize((object)$address) );
+        //$session->set('citruscart.opc.shippingAddress', serialize((object)$address) );
 
         $order = $this->_order;
         $order = $this->populateOrder();
@@ -221,14 +219,14 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
        // $order->setAddress( $post, $type='shipping' );
         $order->setAddress( $address, 'shipping' );
 
-		//echo  $session->get('Citruscart.opc.billingAddress');
+		//echo  $session->get('citruscart.opc.billingAddress');
 
-      //  $billingAddress = $session->get('Citruscart.opc.billingAddress');
-		$billingAddress = unserialize( $session->get('Citruscart.opc.billingAddress') );
+      //  $billingAddress = $session->get('citruscart.opc.billingAddress');
+		$billingAddress = unserialize( $session->get('citruscart.opc.billingAddress') );
 		$order->setAddress( $billingAddress,'billing' );
 
         $rates = $this->getShippingRates();
-        $session->set('Citruscart.opc.shippingRates', serialize($rates) );
+        $session->set('citruscart.opc.shippingRates', serialize($rates) );
 
         $response->goto_section = 'shipping-method';
         $response->summary->html = $this->getSummaryAddress( $address );
@@ -269,13 +267,13 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $plugin = $parts[0];
         $key = $parts[1];
 
-        $shippingRates = unserialize( $session->get('Citruscart.opc.shippingRates') );
+        $shippingRates = unserialize( $session->get('citruscart.opc.shippingRates') );
 
         $currency = Citruscart::getInstance()->get( 'default_currencyid', 1);
         $rate = !empty($shippingRates[$key]) ? $shippingRates[$key] : null;
         $summary = $rate ? $rate['name'] . " (" . CitruscartHelperBase::currency( $rate['total'], $currency ) . ")" : null;
 
-        $requireShipping = unserialize( $session->get('Citruscart.opc.requireShipping') );
+        $requireShipping = unserialize( $session->get('citruscart.opc.requireShipping') );
         if ($requireShipping && empty($rate)) {
             $response->goto_section = 'shipping-method';
             $response->summary->id = 'opc-shipping-method-validation';
@@ -283,7 +281,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         } else {
             $response->goto_section = 'payment';
             $response->summary->html = $summary;
-            $session->set('Citruscart.opc.shippingMethod', serialize($rate) );
+            $session->set('citruscart.opc.shippingMethod', serialize($rate) );
         }
 
         echo json_encode($response);
@@ -312,9 +310,9 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $dummyaddress = JTable::getInstance('Addresses', 'CitruscartTable');
 
 
-        $billingAddress =  unserialize($session->get('Citruscart.opc.billingAddress'));
+        $billingAddress =  unserialize($session->get('citruscart.opc.billingAddress'));
 
-        $shippingAddress =unserialize($session->get('Citruscart.opc.shippingAddress')) ;
+        $shippingAddress =unserialize($session->get('citruscart.opc.shippingAddress')) ;
 
         $order->setAddress( ($billingAddress));
 
@@ -324,12 +322,12 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         }
 
 
-        if ($shippingMethod = unserialize( $session->get('Citruscart.opc.shippingMethod') ))
+        if ($shippingMethod = unserialize( $session->get('citruscart.opc.shippingMethod') ))
         {
             $order->setShippingRate( $shippingMethod );
         }
 
-        if ($shippingMethod = unserialize( $session->get('Citruscart.opc.shippingMethod') ))
+        if ($shippingMethod = unserialize( $session->get('citruscart.opc.shippingMethod') ))
         {
         	$order->setShippingRate( $shippingMethod );
         }
@@ -357,8 +355,8 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
             // Validate the results of the payment plugin
             $errorMessagesFromPlugins = '';
-            
-            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentFormVerify", array( $post['payment_plugin'], $post) );
+            $dispatcher = JDispatcher::getInstance();
+            $results = $dispatcher->trigger( "onGetPaymentFormVerify", array( $post['payment_plugin'], $post) );
 
             foreach ($results as $result)
             {
@@ -393,9 +391,9 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         if ($order->isPaymentRequired())
         {
 
-            
+            $dispatcher = JDispatcher::getInstance();
 
-            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentSummary", array( $post['payment_plugin'], $post ) );
+            $results = $dispatcher->trigger( "onGetPaymentSummary", array( $post['payment_plugin'], $post ) );
 
             $text = '';
             for ($i=0, $count = count($results); $i<$count; $i++)
@@ -480,7 +478,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
          	$app->close();
         }
 
-        if ($userCoupons = unserialize( $session->get('Citruscart.opc.userCoupons') ))
+        if ($userCoupons = unserialize( $session->get('citruscart.opc.userCoupons') ))
         {
             foreach ($userCoupons as $userCoupon)
             {
@@ -488,7 +486,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
             }
         }
 
-        if ($userCredit = unserialize( $session->get('Citruscart.opc.userCredit') ))
+        if ($userCredit = unserialize( $session->get('citruscart.opc.userCredit') ))
         {
             $order->addCredit( $userCredit );
         }
@@ -497,7 +495,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $order->calculateTotals();
 
         $userCoupons = $order->getUserCoupons();
-        $session->set('Citruscart.opc.userCoupons', serialize($userCoupons) );
+        $session->set('citruscart.opc.userCoupons', serialize($userCoupons) );
 
         $response->goto_section = 'review';
 
@@ -543,7 +541,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
             $errorMessage .= '</ul>';
         }
 
-        if ($userCoupons = unserialize( $session->get('Citruscart.opc.userCoupons') ))
+        if ($userCoupons = unserialize( $session->get('citruscart.opc.userCoupons') ))
         {
             foreach ($userCoupons as $userCoupon)
             {
@@ -554,7 +552,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $order->addCredit( $credit );
         $order->calculateTotals();
 
-        $session->set('Citruscart.opc.userCredit', serialize($credit) );
+        $session->set('citruscart.opc.userCredit', serialize($credit) );
 
         $response->goto_section = 'review';
 
@@ -595,8 +593,8 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
             $values["checkout_method"] = null;
         		if(isset($values['billing_address_id']) && ($values['billing_address_id'])){
-        			//$billing_add = unserialize($session->get('Citruscart.opc.billingAddress'));
-        			$billing_add = unserialize($session->get('Citruscart.opc.billingAddress'));
+        			//$billing_add = unserialize($session->get('citruscart.opc.billingAddress'));
+        			$billing_add = unserialize($session->get('citruscart.opc.billingAddress'));
         			if(is_object($billing_add)){
         				$prefix = "billing_input";
         				$billing=JArrayHelper::fromObject($billing_add);
@@ -616,7 +614,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
         		if(isset($values['shipping_address_id']) && ($values['shipping_address_id'])){
 
-        			$shipping_add = unserialize($session->get('Citruscart.opc.shippingAddress'));
+        			$shipping_add = unserialize($session->get('citruscart.opc.shippingAddress'));
         			if(is_object($shipping_add)){
         				$prefix = "shipping_input";
         				$shipping=JArrayHelper::fromObject($shipping_add);
@@ -646,7 +644,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         $values["sameasbilling"] = (!empty($values["shipping_input_same_as_billing"])) ? $values["shipping_input_same_as_billing"] : "";
 
 
-        if ($shippingMethod = unserialize( $session->get('Citruscart.opc.shippingMethod') ))
+        if ($shippingMethod = unserialize( $session->get('citruscart.opc.shippingMethod') ))
         {
         	$values['shipping_plugin'] = $shippingMethod['element'];
             $values['shipping_price'] = $shippingMethod['price'];
@@ -658,7 +656,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
         $values['coupons'] = array();
 
-        if ($userCoupons = unserialize( $session->get('Citruscart.opc.userCoupons') ))
+        if ($userCoupons = unserialize( $session->get('citruscart.opc.userCoupons') ))
         {
             foreach ($userCoupons as $coupon)
             {
@@ -666,7 +664,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
             }
         }
 
-        if ($userCredit = unserialize( $session->get('Citruscart.opc.userCredit') ))
+        if ($userCredit = unserialize( $session->get('citruscart.opc.userCredit') ))
         {
             $values['order_credit'] = $userCredit;
         }
@@ -795,8 +793,8 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
         // IMPORTANT: Store the order_id in the user's session for the postPayment "View Invoice" link
         $mainframe = JFactory::getApplication();
-        $mainframe->setUserState( 'Citruscart.order_id', $order->order_id );
-        $mainframe->setUserState( 'Citruscart.orderpayment_id', $orderpayment->orderpayment_id );
+        $mainframe->setUserState( 'citruscart.order_id', $order->order_id );
+        $mainframe->setUserState( 'citruscart.orderpayment_id', $orderpayment->orderpayment_id );
 
         $html = "";
         if ($orderpayment_type == 'free')
@@ -805,8 +803,8 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         }
         elseif (!empty($values['payment_plugin']))
         {
-            
-            $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
+            $dispatcher = JDispatcher::getInstance();
+            $results = $dispatcher->trigger( "onPrePayment", array( $values['payment_plugin'], $values ) );
             for ($i=0; $i<count($results); $i++)
             {
                 $html .= $results[$i];

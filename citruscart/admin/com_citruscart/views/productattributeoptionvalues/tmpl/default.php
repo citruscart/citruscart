@@ -15,16 +15,20 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
 <?php $row = $this->row; ?>
-<?php $app = JFactory::getApplication(); ?>
+<?php $app = JFactory::getApplication();
 
-<h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_SET_VALUES_FOR'); ?>: <?php echo $row->productattributeoption_name; ?></h1>
+?>
+
+<h1><?php echo JText::_('COM_CITRUSCART_SET_VALUES_FOR'); ?>: <?php echo $row->productattributeoption_name; ?></h1>
 
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
 
 	<div class="note" style="width: 96%; margin-left: auto; margin-right: auto;">
-		<h5><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION_VALUE'); ?></h5>
+
+	    <div><?php echo JText::_('COM_CITRUSCART_ADD_A_NEW_ATTRIBUTE_OPTION_VALUE'); ?></div>
+
 	    <div class="reset"></div>
 
                 <table class="table table-striped table-bordered">

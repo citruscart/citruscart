@@ -14,7 +14,7 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
 
-JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');
+JHtml::_('stylesheet',  'media/citruscart/css/citruscart.css');
 $lang = JFactory::getLanguage();
 $lang->load( 'com_citruscart', JPATH_SITE );
 ?>

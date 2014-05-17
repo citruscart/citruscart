@@ -84,7 +84,7 @@ class DSCHelperUser extends DSCHelper {
 	 * @return array
 	 */
 	public static function createNewUser($details, &$msg) {
-						
+
 	/*$success = false;
 		// Get required system objects
 		$user = clone(JFactory::getUser());
@@ -148,47 +148,44 @@ class DSCHelperUser extends DSCHelper {
 
 		return $user;
 		*/
-		
+
 		$user=JFactory::getUser(0);
-		print_r($user); exit;		
+
 		$instance = JUser::getInstance();
-		
+
 		jimport('joomla.application.component.helper');
-		
+
 		$config = JComponentHelper::getParams('com_users');
-		echo $config;
-		exit;
-		
 		// Default to Registered.
 		$defaultUserGroup = $config->get('new_usertype', 2);
-		
+
 		if (!$defaultUserGroup) {
 			$defaultUserGroup = 'Registered';
 		}
-		
+
 		$acl = JFactory::getACL();
-		
-		
+
+
 		$name=explode('@',$details['email']);
-		
-		
+
+
 		$data['id']= 0;
-		
+
 		$data['name']=$name[0];
-		
+
 		$data['username'] = $details['email'];
-		
+
 		$data['password']=$details['password'];
-		
+
 		$data['password2']=$details['password2'];
-		
+
 		$data['email']= $details['email'];  // Result should contain an email (check)
-		
+
 		$data['groups']= array($defaultUserGroup);
-		
-		
+
+
 		$useractivation = $config->get( 'useractivation',1); // in this citruscart, we load the config-setting
-		
+
 		if (!$user->bind($data)) { // now bind the data to the JUser Object, if it not works....
 			JError::raiseWarning('', JText::_( $instance->getError())); // ...raise an Warning
 			return false; // if you're in a method/function return false
@@ -197,7 +194,7 @@ class DSCHelperUser extends DSCHelper {
 			JError::raiseWarning('', JText::_( $instance->getError())); // ...raise an Warning
 			return false; // if you're in a method/function return false
 		}
-		
+
 		return $user;
 	}
 

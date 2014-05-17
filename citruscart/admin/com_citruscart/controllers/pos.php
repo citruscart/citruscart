@@ -288,7 +288,7 @@ class CitruscartControllerPOS extends CitruscartController
 
 		// Checking whether shipping is required
 		$showShipping = false;
-		if (isset($values['shippingrequired']))
+		if ($values['shippingrequired'])
 			$showShipping = true;
 
 		if ($showShipping && !$shippingAddress->save())
@@ -339,8 +339,8 @@ class CitruscartControllerPOS extends CitruscartController
 
 		// IMPORTANT: Store the order_id in the user's session for the postPayment "View Invoice" link
 		$mainframe = JFactory::getApplication();
-		$mainframe->setUserState( 'Citruscart.order_id', $order->order_id );
-		$mainframe->setUserState( 'Citruscart.orderpayment_id', $orderpayment->orderpayment_id );
+		$mainframe->setUserState( 'citruscart.order_id', $order->order_id );
+		$mainframe->setUserState( 'citruscart.orderpayment_id', $orderpayment->orderpayment_id );
 
 		// in the case of orders with a value of 0.00, we redirect to the confirmPayment page
 		if ( (float) $order->order_total == (float)'0.00' )
@@ -370,22 +370,14 @@ class CitruscartControllerPOS extends CitruscartController
 		$shippingMethodName = $values['shipping_name'];
 
 		$view = $this->getView( 'pos', 'html' );
-
 		$view->assign('order', $order);
-
 		$view->assign('plugin_html', $html);
-
 		$view->assign('shipping_info', $shipping_address);
-
 		$view->assign('billing_info', $billing_address);
-
 		$view->assign('shipping_method_name',$shippingMethodName);
-
 		$view->assign('showShipping', $showShipping );
-
 		$view->assign('step1_inactive', $this->step1Inactive());
 
-		JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables/');
 		// create POS request record
 		$pos_tbl = JTable::getInstance( "PosRequests", "CitruscartTable" );
 		$pos_tbl->load( array( 'user_id' => $userid, 'order_id' => $order->order_id, 'mode' => 1 ) );
@@ -1949,41 +1941,34 @@ class CitruscartControllerPOS extends CitruscartController
 
 		//SHIPPING ADDRESS: get shipping address from dropdown or form (depending on selection)
 		$shipping_zone_id = 0;
-		if(isset($_POST[$shipping_input_prefix.'_zone_id'])){
+		$shippingAddressArray = $same_as_billing ? $billingAddressArray : $this->getAddress($shipping_address_id, $shipping_input_prefix, $values);
 
-			if(isset($shipping_address_id)){
-				$shippingAddressArray = $same_as_billing ? $billingAddressArray : $this->getAddress($shipping_address_id, $shipping_input_prefix, $values);
-			}
-			if($same_as_billing)
-			{
-				$shippingAddressArray = $billingAddressArray;
-			}else{
+		if($same_as_billing)
+		{
+			$shippingAddressArray = $billingAddressArray;
+		}
+		else
+		{
 			$shippingaddressArray = $this->filterArrayUsingPrefix($post, $shipping_input_prefix, '', false );
 			// set the zone name
-			JTable::addIncludePath(JPATH_ADMINISTRATOR,'/components/com_citruscart/tables');
 			$szone = JTable::getInstance('Zones', 'CitruscartTable');
-
 			$szone->load( $shippingaddressArray['zone_id'] );
-
 			$addressArray['zone_name'] = $szone->zone_name;
 			// set the country name
 			$shippingcountry = JTable::getInstance('Countries', 'CitruscartTable');
 			$shippingcountry->load( $shippingaddressArray['country_id'] );
 			$shippingaddressArray['country_name'] = $shippingcountry->country_name;
-			}
-
-			if(array_key_exists('zone_id', $shippingAddressArray))
-				$shipping_zone_id = $shippingAddressArray['zone_id'];
-
-			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
-			$shippingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
 		}
 
+		if(array_key_exists('zone_id', $shippingAddressArray))
+			$shipping_zone_id = $shippingAddressArray['zone_id'];
 
 
 		JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
 		$billingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
+		$shippingAddress = JTable::getInstance('Addresses', 'CitruscartTable');
 
+		 //exit;
 
 		// set the order billing address
 		$billingAddress->bind($billingAddressArray);
@@ -1991,10 +1976,10 @@ class CitruscartControllerPOS extends CitruscartController
 		$billingAddress->save();
 
 		// set the order billing address
-
 		$shippingAddress->bind($shippingAddressArray);
 		$shippingAddress->user_id = $user_id;
 		$shippingAddress->save();
+
 		$this->setRedirect("index.php?option=com_citruscart&view=pos&nextstep=step3");
 	}
 
@@ -2432,10 +2417,10 @@ class CitruscartControllerPOS extends CitruscartController
 			$productModel->setId($cartitem->product_id);
 			if($productItem = $productModel->getItem(false))
 			{
-				$productItem->price = $productItem->product_price = !$cartitem->product_price_override ? $cartitem->product_price : $productItem->price;
+				$productItem->price = $productItem->product_price = !$cartitem->product_price_override->override ? $cartitem->product_price : $productItem->price;
 
 				//we are not overriding the price if its a recurring && price
-				if(!$productItem->product_recurs && $cartitem->product_price_override)
+				if(!$productItem->product_recurs && $cartitem->product_price_override->override)
 				{
 					// at this point, ->product_price holds the default price for the product,
 					// but the user may qualify for a discount based on volume or date, so let's get that price override
@@ -2557,7 +2542,7 @@ class CitruscartControllerPOS extends CitruscartController
 
 		$session = JFactory::getSession();
 		// set the shipping method
-		if(isset($values['shippingrequired']))
+		if($values['shippingrequired'])
 		{
 			$order->shipping = new JObject();
 			$order->shipping->shipping_price = $session->get('shipping_price', '', 'citruscart_pos');
@@ -2800,14 +2785,12 @@ class CitruscartControllerPOS extends CitruscartController
 	{
 		JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
 		$row = JTable::getInstance('OrderInfo', 'CitruscartTable');
-
 		$row->order_id = $order->order_id;
+
 		$session = JFactory::getSession();
-		$user = JFactory::getUser();
-		/*
 		$user_id = $session->get('user_id', '', 'citruscart_pos');
-		$row->user_email = JFactory::getUser($user_id)->get('email'); */
-		$row->user_email = JFactory::getUser($user->id)->get('email');
+		$row->user_email = JFactory::getUser($user_id)->get('email');
+
 		// Get Addresses
 		$shipping_address = $order->getShippingAddress();
 		$billing_address = $order->getBillingAddress();
@@ -2831,8 +2814,8 @@ class CitruscartControllerPOS extends CitruscartController
 		$row->billing_postal_code = $billing_address->postal_code;
 		$row->billing_zone_id = $billing_address->zone_id;
 		$row->billing_country_id = $billing_address->country_id;
-   		 $row->billing_country_name = @$country->country_name;
-  	  	$row->billing_zone_name = @$zone->zone_name;
+    $row->billing_country_name = @$country->country_name;
+    $row->billing_zone_name = @$zone->zone_name;
 
 		// shipping infos
 		$zone = JTable::getInstance('Zones', 'CitruscartTable');

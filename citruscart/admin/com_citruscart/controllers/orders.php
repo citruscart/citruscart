@@ -40,8 +40,6 @@ class CitruscartControllerOrders extends CitruscartController
 		JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables' );
 		$this->_order = JTable::getInstance('Orders', 'CitruscartTable');
 		$this->initial_order_state = Citruscart::getInstance()->get('pending_order_state', '1'); //pending
-		$app = JFactory::getApplication();
-
 	}
 
 	/**
@@ -83,10 +81,7 @@ class CitruscartControllerOrders extends CitruscartController
 	{
 		Citruscart::load( 'CitruscartUrl', 'library.url' );
 
-		//$model = JModelLegacy::getInstance($this->get('suffix'),'CitruscartModel');
-
 		$model = $this->getModel( $this->get('suffix') );
-		JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
 		$order = $model->getTable( 'orders' );
 		$order->load( $model->getId() );
 		$orderitems = $order->getItems();
@@ -1052,23 +1047,16 @@ class CitruscartControllerOrders extends CitruscartController
 	 */
 	function updateStatus()
 	{
-
 		$app = JFactory::getApplication();
-		JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/models/');
 		$model  = $this->getModel( $this->get('suffix') );
-
-
-		$row = JTable::getInstance($this->get('suffix'),'CitruscartTable');
-
-		//$row = $model->getTable();
-
+		$row = $model->getTable();
 		$row->load( $model->getId() );
-
 		//$row->order_state_id = JRequest::getVar('new_orderstate_id');
-
 		$row->order_state_id = $app->input->getInt('new_orderstate_id');
 
-		$completed_tasks = $app->input->get('completed_tasks');
+
+		$completed_tasks = $app->input->getString('completed_tasks');
+
 
 		if ($completed_tasks == "on" && empty($row->completed_tasks) )
 		{
@@ -1348,7 +1336,7 @@ class CitruscartControllerOrders extends CitruscartController
 		//$post = JRequest::get('post');
 		$app = JFactory::getApplication();
 		$post = $app->input->get($_POST);
-
+		
 		$orderinfo->bind($post);
 
 		// do the countries and zones names

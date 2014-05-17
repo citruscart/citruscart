@@ -12,12 +12,12 @@
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');?>
 <?php $row = $this->address;?>
 <?php JFilterOutput::objectHTMLSafe($row);?>
 <?php $config = Citruscart::getInstance(); ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_citruscart&view=pos&tmpl=component');?>" method="post" class="adminForm" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_citruscart&view=pos&tmpl=component');?>" method="post" class="adminForm" name="adminForm" >
 	<fieldset>
 		<div class="header icon-48-Citruscart" style="float: left;">
 			<?php if($row->address_id):?>

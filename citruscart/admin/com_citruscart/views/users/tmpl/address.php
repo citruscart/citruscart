@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 defined('_JEXEC') or die('Restricted access');?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');?>
 <?php $row = $this->address;?>
 <?php JFilterOutput::objectHTMLSafe($row);?>
 <?php $config = CitruscartConfig::getInstance(); ?>
@@ -20,9 +20,9 @@ defined('_JEXEC') or die('Restricted access');?>
 	<fieldset>
 		<div class="header icon-48-Citruscart" style="float: left;">
 			<?php if($row->address_id):?>
-			<?php echo JText::_('EDIT ADDRESS') . ": " . $row->address_name;?>	
+			<?php echo JText::_('EDIT ADDRESS') . ": " . $row->address_name;?>
 			<?php else:?>
-			<?php echo JText::_('NEW ADDRESS');?>	
+			<?php echo JText::_('NEW ADDRESS');?>
 			<?php endif;?>
 		</div>
 		<div class="toolbar" id="toolbar" style="float: right;">
@@ -155,7 +155,7 @@ defined('_JEXEC') or die('Restricted access');?>
 				<td>
 				<?php
 				// TODO Change this to use a task within the checkout controller rather than creating a new zones controller
-				
+
 				$url = "index.php?option=com_citruscart&format=raw&controller=pos&task=getzones&prefix=&country_id=";
 				$attribs = array('class' => 'inputbox',
 				'size' => '1',
@@ -224,7 +224,7 @@ defined('_JEXEC') or die('Restricted access');?>
 				</td>
 			</tr>
 			<?php
-			
+
 			JFactory::getApplication()->triggerEvent('onAfterDisplayAddressDetails', array($row,
 			''));
 			?>

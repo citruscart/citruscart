@@ -225,7 +225,7 @@ class CitruscartHelperUser extends DSCHelperUser
 
 
 		 $user = CitruscartHelperUser::createNewUser($details);
-		 print_r($user);
+
 		 $order->user_id = $user->id;
 		 //update the order to the new user
 		 $table = $model->getTable();

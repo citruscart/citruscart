@@ -10,9 +10,9 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die('Restricted access');
-JHTML::_('stylesheet', 'menu.css', 'media/citruscart/css/');
+JHtml::_('stylesheet','media/citruscart/css/menu.css');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-JHTML::_('script', 'joomla.javascript.js', 'includes/js/');
+JHtml::_('script', 'joomla.javascript.js', 'includes/js/');
 Citruscart::load( 'CitruscartGrid', 'library.grid' );
 Citruscart::load( 'CitruscartHelperOrder', 'helpers.order' );
 Citruscart::load( 'CitruscartHelperCurrency', 'helpers.currency' );
@@ -31,7 +31,7 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
 			<span class="left20 center"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?></span>
 			<span class="left30 right"><?php echo JText::_('COM_CITRUSCART_TOTAL'); ?></span>
 		</div>
-            <?php $i=0; $k=0; ?> 
+            <?php $i=0; $k=0; ?>
             <?php foreach ($items as $item) : ?>
                 <div class="row<?php echo $k; ?> floatbox cart_item_list">
                     <div class="left50">
@@ -40,22 +40,22 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
 	                            <?php echo $item->orderitem_name; ?>
 	                        </a>
 	                        <br/>
-	                        
+
 	                        <?php if (!empty($item->orderitem_attribute_names)) : ?>
 	                            <?php echo $item->orderitem_attribute_names; ?>
 	                            <br/>
 	                        <?php endif; ?>
-	                        
+
 	                        <?php if (!empty($item->orderitem_sku)) : ?>
 	                            <b><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</b>
 	                            <?php echo $item->orderitem_sku; ?>
 	                            <br/>
 	                        <?php endif; ?>
-	
+
 	                        <?php if ($item->orderitem_recurs) : ?>
 	                            <?php $recurring_subtotal = $item->recurring_price; ?>
 	                            <?php echo JText::_('COM_CITRUSCART_RECURRING_PRICE'); ?>: <?php echo $currency_helper->format($item->recurring_price, $default_currency ); ?>
-	                            (<?php echo $item->recurring_payments . " " . JText::_('COM_CITRUSCART_PAYMENTS'); ?>, <?php echo $item->recurring_period_interval." ". JText::_('COM_CITRUSCART_PERIOD_UNIT_'.$item->recurring_period_unit)." ".JText::_('COM_CITRUSCART_PERIODS'); ?>) 
+	                            (<?php echo $item->recurring_payments . " " . JText::_('COM_CITRUSCART_PAYMENTS'); ?>, <?php echo $item->recurring_period_interval." ". JText::_('COM_CITRUSCART_PERIOD_UNIT_'.$item->recurring_period_unit)." ".JText::_('COM_CITRUSCART_PERIODS'); ?>)
 											            <?php if( $item->subscription_prorated ) : ?>
 	                                <br/>
 			                                <?php echo JText::_('COM_CITRUSCART_INITIAL_PERIOD_PRICE'); ?>: <?php echo $currency_helper->format( $item->recurring_trial_price, $default_currency ); ?>
@@ -66,25 +66,25 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
 			                                <?php echo JText::_('COM_CITRUSCART_TRIAL_PERIOD_PRICE'); ?>: <?php echo $currency_helper->format($item->recurring_trial_price, $default_currency ); ?>
 			                                (<?php echo "1 " . JText::_('COM_CITRUSCART_PAYMENT'); ?>, <?php echo $item->recurring_trial_period_interval." ". JText::_('COM_CITRUSCART_PERIOD_UNIT_'.$item->recurring_period_unit)." ".JText::_('COM_CITRUSCART_PERIOD'); ?>)
 											            <?php endif;?>
-	                            <?php endif; ?>    
+	                            <?php endif; ?>
 	                        <?php else : ?>
 	                            <?php echo JText::_('COM_CITRUSCART_PRICE'); ?>:
 	                            <?php echo $currency_helper->format( $item->price, $default_currency ); ?>
-	                        <?php endif; ?> 
-	                        
+	                        <?php endif; ?>
+
 						    <?php if (!empty($this->onDisplayOrderItem) && (!empty($this->onDisplayOrderItem[$i]))) : ?>
 						        <div class='onDisplayOrderItem_wrapper_<?php echo $i?>'>
 						        <?php echo $this->onDisplayOrderItem[$i]; ?>
 						        </div>
-						    <?php endif; ?>  
-	
+						    <?php endif; ?>
+
 	                        <?php if( in_array($item->product_id, $coupons) ){ ?>
 	                        	<span style="float: right;"><?php echo JText::_('COM_CITRUSCART_COUPON_DISCOUNT_APPLIED'); ?></span>
 	                        <?php } ?>
-                    	</div>                      
+                    	</div>
                     </div>
                     <div class="left20 center">
-                        <?php echo $item->orderitem_quantity;?>  
+                        <?php echo $item->orderitem_quantity;?>
                     </div>
                     <div class="left30 right">
                     	<div class="inner">
@@ -108,7 +108,7 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
                     	</span>
                     </span>
                 </div>
-                
+
                 <?php if (!empty($order->_coupons['order_price'])) : ?>
                 <div class="floatbox">
                     <span class="left50 header">
@@ -127,7 +127,7 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
         <div class="floatbox">
 					<?php echo $this->displayTaxes(); ?>
         </div>
-        
+
         <?php if( $display_credits ): ?>
         <div class="marginbot"></div>
         <div class="floatbox">
@@ -141,9 +141,9 @@ $default_currency = Citruscart::getInstance()->get('default_currencyid', '1');
             		- <?php echo $currency_helper->format( $order->order_credit, $default_currency ); ?>
             	</span>
             </span>
-        </div>        
+        </div>
         <?php endif; ?>
-        
+
         <div class="marginbot"></div>
         <div class="floatbox">
         	<span class="left50 header">

@@ -33,7 +33,7 @@ class CitruscartControllerProductAttributeOptions extends CitruscartController
 		$this->messagetype = '';
 		$error = false;
 
-		$cids = $app->input->getArray('cid', array (0), 'request', 'array');
+		$cids = $app->input->get('cid', array (0), 'request', 'array');
 
 		// Get the ProductQuantities model
 		$qmodel = JModelLegacy::getInstance('ProductQuantities', 'CitruscartModel');
@@ -93,4 +93,4 @@ class CitruscartControllerProductAttributeOptions extends CitruscartController
 		echo json_encode($response);
 	}
 }
-	
+

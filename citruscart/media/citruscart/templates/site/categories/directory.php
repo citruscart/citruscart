@@ -41,7 +41,8 @@ defined('_JEXEC') or die('Restricted access');
                             <span><?php echo $citem->category_name; ?></span>
                         </div>
                         <?php if (!empty($categories)) { ?>
-                            <ul class="directory_subcategory">
+                            <!--  	<ul class="directory_subcategory">-->
+                            <ul class="nav nav-list">
                             <?php foreach ($categories as $category) {
                                 $pmodel = JModelLegacy::getInstance('Products', 'CitruscartModel');
                                 $pmodel->setState('filter_category', $category->category_id);

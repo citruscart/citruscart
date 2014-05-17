@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');?>
-<?php JHTML::_('stylesheet', 'Citruscart.css', 'media/citruscart/css/');?>
+<?php JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 <?php $items = $this -> items;?>
 <div class="cartitems">
@@ -84,10 +84,10 @@ defined('_JEXEC') or die('Restricted access');?>
 			<?php endforeach;?>
 			<tr>
 				<td colspan="3" style="border-bottom: 1px solid #E5E5E5; text-align: left;">
-				<input type="submit" class="btn btn-danger" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED');?>" onclick="citruscartSubmitForm('removeItems')" name="remove" />
+				<input type="submit" class="btn btn-danger" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED');?>" onclick="CitruscartSubmitForm('removeItems')" name="remove" />
 				</td>
 				<td colspan="2" style="border-bottom: 1px solid #E5E5E5; ">
-				<input style="float: right;" type="submit" class="button btn btn-primary" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES');?>" onclick="citruscartSubmitForm('updateQty')" name="update" />
+				<input style="float: right;" type="submit" class="button btn btn-primary" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES');?>" onclick="CitruscartSubmitForm('updateQty')" name="update" />
 
 				</td>
 			</tr>

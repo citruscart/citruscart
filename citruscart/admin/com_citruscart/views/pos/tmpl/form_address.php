@@ -1,7 +1,7 @@
 <?php
 	defined('_JEXEC') or die('Restricted access');
 	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
-	JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
+	JHtml::_('stylesheet','media/citruscart/css/citruscart.css');
 
 	switch($this->form_prefix)
 	{
@@ -222,7 +222,6 @@
 					if(!empty($this->zones))
 					{
 						echo $this->zones;
-
 					}
 					else
 					{
