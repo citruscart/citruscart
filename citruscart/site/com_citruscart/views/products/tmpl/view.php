@@ -20,13 +20,13 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php 
 $state = $this->state;
 $item = $this->row;
-
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
 $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'full', false, false, array(), true );
 
 $app = JFactory::getApplication();
 ?>
 
+<!-- citruscart div starts -->
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
 
     <?php if ( $this->defines->get( 'display_citruscart_pathway' ) ) : ?>
@@ -56,6 +56,10 @@ $app = JFactory::getApplication();
         </div>
     <?php } ?>
 
+    <!-- row-fluid div starts -->
+    <div class="row-fluid">
+     
+    <!-- citruscart product div starts -->
     <div id="citruscart_product" class="dsc-wrap">
 
         <?php if ( !empty( $this->onBeforeDisplayProduct ) ) : ?>
@@ -64,32 +68,15 @@ $app = JFactory::getApplication();
             </div>
         <?php endif; ?>
 
-        <div id='citruscart_product_header' class="dsc-wrap">
+        <!-- <div id='citruscart_product_header' class="dsc-wrap">
             <h2 class="product_name">
                 <?php echo htmlspecialchars_decode( $item->product_name ); ?>
             </h2>
-        
-            <!-- <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
-            <div class="dsc-wrap product_numbers">
-                <?php if ( !empty( $item->product_model ) ) : ?>
-                    <span class="model">
-                        <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
-                        <?php echo $item->product_model; ?>
-                    </span>
-                <?php endif; ?>
+        </div> -->
 
-                <?php if ( !empty( $item->product_sku ) ) : ?>
-                    <span class="sku">
-                        <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
-                        <?php echo $item->product_sku; ?>
-                    </span>
-                <?php endif; ?>
-            </div>
-            <?php endif; ?>
-            -->
-
-        </div>
-
+    <!-- row-fluid div starts -->    
+    <div class="row-fluid">
+     
         <div id="product_image" class="dsc-wrap product_image">
         
             <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
@@ -104,36 +91,53 @@ $app = JFactory::getApplication();
 				}
 				?>
             </div>
-        </div>
+        </div>            
         
-        <div class="pull-right">
-        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
-            <div id='citruscart_product_header'>
-                
-                <?php if ( !empty( $item->product_model ) ) : ?>
-                    <span class="model">
-                        <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
-                        <?php echo $item->product_model; ?>
-                    </span>
-                <?php endif; ?>
-
-                <?php if ( !empty( $item->product_sku ) ) : ?>
-                    <span class="sku">
-                        <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
-                        <?php echo $item->product_sku; ?>
-                    </span>
-                <?php endif; ?>
-            </div>
-        <?php endif; ?>
-        </div>
-                
-        <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
-            <div class="dsc-wrap product_buy" id="product_buy_<?php echo $item->product_id; ?>">
-                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
-            </div>
-        <?php endif; ?>
+        <!-- product name unorder list starts -->
+        <ul class="unstyled">
         
-        <div style="width:120px;">
+            <!-- product name list starts -->
+        	<li class="center">              
+		        <h3 class="productheader">
+		                <?php echo htmlspecialchars_decode( $item->product_name ); ?>
+		        </h3>
+		    </li><!-- product name list ends -->
+		    
+		    <!-- product properties list starts -->
+		    <li class="pull-right productproperties">        
+                               
+	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
+	            <div id='citruscart_product_header'>
+	                
+	                <?php if ( !empty( $item->product_model ) ) : ?>
+	                    <span class="model">
+	                        <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
+	                        <?php echo $item->product_model; ?>
+	                    </span>
+	                <?php endif; ?>
+	
+	                <?php if ( !empty( $item->product_sku ) ) : ?>
+	                    <span class="sku">
+	                        <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
+	                        <?php echo $item->product_sku; ?>
+	                    </span>
+	                <?php endif; ?>
+	            </div>
+	        <?php endif; ?>
+               
+	       <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
+	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
+	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
+	            </div>
+	        <?php endif; ?>
+	     </li><!-- product properties list ends -->
+	     
+	     </ul>
+	     	                  
+        </div><!-- row-fluid div ends -->
+        
+        <!-- review div starts -->
+        <div class="productreview">
         <!-- unorder list starts -->
         <ul class="unstyled">       
 	       <!-- list starts -->
@@ -147,15 +151,14 @@ $app = JFactory::getApplication();
 	                <?php endif; ?>
 	               </div>
 	            </div>
-	        <?php } ?> 
-	        
+	        <?php } ?>	        
 	        </li> 
 	        <li>                       
 	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>      
 	        </li>
 	        
         </ul><!-- unorder list ends -->
-        </div> 
+        </div><!-- review div ends --> 
          
         <?php if ( $this->defines->get( 'ask_question_enable', '1' ) ) : ?>
         <div id="product_questions" class="dsc-wrap dsc-clear">
@@ -222,5 +225,6 @@ $app = JFactory::getApplication();
 			} ?>
         </div>
 
-    </div>
-</div>
+      </div><!-- citruscart product div ends -->
+    </div><!-- row-fluid div ends -->
+</div><!-- citruscart div ends -->

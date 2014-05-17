@@ -42,6 +42,7 @@ div#citruscart_products div.product_item{border-bottom:1px solid #cccccc;margin-
 div#citruscart_products div.product_thumb{float:left;margin:0 5px 5px 0;min-width:15%;text-align:center;}
 div#citruscart_products div.product_buy{max-width:25%;}
 div#product_quantity_input span.title{font-weight:bold;vertical-align:middle;}
+div.product_quantity_input{display:inline-flex;}
 div#product_attributeoptions{text-align:right;}
 div#citruscart_product_header h2{border-bottom:1px solid #cccccc; margin-bottom:10px; padding:5px;}
 div#citruscart_product_header{margin-bottom:10px;padding:5px;}
@@ -54,12 +55,12 @@ div.product_name span{font-size:1.8em;font-weight:bold;margin-right:15px;}
 .citruscart_header span{font-size:1.5em;margin-bottom:10px;padding:5px 0;}
 div.currency{float:right;font-weight:bold;}
 .default div.product_buy{float:right;font-size:1.3em;padding:10px;text-align:center;vertical-align:middle;}
-.view div.product_buy{float:right;font-size:1.3em;padding:10px;text-align:right;vertical-align:middle;width:65%;}
+.view div.product_buy{font-size:1.3em;padding:10px;vertical-align:middle;width:auto;}
 img.addcart{cursor:pointer;}
 div.product_rating,div.product_rating img{padding:3px 0 2px;vertical-align:middle;}
 
 .product_gallery_thumb{border:none;float:left;margin:10px 10px 0 0;width : auto; clear : right;}
-.product_gallery_thumb img{border:none;float:left;margin:10px 10px 0 0;width : auto; max-width:75px; clear : right;}
+.product_gallery_thumb img{border:none;float:left;margin:10px 10px 0 0;width : auto; max-width:130px; clear : right;}
 
 /* Checkout */
 #cartitems_header{background: none repeat scroll 0 0 #E8E8E8; padding: 5px 10px;}
@@ -276,4 +277,37 @@ a.img_tooltip:hover span{display:block;}
 
 .product_share_buttons_wishlist{
 	margin: 3px 0px 0px 10px;
+}
+
+#citruscart_product .modal{
+position:relative;
+display:inline;
+z-index:1000;
+}
+
+#citruscart_products .product_buy{
+margin-top:-160px;
+}
+
+#citruscart_product .product_attributeoptions{
+/*display:inline-flex;*/
+}
+
+#citruscart_products .product_item {
+
+}
+.pao {
+display:inline-flex;
+}
+
+.product_minidesc{
+margin-right:230px;
+}
+
+.productheader{
+padding:5px;
+}
+
+.productproperties{
+margin-right:140px;
 }
