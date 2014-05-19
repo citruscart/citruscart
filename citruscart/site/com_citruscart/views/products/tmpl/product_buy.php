@@ -43,7 +43,10 @@ if( $changed_attr > -1 ) {
     <div id="validationmessage_<?php echo $item->product_id; ?>"></div>
 
     <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" class="adminform" name="<?php echo $formName; ?>" enctype="multipart/form-data" >
-
+       
+          
+    <div class="product_prices product_buyoptions">  
+       
     <!--base price-->
     <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
     	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, $item->tax, $this->show_tax); ?>
@@ -52,19 +55,23 @@ if( $changed_attr > -1 ) {
     	<?php if(Citruscart::getInstance()->get( 'display_prices_with_shipping') && !empty($item->product_ships)):?>
     	<?php echo CitruscartUrl::popup( JRoute::_($this->shipping_cost_link.'&tmpl=component'), JText::_('COM_CITRUSCART_LINK_TO_SHIPPING_COST') ); ?>
     	<?php endif;?>
-    </span>
+    </span>     
 
+    <span>
     <?php if (!empty($item->product_listprice_enabled)) : ?>
         <div class="product_listprice">
-        <span class="title"><?php echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span>
+        <!-- <span class="title"><?php echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span> -->
         <del><?php echo CitruscartHelperBase::currency($item->product_listprice); ?></del>
         </div>
     <?php endif; ?>
-
+    </span>
+    </div>
+    
+               
     <?php if (!empty($this->display_cartbutton)) : ?>
 
     <!--attribute options-->
-    <div id='product_attributeoptions_<?php echo $item->product_id; ?>' class="product_attributeoptions">
+    <div id='product_attributeoptions_<?php echo $item->product_id; ?>' class="product_attributeoptions product_buyoptions">
     <?php
     // Selected attribute options (for child attributes)
     $selected_opts = (!empty($this->selected_opts)) ? json_decode($this->selected_opts) : 0;
@@ -90,8 +97,9 @@ if( $changed_attr > -1 ) {
         ?>
         <div class="pao" id='productattributeoption_<?php echo $attribute->productattribute_id; ?>'>
         <?php
-        echo "<span>".$attribute->productattribute_name." : </span>";
+        echo "<div class='productmodels'>".$attribute->productattribute_name."  </div>";
 
+        echo "<div class='productoptions'>";
         $key = 'attribute_'.$attribute->productattribute_id;
         $selected = (!empty($values[$key])) ? $values[$key] : $default[$attribute->productattribute_id];
 
@@ -104,7 +112,7 @@ if( $changed_attr > -1 ) {
 	        			'pid'	=> $item->product_id
 						);
         echo CitruscartSelect::productattributeoptions( $attribute->productattribute_id, $selected, $key, $attribs, null, $selected_opts  );
-
+        echo "</div>";
         ?>
 
         </div>
@@ -121,21 +129,23 @@ if( $changed_attr > -1 ) {
         </div>
     <?php endif; ?>
 
-    </div>
-
-    <div id='product_quantity_input_<?php echo $item->product_id; ?>' class="product_quantity_input">
+    </div>  
+             
+    <div id='product_quantity_input_<?php echo $item->product_id; ?>' class="product_quantity_input product_buyoptions">
         <?php if ($item->product_parameters->get('hide_quantity_input') == '1') { ?>
             <input type="hidden" name="product_qty" value="<?php echo $item->product_parameters->get('default_quantity', '1'); ?>" />
         <?php } elseif ($item->quantity_restriction && $item->quantity_min == $item->quantity_max) { ?>
             <input type="hidden" name="product_qty" value="<?php echo $item->quantity_min; ?>" />
         <?php } else { ?>
-        <span class="title"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</span>
-        <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="5" class="input-mini" />
-        <?php } ?>
+        <span class="productmodels"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</span>
+        <div class="productquantity">
+        <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="12" class="input-mini" />
+        </div>
+	<?php } ?>
     </div>
-
+            
     <!-- Add to cart button -->
-    <div id='add_to_cart_<?php echo $item->product_id; ?>' class="add_to_cart" style="display: block;">
+    <div id='add_to_cart_<?php echo $item->product_id; ?>' class="add_to_cart product_buyoption" style="display: block;">
         <input type="hidden" name="product_id" value="<?php echo $item->product_id; ?>" />
         <input type="hidden" name="filter_category" value="<?php echo $this->filter_category; ?>" />
         <input type="hidden" id="task" name="task" value="" />
@@ -169,10 +179,11 @@ if( $changed_attr > -1 ) {
         endif;
         ?>
     </div>
+        
     <?php endif; ?>
-
+    
     <?php if (!empty($item->product_recurs)) : ?>
-        <div id='product_recurs_<?php echo $item->product_id; ?>' class="product_recurs">
+        <div id='product_recurs_<?php echo $item->product_id; ?>' class="product_recurs product_buyoptions">
             <span class="title"><?php echo JText::_('COM_CITRUSCART_THIS_PRODUCTS_CHARGES_RECUR'); ?></span>
             <div id="product_recurs_prices_<?php echo $item->product_id; ?>" class="product_recurs_prices">
             <?php echo JText::_('COM_CITRUSCART_RECURRING_PRICE'); ?>: <?php echo CitruscartHelperBase::currency($item->recurring_price); ?>
@@ -191,23 +202,23 @@ if( $changed_attr > -1 ) {
             </div>
         </div>
     <?php endif; ?>
-
-    <?php if (!empty($item->product_check_inventory)) : ?>
+    
+   <?php if (!empty($item->product_check_inventory)) : ?>
         <?php if (Citruscart::getInstance()->get('display_product_quantity', '1')) : ?>
-        <div id='available_stock_<?php echo $item->product_id; ?>' class="available_stock">
+        <div id='available_stock_<?php echo $item->product_id; ?>' class="available_stock product_buyoptions">
           <?php echo JText::_('COM_CITRUSCART_AVAILABLE_STOCK'); ?> <label id="stock_<?php echo $item->product_id; ?>"><?php echo (int) $this->availableQuantity->quantity; ?></label>
         </div>
         <?php endif; ?>
     <?php endif; ?>
-
+    
     <?php if (!empty($item->product_check_inventory) && !empty($this->invalidQuantity) ) : ?>
-        <div id='out_of_stock_<?php echo $item->product_id; ?>' class="out_of_stock">
+        <div id='out_of_stock_<?php echo $item->product_id; ?>' class="out_of_stock product_buyoptions">
           <?php echo JText::_('COM_CITRUSCART_OUT_OF_STOCK'); ?>
         </div>
     <?php endif; ?>
-
-	<?php if( $display_wishlist ): ?>
-        <div id='add_to_wishlist_<?php echo $item->product_id; ?>' class="add_to_wishlist">
+    
+    <?php if( $display_wishlist ): ?>
+        <div id='add_to_wishlist_<?php echo $item->product_id; ?>' class="add_to_wishlist product_buyoptions">
             <?php
             $xref_id = $this->user->id;
             $xref_type = 'user';

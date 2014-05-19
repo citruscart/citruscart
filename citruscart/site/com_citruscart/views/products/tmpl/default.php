@@ -15,7 +15,6 @@ defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 
-
 $state = $this->state;
 $items = $this->items;
 

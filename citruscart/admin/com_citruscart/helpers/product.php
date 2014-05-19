@@ -946,7 +946,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
                 $tmpl = ( $url ) ? $src
                 : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='220px' height='180px'/>";
+                . "' align='middle' border='0' width='300px' height='180px'/>";
 
             }
         }

@@ -55,7 +55,7 @@ div.product_name span{font-size:1.8em;font-weight:bold;margin-right:15px;}
 .citruscart_header span{font-size:1.5em;margin-bottom:10px;padding:5px 0;}
 div.currency{float:right;font-weight:bold;}
 .default div.product_buy{float:right;font-size:1.3em;padding:10px;text-align:center;vertical-align:middle;}
-.view div.product_buy{font-size:1.3em;padding:10px;vertical-align:middle;width:auto;}
+.view div.product_buy{font-size:0.98em;padding:10px;vertical-align:middle;width:auto;}
 img.addcart{cursor:pointer;}
 div.product_rating,div.product_rating img{padding:3px 0 2px;vertical-align:middle;}
 
@@ -309,5 +309,73 @@ padding:5px;
 }
 
 .productproperties{
-margin-right:140px;
+margin-top:-20px;
+/* margin-right:140px; */
 }
+
+.product_prices{
+width:auto;
+display:inline-flex;
+}
+
+.product_prices .product_price{
+font-size:24px;
+}
+
+.product_prices .product_listprice{
+margin-left: 10px;
+color: #697071;
+}
+.productoptions{
+margin-left:50px;
+}
+.product_buyoptions{
+margin-top:15px;
+}
+
+.add_to_cart{
+margin-top:25px;
+}
+.product_attributeoptions{
+margin-top:20px;
+}
+
+.productmodels{
+color: #697071;
+margin-top:5px;
+}
+
+.productheader{
+color:#353637;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.productprice{
+color:#353637;
+}
+
+#citruscart_product_header{
+margin-left: 3px;
+margin-top: -15px;
+}
+
+.productquantity{
+margin-left:20px;
+}
+
+.add_to_cart .btn-success{
+background-color:#FF8800;
+border-color:#FF8800;
+}
+
+.btn-success : hover,
+.btn-success : focus,
+.btn-success : active
+{
+background-color:#FF8800;
+border-color:#FF8800;
+}
+.btn {
+box-shadow: none;
+}
+
