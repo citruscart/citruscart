@@ -14,9 +14,12 @@ defined('_JEXEC') or die('Restricted access');
 
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+
+
 $state = $this->state;
-$items = @$this->items;
-$citems = @$this->citems;
+$items = $this->items;
+
+$citems = $this->citems;
 $form = $this->form;
 Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );
 $config = Citruscart::getInstance();
@@ -34,7 +37,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
         </div>
     <?php endif; ?>
     <?php if( $product_compare ):?>
-    <?php $compareitems = @$this->compareitems;?>
+    <?php $compareitems = $this->compareitems;?>
 	<div id="validationmessage"></div>
 	<?php endif;?>
     <?php if (!empty($this->pricefilter_applied)) : ?>
@@ -54,7 +57,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
             <?php endif; ?>
 
          	<?php if( $this->cat->display_name_category ) : ?>
-                <h2><?php echo @$this->title; ?></h2>
+                <h2><?php echo $this->title; ?></h2>
             <?php endif; ?>
 
             <div class='category_description dsc-wrap'><?php echo $this->cat->category_description; ?></div>

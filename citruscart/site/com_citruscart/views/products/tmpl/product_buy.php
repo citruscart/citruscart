@@ -48,6 +48,7 @@ if( $changed_attr > -1 ) {
     <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
     	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, $item->tax, $this->show_tax); ?>
     	 <!-- For UE States, we should let the admin choose to show (+19% vat) and (link to the shipping rates) -->
+    	<br />
     	<?php if(Citruscart::getInstance()->get( 'display_prices_with_shipping') && !empty($item->product_ships)):?>
     	<?php echo CitruscartUrl::popup( JRoute::_($this->shipping_cost_link.'&tmpl=component'), JText::_('COM_CITRUSCART_LINK_TO_SHIPPING_COST') ); ?>
     	<?php endif;?>
@@ -77,7 +78,6 @@ if( $changed_attr > -1 ) {
 
     $default = CitruscartHelperProduct::getDefaultAttributeOptions($attributes);
 
-
     // First view of the page: select the first value in the list
     if(!$selected_opts)
     {
@@ -89,16 +89,16 @@ if( $changed_attr > -1 ) {
     {
         ?>
         <div class="pao" id='productattributeoption_<?php echo $attribute->productattribute_id; ?>'>
-        <?php    echo "<span>".$attribute->productattribute_name." : </span>";?>
+        <?php
+        echo "<span>".$attribute->productattribute_name." : </span>";
 
-		<?php
         $key = 'attribute_'.$attribute->productattribute_id;
         $selected = (!empty($values[$key])) ? $values[$key] : $default[$attribute->productattribute_id];
 
         $attribs = array('class' => 'inputbox productattribute',
         				'size' => '1',
 	        			'onchange'=>"Citruscart.UpdateChangedAttribute( document.".$formName.", ".$attribute->productattribute_id.");
-                       	 Citruscart.UpdateAddToCart( '".$this->page."','product_buy_".$item->product_id."', document.".$formName.", ".$working_image." );",
+                        Citruscart.UpdateAddToCart( '".$this->page."','product_buy_".$item->product_id."', document.".$formName.", ".$working_image." );",
 	        			'changed_attr' => $changed_attr,
 	        			'changed_pao' => $changed_pao,
 	        			'pid'	=> $item->product_id
@@ -130,11 +130,10 @@ if( $changed_attr > -1 ) {
             <input type="hidden" name="product_qty" value="<?php echo $item->quantity_min; ?>" />
         <?php } else { ?>
         <span class="title"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</span>
-        <br/>
-        <input type="text"  name="product_qty" value="<?php echo $item->_product_quantity; ?>"  class="form-control" size="5" />
+        <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="5" class="input-mini" />
         <?php } ?>
     </div>
-	<br/>
+
     <!-- Add to cart button -->
     <div id='add_to_cart_<?php echo $item->product_id; ?>' class="add_to_cart" style="display: block;">
         <input type="hidden" name="product_id" value="<?php echo $item->product_id; ?>" />
