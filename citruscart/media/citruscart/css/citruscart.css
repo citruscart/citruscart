@@ -1,4 +1,4 @@
-/* helpers */ 
+ /* helpers */ 
 div.reset{clear:both;}
 .note{background-color:#FFFFDD;border:1px solid #DDDDBB;border-collapse:collapse;border-spacing:0;margin-bottom:10px;margin-top:5px;padding:10px;text-align:justify;}
 .note_pink{background-color:#FDE8FD;border:1px solid #FFCCCC;border-collapse:collapse;border-spacing:0;margin-bottom:10px;margin-top:5px;padding:10px;text-align:justify;}
@@ -60,7 +60,7 @@ img.addcart{cursor:pointer;}
 div.product_rating,div.product_rating img{padding:3px 0 2px;vertical-align:middle;}
 
 .product_gallery_thumb{border:none;float:left;margin:10px 10px 0 0;width : auto; clear : right;}
-.product_gallery_thumb img{border:none;float:left;margin:10px 10px 0 0;width : auto; max-width:130px; clear : right;}
+.product_gallery_thumb img{border:none;float:left;margin:10px 10px 0 0;width : auto; max-width:50px; clear : right;}
 
 /* Checkout */
 #cartitems_header{background: none repeat scroll 0 0 #E8E8E8; padding: 5px 10px;}
