@@ -15,33 +15,28 @@ defined('_JEXEC') or die('Restricted access');
 $gallery_data = $this->gallery_data;
 ?>
 
-<?php
-if ( $gallery_data->show_gallery )
-{
-	?>
+<?php if ( $gallery_data->show_gallery ):?>
 
 <div class="dsc-wrap product_gallery" id="product_gallery">
-	<div id="product_gallery_header" class="citruscart_header dsc-wrap">
+	<!-- <div id="product_gallery_header" class="citruscart_header dsc-wrap">
 		<span><?php echo JText::_('COM_CITRUSCART_IMAGES'); ?> </span>
-	</div>
-	<?php
-	$i = 1;
-	foreach ( $gallery_data->images as $image )
-	{
+	</div> -->
+	<?php 	$i = 1; ?>
+	<ul class="nav nav-list">
+	<?php foreach ( $gallery_data->images as $image ):?>
+		<?php
 	    $src = $gallery_data->uri . $image;
 	    if (JFile::exists( Citruscart::getPath( 'products_thumbs' ) . "/" . $image )) {
 	        $src = $gallery_data->uri . "thumbs/" . $image;
 	    }
 		?>
+		<li class="list-group">
     	<div class="dsc-wrap product_gallery_thumb" id="product_gallery_thumb_<?php echo $i;?>">
-
-    	<?php
-    		echo CitruscartUrl::popup( $gallery_data->uri . $image, '<img  style="width : 467 height:700; " src="' . $src . '" alt="' . $gallery_data->product_name . '" />', array( 'update' => false, 'img' => true ) ); ?>
-    	</div>
-    	<?php
-    	$i++;
-	}
-	?>
+    	<?php	echo CitruscartUrl::popup( $gallery_data->uri . $image, '<img class="dsc-wrap product_gallery_thumb"  style="width : 250 height:350; " src="' . $src . '" alt="' . $gallery_data->product_name . '" />', array( 'update' => false, 'img' => true ) ); ?>
+    	  </div>
+    	<?php 	$i++; ?>
+		</li>
+    	<?php  endforeach;	?>
+    	</ul>
 </div>
-	<?php
-}
+	<?php endif;?>
