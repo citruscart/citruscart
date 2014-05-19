@@ -22,7 +22,6 @@ $state = $this->state;
 $item = $this->row;
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
 $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name, 'full', false, false, array(), true );
-
 $app = JFactory::getApplication();
 ?>
 
@@ -77,8 +76,8 @@ $app = JFactory::getApplication();
     <!-- row-fluid div starts -->    
     <div class="row-fluid">
      
-        <div id="product_image" class="dsc-wrap product_image">
-        
+       <div class="col-md-7">     
+                
             <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
             <div>
 	            <?php
@@ -91,35 +90,33 @@ $app = JFactory::getApplication();
 				}
 				?>
             </div>
-        </div>            
+        </div>          
         
+        <div class="col-md-5">
         <!-- product name unorder list starts -->
         <ul class="unstyled">
         
-            <!-- product name list starts -->
-        	<li class="center">              
-		        <h3 class="productheader">
-		                <?php echo htmlspecialchars_decode( $item->product_name ); ?>
-		        </h3>
-		    </li><!-- product name list ends -->
-		    
-		    <!-- product properties list starts -->
-		    <li class="pull-right productproperties">        
-                               
+           	  <!-- product properties list starts -->
+		    <li class="productproperties">        
+           	
+           		<h3 class="productheader">
+		           <?php echo htmlspecialchars_decode( $item->product_name ); ?>
+		        </h3>		 		    
+		                                 
 	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	            <div id='citruscart_product_header'>
 	                
 	                <?php if ( !empty( $item->product_model ) ) : ?>
 	                    <span class="model">
-	                        <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
-	                        <?php echo $item->product_model; ?>
+	                        <span class="productmodels"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
+	                        <span class="productmodels"><?php echo $item->product_model; ?></span>
 	                    </span>
 	                <?php endif; ?>
 	
 	                <?php if ( !empty( $item->product_sku ) ) : ?>
 	                    <span class="sku">
-	                        <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
-	                        <?php echo $item->product_sku; ?>
+	                        <span class="productmodels"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
+	                        <span class="productmodels"><?php echo $item->product_sku; ?></span>
 	                    </span>
 	                <?php endif; ?>
 	            </div>
@@ -131,8 +128,17 @@ $app = JFactory::getApplication();
 	            </div>
 	        <?php endif; ?>
 	     </li><!-- product properties list ends -->
-	     
+	           	     	     
 	     </ul>
+	    
+	     
+	     <div  style="width:auto;">
+	          	                   
+	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>      
+	          		     
+	     </div>
+	     
+	      </div>
 	     	                  
         </div><!-- row-fluid div ends -->
         
@@ -153,10 +159,7 @@ $app = JFactory::getApplication();
 	            </div>
 	        <?php } ?>	        
 	        </li> 
-	        <li>                       
-	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>      
-	        </li>
-	        
+	        	        
         </ul><!-- unorder list ends -->
         </div><!-- review div ends --> 
          
