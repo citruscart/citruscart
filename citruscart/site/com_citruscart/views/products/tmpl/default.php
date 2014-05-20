@@ -36,7 +36,7 @@ $app = JFactory::getApplication();
 
     <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
         <div id='citruscart_breadcrumb'>
-            <?php      echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
+            <?php    echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
         </div>
     <?php endif; ?>
     <?php if( $product_compare ):?>
