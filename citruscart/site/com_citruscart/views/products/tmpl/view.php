@@ -25,6 +25,7 @@ JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php JHtml::_('script', 'media/citruscart/js/common.js', false, false); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart_inventory_check.js', false, false); ?>
 <?php
+JHtml::_('stylesheet', 'media/citruscart/css/citruscart.css');
 $state = $this->state;
 $item = $this->row;
 $product_image = CitruscartHelperProduct::getImage($item->product_id, '', '', 'full', true, false, array(), true );
@@ -52,8 +53,6 @@ $app = JFactory::getApplication();
 	margin-left:5px;
 }
 </style>
-<!-- <img id="zoom_01" src='<?php echo JUri::root()?>images/small/image1.png' data-zoom-image="<?php echo JUri::root()?>images/large/image1.jpg"/>
--->
 
 <!-- citruscart div starts -->
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
@@ -64,26 +63,7 @@ $app = JFactory::getApplication();
         </div>
     <?php endif; ?>
 
-    <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
-        <div class="pagination">
-            <ul id='citruscart_product_navigation'>
-                <?php if ( !empty( $this->surrounding['prev'] ) ) { ?>
-                    <li class='prev'>
-                        <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&task=view&id=" . $this->surrounding['prev'] . "&Itemid=" . $this->getModel()->getItemid( $this->surrounding['prev'] ) ); ?>">
-                            <?php echo JText::_( "COM_CITRUSCART_PREVIOUS" ); ?>
-                        </a>
-                    </li>
-                <?php } ?>
-                <?php if ( !empty( $this->surrounding['next'] ) ) { ?>
-                    <li class='next'>
-                        <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&task=view&id=" . $this->surrounding['next'] . "&Itemid=" . $this->getModel()->getItemid( $this->surrounding['next'] ) ); ?>">
-                            <?php echo JText::_( "COM_CITRUSCART_NEXT" ); ?>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    <?php } ?>
+
 
     <!-- row-fluid div starts -->
     <div class="row-fluid">
@@ -127,55 +107,46 @@ $app = JFactory::getApplication();
         <div class="col-md-5">
         <!-- product name unorder list starts -->
         <ul class="unstyled">
-
            	  <!-- product properties list starts -->
 		    <li class="productproperties">
 
            		<h3 class="productheader">
 		           <?php echo htmlspecialchars_decode( $item->product_name ); ?>
-
 		        </h3>
-		        <ul class="unstyled citruscart-rating">
+
+		        <ul class="unstyled citruscart-rating pull-right">
 		       	<!-- list starts -->
 		       	<li>
 		        	<?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
-		           <!-- <div class="dsc-wrap">
-		              <div class="pull-left"> -->
 		                <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
 		                <?php if ( !empty( $item->product_comments ) ) : ?>
 		                <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
 		                <?php endif; ?>
-		               <!-- </div>
-		            </div>-->
 		        <?php } ?>
 		        </li>
-
 	        </ul><!-- unorder list ends -->
-
-
         	<!-- unorder list starts -->
-
-
-
-         <small>  	<?php echo $item->product_description;?></small>
-		   <br/>
-		   <br/>
-	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
-	            <div id='citruscart_product_header'>
-	                <?php if ( !empty( $item->product_model ) ) : ?>
-	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?></strong> : <?php echo $item->product_model; ?></p>
-	                <?php endif; ?>
-	                <?php if ( !empty( $item->product_sku ) ) : ?>
-	               		<p><strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
-	                <?php endif; ?>
-	            </div>
-	        <?php endif; ?>
-
-	       <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
+			<hr>
+			 <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
 	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
 	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
 	            </div>
 	        <?php endif; ?>
+
+       	  <small><?php echo $item->product_description;?></small>
+		   <br/><br/>
+	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
+	           <!-- <div id='citruscart_product_header'> -->
+	                <?php if ( !empty( $item->product_model ) ) : ?>
+	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
+	                <?php endif; ?>
+	                <?php if ( !empty( $item->product_sku ) ) : ?>
+	               		<strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
+	                <?php endif; ?>
+	            <!-- </div> -->
+	        <?php endif; ?>
+
+
 	     </li><!-- product properties list ends -->
 
 	     </ul>
@@ -187,6 +158,26 @@ $app = JFactory::getApplication();
 
 
 	      </div>
+	       <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
+        <div class="pagination">
+            <ul id='citruscart_product_navigation'>
+                <?php if ( !empty( $this->surrounding['prev'] ) ) { ?>
+                    <li class='prev'>
+                        <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&task=view&id=" . $this->surrounding['prev'] . "&Itemid=" . $this->getModel()->getItemid( $this->surrounding['prev'] ) ); ?>">
+                            <?php echo JText::_( "COM_CITRUSCART_PREVIOUS" ); ?>
+                        </a>
+                    </li>
+                <?php } ?>
+                <?php if ( !empty( $this->surrounding['next'] ) ) { ?>
+                    <li class='next'>
+                        <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&task=view&id=" . $this->surrounding['next'] . "&Itemid=" . $this->getModel()->getItemid( $this->surrounding['next'] ) ); ?>">
+                            <?php echo JText::_( "COM_CITRUSCART_NEXT" ); ?>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    <?php } ?>
 
         </div><!-- row-fluid div ends -->
 
