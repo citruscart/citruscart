@@ -17,6 +17,7 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 $state = @$this->state;
 $items = @$this->items;
 $citems = @$this->citems;
+$app = JFactory::getApplication();
 ?>
 
 <div id="citruscart" class="products default">
@@ -105,10 +106,9 @@ $citems = @$this->citems;
         </tr>
         </thead>
         <tbody>
-            <?php foreach ($items as $item) :
-            $itemid = Citruscart::getClass( "CitruscartHelperRoute", 'helpers.route' )->category( $this->cat->category_id, true );
-            $item->itemid = (!empty($itemid)) ? $itemid : JRequest::getInt('Itemid', $itemid);
-            ?>
+            	<?php foreach ($items as $item) :
+            		$itemid = Citruscart::getClass( "CitruscartHelperRoute", 'helpers.route' )->category( $this->cat->category_id, true );
+            		$item->itemid = (!empty($itemid)) ? $itemid :$app->input->getInt('Itemid', $itemid);?>
                 <tr>
                 <td>
                     <a href="<?php echo JRoute::_($item->link."&filter_category=".$this->cat->category_id."&Itemid=".$item->itemid ); ?>">

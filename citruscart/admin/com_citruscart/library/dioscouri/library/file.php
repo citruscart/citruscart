@@ -212,7 +212,6 @@ class DSCFile extends JObject
 
 	    $extention=substr($fileName,$position+1,$length-$position);
 	    $fileName=$file.".".$extention;
-
 	    return $fileName;
 	}
 
@@ -294,7 +293,7 @@ class DSCFile extends JObject
 	{
 
 		// path
-		$dest = $this->getDirectory().DS.$this->getPhysicalName();
+		$dest = $this->getDirectory().'/'.$this->getPhysicalName();
 
 		// delete the file if dest exists
 		if ($fileexists = JFile::exists( $dest ))

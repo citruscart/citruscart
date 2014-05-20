@@ -66,14 +66,29 @@ class CitruscartUrl extends DSCUrl
 			$handler = "{handler: 'iframe', ". $onclose ." size: {x: ".$options['width'].", y: ".$options['height']. "}}";
 		}
 
-		$id = (!empty($options['id'])) ? $options['id'] : '';
-		$class = (!empty($options['class'])) ? $options['class'] : '';
 
+
+		if(JFactory::getApplication()->isSite()){
+		$id = "main_image";
+		$class = "zoom";
 		$html	= "<a class=\"modal\" href=\"$url\" rel=\"$handler\" >\n";
 		$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
         $html   .= "$text\n";
 		$html 	.= "</span>\n";
 		$html	.= "</a>\n";
+		}else{
+
+			$id = (!empty($options['id'])) ? $options['id'] : '';
+			$class = (!empty($options['class'])) ? $options['class'] : '';
+
+			$html	= "<a class=\"modal\" href=\"$url\" rel=\"$handler\" >\n";
+			$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
+			$html   .= "$text\n";
+			$html 	.= "</span>\n";
+			$html	.= "</a>\n";
+
+
+		}
 
 		return $html;
 	}

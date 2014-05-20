@@ -798,10 +798,13 @@ class DSCController extends DSCControllerBase
 	{
 		$input = JFactory::getApplication()->input;
 	    $model 	= $this->getModel( $this->get('suffix') );
+
 	    $row = $model->getTable();
+
 	    $row->load( $model->getId() );
 
 	    $post = $input->getInt('post',4);
+
 
 	    //$post = JRequest::get('post', '4');
 	    $row->bind( $_POST );
@@ -837,10 +840,7 @@ class DSCController extends DSCControllerBase
 
 	        $this->messagetype 	= 'message';
 	        $this->message  	= JText::_( 'Saved' );
-
-
 	        JFactory::getApplication()->triggerEvent( 'onAfterSave'.$this->get('suffix'), array( $row ) );
-
 	        $return = $row;
 	    }
 	    else

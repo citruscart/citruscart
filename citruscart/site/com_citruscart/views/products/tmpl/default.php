@@ -14,6 +14,8 @@ defined('_JEXEC') or die('Restricted access');
 
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
+JHtml::_('stylesheet','media/citruscart/css/citruscart.css');
+
 
 $state = $this->state;
 $items = $this->items;
@@ -27,12 +29,14 @@ $plugins_short_desc = $config->get( 'content_plugins_product_desc', '0' );
 
 $js_strings = array( 'COM_CITRUSCART_ADDING_PRODUCT_FOR_COMPARISON', 'COM_CITRUSCART_REMOVING_PRODUCT' );
 CitruscartHelperBase::addJsTranslationStrings( $js_strings );
+$app = JFactory::getApplication();
+
 ?>
 <div id="citruscart" class="products default">
 
     <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
         <div id='citruscart_breadcrumb'>
-            <?php echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
+            <?php           echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
         </div>
     <?php endif; ?>
     <?php if( $product_compare ):?>
@@ -72,11 +76,11 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
                 ?>
                     <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if( $citem->display_name_subcategory ) : ?>
-                        <h3 class="subcategory_name">
+                        <h5 class="subcategory_name">
                             <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$citem->category_id.$citem->slug.$citem->itemid_string ); ?>">
                             <?php echo $citem->category_name; ?>
                             </a>
-                        </h3>
+                        </h5>
                         <?php endif; ?>
                         <?php if (!empty($citem->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
                             <div class="dsc-wrap subcategory_thumb">
@@ -156,16 +160,15 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
                             <?php echo htmlspecialchars_decode( $item->product_name ); ?>
                             </a>
                         </h3>
-                    </div>
-
-                    <?php if ( $config->get('product_review_enable', '0') ) { ?>
-                    <div class="dsc-wrap product_rating">
+                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
+                   	 <div class="dsc-wrap product_rating">
                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
                        <?php if (!empty($item->product_comments)) : ?>
                        <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
                        <?php endif; ?>
+                    	</div>
+                    <?php endif; ?>
                     </div>
-                    <?php } ?>
 
                     <?php if (!empty($item->product_model) || !empty($item->product_sku)) { ?>
                         <div class="dsc-wrap product_numbers">
@@ -175,6 +178,7 @@ CitruscartHelperBase::addJsTranslationStrings( $js_strings );
                                     <?php echo $item->product_model; ?>
                                 <?php endif; ?>
                             </span>
+                            <br/>
                             <span class="sku">
                                 <?php if (!empty($item->product_sku)) : ?>
                                     <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>

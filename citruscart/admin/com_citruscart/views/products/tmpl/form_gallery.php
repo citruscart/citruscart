@@ -6,7 +6,6 @@ $helper_product = new CitruscartHelperProduct();
 $gallery_path = $helper_product->getGalleryPath($row->product_id);
 $gallery_url = $helper_product->getGalleryUrl($row->product_id);
 $images = $helper_product->getGalleryImages($gallery_path);
-
 ?>
 
 <?php if (!empty($images)) {

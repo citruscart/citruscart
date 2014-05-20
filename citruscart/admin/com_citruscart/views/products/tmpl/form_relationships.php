@@ -41,7 +41,7 @@ $helper_product = new CitruscartHelperProduct();
                     <input name="new_relationship_productid_from" value="<?php echo $row->product_id; ?>" type="hidden" />
                 </div>
                 <div class="dsc-cell">
-                    <input type="button" value="<?php echo JText::_('COM_CITRUSCART_ADD'); ?>" class="btn btn-success" onclick="CitruscartAddRelationship('existing_relationships', '<?php echo JText::_('COM_CITRUSCART_UPDATING_RELATIONSHIPS'); ?>');" value="<?php echo JText::_('COM_CITRUSCART_ADD'); ?>" />
+                    <input type="button" value="<?php echo JText::_('COM_CITRUSCART_ADD'); ?>" class="btn btn-success" onclick="citruscartAddRelationship('existing_relationships', '<?php echo JText::_('COM_CITRUSCART_UPDATING_RELATIONSHIPS'); ?>');" value="<?php echo JText::_('COM_CITRUSCART_ADD'); ?>" />
                 </div>
             </div>
         </div>

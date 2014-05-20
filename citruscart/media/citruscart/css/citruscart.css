@@ -59,7 +59,7 @@ div.currency{float:right;font-weight:bold;}
 img.addcart{cursor:pointer;}
 div.product_rating,div.product_rating img{padding:3px 0 2px;vertical-align:middle;}
 
-.product_gallery_thumb{border:none;float:left;margin:10px 10px 0 0;width : auto; clear : right;}
+.product_gallery_thumb{border:none;float:left;margin:10px 10px 0 0;width : 80px; height:100px; clear : right;}
 .product_gallery_thumb img{border:none;float:left;margin:10px 10px 0 0;width : auto; max-width:50px; clear : right;}
 
 /* Checkout */
@@ -285,6 +285,13 @@ display:inline;
 z-index:1000;
 }
 
+.adminlist .modal{
+position:relative;
+display:inline;
+z-index:1000;
+}
+
+
 #citruscart_products .product_buy{
 margin-top:-160px;
 }
@@ -366,6 +373,7 @@ margin-left:20px;
 .add_to_cart .btn-success{
 background-color:#FF8800;
 border-color:#FF8800;
+margin-left:45px;
 }
 
 .btn-success : hover,

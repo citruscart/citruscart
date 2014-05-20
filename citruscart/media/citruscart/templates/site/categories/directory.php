@@ -21,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
 <div id="citruscart" class="products directory">
     <div id="citruscart_categories">
         <div id='citruscart_category_header'>
-            <h3><?php echo JText::_('COM_CITRUSCART_BROWSE_CATEGORIES'); ?></h3>
+            <h6><?php echo JText::_('COM_CITRUSCART_BROWSE_CATEGORIES'); ?></h6>
             <div class='category_description'><?php echo $this->cat->category_description; ?></div>
         </div>
 
@@ -42,7 +42,7 @@ defined('_JEXEC') or die('Restricted access');
                         </div>
                         <?php if (!empty($categories)) { ?>
                             <!--  	<ul class="directory_subcategory">-->
-                            <ul class="nav nav-list">
+                            <ul class="nav">
                             <?php foreach ($categories as $category) {
                                 $pmodel = JModelLegacy::getInstance('Products', 'CitruscartModel');
                                 $pmodel->setState('filter_category', $category->category_id);
