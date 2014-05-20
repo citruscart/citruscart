@@ -950,7 +950,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 				if(JFactory::getApplication()->isSite()){
                 $tmpl = ( $url ) ? $src
                 : "<img class='citruscart-product-main-images' id=".$p_id ." " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='300px' height='180px'/>";
+                . "' align='middle' border='0' width='300px' />";
 				}else{
 				$tmpl = ( $url ) ? $src
 					: "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )

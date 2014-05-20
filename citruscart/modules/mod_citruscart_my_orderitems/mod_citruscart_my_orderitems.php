@@ -20,6 +20,7 @@ if ( !class_exists('Citruscart') )
 
 require_once( dirname(__FILE__).'/helper.php' );
 
+
 // include lang files
 $element =  'com_citruscart';
 $lang = JFactory::getLanguage();
