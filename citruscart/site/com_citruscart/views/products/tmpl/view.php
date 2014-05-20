@@ -18,7 +18,7 @@ $doc = JFactory::getDocument();
 /*JHtml::_('script', 'media/citruscart/js/jquery.elevatezoom.js', false, false);
 JHtml::_('script', 'media/citruscart/js/jquery.elevateZoom-3.0.8.min.js', false, false);
 */
-$doc->addScript(JUri::root(true).'/media/citruscart/js//jquery.zoom.js');
+$doc->addScript(JUri::root(true).'/media/citruscart/js/jquery.zoom.js');
 $doc->addStyleSheet(JUri::root(true).'/media/citruscart/css/imagezoom.css');
 
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
@@ -133,27 +133,33 @@ $app = JFactory::getApplication();
 
            		<h3 class="productheader">
 		           <?php echo htmlspecialchars_decode( $item->product_name ); ?>
+
 		        </h3>
+		        <ul class="unstyled citruscart-rating">
+		       	<!-- list starts -->
+		       	<li>
+		        	<?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
+		           <!-- <div class="dsc-wrap">
+		              <div class="pull-left"> -->
+		                <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
+		                <?php if ( !empty( $item->product_comments ) ) : ?>
+		                <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
+		                <?php endif; ?>
+		               <!-- </div>
+		            </div>-->
+		        <?php } ?>
+		        </li>
+
+	        </ul><!-- unorder list ends -->
+
 
         	<!-- unorder list starts -->
 
-        	<ul class="unstyled citruscart-rating">
-	       	<!-- list starts -->
-	       	<li>
-	        	<?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
-	           <!-- <div class="dsc-wrap">
-	              <div class="pull-left"> -->
-	                <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
-	                <?php if ( !empty( $item->product_comments ) ) : ?>
-	                <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
-	                <?php endif; ?>
-	               <!-- </div>
-	            </div>-->
-	        <?php } ?>
-	        </li>
 
-        </ul><!-- unorder list ends -->
-        <br/>
+
+         <small>  	<?php echo $item->product_description;?></small>
+		   <br/>
+		   <br/>
 	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	            <div id='citruscart_product_header'>
 	                <?php if ( !empty( $item->product_model ) ) : ?>
