@@ -155,18 +155,19 @@ $app = JFactory::getApplication();
                 <?php } ?>
 
                 <div class="dsc-wrap product_info">
+                
                     <!-- <div class="dsc-wrap product_name"> -->
                     <div>
                         <h4>
                         	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
                         </h4>
 	                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
-	                   	 <!-- <div class="dsc-wrap product_rating"> -->
+	                   	 <!--  <div class="dsc-wrap product_rating"> -->
 	                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
 	                       <?php if (!empty($item->product_comments)) : ?>
 	                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
 	                       <?php endif; ?>
-	                    	<!-- </div> -->
+	                    	 <!-- </div> -->
 	                    <?php endif; ?>
 						<br/>
 	                     <?php if (!empty($item->product_model) || !empty($item->product_sku)) { ?>

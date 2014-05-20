@@ -335,7 +335,7 @@ margin-top:10px;
 color: #697071;
 }
 .productoptions{
-margin-left:50px;
+margin-left:34px;
 }
 .product_buyoptions{
 margin-top:15px;
@@ -373,58 +373,40 @@ margin-top: -15px;
 margin-left:20px;
 }
 
-.add_to_cart .btn-success
-{
-/*background-color:#FF8800; */
-background-color:#FF3F3F;
-border-color:#FF8800;
-margin-top:-42px;
-margin-left:10px;
-}
 .add_to_cart .addcart{
 	margin-top:-42px;
-	margin-left:10px;
+	margin-left:29px;
 }
-.add_to_cart .btn-success : hover,
-.btn-success : focus,
-.btn-success : active
-.{
-	background-color:#2CB1B1;
-	border-color:#2CB1B1;
-}
-.btn-success : hover,
-.btn-success : focus,
-.btn-success : active
-{
-/*background-color:#FF8800;
-background-color:#2CB1B1;
-border-color:#2CB1B1;*/
-}
+
 .btn {
 box-shadow: none;
 }
+
+.add_to_cart .btn-success{
+background-color:#FF8800;
+border-color:#FF8800;
+margin-top:-42px;
+margin-left:29px;
+}
+
 #citruscart_product .add_to_cart
-.btn-success : hover,
-.btn-success : focus,
-.btn-success : active,
-.btn-success : active
-.btn-success 
-{
-	background-color:#2CB1B1;
-	background-color:#2CB1B1;
-	border-color:#2CB1B1;
-}
-
-#citruscart_products .add_to_cart
-.btn-success : hover,
-.btn-success : focus,
-.btn-success : active,
-.btn-success : active
-.btn-success 
-{
-	background-color:#2CB1B1;
-	background-color:#2CB1B1;
-	border-color:#2CB1B1;
-	
-}
-
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.btn-success {
+ color: #ffffff;
+ background-color: #FF8800;
+ border-color: #FF8800;
+ }
+ 
+ #citruscart_products .add_to_cart
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.btn-success {
+ color: #ffffff;
+ background-color: #FF8800;
+ border-color: #FF8800;
+ }
