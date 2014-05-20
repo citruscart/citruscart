@@ -133,7 +133,7 @@ $app = JFactory::getApplication();
 	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
 	                <?php endif; ?>
 	                <?php if ( !empty( $item->product_sku ) ) : ?>
-	               		|| <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
+	               		<?php echo "||"?> <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
 	                <?php endif; ?>
 	            <!-- </div> -->
 	        <?php endif; ?>

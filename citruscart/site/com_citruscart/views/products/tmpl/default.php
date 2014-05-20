@@ -180,7 +180,8 @@ $app = JFactory::getApplication();
 
                             <span class="sku">
                                 <?php if (!empty($item->product_sku)) : ?>
-                                    || <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
+                                   <?php echo "||"?>
+                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
                                     <?php echo $item->product_sku; ?>
                                 <?php endif; ?>
                             </span>
