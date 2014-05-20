@@ -133,9 +133,7 @@ $app = JFactory::getApplication();
 	            </div>
 	        <?php endif; ?>
 
-       	  <small><?php echo $item->product_description;?></small>
-		   <br/><br/>
-	        <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
+				 <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	           <!-- <div id='citruscart_product_header'> -->
 	                <?php if ( !empty( $item->product_model ) ) : ?>
 	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
@@ -145,6 +143,10 @@ $app = JFactory::getApplication();
 	                <?php endif; ?>
 	            <!-- </div> -->
 	        <?php endif; ?>
+
+
+       	  <small><?php echo $item->product_description;?></small>
+		   <br/>
 
 
 	     </li><!-- product properties list ends -->
