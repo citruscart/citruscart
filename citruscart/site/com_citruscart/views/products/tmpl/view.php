@@ -127,22 +127,23 @@ $app = JFactory::getApplication();
 	        </ul><!-- unorder list ends -->
         	<!-- unorder list starts -->
 			<hr>
-			 <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
-	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
-	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
-	            </div>
-	        <?php endif; ?>
-
 				 <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	           <!-- <div id='citruscart_product_header'> -->
 	                <?php if ( !empty( $item->product_model ) ) : ?>
 	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
 	                <?php endif; ?>
 	                <?php if ( !empty( $item->product_sku ) ) : ?>
-	               		<strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
+	               		|| <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
 	                <?php endif; ?>
 	            <!-- </div> -->
 	        <?php endif; ?>
+			 <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
+	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
+	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
+	            </div>
+	        <?php endif; ?>
+
+
 
 
        	  <small><?php echo $item->product_description;?></small>
