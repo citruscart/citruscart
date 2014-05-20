@@ -15,6 +15,7 @@ $item = $this->item;
 //$form = @$this->form;
 $form['action'] ="index?option=com_citruscart&view=products";
 
+
 $values =$this->values;
 $values['return']=(isset($values['return'])) ? $values['return'] :"";
 $formName = 'adminForm_'.$item->product_id;
@@ -37,15 +38,10 @@ if( $changed_attr > -1 ) {
 
 
 ?>
-
-<div>
     <div id="validationmessage_<?php echo $item->product_id; ?>"></div>
 
     <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" class="adminform" name="<?php echo $formName; ?>" enctype="multipart/form-data" >
-
-
     <div class="product_prices product_buyoptions">
-
     <!--base price-->
     <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
     	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, $item->tax, $this->show_tax); ?>
@@ -55,20 +51,16 @@ if( $changed_attr > -1 ) {
     	<?php echo CitruscartUrl::popup( JRoute::_($this->shipping_cost_link.'&tmpl=component'), JText::_('COM_CITRUSCART_LINK_TO_SHIPPING_COST') ); ?>
     	<?php endif;?>
     </span>
-
     <span>
     <?php if (!empty($item->product_listprice_enabled)) : ?>
         <div class="product_listprice">
-        <!-- <span class="title"><?php echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span> -->
+        <span class="title"><?php echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span>
         <del><?php echo CitruscartHelperBase::currency($item->product_listprice); ?></del>
         </div>
     <?php endif; ?>
     </span>
     </div>
-
-
     <?php if (!empty($this->display_cartbutton)) : ?>
-
     <!--attribute options-->
     <div id='product_attributeoptions_<?php echo $item->product_id; ?>' class="product_attributeoptions product_buyoptions">
     <?php
@@ -136,9 +128,10 @@ if( $changed_attr > -1 ) {
         <?php } elseif ($item->quantity_restriction && $item->quantity_min == $item->quantity_max) { ?>
             <input type="hidden" name="product_qty" value="<?php echo $item->quantity_min; ?>" />
         <?php } else { ?>
+
         <span class="productmodels"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</span>
         <div class="productquantity">
-       	 <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="5" class="input-mini" />
+       	 <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input-mini" />
         </div>
 	<?php } ?>
 
@@ -239,4 +232,4 @@ if( $changed_attr > -1 ) {
         </div>
 	<?php endif; ?>
     </form>
-</div>
+

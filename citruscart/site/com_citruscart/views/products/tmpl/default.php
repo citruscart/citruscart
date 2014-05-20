@@ -36,7 +36,7 @@ $app = JFactory::getApplication();
 
     <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
         <div id='citruscart_breadcrumb'>
-            <?php           echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
+            <?php      echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
         </div>
     <?php endif; ?>
     <?php if( $product_compare ):?>
@@ -62,7 +62,6 @@ $app = JFactory::getApplication();
          	<?php if( $this->cat->display_name_category ) : ?>
                 <h3><?php echo $this->title; ?></h3>
             <?php endif; ?>
-
             <div class='category_description dsc-wrap'><?php echo $this->cat->category_description; ?></div>
         </div>
 
@@ -156,24 +155,22 @@ $app = JFactory::getApplication();
                 <?php } ?>
 
                 <div class="dsc-wrap product_info">
-                    <div class="dsc-wrap product_name">
+                    <!-- <div class="dsc-wrap product_name"> -->
+                    <div>
                         <h4>
-                            <a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>">
-                            <?php echo htmlspecialchars_decode( $item->product_name ); ?>
-                            </a>
+                        	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
                         </h4>
-                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
-                   	 <div class="dsc-wrap product_rating">
-                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
-                       <?php if (!empty($item->product_comments)) : ?>
-                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
-                       <?php endif; ?>
-                    	</div>
-                    <?php endif; ?>
-                    </div>
+	                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
+	                   	 <!-- <div class="dsc-wrap product_rating"> -->
+	                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
+	                       <?php if (!empty($item->product_comments)) : ?>
+	                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
+	                       <?php endif; ?>
+	                    	<!-- </div> -->
+	                    <?php endif; ?>
+						<br/>
+	                     <?php if (!empty($item->product_model) || !empty($item->product_sku)) { ?>
 
-                    <?php if (!empty($item->product_model) || !empty($item->product_sku)) { ?>
-                        <div class="dsc-wrap product_numbers">
                             <span class="model">
                                 <?php if (!empty($item->product_model)) : ?>
                                     <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
@@ -187,9 +184,8 @@ $app = JFactory::getApplication();
                                     <?php echo $item->product_sku; ?>
                                 <?php endif; ?>
                             </span>
-                        </div>
                     <?php } ?>
-
+                    </div>
                     <div class="dsc-wrap product_minidesc">
                     <?php
                         if (!empty($item->product_description_short))
@@ -220,20 +216,7 @@ $app = JFactory::getApplication();
                 <div id="product_buy_<?php echo $item->product_id; ?>" class="dsc-wrap product_buy">
                     <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
                 </div>
-
-                <?php
-						/*
-                	if( $product_compare && (($item->product_parameters->get('show_product_compare', '1')))) { ?>
-                <div id="product_compare" class="dsc-wrap">
-                	<input <?php echo in_array($item->product_id,$compareitems) ? 'checked' : '';?> type="checkbox" onclick="citruscartAddProductToCompare(<?php echo $item->product_id;?>, 'CitruscartComparedProducts', this, true);">
-               	 	<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=productcompare');?>">
-               	 		<?php echo JText::_('COM_CITRUSCART_COMPARE')?>
-               	 		<span class="arrow" >»</span>
-               	 	</a>
-            	</div>
-        	    <?php } */ ?>
-
-            </div>
+	            </div>
             </li>
             <?php endforeach; ?>
             </ul>

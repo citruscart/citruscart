@@ -331,6 +331,7 @@ font-size:24px;
 
 .product_prices .product_listprice{
 margin-left: 10px;
+margin-top:10px;
 color: #697071;
 }
 .productoptions{
@@ -353,12 +354,14 @@ margin-top:5px;
 }
 
 .productheader{
-color:#353637;
+ color:#353637;
+
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .productprice{
 color:#353637;
+
 }
 
 #citruscart_product_header{
@@ -370,19 +373,34 @@ margin-top: -15px;
 margin-left:20px;
 }
 
-.add_to_cart .btn-success{
-background-color:#FF8800;
+.add_to_cart .btn-success
+{
+/*background-color:#FF8800; */
+background-color:#FF3F3F;
 border-color:#FF8800;
 margin-top:-42px;
 margin-left:10px;
 }
+.add_to_cart .addcart{
+	margin-top:-42px;
+	margin-left:10px;
+	
+}
 
+.add_to_cart .btn-success : hover,
+.btn-success : focus,
+.btn-success : active
+.{
+	background-color:#2CB1B1;
+	border-color:#2CB1B1;
+}
 .btn-success : hover,
 .btn-success : focus,
 .btn-success : active
 {
-background-color:#FF8800;
-border-color:#FF8800;
+/*background-color:#FF8800;
+background-color:#2CB1B1;
+border-color:#2CB1B1;*/
 }
 .btn {
 box-shadow: none;
