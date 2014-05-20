@@ -20,7 +20,7 @@ defined('_JEXEC') or die('Restricted access');
 	Citruscart::load( "CitruscartHelperRoute", 'helpers.route' );
 	$router = new CitruscartHelperRoute();
 	Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );
-	$menu = CitruscartMenu::getInstance( $this->submenu );
+	$menu = CitruscartMenu::getInstance( @$this->submenu );
 	$products_model = $this->getModel('products');
 
 	Citruscart::load( 'CitruscartHelperAddresses', 'helpers.addresses' );

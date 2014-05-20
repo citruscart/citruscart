@@ -60,7 +60,7 @@ $app = JFactory::getApplication();
             <?php endif; ?>
 
          	<?php if( $this->cat->display_name_category ) : ?>
-                <h2><?php echo $this->title; ?></h2>
+                <h3><?php echo $this->title; ?></h3>
             <?php endif; ?>
 
             <div class='category_description dsc-wrap'><?php echo $this->cat->category_description; ?></div>
@@ -140,10 +140,9 @@ $app = JFactory::getApplication();
     <?php endif;?>
 
         <div id="citruscart_products" class="dsc-wrap">
-
-            <?php foreach ($items as $item) :
-           ?>
-
+ 			<ul class="unstyled">
+            <?php foreach ($items as $item) :?>
+			<li>
             <div  id="product-<?php echo $item->product_id; ?>" class="dsc-wrap product_item product-<?php echo $item->product_id; ?> <?php echo (isset($item->product_classes)) ? $item->product_classes : ""; ?>">
                 <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
                 <?php if ($thumb) { ?>
@@ -158,11 +157,11 @@ $app = JFactory::getApplication();
 
                 <div class="dsc-wrap product_info">
                     <div class="dsc-wrap product_name">
-                        <h3>
+                        <h4>
                             <a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>">
                             <?php echo htmlspecialchars_decode( $item->product_name ); ?>
                             </a>
-                        </h3>
+                        </h4>
                      <?php if ( $config->get('product_review_enable', '0') ) : ?>
                    	 <div class="dsc-wrap product_rating">
                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
@@ -207,12 +206,14 @@ $app = JFactory::getApplication();
                                 $product_desc = $str;
                             }
                         }
-
-                        if( $plugins_short_desc )
+						?>
+						<strong>
+                        <?php if( $plugins_short_desc )
                         	echo JHTML::_('content.prepare', $product_desc);
                         else
                            echo $product_desc;
-                    ?>
+                    	?>
+                    	</strong>
                     </div>
                 </div>
 
@@ -233,7 +234,9 @@ $app = JFactory::getApplication();
         	    <?php } */ ?>
 
             </div>
+            </li>
             <?php endforeach; ?>
+            </ul>
         </div>
 
         <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>

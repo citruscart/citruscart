@@ -35,7 +35,7 @@ $app = JFactory::getApplication();
 <style>
 .citruscart-product-main-images{
 	width:250px;
-	height :350px;
+
 }
 .citruscart_image-product_gallery_thumb{
 	width : 50px;

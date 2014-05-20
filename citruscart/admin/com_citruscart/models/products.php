@@ -635,7 +635,7 @@ class CitruscartModelProducts extends CitruscartModelEav
 		if( $qty > -1 ) {
 	        $user_group = CitruscartHelperUser::getUserGroup( $user_id, $item->product_id );
 			$price = CitruscartHelperProduct::getPrice($item->product_id, $qty, $user_group );
-			$item->price = $price->product_price;
+			$item->price = @$price->product_price;
 		}
 
         $item->product_parameters = new DSCParameter( $item->product_params );
