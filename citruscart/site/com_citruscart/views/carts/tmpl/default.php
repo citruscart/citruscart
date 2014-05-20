@@ -206,6 +206,10 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
     </form>
     <?php } else { ?>
     <p><?php echo JText::_('COM_CITRUSCART_NO_ITEMS_IN_YOUR_CART'); ?></p>
-	<button href="<?php echo JRoute::_('index.php?option=com_citruscart&view=products');?>" class="btn btn-default"><?php echo JText::_('COM_CITRUSCART_CART_CONTINUE_SHOPPING');?></button>
+	 <?php if (!empty($this->return)) { ?>
+       <a href="<?php echo $this->return; ?>" class="btn btn-info">
+                            <?php echo JText::_('COM_CITRUSCART_CONTINUE_SHOPPING'); ?>
+                        </a>
+                        <?php } ?>
     <?php } ?>
 </div>

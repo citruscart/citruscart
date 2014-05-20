@@ -212,7 +212,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 	<input type="hidden" name="order_change" value="0" />
 	<input type="hidden" name="id" value="<?php echo $row->productattribute_id; ?>" />
-	<input type="hidden" name="product_id" value="<?php echo $app->input->get('id');?>"
+	<input type="hidden" name="product_id" value="<?php echo $app->input->get('id');?>" />
 	<input type="hidden" name="task" id="task" value="setattributeoptions" />
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo $state->order; ?>" />

@@ -57,7 +57,8 @@ class CitruscartTableEav extends CitruscartTable
 		 /* Get the application */
 		$app = JFactory::getApplication();
 
-		$before = JFactory::getApplication()->triggerEvent( 'onBeforeStore'.$this->get('_suffix'), array( &$this ) );
+		$before = $app->triggerEvent( 'onBeforeStore'.$this->get('_suffix'), array( &$this ) );
+
 		if (in_array(false, $before, true))
 		{
 			return false;
@@ -67,7 +68,9 @@ class CitruscartTableEav extends CitruscartTable
 		$id = $this->$key;
 
 		/* ID from post */
-		$post_id = $app->input->getInt($key, null, 'post');
+		$post_id = $app->input->getInt($key,0);
+
+
 		//$post_id = JRequest::getInt( $key, null, 'post' ); // ID from post
 
 

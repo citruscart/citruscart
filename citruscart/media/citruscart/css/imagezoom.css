@@ -1,0 +1,18 @@
+/* these styles are for the demo, but are not required for the plugin */
+.zoom {
+	display:inline-block;
+	position: relative;
+	}
+
+.zoom img {
+
+	display: block;
+}
+
+#main_image :hover{
+	cursor:crosshair;
+	}
+	
+.zoom img::selection {
+	background-color: transparent;
+		}

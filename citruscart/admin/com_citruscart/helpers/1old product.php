@@ -517,6 +517,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
      */
     public static function getGalleryImages( $folder = null, $options = array( ), $triggerEvent = true )
     {
+
     	$app = JFactory::getApplication();
         $images = array( );
 
@@ -775,12 +776,10 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         {
             case "full":
                 $path = 'products_images';
-                $p_id ="citruscart_main_image".$id;
                 break;
             case "thumb":
             default:
                 $path = 'products_thumbs';
-                $p_id ="citruscart_thumb_image".$id;
                 break;
         }
 
@@ -825,12 +824,10 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 {
                     case "full":
                         $image_ref = $full_image;
-                        $p_id ="citruscart_main_image".$id;
                         break;
                     case "thumb":
                     default:
                         $image_ref = $thumb_image;
-                        $p_id ="citruscart_thumb_image".$id;
                         break;
                 }
 
@@ -947,16 +944,11 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 }
 
                 $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
-				if(JFactory::getApplication()->isSite()){
-                $tmpl = ( $url ) ? $src
-                : "<img class='citruscart-product-main-images' id=".$p_id ." " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='300px' height='180px'/>";
-				}else{
-				$tmpl = ( $url ) ? $src
-					: "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-					. "' align='middle' border='0' width='250px' height='350px'/>";
 
-				}
+                $tmpl = ( $url ) ? $src
+                : "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+                . "' align='middle' border='0' width='300px' height='180px'/>";
+
             }
         }
         return $tmpl;
@@ -1354,7 +1346,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 	public static function getAvailableAttributeOptions( $product_id, $aid, $fixed_aid, $fixed_pao, $parent_options = "-1", $refresh = false )
 	{
 		$map = CitruscartHelperProduct::getAttributeQuantityMap( $product_id, $parent_options, $refresh );
-		if( is_array( $map ) && $map ) { // product quantities are set up
+		if( is_array( $map ) ) { // product quantities are set up
 			$pos = $map['ord'][$aid]; // which position we are going to examine
 			$pos_fixed = -1; // none is fixed
 			if( $fixed_aid > -1 ) {
@@ -1428,8 +1420,9 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         foreach ( $attributes as $attribute ) {
         	$default[ $attribute->productattribute_id ] = 0;
         }
+
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
-		if( is_array( $map ) && $map ) {
+		if( is_array( $map ) ) {
 			// we figure out what should be the default attribute options combination by recursively searching the product quantity map
 			$answer = array(); // array with final combination
 			$not_finished = true;

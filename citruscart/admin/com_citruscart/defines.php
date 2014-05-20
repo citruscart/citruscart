@@ -420,7 +420,7 @@ class Citruscart extends DSC
 				$path = JPATH_SITE.'/images/com_citruscart/files';
 				break;
 			case 'manufacturers_images' :
-				$path = JPATH_SITE.'/images/com_citruscart/manufacturers';
+				$path = JPATH_SITE.'/images/citruscart/manufacturers';
 				break;
 			case 'manufacturers_thumbs' :
 				$path = JPATH_SITE.'/images/citruscart/manufacturers/thumbs';
@@ -434,6 +434,7 @@ class Citruscart extends DSC
 			case 'orderitems_files':
 				$path = JPATH_SITE.'/images/citruscart/orderitems';
 				break;
+
 		}
 
 		return $path;

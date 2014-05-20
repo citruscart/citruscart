@@ -45,7 +45,7 @@ class CitruscartTableXref extends CitruscartTable
 			// get the keynames of the table
 			$keynames = $this->_keynames;
 			//print_r($keynames); exit;
-			
+
 			foreach ($keynames as $key=>$value)
 			{
 				$keynames[$key] = $this->$key;
@@ -84,13 +84,16 @@ class CitruscartTableXref extends CitruscartTable
 	 * @see Citruscart/admin/tables/CitruscartTable#delete($oid)
 	 */
 	function delete( $oid='' )
-	{	JPluginHelper::importPlugin('citruscart');
+	{
+
+
+		JPluginHelper::importPlugin('citruscart');
         $app = JFactory::getApplication();
 	    if (empty($oid))
         {
             // if empty, use the values of the current keys
-            $keynames = $this->getKeyNames();
-
+           // $keynames = $this->getKeyNames();
+        	$keynames = $this->_keynames;
             foreach ($keynames as $key=>$value)
             {
                 $oid[$key] = $this->$key;
@@ -165,6 +168,7 @@ class CitruscartTableXref extends CitruscartTable
 
 		$key_value = implode(',',array_values($data));
 
+		//$fmtsql = 'INSERT INTO '.$db->qn($table).' ( %s ) VALUES ( %s ) ';
 		$fmtsql = "INSERT INTO $table( $key ) VALUES ( $key_value ) ";
 
 		$fields = array();

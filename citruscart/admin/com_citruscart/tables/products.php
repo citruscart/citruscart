@@ -14,6 +14,7 @@
 /** ensure this file is being included by a parent file */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
+//print_r($_POST); exit;
 Citruscart::load( 'CitruscartTableEav', 'tables._baseeav' );
 
 class CitruscartTableProducts extends CitruscartTableEav
@@ -57,6 +58,7 @@ class CitruscartTableProducts extends CitruscartTableEav
 	 */
 	function store( $updateNulls = false )
 	{
+
 		if ( $return = parent::store( $updateNulls ) )
 		{
 			if ( empty( $this->_isNew ) )

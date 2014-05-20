@@ -20,12 +20,20 @@ $helper_product = new CitruscartHelperProduct();
 <table class="table table-striped table-bordered" style="width: 100%;">
     <tr>
         <td class="dsc-key"><?php echo JText::_('COM_CITRUSCART_FULL_DESCRIPTION'); ?>:</td>
-        <td><?php $editor = JFactory::getEditor(); ?> <?php echo $editor->display( 'product_description',  $row->product_description, '100%', '300', '75', '20' ) ; ?>
-        </td>
-    </tr>
+        <td><?php
+				 /**  get the Joomla's Editor  Object */
+				 $editor = JFactory::getEditor();
+
+				 /** Call the Display Method in the Editor Class  */
+				$text_editor=$editor->display('product_description', $row->product_description, '100%', '300', '75', '10' );
+				echo $text_editor;
+			?>
+	       </td>
+        </tr>
     <tr>
         <td class="dsc-key"><?php echo JText::_('COM_CITRUSCART_SHORT_DESCRIPTION'); ?>:</td>
-        <td><?php $editor = JFactory::getEditor(); ?> <?php echo $editor->display( 'product_description_short',  $row->product_description_short, '100%', '300', '75', '10' ) ; ?>
+      	 <td>
+       		<?php  $editor = JFactory::getEditor(); ?> <?php  echo $editor->display( 'product_description_short',  $row->product_description_short, '100%', '300', '75', '10' ) ; ?>
         </td>
     </tr>
     <?php

@@ -58,6 +58,7 @@ class CitruscartImage extends DSCImage
 
 					$this->archive_files = $files;
 					$this->physicalname = $files[0]->getPhysicalname( );
+
 				}
 			}
 

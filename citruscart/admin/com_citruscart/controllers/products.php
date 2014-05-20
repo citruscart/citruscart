@@ -1416,6 +1416,7 @@ class CitruscartControllerProducts extends CitruscartController
 		JPluginHelper::importPlugin('citruscart');
 		$app = JFactory::getApplication();
 		$this->set('suffix', 'productattributeoptions');
+
 		$model  = $this->getModel( $this->get('suffix') );
 
 		$row = $model->getTable();
@@ -2181,6 +2182,8 @@ class CitruscartControllerProducts extends CitruscartController
 	        $product->load( $product_id );
 	        $path = $product->getImagePath( );
 
+
+
 	        $upload->setDirectory( $path );
 
 	        // Do the real upload!
@@ -2204,6 +2207,7 @@ class CitruscartControllerProducts extends CitruscartController
 	                $product->save( );
 	            }
 	            echo JText::_('COM_CITRUSCART_IMAGE_UPLOADED_CORRECTLY');
+
 	        }
 	        else
 	        {
