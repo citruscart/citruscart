@@ -140,8 +140,11 @@ $app = JFactory::getApplication();
     <?php endif;?>
 
         <div id="citruscart_products" class="dsc-wrap">
-            <?php foreach ($items as $item) : ?>
-            <div id="product-<?php echo $item->product_id; ?>" class="dsc-wrap product_item product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
+
+            <?php foreach ($items as $item) :
+           ?>
+
+            <div  id="product-<?php echo $item->product_id; ?>" class="dsc-wrap product_item product-<?php echo $item->product_id; ?> <?php echo (isset($item->product_classes)) ? $item->product_classes : ""; ?>">
                 <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
                 <?php if ($thumb) { ?>
                     <div class="product_thumb dsc-wrap">
