@@ -141,9 +141,8 @@ if( $changed_attr > -1 ) {
        	 <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="5" class="input-mini" />
         </div>
 	<?php } ?>
-    </div>
 
-    <!-- Add to cart button -->
+		 <!-- Add to cart button -->
     <div id='add_to_cart_<?php echo $item->product_id; ?>' class="add_to_cart product_buyoption" style="display: block;">
         <input type="hidden" name="product_id" value="<?php echo $item->product_id; ?>" />
         <input type="hidden" name="filter_category" value="<?php echo $this->filter_category; ?>" />
@@ -178,6 +177,9 @@ if( $changed_attr > -1 ) {
         endif;
         ?>
     </div>
+    </div>
+
+
 
     <?php endif; ?>
 

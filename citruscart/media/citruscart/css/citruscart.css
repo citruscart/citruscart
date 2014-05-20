@@ -373,7 +373,8 @@ margin-left:20px;
 .add_to_cart .btn-success{
 background-color:#FF8800;
 border-color:#FF8800;
-margin-left:45px;
+margin-top:-42px;
+margin-left:10px;
 }
 
 .btn-success : hover,
