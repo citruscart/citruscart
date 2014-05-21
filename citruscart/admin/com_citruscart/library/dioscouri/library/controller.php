@@ -144,12 +144,8 @@ class DSCController extends DSCControllerBase
 	function getNamespace()
 	{
 		$app = JFactory::getApplication();
-		$view = $app->input->get('view');
-		JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/models');
-		//$model = $this->getModel( $this->get('suffix') );
-		$model = $this->getModel( $view );
-		$table = $model->getTable();
-		$ns = $app->getName().'::'.'com.'.$this->get('com').'.model.'.$table->get('_suffix');
+		$model = $this->getModel( $this->get('suffix') );
+		$ns = $app->getName().'::'.'com.'.$this->get('com').'.model.'.$model->getTable()->get('_suffix');
 		return $ns;
 	}
 
@@ -161,7 +157,6 @@ class DSCController extends DSCControllerBase
 	function _setModelState()
 	{
 		$app = JFactory::getApplication();
-		JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/models');
 		$model = $this->getModel( $this->get('suffix') );
 		$ns = $this->getNamespace();
 
