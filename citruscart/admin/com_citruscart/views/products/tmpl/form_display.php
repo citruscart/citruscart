@@ -34,8 +34,9 @@ $helper_product = new CitruscartHelperProduct();
             </tr>
         </table>
     </div>
-
-    <div class="well options">
+</div>
+    <div style="float: right; width: 50%;">
+    <div  class="well options">
         <legend>
             <?php echo JText::_('COM_CITRUSCART_EXTRA'); ?>
         </legend>
@@ -54,9 +55,10 @@ $helper_product = new CitruscartHelperProduct();
                 </td>
             </tr>
         </table>
-    </div>
 </div>
+    </div>
 
+<!--
 <div style="float: right; width: 50%;">
     <div class="well options">
         <legend>
@@ -70,7 +72,7 @@ $helper_product = new CitruscartHelperProduct();
             </tr>
         </table>
     </div>
-</div>
+</div> -->
 
 <?php
 // fire plugin event here to enable extending the form

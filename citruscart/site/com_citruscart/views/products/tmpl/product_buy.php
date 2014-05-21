@@ -65,7 +65,7 @@ if( $changed_attr > -1 ) {
     <div id='product_attributeoptions_<?php echo $item->product_id; ?>' class="product_attributeoptions product_buyoptions">
     <?php
     // Selected attribute options (for child attributes)
-    $selected_opts = (!empty($this->selected_opts)) ? json_decode($this->selected_opts) : 0;
+    $selected_opts = (@$this->selected_opts) ? json_decode($this->selected_opts) : 0;
 
     if(!count($selected_opts))
     {
@@ -85,7 +85,7 @@ if( $changed_attr > -1 ) {
 
     foreach ($attributes as $attribute)
     {
-        ?>
+      ?>
         <div class="pao" id='productattributeoption_<?php echo $attribute->productattribute_id; ?>'>
         <?php
         echo "<div class='productmodels'>".$attribute->productattribute_name."  </div>";
@@ -214,14 +214,16 @@ if( $changed_attr > -1 ) {
     <?php if( $display_wishlist ): ?>
         <div id='add_to_wishlist_<?php echo $item->product_id; ?>' class="add_to_wishlist product_buyoptions">
             <?php
+//            / $selected_opts = (($this->selected_opts)) ? json_decode($this->selected_opts) : 0;
             $xref_id = $this->user->id;
             $xref_type = 'user';
             if (empty($this->user->id)) {
                 $xref_id = $this->session->getId();
                 $xref_type = 'session';
             }
-			sort( $selected_opts );
-			array_shift( $selected_opts );
+				if(isset($selected_opts) && $selected_opts) :
+				sort( $selected_opts );
+				array_shift( $selected_opts );
             ?>
             <?php if (!$this->getModel()->isInWishlist($item->product_id, $xref_id, $xref_type, implode(',', $selected_opts ))) { ?>
             <?php $onclick = "document.$formName.task.value='addtowishlist'; document.$formName.submit();"; ?>
@@ -229,6 +231,7 @@ if( $changed_attr > -1 ) {
             <?php } else { ?>
                 <?php echo JText::_('COM_CITRUSCART_ITEM_ALREADY_IN_WISHLIST'); ?>
             <?php } ?>
+            <?php endif;?>
         </div>
 	<?php endif; ?>
     </form>

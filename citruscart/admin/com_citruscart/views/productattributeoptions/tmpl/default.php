@@ -132,6 +132,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <tr class='row<?php echo $k; ?>'>
 				<td>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'productattributeoption_id' ); ?>
+					<input type="hidden" value="<?php echo $item->productattributeoption_id ?>" name="cid[<?php $item->productattributeoption_id ?>]" />
 				</td>
 				<td>
 					<input type="text" class="input-mini"  name="name[<?php echo $item->productattributeoption_id; ?>]" value="<?php echo $item->productattributeoption_name; ?>" />

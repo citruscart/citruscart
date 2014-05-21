@@ -1542,13 +1542,14 @@ class CitruscartControllerProducts extends CitruscartController
 		}
 		else
 		{
-			$this->message = "";
+			$this->message = JText::_('COM_CITRUSCART_PRODUCT_OPTION_SUCCESSFULLY_SAVED');
+			$this->messagetype="Message";
 		}
 
 		$redirect = "index.php?option=com_citruscart&view=products&task=setattributeoptions&id={$row->productattribute_id}&tmpl=component";
 		$redirect = JRoute::_( $redirect, false );
-
-		$this->setRedirect( $redirect, $this->message, $this->messagetype );
+		$app->redirect($redirect,$this->message,$this->messagetype);
+		//$this->setRedirect( $redirect, $this->message, $this->messagetype );
 	}
 
 	/**
@@ -1599,13 +1600,14 @@ class CitruscartControllerProducts extends CitruscartController
 		}
 		else
 		{
-			$this->message = "";
+			$this->message = JText::_('COM_CITRUSCART_PRODUCT_OPTIONVALUES_SAVED_SUCCESSFULLY');
+			$this->messagetype="Message";			
 		}
-
 		$redirect = "index.php?option=com_citruscart&view=products&task=setattributeoptionvalues&id={$id}&tmpl=component";
 		$redirect = JRoute::_( $redirect, false );
+		$app->redirect($redirect,$this->message,$this->messagetype);
 
-		$this->setRedirect( $redirect, $this->message, $this->messagetype );
+		//$this->setRedirect( $redirect, $this->message, $this->messagetype );
 	}
 
 	/**
@@ -1698,8 +1700,8 @@ class CitruscartControllerProducts extends CitruscartController
 
 		$redirect = "index.php?option=com_citruscart&view=products&task=setfiles&id={$row->product_id}&tmpl=component";
 		$redirect = JRoute::_( $redirect, false );
-
-		$this->setRedirect( $redirect, $this->message, $this->messagetype );
+		$app->redirect($redirect,$this->message,$this->messagetype);
+		//$this->setRedirect( $redirect, $this->message, $this->messagetype );
 	}
 
 	/**

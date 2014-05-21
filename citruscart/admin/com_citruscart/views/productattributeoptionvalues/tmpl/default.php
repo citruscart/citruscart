@@ -97,6 +97,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <tr class='row<?php echo $k; ?>'>
 				<td style="text-align: center;">
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'productattributeoptionvalue_id' ); ?>
+					<input type="hidden" value="<?php echo $item->productattributeoptionvalue_id ?>" name="cid[<?php echo $item->productattributeoptionvalue_id ?>]" />
 				</td>
 				<td style="text-align: left;">
 					<?php echo CitruscartSelect::productattributeoptionvaluefield( $item->productattributeoptionvalue_field, "field[{$item->productattributeoptionvalue_id}]" ); ?>
