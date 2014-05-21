@@ -36,7 +36,7 @@ class CitruscartControllerConfig extends CitruscartController
         $errorMsg = "";
         $model  = $this->getModel( $this->get('suffix') );
         $config = Citruscart::getInstance();
-        
+
         $properties = $config->getProperties();
 
         $app = JFactory::getApplication();
@@ -111,7 +111,6 @@ class CitruscartControllerConfig extends CitruscartController
 
     public function all($cachable=false, $urlparams = false)
     {
-    	echo "hi";
     	$app = JFactory::getApplication();
         $app->input->set('layout', 'all');
         parent::display($cachable, $urlparams);
