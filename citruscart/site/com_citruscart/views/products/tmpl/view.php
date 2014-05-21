@@ -88,7 +88,7 @@ $app = JFactory::getApplication();
     	<div class="col-md-2 citruscart-view-product-gallery" >
     		 <?php  echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
     	</div>
-       <div class="col-md-5 citruscart-view-product-main-image">
+       <div class="col-md-4 citruscart-view-product-main-image">
             <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
 	           <input type="hidden" id="product_main_image" value="<?php echo $product_image;?>"/>
            <div>
@@ -127,6 +127,7 @@ $app = JFactory::getApplication();
 	        </ul><!-- unorder list ends -->
         	<!-- unorder list starts -->
 			<hr>
+			<div style="margin-left:8px;">
 				 <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	           <!-- <div id='citruscart_product_header'> -->
 	                <?php if ( !empty( $item->product_model ) ) : ?>
@@ -136,18 +137,17 @@ $app = JFactory::getApplication();
 	               		<?php echo "||";?> <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
 	                <?php endif; ?>
 	            <!-- </div> -->
-	        <?php endif; ?>
+	            <?php endif; ?>
+			 </div>
+			 
 			 <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
 	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
 	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
 	            </div>
 	        <?php endif; ?>
 
-
-
-
-       	  <small><?php echo $item->product_description;?></small>
-		   <br/>
+	        <small><?php echo $item->product_description;?></small>
+		    <br/>
 
 
 	     </li><!-- product properties list ends -->

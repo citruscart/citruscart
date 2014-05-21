@@ -37,7 +37,7 @@ $citems = @$this->citems;
                     <div class="reset"></div>
                 </div>
 
-                <div id="product_buy_<?php echo $item->product_id; ?>" class="product_buy">
+                <div id="product_buy_<?php echo $item->product_id; ?>" class="product_buy" style="margin-top:20px;">
                     <?php echo $item->product_buy; ?>
                 </div>
 
@@ -50,7 +50,7 @@ $citems = @$this->citems;
                         </span>
                     </div>
                     <?php if ( Citruscart::getInstance()->get('product_review_enable', '0') ) { ?>
-                    <div class="product_rating">
+                    <div class="product_rating" style="margin-top:3px;">
                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating ); ?>
                        <?php if (!empty($item->product_comments)) : ?>
                        <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>

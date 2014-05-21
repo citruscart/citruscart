@@ -334,13 +334,34 @@ margin-left: 10px;
 margin-top:10px;
 color: #697071;
 }
+
+ #citruscart_products .product_price{
+ margin-top:46px;
+ }
 .productoptions{
 margin-left:34px;
 }
-.product_buyoptions{
+#citruscart_products .product_buyoptions{
+margin-top:120px;
+}
+
+#citruscart_product .product_buyoptions{
 margin-top:15px;
 }
 
+
+#citruscart_products .product_prices {
+	margin-top:-15px;
+}
+
+#citruscart_products .product_attributeoptions
+{
+	margin-top:20px;
+}
+
+#citruscart_products .product_quantity_input {
+	margin-top:20px;
+}
 .add_to_cart{
 margin-top:25px;
 }
@@ -355,9 +376,19 @@ margin-top:5px;
 
 .productheader{
  color:#353637;
-
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+#citruscart_product .add_to_cart
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.btn-success {
+ color: #ffffff;
+ background-color: #FF8800;
+ border-color: #FF8800;
+ }
+
 
 .productprice{
 color:#353637;
@@ -389,16 +420,14 @@ margin-top:-42px;
 margin-left:29px;
 }
 
-#citruscart_product .add_to_cart
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active,
-.btn-success.active,
-.btn-success {
- color: #ffffff;
- background-color: #FF8800;
- border-color: #FF8800;
- }
+
+ #citruscart_products .add_to_cart .btn-success{
+background-color:#FF8800;
+border-color:#FF8800;
+margin-top:-42px;
+margin-left:8px;
+}
+
  
  #citruscart_products .add_to_cart
 .btn-success:hover,
