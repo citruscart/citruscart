@@ -414,16 +414,16 @@ box-shadow: none;
 }
 
 .add_to_cart .btn-success{
-background-color:#2CB1B1;
-border-color:#2CB1B1;
+background-color:#FF8800;
+border-color:#FF8800;
 margin-top:-42px;
 margin-left:29px;
 }
 
 
  #citruscart_products .add_to_cart .btn-success{
-background-color:#2CB1B1;
-border-color:#2CB1B1;
+background-color:#FF8800;
+border-color:#FF8800;
 margin-top:-42px;
 margin-left:8px;
 }
@@ -436,6 +436,11 @@ margin-left:8px;
 .btn-success.active,
 .btn-success {
  color: #ffffff;
- background-color:#2CB1B1;
- border-color:#2CB1B1;
+ background-color:#FF8800;
+ border-color:#FF8800;
  }
+ 
+ .navbar .nav > li > a {
+ text-shadow:none;
+ }
+ 

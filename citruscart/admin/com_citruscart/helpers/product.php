@@ -779,7 +779,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 break;
             case "thumb":
             default:
-                $path = 'products_thumbs';
+                $path = 'products_images';
                 $p_id ="citruscart_thumb_image".$id;
                 break;
         }
