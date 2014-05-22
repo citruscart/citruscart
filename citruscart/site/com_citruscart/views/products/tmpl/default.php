@@ -71,16 +71,16 @@ $app = JFactory::getApplication();
     <div id="citruscart_categories" class="dsc-wrap">
         <?php if (!empty($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
-                <?php if ($this->level > 1) {
-                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>';
+                <?php if ($this->level > 1) { 
+                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; 
                  } ?>
                 <?php
                 $i = 0;
                 $subcategories_per_line = $config->get('subcategories_per_line', '5');
-				?>
+				?>                                
                 <?php foreach ($citems as $citem) :
                 ?>
-
+                
                     <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if( $citem->display_name_subcategory ) : ?>
                         <h5 class="subcategory_name">
@@ -100,7 +100,7 @@ $app = JFactory::getApplication();
                  <?php
                     if ( ($i+1) >= $subcategories_per_line)      {
                         ?>
-
+                        
                         <?php $i = 0;
                     }
                         else
@@ -174,7 +174,7 @@ $app = JFactory::getApplication();
 		<ul id="image-list" class="nav navbar-nav">
 			<?php foreach ($items as $item) :?>
 
-			<li class="ul-images"  onmouseover="showBuyInfo();">
+			<li class="ul-images"  onmouseover="showBuyInfo()";>
 			  <span>
 			  <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
                <?php if ($thumb) { ?>
