@@ -129,33 +129,17 @@ class CitruscartControllerProducts extends CitruscartController
 	function save()
 	{
 		$app = JFactory::getApplication();
-
 	    $task = $app->input->getString( 'task' );
-
 		$post = $app->input->getArray($_POST);
-
 		$model 	= $this->getModel( $this->get('suffix') );
-
 		$isSaveAs = false;
-
         $row = $model->getTable();
-
         $row->load( $model->getId() );
-
-
         // to set the Product Id
         $row->product_id = (isset($post['id'])) ? $post['id'] : "";
-
         $row->bind($post);
-
-
-        //exit;
-
-		//$row->product_description = JRequest::getVar( 'product_description', '', 'post', 'string', JREQUEST_ALLOWRAW);
-		$row->product_description = $app->input->getString( 'product_description');
-
-		//$row->product_description_short = JRequest::getVar( 'product_description_short', '', 'post', 'string', JREQUEST_ALLOWRAW);
-		$row->product_description_short =$app->input->getString( 'product_description_short');
+		$row->product_description = $app->input->get( 'product_description', '', 'RAW');
+		$row->product_description_short =$app->input->get( 'product_description_short', '', 'RAW');
 
 		// set the id as 0 for new entry
 		if ( $task == "save_as" )
@@ -168,8 +152,8 @@ class CitruscartControllerProducts extends CitruscartController
 			//$row->bind( JRequest::get('POST') );
 			$row->bind( $app->input->getArray($_POST) );
 
-			$row->product_description = $app->input->getString( 'product_description');
-			$row->product_description_short =$app->input->getString( 'product_description_short');
+			$row->product_description = $app->input->get( 'product_description', '', 'RAW');
+			$row->product_description_short =$app->input->get( 'product_description_short', '', 'RAW');
 
 		    $isSaveAs = true;
 			$oldProductImagePath = $row->getImagePath();
@@ -1601,7 +1585,7 @@ class CitruscartControllerProducts extends CitruscartController
 		else
 		{
 			$this->message = JText::_('COM_CITRUSCART_PRODUCT_OPTIONVALUES_SAVED_SUCCESSFULLY');
-			$this->messagetype="Message";			
+			$this->messagetype="Message";
 		}
 		$redirect = "index.php?option=com_citruscart&view=products&task=setattributeoptionvalues&id={$id}&tmpl=component";
 		$redirect = JRoute::_( $redirect, false );

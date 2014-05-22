@@ -30,13 +30,31 @@ $plugins_short_desc = $config->get( 'content_plugins_product_desc', '0' );
 $js_strings = array( 'COM_CITRUSCART_ADDING_PRODUCT_FOR_COMPARISON', 'COM_CITRUSCART_REMOVING_PRODUCT' );
 CitruscartHelperBase::addJsTranslationStrings( $js_strings );
 $app = JFactory::getApplication();
-
 ?>
+<style>
+.citruscart-product-main-images {
+	width:80px;
+	height:150px;
+	margin-left:5px;
+	}
+#image-list{
+
+	}
+.ul-images{
+	margin-left :5px;
+	margin-bottom:5px;
+	padding :5px;
+	border:1px solid #ccc;
+	text-align: center;
+	width:140px;
+	height:250px;
+	}
+</style>
 <div id="citruscart" class="products default">
 
     <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
         <div id='citruscart_breadcrumb'>
-            <?php    echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
+            <?php echo CitruscartHelperCategory::getPathName($this->cat->category_id, 'links'); ?>
         </div>
     <?php endif; ?>
     <?php if( $product_compare ):?>
@@ -50,21 +68,7 @@ $app = JFactory::getApplication();
             <a href="<?php echo JRoute::_( $this->remove_pricefilter_url ); ?>"><?php echo JText::_('COM_CITRUSCART_REMOVE_FILTER') ?></a>
         </div>
     <?php endif; ?>
-
     <div id="citruscart_categories" class="dsc-wrap">
-        <div id='citruscart_category_header' class="dsc-wrap">
-            <?php if (isset($state->category_name)) : ?>
-                <?php if (!empty($this->cat->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
-                    <img src="<?php echo CitruscartHelperCategory::getImage($this->cat->category_id, '', '', '', true); ?>" alt="" class="category image" />
-                <?php endif; ?>
-            <?php endif; ?>
-
-         	<?php if( $this->cat->display_name_category ) : ?>
-                <h3><?php echo $this->title; ?></h3>
-            <?php endif; ?>
-            <div class='category_description dsc-wrap'><?php echo $this->cat->category_description; ?></div>
-        </div>
-
         <?php if (!empty($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
                 <?php if ($this->level > 1) { echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; } ?>
@@ -90,8 +94,7 @@ $app = JFactory::getApplication();
                         <?php endif; ?>
                     </div>
                     <?php
-                    if ( ($i+1) >= $subcategories_per_line)
-                    {
+                    if ( ($i+1) >= $subcategories_per_line)      {
                         ?>
                         <div class="reset"></div>
                         <?php $i = 0;
@@ -104,10 +107,10 @@ $app = JFactory::getApplication();
                 ?>
             </div>
         <?php endif; ?>
-    </div>
-
-    <?php if (!empty($items)) : ?>
-
+            </div>
+	<div class="row-fluid">
+	<div class="col-md-6">
+    <?php if (($items)) : ?>
      <?php if($config->get('display_sort_by', '1')) :?>
       <form action="<?php echo JRoute::_("&limitstart=".$state->limitstart )?>" method="post" name="adminForm_sort" enctype="multipart/form-data">
      	<div class="citruscart_sortby">
@@ -130,102 +133,17 @@ $app = JFactory::getApplication();
         			}
         		?>
         		<a class="modal"  rel="{handler: 'iframe', size: {x: 800, y: 500}}" href="<?php echo JRoute::_("&limitstart=".$state->limitstart."&filter_sortby=".$state->filter_sortby."&filter_dir=".$dir);?>">
-        			<img src="<?php echo Citruscart::getURL('images').$img_dir?>" alt="filter_direction"/>
+						<img src="<?php echo Citruscart::getURL('images').$img_dir?>" alt="filter_direction"/>
         		</a>
         	</span>
     	</div>
         <?php echo $this->form['validate']; ?>
     </form>
     <?php endif;?>
+    </div>
+    <div class="col-md-6">
 
-        <div id="citruscart_products" class="dsc-wrap">
- 			<ul class="unstyled">
-            <?php foreach ($items as $item) :?>
-			<li>
-			
-            <div  id="product-<?php echo $item->product_id; ?>" class="dsc-wrap product_item product-<?php echo $item->product_id; ?> <?php echo (isset($item->product_classes)) ? $item->product_classes : ""; ?>">
-                <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
-                <?php if ($thumb) { ?>
-                    <div class="product_thumb dsc-wrap">
-                        <div class="dsc-wrap product_listimage">
-                            <a href="<?php echo JRoute::_( $item->link . $item->itemid_string ); ?>">
-                                <?php echo $thumb; ?>
-                            </a>
-                        </div>
-                    </div>
-                <?php } ?>
-
-                <div class="dsc-wrap product_info">
-                
-                    <!-- <div class="dsc-wrap product_name"> -->
-                    <div class="product_rating">
-                        <h4>
-                        	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
-                        </h4>
-	                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
-	                   	 <!--  <div class="dsc-wrap product_rating"> -->
-	                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
-	                       <?php if (!empty($item->product_comments)) : ?>
-	                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
-	                       <?php endif; ?>
-	                    	 <!-- </div> -->
-	                    <?php endif; ?>
-						<br/>
-	                     <?php if (!empty($item->product_model) || !empty($item->product_sku)) { ?>
-
-                            <span class="model">
-                                <?php if (!empty($item->product_model)) : ?>
-                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_MODEL'); ?>:</span>
-                                    <?php echo $item->product_model; ?>
-                                <?php endif; ?>
-                            </span>
-
-                            <span class="sku">
-                                <?php if (!empty($item->product_sku)) : ?>
-                                   <?php echo "||";?>
-                                    <span class="title"><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:</span>
-                                    <?php echo $item->product_sku; ?>
-                                <?php endif; ?>
-                            </span>
-                    <?php } ?>
-                    </div>
-                    <div class="dsc-wrap product_minidesc">
-                    <?php
-                        if (!empty($item->product_description_short))
-                        {
-                        	$product_desc = $item->product_description_short;
-                        }
-                            else
-                        {
-                            $str = wordwrap($item->product_description, 200, '`|+');
-                            $wrap_pos = strpos($str, '`|+');
-                            if ($wrap_pos !== false) {
-                                $product_desc = substr($str, 0, $wrap_pos).'...';
-                            } else {
-                                $product_desc = $str;
-                            }
-                        }
-						?>
-						
-                        <?php if( $plugins_short_desc )
-                        	echo JHTML::_('content.prepare', $product_desc);
-                        else
-                           echo $product_desc;
-                    	?>
-                    	
-                    </div>
-                </div>
-
-	                <div id="product_buy_<?php echo $item->product_id; ?>" class="dsc-wrap product_buy">
-	                    <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
-	                </div>
-	            </div>
-            </li>
-            <?php endforeach; ?>
-            </ul>
-        </div>
-
-        <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
+    <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
         <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
             <div id="results_counter"><?php echo $this->pagination->getResultsCounter(); ?></div>
@@ -247,7 +165,49 @@ $app = JFactory::getApplication();
         <?php echo $this->form['validate']; ?>
         </form>
         <?php } ?>
+	</div>
+	</div>
+		<ul id="image-list" class="nav navbar-nav">
+			<?php foreach ($items as $item) :?>
 
+			<li class="ul-images"  onmouseover="showBuyInfo()";>
+			  <span>
+			  <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
+               <?php if ($thumb) { ?>
+                      <!--<div class="dsc-wrap product_listimage">-->
+                            <a href="<?php echo JRoute::_( $item->link . $item->itemid_string ); ?>">
+                                <?php echo $thumb; ?>
+                            </a>
+                        <!--</div>-->
+                <?php } ?>
+					<div class="product-short-info">
+                        <h6>
+                        	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
+                        </h6>
+	                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
+	                   	 <!--  <div class="dsc-wrap product_rating"> -->
+	                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>
+	                       <?php if (!empty($item->product_comments)) : ?>
+	                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
+	                       <?php endif; ?>
+
+	                    <?php endif; ?>
+	                      <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
+					    	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, @$item->tax, @$this->show_tax); ?>
+					    	 <!-- For UE States, we should let the admin choose to show (+19% vat) and (link to the shipping rates) -->
+					    	<br />
+					    	<?php if(Citruscart::getInstance()->get( 'display_prices_with_shipping') && !empty($item->product_ships)):?>
+					    	<?php echo CitruscartUrl::popup( JRoute::_($this->shipping_cost_link.'&tmpl=component'), JText::_('COM_CITRUSCART_LINK_TO_SHIPPING_COST') ); ?>
+					    	<?php endif;?>
+					   		 </span>
+					 </div>
+					 <div class="product-buy-info">
+						<?php // echo CitruscartHelperProduct::getCartButton($item->product_id);?>
+				 </div>
+	          </span>
+	         </li>
+            <?php endforeach; ?>
+            </ul>
     <?php endif; ?>
 
 </div>

@@ -235,6 +235,8 @@ class CitruscartHelperCategory extends CitruscartHelperBase
      */
 	public static function getImage( $id, $by='id', $alt='', $type='thumb', $url=false )
 	{
+		$app = JFactory::getApplication();
+
 		switch($type)
 		{
 			case "full":
@@ -242,6 +244,9 @@ class CitruscartHelperCategory extends CitruscartHelperBase
 			  break;
 			case "thumb":
 			default:
+				if($app->isSite()){
+					$path = "categories_images";
+				}
 				$path = 'categories_thumbs';
 			  break;
 		}

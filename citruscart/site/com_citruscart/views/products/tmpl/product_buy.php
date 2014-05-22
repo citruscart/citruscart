@@ -54,7 +54,7 @@ if( $changed_attr > -1 ) {
     <span>
     <?php if (!empty($item->product_listprice_enabled)) : ?>
         <div class="product_listprice">
-        <span class="title"><?php echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span>
+        <!-- <span class="title"><?php  echo JText::_('COM_CITRUSCART_LIST_PRICE'); ?>:</span> -->
         <del><?php echo CitruscartHelperBase::currency($item->product_listprice); ?></del>
         </div>
     <?php endif; ?>

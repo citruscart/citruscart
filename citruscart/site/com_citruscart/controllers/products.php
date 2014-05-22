@@ -394,6 +394,7 @@ class CitruscartControllerProducts extends CitruscartController
 
         Citruscart::load( 'CitruscartArticle', 'library.article' );
         $product_description = CitruscartArticle::fromString( $row->product_description );
+        $product_description_short = CitruscartArticle::fromString( $row->product_description_short );
 
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
         $cmodel = JModelLegacy::getInstance( 'Categories', 'CitruscartModel' );
@@ -473,6 +474,7 @@ class CitruscartControllerProducts extends CitruscartController
         $view->product_children = $this->getRelationshipsHtml( $view, $row->product_id, 'parent' );
         $view->product_requirements = $this->getRelationshipsHtml( $view, $row->product_id, 'requires' );
         $view->product_description = $product_description;
+        $view->product_description_short = $product_description_short;
         $view->setModel( $model, true );
 
         // we know the product, set the meta info
