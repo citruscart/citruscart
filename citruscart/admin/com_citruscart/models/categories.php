@@ -27,7 +27,8 @@ class CitruscartModelCategories extends CitruscartModelBase
        	$enabled		= $this->getState('filter_enabled');
        	$parentid		= $this->getState('filter_parentid');
        	$level          = $this->getState('filter_level');
-
+       	$limit = $this->getState('limit');
+       	$limitstart = $this->getState('limitstart');
        	if ($filter)
        	{
 			$key	= $this->_db->Quote('%'.$this->_db->escape( trim( strtolower( $filter ) ) ).'%');
@@ -170,6 +171,7 @@ class CitruscartModelCategories extends CitruscartModelBase
 		$this->_buildQueryGroup($query);
 		$this->_buildQueryHaving($query);
 		$this->_buildQueryOrder($query);
+
 		$db->setQuery($query);
 		$list = $db->loadObjectList();
 

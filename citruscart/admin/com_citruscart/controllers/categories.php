@@ -50,6 +50,11 @@ class CitruscartControllerCategories extends CitruscartController
 		$state['filter_name'] 		= $app->getUserStateFromRequest($ns.'name', 'filter_name', '', '');
 		$state['filter_parentid'] 	= $app->getUserStateFromRequest($ns.'parentid', 'filter_parentid', '', '');
 		$state['filter_enabled'] 	= $app->getUserStateFromRequest($ns.'enabled', 'filter_enabled', '', '');
+		$state['limit'] 	= $app->getUserStateFromRequest($ns.'limit', 'limit', 0, 'int');
+		$state['limitstart'] 	= $app->getUserStateFromRequest($ns.'limitstart', 'limitstart', 0, 'int');
+
+
+
 
 		foreach ($state as $key=>$value)
 		{
@@ -184,10 +189,12 @@ class CitruscartControllerCategories extends CitruscartController
 		$this->set('suffix', 'products');
 
 		$app = JFactory::getApplication();
-		$model = $this->getModel( $this->get('suffix') );
+		$model =JModelLegacy::getInstance($this->get('suffix') ,'CitruscartModel');
+		//$model = $this->getModel( $this->get('suffix') );
 		$ns = $this->getNamespace();
 
-		$state['limit']  	= $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'int');
+		//$state['limit']  	= $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'int');
+		$state['limit'] =  $app->getUserStateFromRequest($ns.'limit', 'limit', 20, 'int');
 		$state['limitstart'] = $app->getUserStateFromRequest($ns.'limitstart', 'limitstart', 0, 'int');
 		$state['order']     = $app->getUserStateFromRequest($ns.'.selectproducts.filter_order', 'filter_order', 'tbl.product_name', 'cmd');
 		$state['direction'] = $app->getUserStateFromRequest($ns.'.selectproducts.filter_direction', 'filter_direction', 'ASC', 'word');
@@ -208,7 +215,7 @@ class CitruscartControllerCategories extends CitruscartController
 		$view->set( '_view', 'categories' );
 		$view->set( '_action', "index.php?option=com_citruscart&controller=categories&task=selectproducts&tmpl=component&id=".$model->getId() );
 		$view->setModel( $model, true );
-		$view->assign( 'state', $model->getState() );
+		$view->assign( 'state', $model->getState());
 		$view->assign( 'row', $row );
 		$view->setLayout( 'selectproducts' );
 		$view->setTask(true);
