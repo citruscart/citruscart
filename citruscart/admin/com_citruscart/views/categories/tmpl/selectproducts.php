@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -15,9 +15,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
 <?php $row = $this->row; ?>
-
 <div class="lightbox-select">
-    <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminFormSearch" enctype="multipart/form-data" class="dsc-wrap">
+    <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" id="adminForm" name="adminFormSearch" enctype="multipart/form-data" class="dsc-wrap">
         <h1 class="pull-left"><?php echo JText::_('COM_CITRUSCART_SELECT_PRODUCTS_FOR'); ?>: <?php echo $row->category_name; ?></h1>
 
         <?php echo CitruscartGrid::searchform($state->filter,JText::_('COM_CITRUSCART_SEARCH'), JText::_('COM_CITRUSCART_RESET') ) ?>
@@ -95,11 +94,20 @@ defined('_JEXEC') or die('Restricted access'); ?>
 		<tfoot>
 			<tr>
 				<td colspan="20">
-					<?php echo $this->pagination->getListFooter(); ?>
+					<?php echo $this->pagination->getListFooter();
+					?>
+				</td>
+				<td>
+					 <div class="pagination pagination-toolbar">
+                    	<?php echo $this->pagination->getPagesLinks(); ?>
+                	</div>
 				</td>
 			</tr>
 		</tfoot>
 	</table>
+	<input type="hidden" name="limit" value="<?php echo $this->state->limit;?>" />
+
+	<input type="hidden" name="limitstart" value="<?php echo $this->state->limitstart;?>" />
 
 	<input type="hidden" name="task" id="task" value="selectproducts" />
 	<input type="hidden" name="boxchecked" value="" />

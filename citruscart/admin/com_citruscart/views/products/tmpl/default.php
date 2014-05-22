@@ -227,7 +227,9 @@ $doc = JFactory::getDocument();
 			<tr>
 				<td colspan="20">
 					<div style="float: right; padding: 5px;"><?php echo $this->pagination->getResultsCounter(); ?></div>
-					<?php echo $this->pagination->getPagesLinks(); ?>
+					   <div class="pagination pagination-toolbar">
+                    	<?php echo $this->pagination->getPagesLinks(); ?>
+                	</div>
 				</td>
 			</tr>
 		</tfoot>

@@ -94,7 +94,9 @@ $view = $app->input->getString('view');
 			<tr>
 				<td colspan="20">
 					<div style="float: right; padding: 5px;"><?php echo $this->pagination->getResultsCounter(); ?></div>
-					<?php echo $this->pagination->getPagesLinks(); ?>
+					   <div class="pagination pagination-toolbar">
+                    	<?php echo $this->pagination->getPagesLinks(); ?>
+                		</div>
 				</td>
 			</tr>
 		</tfoot>
@@ -160,7 +162,7 @@ $view = $app->input->getString('view');
 			<?php endif; ?>
 		</tbody>
 	</table>
-
+	<input type="hidden" name="limit" value="20" />
 	<input type="hidden" name="order_change" value="0" />
 	<input type="hidden" name="id" value="" />
 	<input type="hidden" name="task" value="" />
