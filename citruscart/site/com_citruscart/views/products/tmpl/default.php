@@ -71,12 +71,16 @@ $app = JFactory::getApplication();
     <div id="citruscart_categories" class="dsc-wrap">
         <?php if (!empty($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
-                <?php if ($this->level > 1) { echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; } ?>
+                <?php if ($this->level > 1) { 
+                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; 
+                 } ?>
                 <?php
                 $i = 0;
                 $subcategories_per_line = $config->get('subcategories_per_line', '5');
-                foreach ($citems as $citem) :
+				?>                                
+                <?php foreach ($citems as $citem) :
                 ?>
+                
                     <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if( $citem->display_name_subcategory ) : ?>
                         <h5 class="subcategory_name">
@@ -93,10 +97,10 @@ $app = JFactory::getApplication();
                             </div>
                         <?php endif; ?>
                     </div>
-                    <?php
+                 <?php
                     if ( ($i+1) >= $subcategories_per_line)      {
                         ?>
-                        <div class="reset"></div>
+                        
                         <?php $i = 0;
                     }
                         else

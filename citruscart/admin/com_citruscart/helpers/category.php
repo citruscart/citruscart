@@ -246,9 +246,10 @@ class CitruscartHelperCategory extends CitruscartHelperBase
 			default:
 				if($app->isSite()){
 					$path = "categories_images";
-				}
+				}else {				
 				$path = 'categories_thumbs';
-			  break;
+				}
+				break;
 		}
 
 		$tmpl = "";
