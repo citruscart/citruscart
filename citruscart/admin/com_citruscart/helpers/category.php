@@ -275,7 +275,8 @@ class CitruscartHelperCategory extends CitruscartHelperBase
 		    if ($url) {
 		        return $src;
 		    } elseif (!empty($src)) {
-		        $tmpl = "<img src='".$src."' alt='".JText::_( $alt )."' title='".JText::_( $alt )."'/>";
+
+		    	$tmpl = "<img src='".$src."' alt='".JText::_( $alt )."' title='".JText::_( $alt )."'/>";
 		    }
 
 		    return $tmpl;

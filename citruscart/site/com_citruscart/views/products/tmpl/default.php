@@ -30,6 +30,7 @@ $plugins_short_desc = $config->get( 'content_plugins_product_desc', '0' );
 $js_strings = array( 'COM_CITRUSCART_ADDING_PRODUCT_FOR_COMPARISON', 'COM_CITRUSCART_REMOVING_PRODUCT' );
 CitruscartHelperBase::addJsTranslationStrings( $js_strings );
 $app = JFactory::getApplication();
+
 ?>
 <style>
 .citruscart-product-main-images {
@@ -49,6 +50,7 @@ $app = JFactory::getApplication();
 	width:140px;
 	height:250px;
 	}
+
 </style>
 <div id="citruscart" class="products default">
 
@@ -69,14 +71,22 @@ $app = JFactory::getApplication();
         </div>
     <?php endif; ?>
     <div id="citruscart_categories" class="dsc-wrap">
-        <?php if (!empty($citems)) : ?>
+        <?php if (($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
-                <?php if ($this->level > 1) { echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; } ?>
+                <?php if ($this->level > 1) {
+                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>';
+
+                }else{
+
+
+
+                } ?>
                 <?php
                 $i = 0;
-                $subcategories_per_line = $config->get('subcategories_per_line', '5');
-                foreach ($citems as $citem) :
-                ?>
+                $subcategories_per_line = $config->get('subcategories_per_line', '5'); ?>
+                <ul class="nav navbar">
+                <?php  foreach ($citems as $citem) :  ?>
+                    <li>
                     <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if( $citem->display_name_subcategory ) : ?>
                         <h5 class="subcategory_name">
@@ -86,9 +96,9 @@ $app = JFactory::getApplication();
                         </h5>
                         <?php endif; ?>
                         <?php if (!empty($citem->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
-                            <div class="dsc-wrap subcategory_thumb">
+                           <div class="dsc-wrap subcategory_thumb">
                                 <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$citem->category_id.$citem->slug.$citem->itemid_string ); ?>">
-                                <?php echo CitruscartHelperCategory::getImage($citem->category_id); ?>
+                                <?php  echo CitruscartHelperCategory::getImage($citem->category_id); ?>
                                 </a>
                             </div>
                         <?php endif; ?>
@@ -102,15 +112,20 @@ $app = JFactory::getApplication();
                         else
                     {
                         $i++;
-                    }
-                endforeach;
-                ?>
+                    } ?>
+				</li>
+                <?php endforeach;?>
+                </ul>
             </div>
         <?php endif; ?>
             </div>
+            <?php if (!$items) :?>
+           		<?php echo JText::_('COM_CITRUSCART_NO_ITEMS_FOUND');?>
+            <?php endif;?>
+       <?php if (($items)) : ?>
 	<div class="row-fluid">
-	<div class="col-md-6">
-    <?php if (($items)) : ?>
+	<div class="col-md-9">
+
      <?php if($config->get('display_sort_by', '1')) :?>
       <form action="<?php echo JRoute::_("&limitstart=".$state->limitstart )?>" method="post" name="adminForm_sort" enctype="multipart/form-data">
      	<div class="citruscart_sortby">
@@ -139,10 +154,9 @@ $app = JFactory::getApplication();
     	</div>
         <?php echo $this->form['validate']; ?>
     </form>
-    <?php endif;?>
-    </div>
-    <div class="col-md-6">
 
+    </div>
+    <div class="col-md-3">
     <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
         <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
@@ -167,6 +181,9 @@ $app = JFactory::getApplication();
         <?php } ?>
 	</div>
 	</div>
+
+
+	<?php endif;?>
 		<ul id="image-list" class="nav navbar-nav">
 			<?php foreach ($items as $item) :?>
 
