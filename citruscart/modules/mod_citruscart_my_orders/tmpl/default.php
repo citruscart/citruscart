@@ -17,8 +17,9 @@ $currency_helper = CitruscartHelperBase::getInstance( 'Currency' );
 
 // Add CSS
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_my_orders/tmpl/mod_citruscart_my_orders.css');
+$user = JFactory::getUser();
 
-if (!empty($orders))
+if (($orders) && $user->id)
 {
     $count=0;
     foreach (@$orders as $order) : ?>

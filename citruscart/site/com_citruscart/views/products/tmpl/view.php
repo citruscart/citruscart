@@ -139,17 +139,17 @@ $app = JFactory::getApplication();
 	            <!-- </div> -->
 	            <?php endif; ?>
 			 </div>
-			 
+
 			 <?php if ( $this->defines->get( 'shop_enabled', '1' ) ) : ?>
 	            <div class="dsc-wrap product_buy" style="" id="product_buy_<?php echo $item->product_id; ?>">
 	                <?php echo CitruscartHelperProduct::getCartButton( $item->product_id ); ?>
 	            </div>
 	        <?php endif; ?>
 
-	        <small><?php echo $item->product_description;?></small>
+
+
 		    <br/>
-
-
+			<?php echo $this->product_description_short; ?>
 	     </li><!-- product properties list ends -->
 
 	     </ul>
