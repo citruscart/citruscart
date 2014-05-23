@@ -33,26 +33,6 @@ $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', 
 
 $app = JFactory::getApplication();
 ?>
-<style>
-.citruscart-product-main-images{
-	width:250px;
-
-}
-.citruscart_image-product_gallery_thumb{
-	width : 50px;
-	height :80px;
-}
-.citruscart-view-product-gallery{
-	padding-left:39px;
-}
-.citruscart-view-product-main-image{
-	padding-left:0px;
-}
-.citruscart-rating li{
-	margin-top:-15px;
-	margin-left:5px;
-}
-</style>
 
 <!-- citruscart div starts -->
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
@@ -62,9 +42,7 @@ $app = JFactory::getApplication();
             <?php echo CitruscartHelperCategory::getPathName( $this->cat->category_id, 'links', true ); ?>
         </div>
     <?php endif; ?>
-
-
-
+    
     <!-- row-fluid div starts -->
     <div class="row-fluid">
 

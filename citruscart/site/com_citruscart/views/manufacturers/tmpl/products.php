@@ -16,23 +16,6 @@ $items = $this->items;
 $title = $this->title;
 $citems = @$this->citems;
 ?>
-<style>
-.ul-images{
-	margin-left :15px;
-	margin-bottom:5px;
-	padding:5px 10px;
-	border:1px solid #ccc;
-	text-align: center;
-	width:200px;
-	height:360px;
-	}
-
-	#citruscart .citruscart-product-main-images {
-	width:250px;
-	height:250px;
-}
-</style>
-
 <div id="citruscart" class="products default">
 
 	<div id='citruscart_category_header'>

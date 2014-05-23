@@ -154,7 +154,6 @@ $app = JFactory::getApplication();
 	<?php endif;?>
 		<ul id="image-list" class="nav navbar-nav">
 			<?php foreach ($items as $item) :?>
-
 			<li class="ul-images" >
 			  <span>
 			  <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
