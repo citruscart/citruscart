@@ -109,11 +109,9 @@ $app = JFactory::getApplication();
         <ul class="unstyled">
            	  <!-- product properties list starts -->
 		    <li class="productproperties">
-
            		<h3 class="productheader">
 		           <?php echo htmlspecialchars_decode( $item->product_name ); ?>
 		        </h3>
-
 		        <ul class="unstyled citruscart-rating pull-right">
 		       	<!-- list starts -->
 		       	<li>
@@ -157,7 +155,6 @@ $app = JFactory::getApplication();
 	     <div  style="width:auto;">
 	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>
 	     </div>
-
 
 
 	      </div>

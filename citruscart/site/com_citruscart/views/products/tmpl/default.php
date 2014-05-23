@@ -31,29 +31,6 @@ $js_strings = array( 'COM_CITRUSCART_ADDING_PRODUCT_FOR_COMPARISON', 'COM_CITRUS
 CitruscartHelperBase::addJsTranslationStrings( $js_strings );
 $app = JFactory::getApplication();
 ?>
-<style>
-.citruscart-product-main-images {
-	width:80px;
-	height:150px;
-	margin-left:5px;
-	}
-#image-list{
-
-	}
-.ul-images{
-	margin-left :5px;
-	margin-bottom:5px;
-	padding :5px;
-	border:1px solid #ccc;
-	text-align: center;
-	width:272px;
-	height:250px;
-	}
-	
-#citruscart .citruscart-product-main-images {
-width:250px;
-}
-</style>
 <div id="citruscart" class="products default">
 
     <?php if ($this->level > 1 && $config->get('display_citruscart_pathway')) : ?>
@@ -75,24 +52,17 @@ width:250px;
     <div id="citruscart_categories" class="dsc-wrap">
         <?php if (!empty($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
-                <?php if ($this->level > 1) { 
-                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>'; 
+                <?php if ($this->level > 1) {
+                	//echo '<h3>'.JText::_('COM_CITRUSCART_SUBCATEGORIES').'</h3>';
                  } ?>
                 <?php
                 $i = 0;
                 $subcategories_per_line = $config->get('subcategories_per_line', '5');
-				?>                                
-                <?php foreach ($citems as $citem) :
-                ?>
-                
-                    <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
-                        <?php if( $citem->display_name_subcategory ) : ?>
-                        <h5 class="subcategory_name">
-                            <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$citem->category_id.$citem->slug.$citem->itemid_string ); ?>">
-                            <?php echo $citem->category_name; ?>
-                            </a>
-                        </h5>
-                        <?php endif; ?>
+				?>
+				<ul class="nav navbar" >
+                <?php foreach ($citems as $citem) :  ?>
+                  <li class="citruscart_cat_list">
+                   <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if (!empty($citem->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
                             <div class="dsc-wrap subcategory_thumb">
                                 <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$citem->category_id.$citem->slug.$citem->itemid_string ); ?>">
@@ -100,23 +70,28 @@ width:250px;
                                 </a>
                             </div>
                         <?php endif; ?>
+                           <?php if( $citem->display_name_subcategory ) : ?>
+                        <h5 class="subcategory_name">
+                            <a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$citem->category_id.$citem->slug.$citem->itemid_string ); ?>">
+                            <?php echo $citem->category_name; ?>
+                            </a>
+                        </h5>
+                        <?php endif; ?>
                     </div>
-                 <?php
-                    if ( ($i+1) >= $subcategories_per_line)      {
-                        ?>
-                        
-                        <?php $i = 0;
-                    }
-                        else
-                    {
-                        $i++;
-                    }
-                endforeach;
-                ?>
+	                 <?php if ( ($i+1) >= $subcategories_per_line):?>
+	                      		<?php $i = 0;?>
+	                 <?php else:?>
+	                    <?php  $i++; ?>
+					<?php endif;?>
+					</li>
+               <?php endforeach;?>
+                </ul>
             </div>
         <?php endif; ?>
-            </div>
+     </div>
+	  <?php if (($items)) : ?>
 	<div class="row-fluid">
+
 	<div class="col-md-6">
     <?php if (($items)) : ?>
      <?php if($config->get('display_sort_by', '1')) :?>
@@ -126,7 +101,7 @@ width:250px;
         	<span class="sort_by_label">
         	<?php echo JText::_('COM_CITRUSCART_SORT_BY');?>
         	</span>
-        	<?php echo CitruscartSelect::productsortby( $state->filter_sortby, 'filter_sortby', array('onchange' => 'document.adminForm_sort.submit();'), 'filter_sortby', true, JText::_('COM_CITRUSCART_DEFAULT_ORDER'));?>
+        	<?php echo CitruscartSelect::productsortby( $state->filter_sortby, 'filter_sortby', array('onchange' => 'document.adminForm_sort.submit();' ), 'filter_sortby', true, JText::_('COM_CITRUSCART_DEFAULT_ORDER'));?>
         	<span class="sort_by_direction">
         		<?php
         			if(strtolower($state->filter_dir) == 'asc')
@@ -149,8 +124,8 @@ width:250px;
     </form>
     <?php endif;?>
     </div>
-    <div class="col-md-6">
 
+    <div class="col-md-6">
     <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
         <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
@@ -174,11 +149,13 @@ width:250px;
         </form>
         <?php } ?>
 	</div>
+
 	</div>
+	<?php endif;?>
 		<ul id="image-list" class="nav navbar-nav">
 			<?php foreach ($items as $item) :?>
 
-			<li class="ul-images"  onmouseover="showBuyInfo()">
+			<li class="ul-images" >
 			  <span>
 			  <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
                <?php if ($thumb) { ?>
@@ -188,7 +165,7 @@ width:250px;
                             </a>
                         <!--</div>-->
                 <?php } ?>
-					<div class="product-short-info">
+					<div class="product-general-info" id="product-general-info<?php echo $item->product_id?>">
                         <h6>
                         	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
                         </h6>
@@ -198,9 +175,9 @@ width:250px;
 	                       <?php if (!empty($item->product_comments)) : ?>
 	                       <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
 	                       <?php endif; ?>
-
 	                    <?php endif; ?>
-	                      <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
+						<br/>
+	                    <span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
 					    	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, @$item->tax, @$this->show_tax); ?>
 					    	 <!-- For UE States, we should let the admin choose to show (+19% vat) and (link to the shipping rates) -->
 					    	<br />
@@ -209,13 +186,9 @@ width:250px;
 					    	<?php endif;?>
 					   		 </span>
 					 </div>
-					 <div class="product-buy-info">
-						<?php // echo CitruscartHelperProduct::getCartButton($item->product_id);?>
-				 </div>
 	          </span>
 	         </li>
             <?php endforeach; ?>
             </ul>
     <?php endif; ?>
-
 </div>

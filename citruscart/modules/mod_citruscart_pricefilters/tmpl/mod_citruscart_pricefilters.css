@@ -1,40 +1,46 @@
-#Citruscart_pricefilter_mod {		
+#citruscart-mod-price_filter{
+	margin-top:-15px;	
+}
+
+#citruscart_pricefilter_mod {		
 	list-style: none;
 }
 
-#Citruscart_pricefilter_mod, #Citruscart_pricefilter_mod li.range {
+#citruscart_pricefilter_mod, #citruscart_pricefilter_mod li.range {
 	margin: 0px;
 	padding: 0px;
 }
 
-#Citruscart_pricefilter_mod li.range, #Citruscart_pricefilter_mod li.emptyfilter{
+#citruscart_pricefilter_mod li.range, #citruscart_pricefilter_mod li.emptyfilter{
 	display:block;	
-	border-bottom: 1px solid #EDEDED;	
+	/*border-bottom: 1px solid #EDEDED; */	
+	border-bottom:1px solid #2CB1B1;
+	
 }
 
-#Citruscart_pricefilter_mod li.selected, #Citruscart_pricefilter_mod li.range:hover {
-	border-bottom: 1px solid #D3D3D3;
-	background-color: #EDEDED;
+#citruscart_pricefilter_mod li.selected, #citruscart_pricefilter_mod li.range:hover {
+	/*border-bottom: 1px solid #D3D3D3; */
+	/*background-color: #EDEDED; */
+	background-color :#2CB1B1;
+	
 }
 
-#Citruscart_pricefilter_mod li {
-	text-indent: 15px;
+#citruscart_pricefilter_mod li {
+
 	display:block;
 	line-height: 25px;
 	text-decoration: none;
 }
-#Citruscart_pricefilter_mod li a {		
+#citruscart_pricefilter_mod li a {		
 	color: #646464;
 }
 
-#Citruscart_pricefilter_mod li.selected a, #Citruscart_pricefilter_mod li.range:hover a{	
+#citruscart_pricefilter_mod li.selected a, #citruscart_pricefilter_mod li.range:hover a{	
 	color: #aa1428;	
 }
 
-#Citruscart_pricefilter_mod li.range span {			
+#citruscart_pricefilter_mod li.range span {			
 	font-weight: normal;
 }
 
-#Citruscart_pricefilter_mod li.emptyfilter {
-	text-indent: 5px;
-}
+
