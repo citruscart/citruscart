@@ -96,13 +96,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				<td colspan="20">
 					<?php echo $this->pagination->getListFooter();
 					?>
-				</td>
-				<td>
 					 <div class="pagination pagination-toolbar">
                     	<?php echo $this->pagination->getPagesLinks(); ?>
                 	</div>
 				</td>
-			</tr>
+				</tr>
 		</tfoot>
 	</table>
 	<input type="hidden" name="limit" value="<?php echo $this->state->limit;?>" />
