@@ -18,21 +18,6 @@ $state = $this->state;
 $items = $this->items;
 
 ?>
-<style>
-.citruscart-product-main-images {
-
-	}
-
-.ul-images{
-	margin-left :5px;
-	margin-bottom:5px;
-	padding:5px 10px;
-	border:1px solid #ccc;
-	text-align: center;
-
-	}
-
-</style>
 <div class='categoryheading'>
 <?php echo JText::_('COM_CITRUSCART_SEARCH_RESULTS_FOR').': '.$state->filter; ?>
 </div>
