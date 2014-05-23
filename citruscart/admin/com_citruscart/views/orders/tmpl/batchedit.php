@@ -19,7 +19,7 @@ defined('_JEXEC') or die('Restricted access');
 <?php $items = $this->items; ?>
 <?php Citruscart::load( 'CitruscartHelperBase', 'helpers._base' ); ?>
 
-<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
+<form action="<?php echo JRoute::_( $form['action'] )?>" method="post" name="adminForm" id="adminform" enctype="multipart/form-data">
 
 	<table class="adminlist" style="clear: both;">
 		<thead>

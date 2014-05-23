@@ -1119,16 +1119,12 @@ class CitruscartControllerOrders extends CitruscartController
 		else
 		{
 			//$cids = JRequest::getVar('cid', array(0), 'request', 'array');
-
-			$cids = $app->input->getArray('cid', array(0), 'request', 'array');
-
+			$cids = $app->input->get('cid', array(0), 'Array');
 			// select only the ids from cid
 			$model  = $this->getModel( $this->get('suffix') );
-
 			$query = $model->getQuery();
 			$query->where("tbl.order_id IN ('".implode( "', '", $cids )."') ");
 			$model->setQuery( $query );
-
 			// create view, assign model, and display
 			$view = $this->getView( 'orders', 'html' );
 			$view->set( '_controller', 'orders' );
@@ -1336,7 +1332,7 @@ class CitruscartControllerOrders extends CitruscartController
 		//$post = JRequest::get('post');
 		$app = JFactory::getApplication();
 		$post = $app->input->get($_POST);
-		
+
 		$orderinfo->bind($post);
 
 		// do the countries and zones names

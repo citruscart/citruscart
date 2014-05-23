@@ -23,7 +23,7 @@ defined('_JEXEC') or die('Restricted access');
 	$guest = $row->user_id < Citruscart::getGuestIdStart();
 ?>
 
-<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" enctype="multipart/form-data" >
+<form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminform" enctype="multipart/form-data" >
 
     <table>
         <tr>
