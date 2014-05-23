@@ -266,9 +266,9 @@ class CitruscartModelOrders extends CitruscartModelBase
 	    if (empty( $this->_list ))
 	    {
 	        Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
-            $list = parent::getList($refresh);
 
-            // If no item in the list, return an array()
+	        $list = parent::getList($refresh);
+	        // If no item in the list, return an array()
             if( empty( $list ) ){
                 return array();
             }
@@ -276,13 +276,13 @@ class CitruscartModelOrders extends CitruscartModelBase
             $amigos = CitruscartHelperBase::getInstance( 'Amigos' );
             $currency_helper = CitruscartHelperBase::getInstance( 'Currency' );
 
-            foreach(@$list as $item)
+            foreach($list as &$item)
             {
             		if( $item->user_id < Citruscart::getGuestIdStart() ) // guest user
             		{
             			if( strlen( $item->billing_first_name ) || strlen( $item->billing_last_name ) )
             			{
-	            			$item->user_name = JText::_( 'COM_CITRUSCART_GUEST' ).' - '.$item->billing_first_name.' '.$item->billing_last_name;
+	            		 $item->user_name = JText::_( 'COM_CITRUSCART_GUEST' ).' - '.$item->billing_first_name.' '.$item->billing_last_name;
             			}
 	            		else
             			{
@@ -323,6 +323,8 @@ class CitruscartModelOrders extends CitruscartModelBase
             }
 
             $this->_list = $list;
+
+
 	    }
 
 		return $this->_list;

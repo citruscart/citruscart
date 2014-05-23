@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php $options_decimal = array('num_decimals'=>'2'); ?>
 <?php $options_int = array('num_decimals'=>'0'); ?>
-    
+
 <table class="table table-striped table-bordered" style="margin-bottom: 5px;">
 <thead>
 <tr>
@@ -35,56 +35,56 @@ defined('_JEXEC') or die('Restricted access');
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->today->num, $options_int ); ?></td>
 	<td style="text-align: right;">&nbsp</td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->today->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->today->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->today->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_YESTERDAY'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->yesterday->num, $options_int ); ?></td>
 	<td style="text-align: right;">&nbsp</td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->yesterday->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->yesterday->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->yesterday->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_LAST_SEVEN_DAYS'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastseven->num, $options_int ); ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastseven->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastseven->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastseven->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->lastseven->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_LAST_MONTH'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastmonth->num, $options_int ); ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastmonth->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastmonth->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastmonth->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->lastmonth->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_THIS_MONTH'); ?></a></th>
     <td style="text-align: right;"><?php // echo CitruscartHelperBase::number( $stats->thismonth->num, $options_int ); ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->thismonth->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->thismonth->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->thismonth->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->thismonth->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_LAST_YEAR'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastyear->num, $options_int ); ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lastyear->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastyear->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lastyear->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->lastyear->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_THIS_YEAR'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->thisyear->num, $options_int ); ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->thisyear->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->thisyear->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->thisyear->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->thisyear->amount, '', $options_decimal ); ?></label></td>
 </tr>
 <tr>
     <th><a href="<?php echo $stats->link; ?>"><?php echo JText::_('COM_CITRUSCART_LIFETIME_SALES'); ?></a></th>
     <td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lifetime->num, $options_int ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::number( $stats->lifetime->average_daily, $options_decimal ) ?></td>
 	<td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lifetime->average,'', $options_decimal ); ?></td>
-    <td style="text-align: right;"><?php echo CitruscartHelperBase::currency( $stats->lifetime->amount, '', $options_decimal ); ?></td>
+    <td style="text-align: right;"><label class="label label-success"><?php echo CitruscartHelperBase::currency( $stats->lifetime->amount, '', $options_decimal ); ?></label></td>
 </tr>
 
 </tbody>
