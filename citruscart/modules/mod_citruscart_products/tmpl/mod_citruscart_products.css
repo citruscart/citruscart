@@ -23,3 +23,13 @@
 	
 	div.Citruscart_products_grid .inner {padding: 0 20px 0 0;}
 	div.Citruscart_products_grid .right .inner {padding-right: 0;}
+		
+	#mod_citruscart_featured_product .ul-images{
+	margin-left :5px;
+	margin-bottom:5px;
+	padding:5px 10px;
+	border:1px solid #ccc;
+	text-align: center;
+		
+	}
+	

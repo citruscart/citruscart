@@ -1,22 +1,24 @@
-/**
- * @version    1.5
- * @package    Citruscart
- * @author     Skullbock
- * @author     Robert G. Mears
- * @link     http://www.dioscouri.com
- * @copyright Copyright (C) 2009 Dioscouri Design. All rights reserved.
- * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
-*/
-
-/* BOTH VARIANTS */
-
+#citruscartUserShoppingCart{
+		
+}
+#citruscartUserShoppingCart
+.CartItems,
+.CartTotal,
+.CartView,
+.CartCheckout{
+		padding: 5px;
+		
+}
+#citruscartUserShoppingCart a{
+color:#FFC20F;	
+}
 span.qty, span.CartTotal span {
     font-weight: bold;
 }
 
 /* BLOCK CART */
 
-div#CitruscartUserShoppingCart {
+div#citruscartUserShoppingCart {
     
 }
 

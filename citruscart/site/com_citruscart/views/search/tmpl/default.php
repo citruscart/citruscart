@@ -16,17 +16,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
 <?php $app = JFactory::getApplication(); ?>
-
 <div id="citruscart" class="search default">
-
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data">
-
 	<?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') ); ?>
-	
     <div id="citruscart_searchfilters">
         <h2><?php echo JText::_('COM_CITRUSCART_ADVANCED_SEARCH'); ?></h2>
         <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>
-
         <div class="row filtername" >
             <span class="label"><?php echo JText::_('COM_CITRUSCART_NAME'); ?>:</span>
             <input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" class="text_area" />

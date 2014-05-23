@@ -443,4 +443,12 @@ margin-left:8px;
  .navbar .nav > li > a {
  text-shadow:none;
  }
+ #citruscart_checkout_pane .citruscart_checkout_method a{
+  	position:relative;
+	display:inline;
+	z-index:1000; 	
+ }
  
+ .com_citruscart .t3-wrapper .t3-mainnav .container .navbar-header .head-search{
+ 	display:inline-flex; 
+ }

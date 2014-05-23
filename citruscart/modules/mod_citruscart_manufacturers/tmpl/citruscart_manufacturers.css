@@ -1,5 +1,25 @@
-#Citruscart_manufacturers_mod .level1 {font-size:90%;margin-top:5px;}
-#Citruscart_manufacturers_mod .level2 {font-size:80%;margin-left: 10px;background-image:none;}
-#Citruscart_manufacturers_mod .level3 {margin-left: 10px;}
-#Citruscart_manufacturers_mod .level4 {margin-left: 15px;}
-#Citruscart_manufacturers_mod .level5 {margin-left: 20px;}
+#citruscart-manufacturers{
+	margin-top:-55px;
+	
+}
+#citruscart_manufacturers_mod .level {
+		/*font-size:90%; */
+		margin-top:5px;
+		border-bottom:1px solid #ccc;
+		}
+#citruscart_manufacturers_mod .level2 {font-size:80%;margin-left: 10px;background-image:none;}
+#citruscart_manufacturers_mod .level3 {margin-left: 10px;}
+#citruscart_manufacturers_mod .level4 {margin-left: 15px;}
+#citruscart_manufacturers_mod .level5 {margin-left: 20px;}
+
+
+/*
+#citruscart-manufacturers 
+.manufacturer_menu a :hover,
+.manufacturer_menu a:active,
+.manufacturer_menu a:focus,
+{
+	background-color:#FF963F;
+}
+*/
+		

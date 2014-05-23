@@ -16,8 +16,9 @@ Citruscart::load( 'CitruscartSelect', 'library.select' );
 
 $document = JFactory::getDocument();
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_categories/tmpl/citruscart_categories.css'); ?>
-
-<ul id="citruscart_categories_mod">
+<div id="citruscart_categories_mod">
+<h4><?php echo JText::_('COM_CITRUSCART_CATEGORIES');?></h4>
+<ul class="nav nav-list" >
 <?php foreach ($items as $item) : ?>
 	<?php if (($item->level)<$depthlevel) :?>
 	<li class="level<?php echo $item->level?>">
@@ -26,3 +27,4 @@ $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_categories/t
 	<?php endif; ?>
 <?php endforeach; ?>
 </ul>
+</div>

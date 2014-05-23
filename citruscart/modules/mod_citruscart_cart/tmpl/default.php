@@ -44,15 +44,15 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
     {
         $lightbox_attribs = array(); $lightbox['update'] = false; if ($lightbox_width = Citruscart::getInstance()->get( 'lightbox_width' )) { $lightbox_attribs['width'] = $lightbox_width; };
        $html .= CitruscartUrl::popup( "index.php?option=com_citruscart&view=carts&task=confirmAdd&tmpl=component", JText::_('COM_CITRUSCART_VIEW_YOUR_CART'), $lightbox_attribs );
-    }
-        else
+    }  else
     {
-        $html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
+        $html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'"><img src="'.JUri::root().'/media/citruscart/images/citruscart_cart.png"/></a>';
     }
     $html .= '</span>';
-    $html .= '<span class="CartCheckout">'.'<a id="checkoutLink" href="'.JRoute::_("index.php?option=com_citruscart&view=checkout").'">'.JText::_('COM_CITRUSCART_CHECKOUT').'</a>'.'</span>';
+    $html .= '<span class="CartCheckout">'.'<a class="btn btn-default" id="checkoutLink" href="'.JRoute::_("index.php?option=com_citruscart&view=checkout").'">'
+    	.JText::_("COM_CITRUSCART_CHECKOUT").'</a></span>';
     $html .= '<div class="reset"></div>';
-
+	/* <img src="'.JUri::root().'/media/citruscart/images/checkout.png"/> */
     if ($ajax)
     {
         $mainframe->setUserState('mod_usercart.isAjax', '0');
@@ -63,3 +63,5 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
     }
 
 echo $html;
+?>
+

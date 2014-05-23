@@ -58,6 +58,7 @@ var	$_name = 'CitruscartProduct';
 
  		$js = "
 			Dsc.selectelementproduct = function(id, title, object) {
+			console.log(id);
 			document.getElementById(object + '_id').value = id;
 			document.getElementById(object + '_name').value = title;";
 		if(version_compare(JVERSION,'1.6.0','ge')) {

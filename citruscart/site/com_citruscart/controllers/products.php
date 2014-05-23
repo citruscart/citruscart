@@ -889,9 +889,11 @@ class CitruscartControllerProducts extends CitruscartController
     function search( )
     {
     	$input = JFactory::getApplication()->input;
-        $input->set( 'view', $this->get( 'suffix' ) );
+    	$input->set( 'view', $this->get( 'suffix' ) );
         $input->set( 'layout', 'search' );
         $input->set( 'search', true );
+
+
 
         $model = $this->getModel( $this->get( 'suffix' ) );
         $this->_setModelState( );
