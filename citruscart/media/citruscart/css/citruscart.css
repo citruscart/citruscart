@@ -38,7 +38,7 @@ div.subcategory{background:none!important;background-image:none!important;float:
 div#citruscart_products div#products_footer{border-top:1px solid #cccccc;margin-top:5px;padding-top:5px;}
 div#citruscart_products div#products_footer div#results_counter{float:right;padding:5px;}
 div#citruscart_products{font-size:smaller;}
-div#citruscart_products div.product_item{margin-bottom:10px;padding-bottom:5px;}
+div#citruscart_products div.product_item{border-bottom:1px solid #cccccc;margin-bottom:10px;padding-bottom:5px;}
 div#citruscart_products div.product_thumb{float:left;margin:0 5px 5px 0;min-width:15%;text-align:center;}
 div#citruscart_products div.product_buy{max-width:25%;}
 div#product_quantity_input span.title{font-weight:bold;vertical-align:middle;}
@@ -46,7 +46,7 @@ div.product_quantity_input{display:inline-flex;}
 div#product_attributeoptions{text-align:right;}
 div#citruscart_product_header h2{border-bottom:1px solid #cccccc; margin-bottom:10px; padding:5px;}
 div#citruscart_product_header{margin-bottom:10px;padding:5px;}
-div.product_listimage img{max-width:250px;}
+div.product_listimage img{max-width:96px;}
 div.pao{padding-bottom:2px;}
 div.product_image{float:left;text-align:center;}
 div.product_name span{font-size:1.8em;font-weight:bold;margin-right:15px;}
@@ -285,12 +285,6 @@ display:inline;
 z-index:1000;
 }
 
-.citruscart_checkout_method .modal{
-position:relative;
-display:inline;
-z-index:1000;
-}
-
 .adminlist .modal{
 position:relative;
 display:inline;
@@ -337,7 +331,7 @@ font-size:24px;
 
 .product_prices .product_listprice{
 margin-left: 10px;
-/*margin-top:10px;*/
+margin-top:10px;
 color: #697071;
 }
 
@@ -384,10 +378,6 @@ margin-top:5px;
  color:#353637;
 }
 
-.productprice{
-color:#353637;
-}
-
 #citruscart_product .add_to_cart
 .btn-success:hover,
 .btn-success:focus,
@@ -395,10 +385,15 @@ color:#353637;
 .btn-success.active,
 .btn-success {
  color: #ffffff;
- background-color: #FF8800;
- border-color: #FF8800;
+ background-color: #2CB1B1;
+ border-color: #2CB1B1;
  }
 
+
+.productprice{
+color:#353637;
+
+}
 
 #citruscart_product_header{
 margin-left: 3px;
@@ -432,6 +427,7 @@ border-color:#FF8800;
 margin-top:-42px;
 margin-left:8px;
 }
+
  
  #citruscart_products .add_to_cart
 .btn-success:hover,
@@ -447,60 +443,12 @@ margin-left:8px;
  .navbar .nav > li > a {
  text-shadow:none;
  }
+ #citruscart_checkout_pane .citruscart_checkout_method a{
+  	position:relative;
+	display:inline;
+	z-index:1000; 	
+ }
  
-#citruscart_subcategories .subcategory_images {
-	border:1px solid #DCDCDC;
-}
-
-#citruscart_subcategories .subcategory_thumb {
-	margin-left:-30px;
-	margin-right:10px;	
-}
-
-#citruscart_products .manu_product_price .product_price{
-margin-top:10px;
-font-size:14px;
-}
-
-#citruscart_products .manu_product_name {
-	font-size:15px;
-}
-
-.com_citruscart .t3-wrapper .t3-sl{
-	padding-top:0px;
-	padding-bottom:0px;
-}
-
-#citruscart a:hover {
-text-decoration:none;	
-}
-
-.com_citruscart .t3-wrapper .t3-mainnav .container .navbar-header .head-search
-{
-display:inline-flex;
-margin-right: -176px;
-}
-
-.citruscart-product-main-images {
-	width:250px;
-	height:150px;
-	margin-left:5px;
-	}
-#image-list{
-
-	}
-.ul-images{
-	margin-left :5px;
-	margin-bottom:5px;
-	padding :5px;
-	border:1px solid #ccc;
-	border-radius:4px;
-	text-align: center;
-	width:272px;
-	height:250px;
-	}
-	
-#citruscart .citruscart-product-main-images {
-width:250px;
-}
-
+ .com_citruscart .t3-wrapper .t3-mainnav .container .navbar-header .head-search{
+ 	display:inline-flex; 
+ }
