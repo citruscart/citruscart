@@ -60,7 +60,7 @@ class CitruscartModelEavAttributes extends CitruscartModelBase
         if ($filter_entitytype)
         {
             $key    = $this->_db->q($this->_db->escape( trim( strtolower( $filter_entitytype ) ) ));
-            echo $key;
+            
             $where = array();
             $where[] = 'LOWER(tbl.eaventity_type) LIKE '.$key;
             $where[] = 'LOWER(a2e.eaventity_type) LIKE '.$key;
