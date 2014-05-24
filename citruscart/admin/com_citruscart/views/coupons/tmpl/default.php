@@ -79,13 +79,13 @@ $form = $this->form; ?>
                     </div>
                 </th>
                 <th>
-                	<input id="filter_name" name="filter_name" type="text" value="<?php echo $state->filter_name; ?>" class="input"/>
+                	<input id="filter_name" name="filter_name" type="text" value="<?php echo $state->filter_name; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th style="text-align: center;">
-                    <input id="filter_code" name="filter_code" type="text" value="<?php echo $state->filter_code; ?>" class="input"/>
+                    <input id="filter_code" name="filter_code" type="text" value="<?php echo $state->filter_code; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_CODE'); ?>"/>
                 </th>
                 <th>
-                    <input id="filter_value" name="filter_value" type="text" value="<?php echo $state->filter_value; ?>" class="input-small"/>
+                    <input id="filter_value" name="filter_value" type="text" value="<?php echo $state->filter_value; ?>" class="input-small" placeholder="<?php echo JText::_('COM_CITRUSCART_VALUE'); ?>"/>
                 </th>
                 <th>
                     <?php echo CitruscartSelect::booleans( $state->filter_type, 'filter_type', $attribs, 'filter_type', true, 'COM_CITRUSCART_SELECT_TYPE', 'COM_CITRUSCART_PERCENTAGE', 'COM_CITRUSCART_FLAT_RATE' ); ?>

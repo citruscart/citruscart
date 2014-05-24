@@ -59,13 +59,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </div>
                 </th>
                 <th>
-                    <input type="text" id="filter_userid" name="filter_userid" value="<?php echo $state->filter_userid; ?>" class="input-mini" />
+                    <input type="text" id="filter_userid" name="filter_userid" value="<?php echo $state->filter_userid; ?>" class="input-mini" placeholder="<?php echo JText::_('COM_CITRUSCART_USER_ID'); ?>"/>
                 </th>
                 <th style="text-align: left;">
-                    <input type="text" id="filter_user" name="filter_user" value="<?php echo $state->filter_user; ?>" class="input-medium" />
+                    <input type="text" id="filter_user" name="filter_user" value="<?php echo $state->filter_user; ?>" class="input-medium" placeholder="<?php echo JText::_('COM_CITRUSCART_USER'); ?>"/>
                 </th>
                 <th style="text-align: left;">
-                    <input type="text" id="filter_address" name="filter_address" value="<?php echo $state->filter_address; ?>"  class="input-medium" />
+                    <input type="text" id="filter_address" name="filter_address" value="<?php echo $state->filter_address; ?>"  class="input-medium" placeholder="<?php echo JText::_('COM_CITRUSCART_ADDRESS'); ?>"/>
                 </th>
             </tr>
             <tr>

@@ -83,13 +83,13 @@ defined('_JEXEC') or die('Restricted access');
                 </th>
                 <?php endif; ?>
                 <th style="text-align: left;">
-                    <input id="filter_name" type="text" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                	<input id="filter_name" type="text" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_("COM_CITRUSCART_NAME");?>" />
                 </th>
                 <th>
-                    <input id="filter_username" type="text" name="filter_username" value="<?php echo $state->filter_username; ?>" size="25"/>
+                	<input id="filter_username" type="text" name="filter_username" value="<?php echo $state->filter_username; ?>" size="25" placeholder="<?php echo JText::_("COM_CITRUSCART_USERNAME");?>"/>
                 </th>
                 <th>
-                    <input id="filter_email" type="text" name="filter_email" value="<?php echo $state->filter_email; ?>" size="25"/>
+                    <input id="filter_email" type="text" name="filter_email" value="<?php echo $state->filter_email; ?>" size="25" placeholder="<?php echo JText::_("COM_CITRUSCART_EMAIL");?>"/>
                 </th>
                 <th>
                     <?php echo CitruscartSelect::groups($state->filter_group, 'filter_group', $attribs, 'filter_group', true ); ?>

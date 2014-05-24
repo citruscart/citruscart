@@ -88,11 +88,11 @@ defined('_JEXEC') or die('Restricted access');?>
                 <th>
                     <div class="range">
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
+                            <span class="label badge badge-warning"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_from, "filter_date_from", "filter_date_from", '%Y-%m-%d %H:%M:%S',array('class'=>'input-small')  ); ?>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
+                            <span class="label badge badge-warning"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_to, "filter_date_to", "filter_date_to", '%Y-%m-%d %H:%M:%S',array('class'=>'input-small')  ); ?>
                         </div>
                     </div>
@@ -119,11 +119,11 @@ defined('_JEXEC') or die('Restricted access');?>
                 <th>
                     <div class="range">
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
+                            <span class="label badge badge-success"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_from_expires, "filter_date_from_expires", "filter_date_from_expires", '%Y-%m-%d %H:%M:%S',array('class'=>'input-small') ); ?>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
+                            <span class="label badge badge-success"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_to_expires, "filter_date_to_expires", "filter_date_to_expires", '%Y-%m-%d %H:%M:%S' ,array('class'=>'input-small')); ?>
                         </div>
                     </div>
