@@ -46,6 +46,7 @@ class CitruscartControllerEavAttributes extends CitruscartController
         $state['filter_entitytype']         = $app->getUserStateFromRequest($ns.'entitytype', 'filter_entitytype', '', '');
 		$state['order']     = $app->getUserStateFromRequest($ns.'filter_order', 'filter_order', 'tbl.ordering', 'cmd');
 		
+		
         foreach ($state as $key=>$value)
         {
             $model->setState( $key, $value );
@@ -66,6 +67,7 @@ class CitruscartControllerEavAttributes extends CitruscartController
 		$type = $app->input->get('eaventity_type', 'products');
 		//$type = JRequest::getVar('eaventity_type', 'products');
 
+		
 		$this->set('suffix', $type);
 		$state = parent::_setModelState();
 
@@ -105,19 +107,22 @@ class CitruscartControllerEavAttributes extends CitruscartController
 		$this->messagetype  = '';
 		$this->message      = '';
 		$type = $app->input->get('eaventity_type', 'products');
+				
 		//$type = JRequest::getVar('eaventity_type', 'products');
 
 		$model = $this->getModel($this->get('suffix'));
 		$row = $model->getTable();
-
+		
 		$id = $app->input->get('id' , 0);
 		//$id = JRequest::getVar( 'id', JRequest::getVar( 'id', '0', 'post', 'int' ), 'get', 'int' );
 		$cids = $app->input->get('cid', array (0), 'request', 'array');
+				
 		$task = $app->input->getString( 'task' );
 
 		$vals = explode('_', $task);
 
 		$field = $vals['0'];
+			
 		$action = $vals['1'];
 
 		switch (strtolower($action))
@@ -147,9 +152,8 @@ class CitruscartControllerEavAttributes extends CitruscartController
 			$table = JTable::getInstance('EavAttributeEntities', 'CitruscartTable');
 			$keynames["eavattribute_id"] = $id;
 			$keynames["eaventity_id"] = $cid;
-			$keynames["eaventity_type"] = $type;
-
-			$table->load( $keynames );
+			$keynames["eaventity_type"] = $type;			
+			
 			if ($switch)
 			{
 				if (isset($table->eaventity_id))

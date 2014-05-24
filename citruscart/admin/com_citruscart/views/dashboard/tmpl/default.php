@@ -41,7 +41,8 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_RANGE'); ?></span></th>
 				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_REVENUE'); ?></span></th>
 				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_ORDERS'); ?></span></th>
-				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_TOTAL_ORDER_ITEMS')?></span></th>
+				<th class="dashboard_citruscart"><div class="titles"><?php echo JText::_('COM_CITRUSCART_TOTAL_ORDER_ITEMS')?></span></th>
+			    
 			</tr>
 			</thead>
 			<tbody>
@@ -57,6 +58,7 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 				<td class="dashboard_profits_data float-shadow"><h1><?php echo CitruscartHelperBase::currency( $this->sum ); ?></h1></td>
 				<td class="dashboard_profits_data float-shadow"><h1><?php echo CitruscartHelperBase::number( $this->total, array('num_decimals'=>'0') ); ?></h1></td>
 			    <td class="dashboard_profits_data"><h1><?php echo CitruscartHelperBase::number($this->orderedItems, array('num_decimals'=>'0'));?></h1></td>
+			    
 			</tr>
 			</tbody>
 			</table>

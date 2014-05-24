@@ -134,13 +134,13 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'credit_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->credit_id; ?>
 					</a>
 				</td>
                 <td style="text-align: left;">
                     <?php if (!empty($item->user_name)) { ?>
-                        <a href="<?php echo $item->link; ?>">
+                        <a href="<?php echo $item->link; ?>" class="badge badge-success">
                         <?php echo $item->user_name .' [ '.$item->user_id.' ]'; ?>
                         </a>
                         <br/>
@@ -173,7 +173,7 @@ defined('_JEXEC') or die('Restricted access');
                     </a>
                 </td>
 				<td style="text-align: center;">
-					<h2><?php echo CitruscartHelperBase::currency( $item->credit_amount ); ?></h2>
+					<h2 class="badge badge-success"><?php echo CitruscartHelperBase::currency( $item->credit_amount ); ?></h2>
 				</td>
                 <td style="text-align: center;">
                    <?php echo JHTML::_('date', $item->created_date, $date_format ); ?>

@@ -26,28 +26,28 @@ defined('_JEXEC') or die('Restricted access');
 
 
 	<table class="table table-striped table-bordered" style="clear: both;">
-		<thead>
+		<thead >
             <tr>
-                <th>
+                <th class="tableheader">
                 	<?php echo JText::_('COM_CITRUSCART_NUM'); ?>
                 </th>
-                <th>
+                <th class="tableheader">
                 <?php echo JHtmlGrid::checkall($name = 'cid', $tip = 'JGLOBAL_CHECK_ALL', $action = 'Joomla.checkAll(this)')?>
                 	<!--  -->
                 </th>
-                <th>
+                <th class="tableheader">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.order_id", $state->direction, $state->order ); ?>
                 </th>
-                <th>
+                <th class="tableheader">
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_DATE', "tbl.created_date", $state->direction, $state->order ); ?>
                 </th>
-                <th colspan="2">
+                <th colspan="2" class="tableheader"> 
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_CUSTOMER', "ui.last_name", $state->direction, $state->order ); ?>
                 </th>
-                <th>
+                <th class="tableheader">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_TOTAL', "tbl.order_total", $state->direction, $state->order ); ?>
                 </th>
-                <th>
+                <th class="tableheader">
     	            <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_STATE', "s.order_state_name", $state->direction, $state->order ); ?>
                 </th>
             </tr>
@@ -129,7 +129,7 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'order_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->order_id; ?>
 					</a>
 				</td>
@@ -189,7 +189,7 @@ defined('_JEXEC') or die('Restricted access');
                     ?>
 				</td>
 				<td style="text-align: center;">
-					<?php echo CitruscartHelperBase::currency( $item->order_total, $item->currency ); ?>
+					<label class="label label-warning"><?php echo CitruscartHelperBase::currency( $item->order_total, $item->currency ); ?></label>
                     <?php if (!empty($item->commissions)) { ?>
                         <br/>
                         <?php JHTML::_('behavior.tooltip'); ?>
@@ -199,7 +199,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php } ?>
 				</td>
 				<td style="text-align: center;">
-					<?php echo $item->order_state_name; ?>
+					<label class="label label-success"><?php echo $item->order_state_name; ?></label>
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>

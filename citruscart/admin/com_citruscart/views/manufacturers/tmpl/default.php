@@ -84,13 +84,13 @@ defined('_JEXEC') or die('Restricted access');?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'manufacturer_id' ); ?>
 				</td>
 				<td>
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->manufacturer_id; ?>
 					</a>
 				</td>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo JText::_($item->manufacturer_name); ?>
+						<label class="label label-success"><?php echo JText::_($item->manufacturer_name); ?></label>
 					</a>
 				</td>
 				<td >

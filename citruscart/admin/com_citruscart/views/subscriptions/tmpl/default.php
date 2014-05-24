@@ -16,10 +16,7 @@ defined('_JEXEC') or die('Restricted access');?>
 <?php $form = $this->form; ?>
 <?php $items = $this->items; ?>
 <?php Citruscart::load( 'CitruscartHelperBase', 'helpers._base' ); ?>
-<?php $display_subnum = Citruscart::getInstance()->get( 'display_subnum', 0 );
-
-
-?>
+<?php $display_subnum = Citruscart::getInstance()->get( 'display_subnum', 0 );?>
 
 <form action="<?php echo JRoute::_( $form['action'] )?>" method="post" id="adminForm" name="adminForm" enctype="multipart/form-data">
 
@@ -169,7 +166,7 @@ defined('_JEXEC') or die('Restricted access');?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'subscription_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link_view; ?>">
+					<a href="<?php echo $item->link_view; ?>" class="badge badge-warning">
 						<?php echo $item->subscription_id; ?>
 					</a>
 				</td>
@@ -189,7 +186,7 @@ defined('_JEXEC') or die('Restricted access');?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link_view; ?>">
+                    <a href="<?php echo $item->link_view; ?>" class="badge badge-success">
                         <?php echo $item->order_id; ?>
                     </a>
                 </td>
@@ -211,7 +208,7 @@ defined('_JEXEC') or die('Restricted access');?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <?php echo $item->transaction_id; ?>
+                    <span class="badge badge-info"><?php echo $item->transaction_id; ?></span>
                 </td>
                 <td style="text-align: center;">
                     <?php echo CitruscartGrid::enable($item->subscription_enabled, $i, 'subscription_enabled.' ); ?>

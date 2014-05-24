@@ -387,3 +387,11 @@ div.citruscart_custom_fields div.citruscart_custom_fields_line div.citruscart_cu
 {
 	background-color:#FF8800;
 }
+
+.com_citruscart .container-fluid #content table .tableheader {
+	background-color:#FF8800;
+}
+.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover, .nav > li.dropdown.open.active > a:focus
+{
+	background-color:#FF8800;
+}

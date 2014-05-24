@@ -124,7 +124,7 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo $i + 1; ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->id; ?>
 					</a>
 				</td>
@@ -135,7 +135,7 @@ defined('_JEXEC') or die('Restricted access');
         <?php endif; ?>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo $item->name; ?>
+						<label class="label label-success"><?php echo $item->name; ?></label>
 					</a>
 				</td>
 				<td style="text-align: center;">
@@ -149,7 +149,7 @@ defined('_JEXEC') or die('Restricted access');
                 </td>
 				<td style="text-align: center;">
 					[
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-info">
 						<?php echo JText::_('COM_CITRUSCART_VIEW_DASHBOARD'); ?>
 					</a>
 					]
