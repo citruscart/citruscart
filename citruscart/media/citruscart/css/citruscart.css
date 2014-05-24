@@ -470,7 +470,7 @@ margin-left:8px;
 }
 
 #citruscart_product_buy_info{
-	height : 500px;
+	height : auto;
 	box-shadow:3px 3px 3px #dcdcdc;	
 }
 #citruscart .table-bordered{
