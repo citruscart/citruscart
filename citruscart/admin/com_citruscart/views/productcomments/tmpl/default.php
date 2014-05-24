@@ -121,7 +121,7 @@ $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 			<td style="text-align: center;"><?php echo CitruscartGrid::checkedout( $item, $i, 'productcomment_id' ); ?>
 			</td>
 			<td style="text-align: center;">
-    			<a href="<?php echo $item->link; ?>">
+    			<a href="<?php echo $item->link; ?>" class="badge badge-warning">
         			<?php echo $item->productcomment_id ; ?>
     			</a>
 			</td>

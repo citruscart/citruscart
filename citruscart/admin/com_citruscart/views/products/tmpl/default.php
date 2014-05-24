@@ -139,7 +139,7 @@ $doc = JFactory::getDocument();
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'product_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link_edit; ?>">
+					<a href="<?php echo $item->link_edit; ?>" class="badge badge-warning">
 						<?php echo $item->product_id; ?>
 					</a>
 				</td>
@@ -185,10 +185,10 @@ $doc = JFactory::getDocument();
                     ?>
                 </td>
                 <td style="text-align: center;">
-					<?php echo $item->product_sku; ?>
+					<span class="badge badge-success"><?php echo $item->product_sku; ?></span>
 				</td>
 				<td style="text-align: right;">
-					<?php echo CitruscartHelperBase::currency($item->price); ?>
+					<span class="badge badge-info"><?php echo CitruscartHelperBase::currency($item->price); ?></span>
 					<br/>
 					[<?php echo CitruscartUrl::popup( "index.php?option=com_citruscart&controller=products&task=setprices&id=".$item->product_id."&tmpl=component", JText::_('COM_CITRUSCART_SET_PRICES'), array('update' => true) ); ?>]
 				</td>
@@ -198,7 +198,7 @@ $doc = JFactory::getDocument();
 					if(!isset($item->product_check_inventory)){
 						echo JText::_('COM_CITRUSCART_CHECK_PRODUCT_INVENTORY_DISABLED');
 					} else {
-						echo (int) $item->product_quantity; ?>
+					?>	<span class="badge badge-warning"><?php echo (int) $item->product_quantity; ?></span>
                     <br/>
                     [<?php echo CitruscartUrl::popup( "index.php?option=com_citruscart&controller=products&task=setquantities&id=".$item->product_id."&tmpl=component", JText::_('COM_CITRUSCART_SET_QUANTITIES'), array('update' => true) ); ?>]
 

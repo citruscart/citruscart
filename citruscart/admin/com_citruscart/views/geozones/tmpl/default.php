@@ -113,7 +113,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php echo CitruscartGrid::checkedout( $item, $i, 'geozone_id' ); ?>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>">
+                    <a href="<?php echo $item->link; ?>" class="badge badge-warning">
                         <?php echo $item->geozone_id; ?>
                     </a>
                 </td>
@@ -146,7 +146,7 @@ defined('_JEXEC') or die('Restricted access');
                     [<?php echo CitruscartUrl::popup( $item->link_plugins, $text, array('update' => true) ); ?>]
                 </td>
                 <td style="text-align: center;">
-                    <?php echo $item->geozonetype_name; ?>
+                    <span class="badge badge-success"><?php echo $item->geozonetype_name; ?></span>
                 </td>
             </tr>
             <?php $i=$i+1; $k = (1 - $k); ?>

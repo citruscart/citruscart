@@ -60,6 +60,7 @@ class CitruscartModelEavAttributes extends CitruscartModelBase
         if ($filter_entitytype)
         {
             $key    = $this->_db->q($this->_db->escape( trim( strtolower( $filter_entitytype ) ) ));
+            echo $key;
             $where = array();
             $where[] = 'LOWER(tbl.eaventity_type) LIKE '.$key;
             $where[] = 'LOWER(a2e.eaventity_type) LIKE '.$key;
@@ -87,28 +88,30 @@ class CitruscartModelEavAttributes extends CitruscartModelBase
     {
         $query->join('LEFT', '#__citruscart_eavattributeentityxref AS a2e ON tbl.eavattribute_id = a2e.eavattribute_id');
     }
-
+        
     protected function _buildQueryGroup(&$query)
     {
-        $query->group('tbl.eavattribute_id');
+    	$query->group('tbl.eavattribute_id');
     }
-
+    
     protected function _buildQueryFields(&$query)
     {
-        $field = array();
-        $field[] = "
-        (
-        SELECT
-        COUNT(xref.eaventity_id)
-        FROM
-        #__citruscart_eavattributeentityxref AS xref
-        WHERE
-        xref.eavattribute_id = tbl.eavattribute_id
-        )
-        AS entity_count ";
-        $query->select( $this->getState( 'select', 'tbl.*' ) );
-        $query->select( $field );
+    	$field = array();
+    	$field[] = "
+    	(
+    	SELECT
+    	COUNT(xref.eaventity_id)
+    	FROM
+    	#__citruscart_eavattributeentityxref AS xref
+    	WHERE
+    	xref.eavattribute_id = tbl.eavattribute_id
+    	)
+    	AS entity_count ";
+    	$query->select( $this->getState( 'select', 'tbl.*' ) );
+    	$query->select( $field );
+    	
     }
+    
 
     public function getList($refresh = false)
     {

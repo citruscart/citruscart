@@ -132,7 +132,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'orderpayment_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->orderpayment_id; ?>
 					</a>
 				</td>
@@ -142,7 +142,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="index.php?option=com_citruscart&controller=orders&view=orders&task=edit&id=<?php echo $item->order_id; ?>">
+                    <a href="index.php?option=com_citruscart&controller=orders&view=orders&task=edit&id=<?php echo $item->order_id; ?>" class="badge badge-info">
                         <?php echo $item->order_id; ?>
                     </a>
                 </td>
@@ -156,7 +156,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				</td>
 				<td style="text-align: center;">
 				    <?php $currency = !empty($item->currency) ? $item->currency : ''; ?>
-					<?php echo CitruscartHelperBase::currency( $item->orderpayment_amount, $currency ); ?>
+					<label class="label label-warning"><?php echo CitruscartHelperBase::currency( $item->orderpayment_amount, $currency ); ?></label>
                     <?php if (!empty($item->commissions)) { ?>
                         <br/>
                         <?php JHTML::_('behavior.tooltip'); ?>
@@ -166,7 +166,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <?php } ?>
 				</td>
 				<td style="text-align: center;">
-					<?php  echo JText::_($item->orderpayment_type); ; ?>
+					<label class="label label-success"><?php  echo JText::_($item->orderpayment_type); ; ?></label>
 				</td>
                 <td style="text-align: center;">
                     <?php echo $item->transaction_id; ?>

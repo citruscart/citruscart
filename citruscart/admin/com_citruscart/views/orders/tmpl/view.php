@@ -21,11 +21,12 @@ defined('_JEXEC') or die('Restricted access');
 	$surrounding = $this->surrounding;
 	$histories = $row->orderhistory ? $row->orderhistory : array();
 	$guest = $row->user_id < Citruscart::getGuestIdStart();
-?>
+
+	?>
 
 <form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminform" enctype="multipart/form-data" >
 
-    <table>
+    <table class="table table-striped table-bordered">
         <tr>
             <td align="left" width="100%">
 			    <?php

@@ -83,13 +83,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'group_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->group_id; ?>
 					</a>
 				</td>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
-						<?php echo JText::_($item->group_name); ?>
+						<label class="label label-success"><?php echo JText::_($item->group_name); ?>
 					</a>
 					<?php $select_url = "index.php?option=com_citruscart&controller=groups&task=selectusers&id=".$item->group_id."&tmpl=component"; ?>
                     <span style="float:right">[<?php echo CitruscartUrl::popup( $select_url, JText::_('COM_CITRUSCART_SELECT_USERS') ); ?>]</span>

@@ -111,7 +111,7 @@ $view = $app->input->getString('view');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'category_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->category_id; ?>
 					</a>
 				</td>
@@ -137,7 +137,7 @@ $view = $app->input->getString('view');
 				</td>
                 <td style="text-align: center;">
                     <?php Citruscart::load( 'CitruscartUrl', 'library.url' ); ?>
-                    <?php echo $item->products_count." ".JText::_('COM_CITRUSCART_PRODUCTS'); ?>
+                    <label class="label label-success"><?php echo $item->products_count." ".JText::_('COM_CITRUSCART_PRODUCTS'); ?></label>
                     <br/>
                     <?php $select_url = "index.php?option=com_citruscart&controller=categories&task=selectproducts&id=".$item->category_id."&tmpl=component"; ?>
                     [<?php echo CitruscartUrl::popup( $select_url, JText::_('COM_CITRUSCART_SELECT_PRODUCTS'), array('update' => true) ); ?>]

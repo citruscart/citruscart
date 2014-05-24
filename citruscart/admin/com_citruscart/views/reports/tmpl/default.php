@@ -80,7 +80,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo $i + 1; ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->id; ?>
 					</a>
 				</td>	
@@ -91,7 +91,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				</td>	
 				<td style="text-align: center;">
 					[
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-success">
 						<?php echo JText::_('COM_CITRUSCART_VIEW_REPORT'); ?>
 					</a>
 					]

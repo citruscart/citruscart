@@ -143,7 +143,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'orderitem_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->orderitem_id; ?>
 					</a>
 				</td>
@@ -153,7 +153,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>">
+                    <a href="<?php echo $item->link; ?>" class="badge badge-info">
                         <?php echo $item->order_id; ?>
                     </a>
                     <br/>
@@ -169,16 +169,16 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <?php } ?>
 				</td>
                 <td style="text-align: center;">
-                    <?php echo $item->orderitem_quantity; ?>
+                    <label class="label label-info"><?php echo $item->orderitem_quantity; ?></label>
                 </td>
 				<td style="text-align: center;">
-				    <?php echo CitruscartHelperBase::currency( $item->orderitem_price ); ?>
+				    <label class="label label-warning"><?php echo CitruscartHelperBase::currency( $item->orderitem_price ); ?></label>
 				</td>
 				<td style="text-align: center;">
-					<?php echo $item->orderitem_status; ?>
+					<label class="label label-warning"><?php echo $item->orderitem_status; ?></label>
 				</td>
 				<td style="text-align: center;">
-					<?php echo $item->transaction_status; ?>
+					<label class="label label-success"><?php echo $item->transaction_status; ?></label>
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
