@@ -147,7 +147,7 @@ class DSCGrid extends JHTMLGrid
                 <input class="search-query" type="text" name="filter" value="'.$value.'" />
             </li>
             <li>
-                <button class="btn btn-primary" onclick="this.form.submit();">'.$search.'</button>
+                <button class="btn btn-warning" onclick="this.form.submit();">'.$search.'</button>
             </li>
             <li>
                 <button class="btn btn-danger" onclick="Dsc.resetFormFilters(this.form);">'.$reset.'</button>

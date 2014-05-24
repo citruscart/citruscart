@@ -63,10 +63,10 @@ defined('_JEXEC') or die('Restricted access');
                     </div>
                 </th>
                 <th style="text-align: left;">
-                    <input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                    <input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
-                    <input id="filter_code" name="filter_code" value="<?php echo $state->filter_code; ?>" size="15"/>
+                    <input id="filter_code" name="filter_code" value="<?php echo $state->filter_code; ?>" size="15" placeholder="<?php echo JText::_('COM_CITRUSCART_CODE'); ?>"/>
                 </th>
                 <th>
                     <?php echo CitruscartSelect::country( $state->filter_countryid, 'filter_countryid', $attribs, 'country_id', true ); ?>
