@@ -1342,16 +1342,16 @@ defaultLabelOptions = {
 		return this.value;
 	},*/
 	style: {
-		color: '#FF8800',
+		color: '#FF9B13',
 		fontSize: '11px',
 		lineHeight: '14px'
 	}
 };
 
 defaultOptions = {
-	colors: ['#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE',
+	colors: ['#FF9B13', '#00AFF0', '#89A54E', '#80699B', '#3D96AE',
 		'#DB843D', '#92A8CD', '#A47D7C', '#B5CA92'],
-	symbols: ['circle', 'diamond', 'square', 'triangle', 'triangle-down'],
+	symbols: ['diamond', 'triangle', 'square', 'circle', 'triangle-down'],
 	lang: {
 		loading: 'Loading...',
 		months: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
@@ -1395,7 +1395,7 @@ defaultOptions = {
 			fontFamily: '"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif', // default font
 			fontSize: '12px'
 		},
-		backgroundColor: '#FFFFFF',
+		backgroundColor: '#EFEFEF',
 		//plotBackgroundColor: null,
 		plotBorderColor: '#C0C0C0',
 		//plotBorderWidth: 0,
@@ -1540,7 +1540,7 @@ defaultOptions = {
 			return this.name;
 		},
 		borderWidth: 1,
-		borderColor: '#909090',
+		borderColor: '#FF9B13',
 		borderRadius: 5,
 		navigation: {
 			// animation: true,
@@ -1558,7 +1558,7 @@ defaultOptions = {
 		},*/
 		itemStyle: {
 			cursor: 'pointer',
-			color: '#3E576F',
+			color: '#468847',
 			fontSize: '12px'
 		},
 		itemHoverStyle: {
@@ -1621,7 +1621,7 @@ defaultOptions = {
 		shared: useCanVG,
 		snap: hasTouch ? 25 : 10,
 		style: {
-			color: '#333333',
+			color: '#FF9B13',
 			fontSize: '12px',
 			padding: '5px',
 			whiteSpace: 'nowrap'
@@ -1634,8 +1634,8 @@ defaultOptions = {
 
 	credits: {
 		enabled: true,
-		text: 'Highcharts.com',
-		href: 'http://www.highcharts.com',
+		text: '',
+		href: '',
 		position: {
 			align: 'right',
 			x: -10,
