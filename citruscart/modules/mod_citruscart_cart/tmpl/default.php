@@ -21,11 +21,11 @@ $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/ci
 ?>
 
 <div class="buycart">
-<?php 
-$src = JURI::root(true).'/images/citruscart.png';
+<?php
+$src = JURI::root(true).'/images/citruscart_cart.png';
 ?>
 
-<?php 
+<?php
 $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">';
 
     $html .= '<span class="CartItems">';
@@ -44,7 +44,7 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
         $text = JText::_( $null_text );
         $html .= $text;
     }
-   
+
    //$html .= '<span class="CartTotal">'.JText::_('COM_CITRUSCART_TOTAL').':<span>'.CitruscartHelperBase::currency($orderTable->order_total).'</span> '.'</span> ';
     //$html .= '<span class="CartView">';
     if ($params->get('display_lightbox') == '1')
@@ -55,9 +55,9 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
         else
     {
         //$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
-    	
+
     	$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="' . $src .' " >'.'</a>';
-    	    
+
     }
     $html .= '</span>';
     $html .= '</span>';

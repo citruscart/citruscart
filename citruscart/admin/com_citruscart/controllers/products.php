@@ -2082,6 +2082,7 @@ class CitruscartControllerProducts extends CitruscartController
 	{
 		$app = JFactory::getApplication();
 		$html = '';
+
 		$model = JModelLegacy::getInstance( 'ProductRelations', 'CitruscartModel' );
 		$model->setState('filter_product', $product_id);
 

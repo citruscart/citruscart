@@ -44,6 +44,7 @@ class CitruscartViewProducts extends CitruscartViewBase
             	$app->input->set('hidemainmenu', '1');
 				DSCImage::loadUploadify();
                 $this->_form($tpl);
+
               break;
             case "default":
             default:
@@ -73,11 +74,13 @@ class CitruscartViewProducts extends CitruscartViewBase
 
 		$results = $app->triggerEvent( 'onGetProductView', array( $model->getItem() ) );
 
+
 		$shippingHtml = implode('<hr />', $results);
 
 		$this->assign('shippingHtml', $shippingHtml);
 
 		$elementArticleModel = JModelLegacy::getInstance( 'ElementArticle', 'CitruscartModel' );
+
 		$this->assign( 'elementArticleModel', $elementArticleModel );
 	}
 

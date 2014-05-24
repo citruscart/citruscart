@@ -18,8 +18,8 @@ $display_gp = $this->params->get('gplus_share');
 $display_pinterest  = $this->params->get('pinterest_share');
 $display_linkedin  = $this->params->get('pinterest_share');
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::root().'/plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/js/socialshare.js');
-$doc->addStyleSheet(JUri::root().'/plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/css/socialshare.css');
+$doc->addScript(JUri::root().'plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/js/socialshare.js');
+$doc->addStyleSheet(JUri::root().'plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/css/socialshare.css');
 
 ?>
 

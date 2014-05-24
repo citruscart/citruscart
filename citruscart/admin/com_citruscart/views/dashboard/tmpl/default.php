@@ -66,7 +66,7 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
                 require_once(JPATH_SITE.'/libraries/dioscouri/highroller/highroller/highroller.php');
                 $chart = new HighRoller();
                 $chart->chart->renderTo = 'chart';
-                $chart->chart->type = 'mixed';                      
+                $chart->chart->type = 'mixed';
 
                 $chart->plotOptions = new stdClass();
                 $chart->plotOptions->column = new stdClass();
@@ -123,10 +123,10 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
                   <?php echo $chart->renderChart();?>
                 </script>
 
-            </div>            
+            </div>
             <?php echo $this->form['validate']; ?>
             </form>
-            
+
             <td style="vertical-align: top; width: 30%; min-width: 30%; padding: 0px 5px 0px 5px;">
 			<?php
 			require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
@@ -146,5 +146,5 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 			?>
 		</td>
 		</tr>
-		
+
 </table>
