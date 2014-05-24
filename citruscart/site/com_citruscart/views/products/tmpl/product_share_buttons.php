@@ -14,48 +14,42 @@ defined('_JEXEC') or die('Restricted access');
 $display_fb = Citruscart::getInstance( )->get( 'display_facebook_like', '1' );
 $display_tw = Citruscart::getInstance( )->get( 'display_tweet', '1' );
 $display_gp = Citruscart::getInstance( )->get( 'display_google_plus1', '1' );
+JHtml::_('script','media/citruscart/js/socialsharing.js');
 ?>
 
 <?php if ( $display_fb || $display_tw || $display_gp ) : ?>
 <div>
-	
-	<!-- social buttons unorder list starts -->
-	<ul class="unstyled pull-left">
-	    
-	    <!-- facebook like button list starts -->
-		<li>
-	
-			<?php if ( $display_fb ) : ?>
-			<div>
-				<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-				<fb:like show_faces="false" width="375"></fb:like>
-			</div>
-			<?php endif; ?>
-			
-		</li><!-- facebook like button list ends -->
-        
-        <!-- twitter share button list starts -->
-        <li style="margin-top:5px;">
-		<div>
-		<?php if ( $display_tw ) : ?>
-			<div class="product_tweet">
-				<a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>" data-count="horizontal">Tweet</a>
-				<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-			</div>
-		<?php endif; ?>
-			
-		<?php if ( $display_gp ) : ?>
-		<?php $google_plus1_size = Citruscart::getInstance( )->get( 'display_google_plus1_size', 'medium' ); ?>
-			<div class="product_google_plus1">
-				<g:plusone <?php if( strlen( $google_plus1_size ) ) echo 'size="'.$google_plus1_size.'"' ?>></g:plusone>
-				<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-			</div>
-		<?php endif; ?>
+
+		<!-- social buttons unorder list starts -->
+
+		 <?php if ( $display_tw ) : ?>
+		 	<button type="button" class="btn btn-default"  onclick="socialsharing_twitter_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
+			 <img src="<?php echo JUri::root().'/media/citruscart/images/twittericon.png'?>"/>
+			 </button>
+
+			<?php endif;?>
+				<?php if ( $display_fb ) : ?>
+
+				<button type="button" class="btn btn-default "  onclick="socialsharing_facebook_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
+					<img src="<?php echo JUri::root().'/media/citruscart/images/fbicon.png'?>"/>
+				 </button>
+
+			<?php endif;?>
+
+			<?php if ( $display_gp ) : ?>
+
+				<button type="button" class="btn btn-default" onclick="socialsharing_google_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
+					<img src="<?php echo JUri::root().'/media/citruscart/images/gplusicon.png'?>"/>
+				 </button>
+			<?php endif;?>
+				<button type="button" class="btn btn-default" onclick="socialsharing_pinterest_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
+					<img src="<?php echo JUri::root().'/media/citruscart/images/pinicon.png'?>"/>
+				 </button>
+				<button type="button" class="btn btn-default" onclick="socialsharing_linkedin_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
+					<img src="<?php echo JUri::root().'/media/citruscart/images/inicon.png'?>"/>
+				 </button>
+
+				<div class="reset"></div>
 		</div>
-		</li><!-- twitter share button list ends -->
-		</ul>
-		
-<div class="reset"></div>
-</div>
 <?php endif; ?>
 

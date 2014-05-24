@@ -18,8 +18,9 @@ $products_model = Citruscart::getClass('CitruscartModelProducts', 'models.produc
 ?>
 
     <div id="product_relations">
+    	<h5><?php echo JText::_('COM_CITRUSCART_YOU_MAY_ALSO_BE_INTERESTED_IN'); ?></h5>
         <div id="product_relations_header" class="citruscart_header">
-            <span><?php echo JText::_('COM_CITRUSCART_YOU_MAY_ALSO_BE_INTERESTED_IN'); ?></span>
+            <span></span>
         </div>
 
         <?php

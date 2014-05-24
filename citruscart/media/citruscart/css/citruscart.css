@@ -405,8 +405,8 @@ margin-left:20px;
 }
 
 .add_to_cart .addcart{
-	margin-top:-42px;
-	margin-left:29px;
+	margin-top:10px;
+	margin-left:29px; 
 }
 
 .btn {
@@ -452,3 +452,32 @@ margin-left:8px;
  .com_citruscart .t3-wrapper .t3-mainnav .container .navbar-header .head-search{
  	display:inline-flex; 
  }
+ 
+
+.citruscart_image-product_gallery_thumb{
+	width : 50px;
+	height :80px;
+}
+.citruscart-view-product-gallery{
+	padding-left:39px;
+}
+.citruscart-view-product-main-image{
+	padding-left:0px;
+}
+.citruscart-rating li{
+	margin-top:-15px;
+	margin-left:5px;
+}
+
+#citruscart_product_buy_info{
+	height : 500px;
+	box-shadow:3px 3px 3px #dcdcdc;	
+}
+#citruscart .table-bordered{
+	margin-top :5px;
+	box-shadow:3px 3px 3px #dcdcdc;
+}
+
+#citruscart .pagination{
+	margin-top:5px;	
+}
