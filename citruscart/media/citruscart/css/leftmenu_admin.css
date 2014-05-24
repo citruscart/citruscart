@@ -33,7 +33,8 @@ div.leftmenu span.nolink {
 div.leftmenu a.active
 {
 	color: #000000;
-	background: none repeat scroll 0 0 #FFFFCC;
+	/*background: none repeat scroll 0 0 #FFFFCC; */
+	background-color:#FF8800;
 }
 
 div.leftmenu span.nolink.active {
@@ -46,4 +47,9 @@ div.leftmenu div.title {
 	text-transform: uppercase;
 	padding: 10px;
 	background: none repeat scroll 0 0 #F0F0F0;
+}
+
+.com_citruscart .container-main .leftmenu-navigation .nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus
+{
+	background:#FF8800;
 }

@@ -18,8 +18,6 @@
 	Citruscart::load( "CitruscartHelperBase", 'helpers._base' );
 	$display_credits = Citruscart::getInstance()->get( 'display_credits', '0' );
 	$menu = CitruscartMenu::getInstance();
-
-
 ?>
 <!--
 <div class='componentheading'>

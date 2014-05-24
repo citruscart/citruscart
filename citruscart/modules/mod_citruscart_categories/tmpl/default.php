@@ -1,5 +1,4 @@
 <?php
-
 /*------------------------------------------------------------------------
 # com_citruscart
 # ------------------------------------------------------------------------
@@ -16,12 +15,13 @@ Citruscart::load( 'CitruscartSelect', 'library.select' );
 
 $document = JFactory::getDocument();
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_categories/tmpl/citruscart_categories.css'); ?>
-<div id="citruscart_categories_mod">
-<h4><?php echo JText::_('COM_CITRUSCART_CATEGORIES');?></h4>
-<ul class="nav nav-list" >
+
+<div id="citruscart_category">
+<h5 class="categories_head"><?php echo "Categories"; ?></h5>
+<ul id="citruscart_categories_mod" class="unstyled nav nav-tab">
 <?php foreach ($items as $item) : ?>
 	<?php if (($item->level)<$depthlevel) :?>
-	<li class="level<?php echo $item->level?>">
+	<li class="product_categories level<?php echo $item->level?>">
 		<a href="<?php echo JRoute::_( "index.php?option=com_citruscart&view=products&filter_category=".$item->category_id.$item->slug."&Itemid=".$item->itemid ); ?>"><?php echo $item->category_name; ?></a>
 	</li>
 	<?php endif; ?>

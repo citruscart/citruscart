@@ -1342,7 +1342,7 @@ defaultLabelOptions = {
 		return this.value;
 	},*/
 	style: {
-		color: '#666',
+		color: '#FF8800',
 		fontSize: '11px',
 		lineHeight: '14px'
 	}

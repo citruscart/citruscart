@@ -17,7 +17,7 @@ defined('_JEXEC') or die('Restricted access');
 <table class="table table-striped" style="margin-bottom: 5px; ">
 <thead>
 <tr>
-    <th colspan="4"><?php echo JText::_('COM_CITRUSCART_RECENT_ORDERS'); ?></th>
+    <th colspan="4" style="background-color:#FF9B13; color:#FFFFFF"><?php echo JText::_('COM_CITRUSCART_RECENT_ORDERS'); ?></th>
 </tr>
 </thead>
 <tbody>
@@ -31,8 +31,8 @@ defined('_JEXEC') or die('Restricted access');
     <tr>
         <td><a href="<?php echo $order->link; ?>"><?php echo $order->user_name; ?></a></td>
         <td style="text-align: center;"><?php echo JHTML::_('date', $order->created_date, Citruscart::getInstance()->get('date_format')); ?></td>
-        <td style="text-align: right;"><span class="label label-success lead"><?php echo CitruscartHelperBase::currency( $order->order_total, $order->currency ); ?></span></td>
-        <td><a class="btn btn-default" href="<?php echo $order->link; ?>"><?php echo JText::_('MOD_CITRUSCART_RECENT_ORDERS_DETAILS');?></a></td>
+        <td style="text-align: right;"><span class="label label-warning lead"><?php echo CitruscartHelperBase::currency( $order->order_total, $order->currency ); ?></span></td>
+        <td><label><a class="label label-info" href="<?php echo $order->link; ?>"><?php echo JText::_('MOD_CITRUSCART_RECENT_ORDERS_DETAILS');?></a></label></td>
     </tr>
  <?php endforeach;?>
 </tbody>

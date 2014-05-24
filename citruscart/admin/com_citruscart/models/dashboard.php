@@ -182,8 +182,18 @@ class CitruscartModelDashboard extends CitruscartModelBase
             // gmmktime(0,0,0,$month,$day,$year)*1000 = javascript's Date.UTC (milliseconds since Epoch)
             $return[] = array( gmmktime($hour,$minute,$second,$month,$day,$year)*1000, $value );
         }
-
         return $return;
+    }
+    
+    
+   public function getOrderedItemsChartData()
+   {    
+    	$model = JModelLegacy::getInstance( 'Orderitems', 'CitruscartModel' );
+    	    	
+    	$ordersQuery = $model->getQuery();
+       	$model->setQuery($ordersQuery);
+    	$orderedItems = $model->getList(true);
+     	return $orderedItems;
     }
 
     /**
@@ -221,7 +231,7 @@ class CitruscartModelDashboard extends CitruscartModelBase
             $current_date = date($interval->current_date_format, strtotime( $current_date . " " . $interval->next_date ) );
         }
 
-        if ($items = $model->getList( true ))
+        if ($items = $model->getList(true))
         {
             foreach ($items as $item)
             {

@@ -83,6 +83,7 @@ class HighRoller {
    * @return string - html script tag markup with your source location
    */
   public static function setHighChartsThemeLocation($location){
+  	  	
     return $scriptTag = "<!-- High Roller - High Charts Theme Location-->
   <script type='text/javascript' src='" . $location . "'></script>";
 
@@ -311,12 +312,12 @@ class HighRollerBackgroundColors {
 
 class HighRollerChart {
 
-  public $renderTo;
-//  public $animation;
+    public $renderTo;
+    //public $animation;
 
   function __construct(){
     $this->renderTo = null;
-//    $this->animation = new HighRollerChartAnimation();
+    //$this->animation = new HighRollerChartAnimation();
   }
 
 }

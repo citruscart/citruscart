@@ -322,3 +322,68 @@ div.citruscart_custom_fields div.citruscart_custom_fields_line div.citruscart_cu
     margin-left: auto; 
     margin-right: auto;
 }
+
+.view-dashboard .dashboard_head .dashboard_citruscart{
+	background-color:#FF9B13;
+}
+
+.view-dashboard .dashboard_head .dashboard_citruscart .titles {
+	color:#FFFFFF;
+}
+
+.view-dashboard .dashboard_head .dashboard_citruscart .titles : hover{
+	color:#00AFF0;
+}
+.view-dashboard .dashboard_profits_data{
+	text-align: center; 
+	width: 33%;	
+	/*color:#9E5BA1;*/
+}
+
+.dashboard_profits_data : hover, .dashboard_profits_data : focus, .dashboard_profits_data : active {
+	background-color:#00AFF0;
+}
+
+.com_citruscart #citruscartCurrency
+{
+	background-color:#00AFF0;
+}
+
+.float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.float-shadow:hover, .float-shadow:focus, .float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px); 
+  background:#00AFF0;
+ }
+ 
+.float-shadow:hover:before, .float-shadow:focus:before, .float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  background:#00AFF0; 
+}
+
+.com_citruscart .citruscart-menu .nav-tabs > li > a {
+	border-radius:0px;	
+}
+
+.com_citruscart .citruscart-menu .nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover, .nav > li.dropdown.open.active > a:focus
+{
+	background-color:#FF8800;
+}

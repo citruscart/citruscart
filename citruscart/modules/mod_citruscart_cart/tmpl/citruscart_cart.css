@@ -1,24 +1,22 @@
-#citruscartUserShoppingCart{
-		
-}
-#citruscartUserShoppingCart
-.CartItems,
-.CartTotal,
-.CartView,
-.CartCheckout{
-		padding: 5px;
-		
-}
-#citruscartUserShoppingCart a{
-color:#FFC20F;	
-}
+/**
+ * @version    1.5
+ * @package    Citruscart
+ * @author     Skullbock
+ * @author     Robert G. Mears
+ * @link     http://www.dioscouri.com
+ * @copyright Copyright (C) 2009 Dioscouri Design. All rights reserved.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
+*/
+
+/* BOTH VARIANTS */
+
 span.qty, span.CartTotal span {
     font-weight: bold;
 }
 
 /* BLOCK CART */
 
-div#citruscartUserShoppingCart {
+div#CitruscartUserShoppingCart {
     
 }
 
@@ -26,11 +24,14 @@ span.CartItems, span.CartTotal {
     display: block;
 }
 span.CartItems {
-	
+	margin-top:10px;
+	margin-bottom:10px;
 }
 span.CartTotal {
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
+    margin-top:10px;
+	margin-bottom:10px;
 } 
 
 span.CartView {
@@ -38,6 +39,8 @@ span.CartView {
     float: left;
     width: 65%;
     text-align: left;
+    margin-top:10px;
+	margin-bottom:10px;
 }
 
 span.CartCheckout {
@@ -45,11 +48,25 @@ span.CartCheckout {
     float: right;
     width: 35%;
     text-align: right;
+    margin-top:10px;
+	margin-bottom:10px;
 }
 
 div.reset {
     clear: both;
 }
+
+.buycart {
+	margin-left: 20px;
+	/*border:1px solid #DCDCDC;
+	border-radius:4px;
+	box-shadow:2px 2px 2px #DCDCDC;
+	padding-left:5px;
+	padding-right:5px;*/
+}
+
+
+
 
 /* INLINE CART */ 
 

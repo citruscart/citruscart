@@ -16,12 +16,13 @@ defined('_JEXEC') or die('Restricted access');
  ?>
 <?php
 	$doc = JFactory::getDocument();
-	$doc->addStyleSheet(JUri::root().'modules/mod_citruscart_compared_products/tmpl/citruscart_compared_products.css');?>
+	$doc->addStyleSheet(JUri::root().'modules/mod_citruscart_compared_products/tmpl/citruscart_compared_products.css');
+	//JHTML::_('stylesheet', 'citruscart_compared_products.css', 'modules/mod_citruscart_compared_products/tmpl/'); ?>
 <?php $items = $helper -> getComparedProducts(); ?>
+
+<?php if(count($items)){?>
 <div id="citruscartComparedProducts">
-<h4><?php echo JText::_('COM_MODULES_COMPARED_PRODUCTS');?></h4>
-	<?php if(count($items)):?>
-	<ul class="nav nav-list">
+	<ul>
 		<?php foreach($items as $item):?>
 		<li>
 			<a href="<?php echo JRoute::_($item->link)?>">
@@ -30,11 +31,10 @@ defined('_JEXEC') or die('Restricted access');
 		</li>
 		<?php endforeach; ?>
 	</ul>
-
+</div>
 <div class="compared-right">
 	<a href="<?php echo JRoute::_("index.php?option=com_citruscart&view=productcompare"); ?>" title="<?php echo JText::_('COM_CITRUSCART_COMPARED_PRODUCTS')?>"><?php echo JText::_('COM_CITRUSCART_COMPARE_NOW'); ?></a>
 </div>
-	<?php else: ?>
+	<?php }else{ ?>
 		<?php echo JText::_('COM_CITRUSCART_NO_COMPARED_PRODUCTS'); ?>
-	<?php endif; ?>
-</div>
+	<?php } ?>

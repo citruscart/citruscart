@@ -245,7 +245,7 @@ class CitruscartHelperBase extends DSCHelper
 		$num_decimals = isset($options['num_decimals']) ? $options['num_decimals'] : $default_currency->currency_decimals;
 		$return = number_format($number, $num_decimals, $decimal, $thousands);
 		return $return;
-	}
+	}	
 
 	/**
 	 * Extracts a column from an array of arrays or objects

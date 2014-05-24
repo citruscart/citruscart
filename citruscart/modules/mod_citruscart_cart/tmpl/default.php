@@ -18,8 +18,15 @@ defined('_JEXEC') or die('Restricted access');
 // Add CSS
 
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/citruscart_cart.css');
+?>
 
-$html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
+<div class="buycart">
+<?php 
+$src = JURI::root(true).'/images/citruscart.png';
+?>
+
+<?php 
+$html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">';
 
     $html .= '<span class="CartItems">';
     if ($num > 0)
@@ -37,22 +44,26 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
         $text = JText::_( $null_text );
         $html .= $text;
     }
-    $html .= '</span>';
-   $html .= '<span class="CartTotal">'.JText::_('COM_CITRUSCART_TOTAL').':<span>'.CitruscartHelperBase::currency($orderTable->order_total).'</span> '.'</span> ';
-    $html .= '<span class="CartView">';
+   
+   //$html .= '<span class="CartTotal">'.JText::_('COM_CITRUSCART_TOTAL').':<span>'.CitruscartHelperBase::currency($orderTable->order_total).'</span> '.'</span> ';
+    //$html .= '<span class="CartView">';
     if ($params->get('display_lightbox') == '1')
     {
         $lightbox_attribs = array(); $lightbox['update'] = false; if ($lightbox_width = Citruscart::getInstance()->get( 'lightbox_width' )) { $lightbox_attribs['width'] = $lightbox_width; };
-       $html .= CitruscartUrl::popup( "index.php?option=com_citruscart&view=carts&task=confirmAdd&tmpl=component", JText::_('COM_CITRUSCART_VIEW_YOUR_CART'), $lightbox_attribs );
-    }  else
+       //$html .= CitruscartUrl::popup( "index.php?option=com_citruscart&view=carts&task=confirmAdd&tmpl=component", JText::_('COM_CITRUSCART_VIEW_YOUR_CART'), $lightbox_attribs );
+    }
+        else
     {
-        $html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'"><img src="'.JUri::root().'/media/citruscart/images/citruscart_cart.png"/></a>';
+        //$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
+    	
+    	$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="' . $src .' " >'.'</a>';
+    	    
     }
     $html .= '</span>';
-    $html .= '<span class="CartCheckout">'.'<a class="btn btn-default" id="checkoutLink" href="'.JRoute::_("index.php?option=com_citruscart&view=checkout").'">'
-    	.JText::_("COM_CITRUSCART_CHECKOUT").'</a></span>';
-    $html .= '<div class="reset"></div>';
-	/* <img src="'.JUri::root().'/media/citruscart/images/checkout.png"/> */
+    $html .= '</span>';
+    //$html .= '<span class="CartCheckout">'.'<a id="checkoutLink" href="'.JRoute::_("index.php?option=com_citruscart&view=checkout").'">'.JText::_('COM_CITRUSCART_CHECKOUT').'</a>'.'</span>';
+    //$html .= '<div class="reset"></div>';
+
     if ($ajax)
     {
         $mainframe->setUserState('mod_usercart.isAjax', '0');
@@ -64,4 +75,4 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart">';
 
 echo $html;
 ?>
-
+</div>

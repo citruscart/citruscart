@@ -17,18 +17,21 @@ defined('_JEXEC') or die('Restricted access');
 Citruscart::load( 'CitruscartSelect', 'library.select' );
 
 $doc = JFactory::getDocument();
-$doc->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_manufacturers/tmpl/citruscart_manufacturers.css');
-?>
-<div id="citruscart-manufacturers">
-<h4><?php echo JText::_('COM_CITRUSCART_MANUFACTURERS');?></h4>
-<ul class="unstyled nav nav-tab" id="citruscart_manufacturers_mod">
+$doc->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_manufacturers/tmpl/citruscart_manufacturers.css'); ?>
+
+<!-- citruscart manufacturers div starts -->
+<div class="citruscart_manufacturer_mod">
+<h5><?php echo JText::_( "COM_CITRUSCART_MANUFACTURERS" ); ?></h5>
+                 
+<ul id="citruscart_manufacturers_mod" class="unstyled nav nav-tab">
 <?php foreach ($items as $item) :
 ?>
-<li class="manufacturer_menu level">
+<li class="manufacturerslist level<?php echo $item->manufacturer_id?>">
 	<!--  TODO  : Need to check whether field name is missing -->
-
+	<!-- <li class="level<?php echo $item->level?>"> -->
 		<a href="<?php echo CitruscartHelperRoute::manufacturer($item->manufacturer_id); ?>"><?php echo $item->manufacturer_name; ?></a>
 	</li>
 <?php endforeach; ?>
 </ul>
-</div>
+</div><!-- citruscart manufacturers div ends -->
+
