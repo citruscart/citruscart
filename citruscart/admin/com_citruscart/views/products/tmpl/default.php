@@ -139,7 +139,7 @@ $doc = JFactory::getDocument();
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'product_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link_edit; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link_edit; ?>">
 						<?php echo $item->product_id; ?>
 					</a>
 				</td>
