@@ -12,19 +12,16 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php
-
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/library/select.php');
 JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
+JHtml::_('stylesheet', 'media/citruscart/css/admin.css');
 JHtml::_('script', 'libraries/dioscouri/highroller/highcharts/highcharts.js', false, false);
 JHtml::_('script', 'libraries/dioscouri/highroller/highcharts/highcharts.src.js', false, false);
-
-
 ?>
 <?php $state =$this->state; ?>
 <?php $form = $this->form;
 ?>
 <?php $items =$this->items;
-
 echo $this->loadTemplate('submenu');
 require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 ?>
@@ -38,12 +35,13 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 
 		    <form action="<?php echo JRoute::_($form['action'] )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
-			<table class="table table-striped table-bordered" style="margin-bottom: 5px;">
-			<thead>
+		    <table class="table table-striped table-bordered" style="margin-bottom: 5px;">
+			<thead class="dashboard_head">
 			<tr>
-				<th><?php echo JText::_('COM_CITRUSCART_RANGE'); ?></th>
-				<th><?php echo JText::_('COM_CITRUSCART_REVENUE'); ?></th>
-				<th><?php echo JText::_('COM_CITRUSCART_ORDERS'); ?></th>
+				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_RANGE'); ?></span></th>
+				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_REVENUE'); ?></span></th>
+				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_ORDERS'); ?></span></th>
+				<th class="dashboard_citruscart"><span class="titles"><?php echo JText::_('COM_CITRUSCART_TOTAL_ORDER_ITEMS')?></span></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -52,23 +50,23 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 				<?php
 				//this is dumb, but it makes the dashboard work until caching issue is resolve
 				 if($state->stats_interval) : ?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs); ?></h3></td>
+				<td class="dashboard_profits_data float-shadow"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs); ?></h3></td>
 				<?php else :?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs, null, true ); ?></h3></td>
+				<td class="dashboard_profits_data float-shadow"><h3><?php echo CitruscartSelect::range($state->stats_interval, 'stats_interval', $attribs, null, true ); ?></h3></td>
 				<?php endif ?>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::currency( $this->sum ); ?></h3></td>
-				<td style="text-align: center; width: 33%;"><h3><?php echo CitruscartHelperBase::number( $this->total, array('num_decimals'=>'0') ); ?></h3></td>
+				<td class="dashboard_profits_data float-shadow"><h1><?php echo CitruscartHelperBase::currency( $this->sum ); ?></h1></td>
+				<td class="dashboard_profits_data float-shadow"><h1><?php echo CitruscartHelperBase::number( $this->total, array('num_decimals'=>'0') ); ?></h1></td>
+			    <td class="dashboard_profits_data"><h1><?php echo CitruscartHelperBase::number($this->orderedItems, array('num_decimals'=>'0'));?></h1></td>
 			</tr>
 			</tbody>
 			</table>
-
             <div class="section">
                 <?php
 
                 require_once(JPATH_SITE.'/libraries/dioscouri/highroller/highroller/highroller.php');
                 $chart = new HighRoller();
                 $chart->chart->renderTo = 'chart';
-                $chart->chart->type = 'mixed';
+                $chart->chart->type = 'mixed';                      
 
                 $chart->plotOptions = new stdClass();
                 $chart->plotOptions->column = new stdClass();
@@ -125,9 +123,10 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
                   <?php echo $chart->renderChart();?>
                 </script>
 
-            </div>
+            </div>            
             <?php echo $this->form['validate']; ?>
             </form>
+            
             <td style="vertical-align: top; width: 30%; min-width: 30%; padding: 0px 5px 0px 5px;">
 			<?php
 			require_once(JPATH_SITE.'/libraries/dioscouri/library/parameter.php');
@@ -144,8 +143,8 @@ require_once JPATH_SITE . '/libraries/dioscouri/library/grid.php';
 			{
 				echo $renderer->render($mod, $attribs);
 			}
-
 			?>
 		</td>
-	</tr>
+		</tr>
+		
 </table>

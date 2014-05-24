@@ -16,7 +16,6 @@ $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'media/citruscart/js/citruscart.js');
 JHtml::_('stylesheet','media/citruscart/css/citruscart.css');
 
-
 $state = $this->state;
 $items = $this->items;
 

@@ -30,6 +30,7 @@ class CitruscartControllerDashboard extends CitruscartController
 	{
 
 	    $model = $this->getModel( $this->get('suffix') );
+	    
 	    $state = $model->getState();
 	    $app = JFactory::getApplication();
 	    $state->stats_interval = $app->input->getString('stats_interval', 'last_thirty');
@@ -40,16 +41,24 @@ class CitruscartControllerDashboard extends CitruscartController
 	    $cache->setCaching(true);
 	    $cache->setLifeTime('900');
 	    $orders = $cache->call(array($model, 'getOrdersChartData'), $state->stats_interval);
+
+	    //$models = JModelLegacy::getInstance( 'Dashboard', 'CitruscartModel' );
+        
+	    //$models = JModelItem::getInstance('OrderItems', 'CitruscartModel');
+	    $models = JModelLegacy::getInstance( 'Dashboard', 'CitruscartModel' );
+	    $totalorderitems = count($models->getOrderedItemsChartData()); 
+	    	    
 	    $revenue = $cache->call(array($model, 'getRevenueChartData'), $state->stats_interval);
 	    $total = $cache->call(array($model, 'getSumChartData'), $orders);
 	    $sum = $cache->call(array($model, 'getSumChartData'), $revenue);
-
+        	    
         $interval = $model->getStatIntervalValues($state->stats_interval);
 		//print_r($interval);
 	    $view = $this->getView( $this->get('suffix'), 'html' );
 	    $view->assign( 'orders', $orders );
 	    $view->assign( 'revenue', $revenue );
         $view->assign( 'total', $total );
+        $view->assign( 'orderedItems', $totalorderitems);
         $view->assign( 'sum', $sum );
         $view->assign( 'interval', $interval );
 

@@ -17,14 +17,7 @@ JModelLegacy::addIncludePath( JPATH_SITE.'/components/com_citruscart/models' );
 Citruscart::load( 'CitruscartSelect', 'library.select' );
 
 ?>
-<style>
-	.search_submit,
-	.search_submit:hover
-	{
-		background-color:#2CB1B1;
-		color:#ffffff;
-	}
-</style>
+
 <div id="productSearch">
     <form class="form" action="<?php echo JRoute::_( 'index.php', false); ?>" method="post" id="siteForm" name="productSearch" onSubmit="if(this.elements['filter'].value == '<?php echo JText::_('COM_CITRUSCART_SKU_MODEL_OR_KEYWORD'); ?>') this.elements['filter'].value = '';">
        <div class="form-group">
