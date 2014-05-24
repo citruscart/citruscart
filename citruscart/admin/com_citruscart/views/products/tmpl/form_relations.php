@@ -43,6 +43,7 @@ defined('_JEXEC') or die('Restricted access');
 		</thead>
         <tbody>
 		<?php $i=0; $k=0; ?>
+
         <?php foreach ($items as $item) : ?>
 
             <?php
@@ -114,7 +115,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php echo CitruscartHelperBase::currency($product_price); ?>
                 </td>
 				<td style="text-align: center;">
-				    <input type="button" class="btn btn-danger" onclick="CitruscartRemoveRelationship(<?php echo $item->productrelation_id; ?>, 'existing_relationships', '<?php echo JText::_('COM_CITRUSCART_DELETING'); ?>');" value="<?php echo JText::_('COM_CITRUSCART_DELETE'); ?>" value="<?php echo JText::_('COM_CITRUSCART_DELETE'); ?>" />
+				    <input type="button" class="btn btn-danger" onclick="citruscartRemoveRelationship(<?php echo $item->productrelation_id; ?>, 'existing_relationships', '<?php echo JText::_('COM_CITRUSCART_DELETING'); ?>');" value="<?php echo JText::_('COM_CITRUSCART_DELETE'); ?>" value="<?php echo JText::_('COM_CITRUSCART_DELETE'); ?>" />
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>

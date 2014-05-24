@@ -24,13 +24,13 @@ JHTML::_('behavior.tooltip');
 $model = $this->getModel();
 $page = $this->get('Pagination');
 ?>
-<form action="<?php echo JRoute::_( $form['action'] .'&tmpl=component&object='.$this->object )?>" method="post" name="adminForm">
+<form id="adminForm" action="<?php echo JRoute::_( $form['action'] .'&tmpl=component&object='.$this->object )?>" method="post" name="adminForm">
 <div class="pull-left">
 	<?php echo CitruscartSelect::productstates($state->filter_state, 'product_state', array('class' => 'inputbox', 'onchange' => 'this.form.submit();' ) ); ?>
 </div>
 <?php echo CitruscartGrid::searchform($state->filter,JText::_('COM_CITRUSCART_SEARCH'), JText::_('COM_CITRUSCART_RESET') ) ?>
 
-<table class="dsc-clear table table-striped">
+<table class="dsc-clear table table-striped table-bordered">
 	<thead>
 		<tr>
 			<th width="2%" class="title">
@@ -81,7 +81,7 @@ $page = $this->get('Pagination');
 				onclick="<?php echo $onclick; ?>"> <?php echo htmlspecialchars($row->product_name, ENT_QUOTES, 'UTF-8'); ?>
 			</a></td>
 			<td style="text-align: center;"><a style="cursor: pointer;"
-				onclick="<?php echo $onclick; ?>"> <?php echo $row->product_description;?>
+				onclick="<?php echo $onclick; ?>"> <?php echo $row->product_description_short;?>
 			</a></td>
 
 		</tr>

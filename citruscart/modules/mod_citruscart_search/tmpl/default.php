@@ -34,7 +34,7 @@ Citruscart::load( 'CitruscartSelect', 'library.select' );
 			<label>
        			<input placeholder="<?php echo JText::_('MOD_CITRUSCART_SEARCH_SEARCH_PLACHOLDER');?>" type="text" class="form-control input-sm" name="filter" value="<?php echo JText::_( $filter_text ); ?>" onclick="this.value='';"/>
        		</label>
-       		<input class="btn btn-default search_submit pull-right" type="submit" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" />
+       		<input class="btn btn-default search_submit pull-right" type="submit" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT'); ?>" style="color : #ffffff;background-color:#FF3F3F;border-color:#FF3F3F;" />
        	</div>
         <input type="hidden" name="option" value="com_citruscart" />
         <input type="hidden" name="view" value="products" />

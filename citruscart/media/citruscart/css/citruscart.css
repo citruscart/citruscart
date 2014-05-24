@@ -5,7 +5,11 @@ div.reset{clear:both;}
 .note_green{background-color:#EBF6DF;border:1px solid #289728;border-collapse:collapse;border-spacing:0;margin-bottom:10px;margin-top:5px;padding:10px;text-align:justify;}
 .alert{font-size:13px;font-weight:bold;padding:10px;text-transform:uppercase;}
 .label{font-weight:bold;margin-bottom:5px;margin-right:5px;margin-top:5px;}
-.rowDiv{float:left;width:100%;}
+.rowDiv{
+	/*float:left;width:100%;*/
+	
+	
+	}
 .userName{float:left;font-weight:bold;padding-right:10px;text-decoration:underline;width:auto;}
 .commentsDiv{float:left;padding:5px 0 10px;width:100%;}
 .rowPaddingDiv{float:left;padding:10px 0;width:100%;}
@@ -414,16 +418,21 @@ box-shadow: none;
 }
 
 .add_to_cart .btn-success{
+	 background-color:#FF3F3F;
+ border-color:#FF3F3F;
+ /*
 background-color:#FF8800;
-border-color:#FF8800;
+border-color:#FF8800; */
 margin-top:-42px;
-margin-left:29px;
+margin-left:10px;
 }
 
 
  #citruscart_products .add_to_cart .btn-success{
-background-color:#FF8800;
-border-color:#FF8800;
+	/*background-color:#FF8800;
+	border-color:#FF8800;*/
+background-color:#FF3F3F;
+border-color:#FF3F3F;
 margin-top:-42px;
 margin-left:8px;
 }
@@ -436,8 +445,10 @@ margin-left:8px;
 .btn-success.active,
 .btn-success {
  color: #ffffff;
- background-color:#FF8800;
- border-color:#FF8800;
+ /*background-color:#FF8800; */
+ background-color:#FF3F3F;
+ border-color:#FF3F3F;
+ /*border-color:#FF8800; */
  }
  
  .navbar .nav > li > a {
@@ -459,11 +470,9 @@ margin-left:8px;
 	height :80px;
 }
 .citruscart-view-product-gallery{
-	padding-left:39px;
+
 }
-.citruscart-view-product-main-image{
-	padding-left:0px;
-}
+
 .citruscart-rating li{
 	margin-top:-15px;
 	margin-left:5px;
@@ -477,7 +486,23 @@ margin-left:8px;
 	margin-top :5px;
 	box-shadow:3px 3px 3px #dcdcdc;
 }
-
 #citruscart .pagination{
 	margin-top:5px;	
 }
+
+#citruscart_model_sku{
+	margin-top:-12px;	
+	
+}
+#product_questions{
+	margin-left:-10px;
+}
+#product_relations{
+	padding : 15px;
+	/*border:1px solid #ccc;*/
+	box-shadow:3px 3px 3px #dcdcdc;
+}
+#citruscart_customer_review{
+	box-shadow:3px 3px 3px #dcdcdc;
+}
+		

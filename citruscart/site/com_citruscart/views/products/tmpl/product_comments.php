@@ -36,15 +36,12 @@ $url_validate = JRoute::_( 'index.php?option=com_citruscart&controller=products&
 $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0');
 ?>
 
-<div id="product_review_header" class="citruscart_header">
-<h3><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></h3>
-</div>
+<div id="citruscart_customer_review">
 <?php
 		if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
 		$emails = CitruscartHelperProduct::getUserEmailForReview( $this->comments_data->product_id );
 ?>
 <?php } ?>
-
  <div>
     <div class="rowDiv" style="padding-top: 5px;">
         <?php if ($review_enable==1 && $result == 1): ?>
@@ -52,14 +49,18 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
         		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn" />
         	</div>
         <?php endif;?>
-    	<div class="rightAlignDiv">
+    	<!-- <div class="rightAlignDiv"> -->
+    	<div class="pull-right">
     	<?php if ($review_enable==1 && $count > 0  ): ?>
-    		<form name="sortForm" method="post" action="<?php echo JRoute::_($url); ?>">
-    		<?php echo JText::_('COM_CITRUSCART_SORT_BY'); ?>:
-    		<?php echo CitruscartSelect::selectsort( $selectsort, 'default_selectsort', array('class' => 'inputbox', 'size' => '1','onchange'=>'document.sortForm.submit();') ); ?>
+    		<form name="sortForm" class="form-inline" method="post" action="<?php echo JRoute::_($url); ?>">
+    		<div class="input-prepend pull-left">
+				<span class="add-on"><?php echo JText::_('COM_CITRUSCART_SORT_BY'); ?></span>
+				<?php echo CitruscartSelect::selectsort( $selectsort, 'default_selectsort', array('class' => 'form-control', 'size' => '1','onchange'=>'document.sortForm.submit();') ); ?>
+			</div>
     		</form>
     	<?php endif;?>
     	</div>
+    	<!-- </div> -->
     </div>
     <div id="new_review_form" class="rowPaddingDiv" style="display: none;">
     		<div id="validationmessage_comments" style="padding-top: 10px;"></div>
@@ -93,68 +94,58 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
         </form>
     </div>
    <?php if($review_enable==1):
-   		if($reviews):
-   		foreach ($reviews as $review) : ?>
-    <div class="rowPaddingDiv">
-        <div class="commentsDiv1">
-			<div class="rowDiv">
-                <div class="userName">
-                   <span><?php echo empty($review->user_name) ? ( empty( $review->username ) ? $review->user_email : $review->username ) : $review->user_name;?></span>
-                </div>
-                <div class="dateDiv" >
-                    <?php
-                    	echo "(".JHTML::_('date', $review->created_date,'').")";
+   		if($reviews):?>
 
-                    	if($review->helpful_votes_total!=0 ){
-                    		echo sprintf( JText::_('COM_CITRUSCART_X_OF_X_FOUND_THIS_HELPFUL'), $review->helpful_votes, $review->helpful_votes_total);
-                    	}
-                    ?>
-                </div>
-                <div class="customerRating">
-                    <span>
-                        <?php echo CitruscartHelperProduct::getRatingImage( $review->productcomment_rating, $this ); ?>
-                	</span>
-                </div>
-            </div>
-            <div id="comments" class="commentsDiv">
-                <?php echo $review->productcomment_text; ?>
-            </div>
-       		<?php
-						$isFeedback = CitruscartHelperProduct::isFeedbackAlready( $user->id, $review->productcomment_id );
-	       		$helpfuness_enable = Citruscart::getInstance()->get('review_helpfulness_enable', '0');
+<h3><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></h3>
+<table class="table">
+<tbody>
+<?php foreach ($reviews as $review) : ?>
+<tr>
+	<td>
+		<strong>
+			<?php echo empty($review->user_name) ? ( empty( $review->username ) ? $review->user_email : $review->username ) : $review->user_name;?>
+			</strong>
+		<br/>
+		<?php echo JHTML::_('date', $review->created_date,'DATE_FORMAT_LC2');?>
 
-	       		if ($helpfuness_enable && $user->id != $review->user_id && !$isFeedback) :
-       		?>
-       		<div id="helpful" class="commentsDiv">
+        <?php if($review->helpful_votes_total!=0 ){
+                		echo sprintf( JText::_('COM_CITRUSCART_X_OF_X_FOUND_THIS_HELPFUL'), $review->helpful_votes, $review->helpful_votes_total);
+               	}
+                 ?>
+	</td>
+	<td>
+		<?php echo $review->productcomment_text; ?>
+		<br/>
+			<?php
+				$isFeedback = CitruscartHelperProduct::isFeedbackAlready( $user->id, $review->productcomment_id );
+	       		$helpfuness_enable = Citruscart::getInstance()->get('review_helpfulness_enable', '0');?>
+	       		<?php if ($helpfuness_enable && $user->id != $review->user_id && !$isFeedback) :?>
+
       			 <?php echo JText::_('COM_CITRUSCART_WAS_THIS_REVIEW_HELPFUL_TO_YOU'); ?>?
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&helpfulness=1&productcomment_id=<?php echo $review->productcomment_id; ?>&product_id=<?php echo $review->product_id; ?>"><?php echo JText::_('COM_CITRUSCART_YES'); ?></a>
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&helpfulness=0&productcomment_id=<?php echo$review->productcomment_id;?>&product_id=<?php echo $review->product_id;?>"><?php echo JText::_('COM_CITRUSCART_NO'); ?></a>
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&report=1&productcomment_id=<?php echo$review->productcomment_id;?>&product_id=<?php echo $review->product_id;?>">(<?php echo JText::_('COM_CITRUSCART_REPORT_INAPPROPRIATE_REVIEW'); ?>)</a>
-      		</div>
-      		<?php
-      			endif;
-            if ($share_review_enable):
-          ?>
-		      		<div id="citruscart_sharelinks" class="commentsDiv">
-
-		      		<?php	$html = $app->triggerEvent('onAfterDisplayProductDescription',array());
-				      		echo $html[0];?>
-				      		<!--
-		      			 <a href="http://www.facebook.com/share.php?u=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/facebook.png" alt="facebook"/></a>
-		      			 <a href="http://twitter.com/home?status=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/twitter.png" alt="twitter"/></a>
-		      			 <a href="http://www.tumblr.com/login?s=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/link-tumblr.PNG" alt="link-tumblr"/></a>
-		      			 <a href="http://www.stumbleupon.com/submit?url=<?php echo $linkurl;?>&title=<?php echo $row->product_name;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/stumbleupon.png" alt="stumbleupon"/></a>
-		      			  -->
-		      		</div>
-       		<?php endif; ?>
-        </div>
+      			<?php endif;?>
+	</td>
+	<td>
+		 <span> <?php echo CitruscartHelperProduct::getRatingImage( $review->productcomment_rating, $this ); ?></span>
+	</td>
+</tr>
+<?php endforeach;?>
+</tbody>
+<tfoot>
+	<tr>
+	<td colspan="3">
+		<div id="products_footer" class="pagination">
+        <?php echo $this->pagination->getPagesLinks(); ?>
     </div>
-    <?php endforeach; ?>
-    <?php else:?>
+    </td>
+    </tr>
+</tfoot>
+</table>
+	<?php else:?>
     	<?php echo JText::_('COM_CITRUSCART_NO_REVIEW_ITEMS_FOUND');?>
     <?php endif;?>
     <?php endif;?>
-    <div id="products_footer" class="pagination">
-        <?php echo $this->pagination->getPagesLinks(); ?>
-    </div>
+</div>
 </div>
