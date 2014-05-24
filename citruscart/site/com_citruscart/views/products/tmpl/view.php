@@ -34,55 +34,37 @@ $product_image_thumb = CitruscartHelperProduct::getImage($item->product_id, '', 
 $app = JFactory::getApplication();
 ?>
 
-<!-- citruscart div starts -->
 <div id="citruscart" class="dsc-wrap products view product-<?php echo $item->product_id; ?> <?php echo $item->product_classes; ?>">
-
     <?php if ( $this->defines->get( 'display_citruscart_pathway' ) ) : ?>
         <div id='citruscart_breadcrumb'>
             <?php echo CitruscartHelperCategory::getPathName( $this->cat->category_id, 'links', true ); ?>
         </div>
     <?php endif; ?>
-    
+
     <!-- row-fluid div starts -->
     <div class="row-fluid">
 
     <!-- citruscart product div starts -->
     <div id="citruscart_product" class="dsc-wrap">
-
         <?php if ( !empty( $this->onBeforeDisplayProduct ) ) : ?>
             <div id='onBeforeDisplayProduct_wrapper'>
-            <?php echo $this->onBeforeDisplayProduct; ?>
+	            <?php echo $this->onBeforeDisplayProduct; ?>
             </div>
         <?php endif; ?>
-
-        <!-- <div id='citruscart_product_header' class="dsc-wrap">
-            <h2 class="product_name">
-                <?php echo htmlspecialchars_decode( $item->product_name ); ?>
-            </h2>
-        </div> -->
-
+        <?php // echo htmlspecialchars_decode( $item->product_name ); ?>
     <!-- row-fluid div starts -->
     <div class="row-fluid">
-    	<div class="col-md-2 citruscart-view-product-gallery" >
-    		 <?php  echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
+    	<div class="col-md-1 citruscart-view-product-gallery" >
+    		 <?php echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
     	</div>
-       <div class="col-md-4 citruscart-view-product-main-image">
+       <div class="col-md-5 citruscart-view-product-main-image">
             <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
 	           <input type="hidden" id="product_main_image" value="<?php echo $product_image;?>"/>
            <div>
-	            <?php
-				/* if ( isset( $item->product_full_image ) )
-				{
-					echo CitruscartUrl::popup( $product_image, JText::_('COM_CITRUSCART_VIEW_LARGER'),
-							array(
-								'update' => false, 'img' => true
-							) );
-				} */
-				?>
-            </div>
+           </div>
         </div>
 
-        <div class="col-md-5">
+        <div id="citruscart_product_buy_info" class="col-md-6 citruscart_add_info">
         <!-- product name unorder list starts -->
         <ul class="unstyled">
            	  <!-- product properties list starts -->
@@ -107,10 +89,10 @@ $app = JFactory::getApplication();
 				 <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	           <!-- <div id='citruscart_product_header'> -->
 	                <?php if ( !empty( $item->product_model ) ) : ?>
-	               		<p><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
+	               		<strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?>
 	                <?php endif; ?>
 	                <?php if ( !empty( $item->product_sku ) ) : ?>
-	               		<?php echo "||";?> <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></p>
+	               		<?php echo "|";?> <strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?>
 	                <?php endif; ?>
 	            <!-- </div> -->
 	            <?php endif; ?>
@@ -122,21 +104,27 @@ $app = JFactory::getApplication();
 	            </div>
 	        <?php endif; ?>
 
+				<!--------------------------------
+				  Triggering the share Button
+				 ------------------------->
+	        <?php  echo $this->onBeforeDisplayProductDescription;?>
 
+	        <div class="citruscart_product_desc">
+				<?php echo $this->product_description_short; ?>
+			</div>
 
-		    <br/>
-			<?php echo $this->product_description_short; ?>
+				<!--------------------------------
+				  Triggering the share Button
+				 ------------------------->
+
+			<div class="citruscart_product_shareButtons">
+				<?php echo $this->onAfterDisplayProductDescription;?>
+			</div>
 	     </li><!-- product properties list ends -->
-
 	     </ul>
+     </div>
 
-	     <div  style="width:auto;">
-	        <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>
-	     </div>
-
-
-	      </div>
-	       <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
+       <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
         <div class="pagination">
             <ul id='citruscart_product_navigation'>
                 <?php if ( !empty( $this->surrounding['prev'] ) ) { ?>
@@ -157,11 +145,13 @@ $app = JFactory::getApplication();
         </div>
     <?php } ?>
 
-        </div><!-- row-fluid div ends -->
+
+      </div><!-- row-fluid div ends -->
 
         <!-- review div starts -->
 
         <?php if ( $this->defines->get( 'ask_question_enable', '1' ) ) : ?>
+
         <div id="product_questions" class="dsc-wrap dsc-clear">
             <?php
 				$uri = JFactory::getURI( );
@@ -191,7 +181,8 @@ $app = JFactory::getApplication();
         <?php echo $this->product_children; ?>
 
         <?php if ( $this->product_description ) : ?>
-            <div id="product_description" class="dsc-wrap">
+
+				<div id="product_description" class="dsc-wrap">
                 <?php if ( $this->defines->get( 'display_product_description_header', '1' ) ) : ?>
                     <div id="product_description_header" class="citruscart_header dsc-wrap">
                         <span><?php echo JText::_('COM_CITRUSCART_DESCRIPTION'); ?></span>
@@ -199,7 +190,7 @@ $app = JFactory::getApplication();
                 <?php endif; ?>
                 <?php echo $this->product_description; ?>
             </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
 
         <?php // display the files associated with this product ?>
@@ -220,10 +211,9 @@ $app = JFactory::getApplication();
         <?php endif; ?>
 
         <div class="product_review dsc-wrap" id="product_review">
-            <?php if ( !empty( $this->product_comments ) )
-			{
-				echo $this->product_comments;
-			} ?>
+            <?php if ( !empty( $this->product_comments ) ):?>
+				<?php echo $this->product_comments; ?>
+			<?php endif;?>
         </div>
 
       </div><!-- citruscart product div ends -->
@@ -242,33 +232,8 @@ $app = JFactory::getApplication();
 		jQuery('#citruscart_main_image<?php echo $item->product_id;?>').zoom();
 	});
 
-	/*
-	function ImageZoom(main_image){
-		jQuery("#"+main_image).zoom();
-	}*/
-
 	jQuery(document).ready(function(){
 		jQuery('#main_image').zoom();
 });
-
-</script>
-
-<script>
-    /*
-    jQuery('#citruscart_main_image<?php echo $item->product_id;?>').elevateZoom({
-    zoomType: "inner",
-cursor: "crosshair",
-zoomWindowFadeIn: 500,
-zoomWindowFadeOut: 750
-
-   });
-
-    jQuery('#zoom_01').elevateZoom({
-        zoomType: "inner",
-    cursor: "crosshair",
-    zoomWindowFadeIn: 500,
-    zoomWindowFadeOut: 750
-
-       }); */
 
 </script>

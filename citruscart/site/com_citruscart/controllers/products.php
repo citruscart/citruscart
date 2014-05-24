@@ -495,20 +495,31 @@ class CitruscartControllerProducts extends CitruscartController
         ) );
         $view->setLayout( $layout );
 
-        $dispatcher = JDispatcher::getInstance( );
+        JPluginHelper::importPlugin('citruscart');
 
         ob_start( );
-        JFactory::getApplication()->triggerEvent( 'onBeforeDisplayProduct', array(
-                $row->product_id
+        $app->triggerEvent( 'onBeforeDisplayProduct', array(
+               $row->product_id
         ) );
+
         $view->assign( 'onBeforeDisplayProduct', ob_get_contents( ) );
         ob_end_clean( );
 
         ob_start( );
-        JFactory::getApplication()->triggerEvent( 'onAfterDisplayProduct', array(
+        $app->triggerEvent('onBeforeDisplayProductDescription',array());
+        $view->assign( 'onBeforeDisplayProductDescription',  ob_get_contents( ));
+        ob_end_clean( );
+
+        ob_start( );
+       	$app->triggerEvent( 'onAfterDisplayProduct', array(
                 $row->product_id
         ) );
-        $view->assign( 'onAfterDisplayProduct', ob_get_contents( ) );
+	    $view->assign( 'onAfterDisplayProduct', ob_get_contents( ) );
+        ob_end_clean( );
+
+        ob_start( );
+        $html = $app->triggerEvent('onAfterDisplayProductDescription',array());
+       	$view->assign( 'onAfterDisplayProductDescription',  $html[0]);
         ob_end_clean( );
 
         $view->display( );

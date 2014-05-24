@@ -140,9 +140,12 @@ class Citruscart extends DSC
 	//social bookmarking integration
 	public $display_facebook_like				= '1';
 	public $display_tweet						= '1';
+	public $display_fb_message					= 'Check this E-commerce Component!';
+	public $display_linkedin_message			=  "";
+	public $display_pinterest_message			=  "";
 	public $display_tweet_message				= 'Check this out!';
-	public $display_google_plus1						= '1';
-	public $display_google_plus1_size				= 'medium';
+	public $display_google_plus1				= '1';
+	public $display_google_plus1_size			= 'medium';
 	public $display_bookmark_uri        = '0';
 	public $bitly_key 								= '';
 	public $bitly_login 						= '';

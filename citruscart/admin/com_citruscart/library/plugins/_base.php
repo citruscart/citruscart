@@ -41,7 +41,7 @@ class CitruscartPluginBase extends DSCPlugin
 		if (empty($this -> _row)) {
 			JTable::addIncludePath(JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_citruscart' . DS . 'tables');
 			$table = JTable::getInstance('Shipping', 'CitruscartTable');
-			$table -> load(array('element' => $this -> _element, 'folder' => 'Citruscart'));
+			$table -> load(array('element' => $this -> _element, 'folder' => 'citruscart'));
 			$this -> _row = $table;
 		}
 		return $this -> _row;
@@ -94,7 +94,7 @@ class CitruscartPluginBase extends DSCPlugin
 	 * @param $plugin the name of the plugin in which the table is stored
 	 * @param $group the group of the plugin
 	 */
-	protected function includeCustomTables($plugin = '', $group = 'Citruscart') {
+	protected function includeCustomTables($plugin = '', $group = 'citruscart') {
 
 		if (empty($plugin)) {
 			$plugin = $this -> _element;
@@ -118,7 +118,7 @@ class CitruscartPluginBase extends DSCPlugin
 	 * @param $plugin the name of the plugin in which the view is stored
 	 * @param $group the group of the plugin
 	 */
-	protected function includeCustomView($name, $plugin = '', $group = 'Citruscart') {
+	protected function includeCustomView($name, $plugin = '', $group = 'citruscart') {
 		if (empty($plugin)) {
 			$plugin = $this -> _element;
 		}

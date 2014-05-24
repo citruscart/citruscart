@@ -34,14 +34,17 @@ $baseurl=$this->baseurl;
 $user = JFactory::getUser();
 $url_validate = JRoute::_( 'index.php?option=com_citruscart&controller=products&view=products&task=validateReview&format=raw' );
 $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0');
-
-if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
-	$emails = CitruscartHelperProduct::getUserEmailForReview( $this->comments_data->product_id );
 ?>
+
 <div id="product_review_header" class="citruscart_header">
-    <span><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></span>
+<h3><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></h3>
 </div>
+<?php
+		if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
+		$emails = CitruscartHelperProduct::getUserEmailForReview( $this->comments_data->product_id );
+?>
 <?php } ?>
+
  <div>
     <div class="rowDiv" style="padding-top: 5px;">
         <?php if ($review_enable==1 && $result == 1): ?>
@@ -89,10 +92,9 @@ if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
             <input type="hidden" name="task" value="" />
         </form>
     </div>
-   <?php
-   		if($review_enable==1):
-   		 foreach ($reviews as $review) :
-   ?>
+   <?php if($review_enable==1):
+   		if($reviews):
+   		foreach ($reviews as $review) : ?>
     <div class="rowPaddingDiv">
         <div class="commentsDiv1">
 			<div class="rowDiv">
@@ -133,17 +135,24 @@ if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
       			endif;
             if ($share_review_enable):
           ?>
-		      		<div id="links" class="commentsDiv">
-		      		<span class="share_review"><?php echo JText::_('COM_CITRUSCART_SHARE_THIS_REVIEW'); ?>:</span>
+		      		<div id="citruscart_sharelinks" class="commentsDiv">
+
+		      		<?php	$html = $app->triggerEvent('onAfterDisplayProductDescription',array());
+				      		echo $html[0];?>
+				      		<!--
 		      			 <a href="http://www.facebook.com/share.php?u=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/facebook.png" alt="facebook"/></a>
 		      			 <a href="http://twitter.com/home?status=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/twitter.png" alt="twitter"/></a>
 		      			 <a href="http://www.tumblr.com/login?s=<?php echo $linkurl;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/link-tumblr.PNG" alt="link-tumblr"/></a>
 		      			 <a href="http://www.stumbleupon.com/submit?url=<?php echo $linkurl;?>&title=<?php echo $row->product_name;?>" target='_blank'> <img  src="<?php echo $baseurl;?>/media/citruscart/images/bookmark/stumbleupon.png" alt="stumbleupon"/></a>
+		      			  -->
 		      		</div>
        		<?php endif; ?>
         </div>
     </div>
     <?php endforeach; ?>
+    <?php else:?>
+    	<?php echo JText::_('COM_CITRUSCART_NO_REVIEW_ITEMS_FOUND');?>
+    <?php endif;?>
     <?php endif;?>
     <div id="products_footer" class="pagination">
         <?php echo $this->pagination->getPagesLinks(); ?>

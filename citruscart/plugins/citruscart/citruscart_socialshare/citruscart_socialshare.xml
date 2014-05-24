@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="citruscart" method="upgrade">
+	<name>Citruscart socialshare</name>
+	<version>0.10.1</version>
+	<creationDate>October 2011</creationDate>
+	<author>Citruscart</author>
+	<authorEmail>info@Citruscart.com</authorEmail>
+	<authorUrl>http://www.Citruscart.com</authorUrl>
+	<copyright>2012 Citruscart.com</copyright>
+	<license>GNU General Public License v2</license>
+	<description>Handles Displaying Social Sharing</description>
+	<files>
+		<filename plugin="citruscart_socialshare">citruscart_socialshare.php</filename>
+		<folder>citruscart_socialshare</folder>
+		<filename>index.html</filename>
+	</files>
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.plg_citruscart_citruscart_socialshare.ini</language>
+		<language tag="en-GB">en-GB.plg_citruscart_citruscart_socialshare.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="basic">
+				<field name="twitter_share" class="btn-group" type="radio" default="0" label="COM_CITRUSCART_SOCIALSHARE_DISPLAY_TWITTER_SHARE">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="fb_share" class="btn-group"  type="radio" default="0" label="COM_CITRUSCART_SOCIALSHARE_DISPLAY_FACEBOOK_SHARE" >
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>				
+				<field name="linkedin_share" class="btn-group"  type="radio" default="0" label="COM_CITRUSCART_SOCIALSHARE_DISPLAY_LINKEDIN_SHARE" >
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+				<field name="gplus_share" class="btn-group"  type="radio" default="0" label="COM_CITRUSCART_SOCIALSHARE_DISPLAY_GOOGLEPLUS_SHARE">
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>
+					<field name="pinterest_share" class="btn-group"  type="radio" default="0" label="COM_CITRUSCART_SOCIALSHARE_DISPLAY_PINTEREST_SHARE" >
+					<option value="0">COM_CITRUSCART_NO</option>
+					<option value="1">COM_CITRUSCART_YES</option>
+				</field>				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

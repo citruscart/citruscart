@@ -38,7 +38,7 @@ if( $changed_attr > -1 ) {
 
 
 ?>
-    <div id="validationmessage_<?php echo $item->product_id; ?>"></div>
+    <div  id="validationmessage_<?php echo $item->product_id; ?>"></div>
 
     <form action="<?php echo JRoute::_( $form['action'] ); ?>" method="post" class="adminform" name="<?php echo $formName; ?>" enctype="multipart/form-data" >
     <div class="product_prices product_buyoptions">
@@ -88,7 +88,7 @@ if( $changed_attr > -1 ) {
       ?>
         <div class="pao" id='productattributeoption_<?php echo $attribute->productattribute_id; ?>'>
         <?php
-        echo "<div class='productmodels'>".$attribute->productattribute_name."  </div>";
+        echo "<div class='productmodels'><strong>".$attribute->productattribute_name." </strong> </div>";
 
         echo "<div class='productoptions'>";
         $key = 'attribute_'.$attribute->productattribute_id;
@@ -123,17 +123,29 @@ if( $changed_attr > -1 ) {
     </div>
 
     <div id='product_quantity_input_<?php echo $item->product_id; ?>' class="product_quantity_input product_buyoptions">
-        <?php if ($item->product_parameters->get('hide_quantity_input') == '1') { ?>
-            <input type="hidden" name="product_qty" value="<?php echo $item->product_parameters->get('default_quantity', '1'); ?>" />
-        <?php } elseif ($item->quantity_restriction && $item->quantity_min == $item->quantity_max) { ?>
-            <input type="hidden" name="product_qty" value="<?php echo $item->quantity_min; ?>" />
-        <?php } else { ?>
 
-        <span class="productmodels"><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</span>
+        <?php if ($item->product_parameters->get('hide_quantity_input') == '1') : ?>
+
+        	<input type="hidden" name="product_qty" value="<?php echo $item->product_parameters->get('default_quantity', '1'); ?>" />
+        <?php elseif($item->quantity_restriction && $item->quantity_min == $item->quantity_max) : ?>
+            <input type="hidden" name="product_qty" value="<?php echo $item->quantity_min; ?>" />
+
+         <?php else: ?>
+
+        <strong><?php echo JText::_('COM_CITRUSCART_QUANTITY'); ?>:</strong>
         <div class="productquantity">
-       	 <input type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input-mini" />
-        </div>
-	<?php } ?>
+        	<div class="btn-group">
+        		<div style="display:inline-flex">
+					<input id="add_to_cart_qty" type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input-mini" />
+	  		 		<button class="btn btn-default"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
+      		 		<button  class="btn btn-default" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
+      		 	</div>
+       		</div>
+
+
+
+       	 </div>
+	<?php endif; ?>
 
 		 <!-- Add to cart button -->
     <div id='add_to_cart_<?php echo $item->product_id; ?>' class="add_to_cart product_buyoption" style="display: block;">
@@ -171,9 +183,6 @@ if( $changed_attr > -1 ) {
         ?>
     </div>
     </div>
-
-
-
     <?php endif; ?>
 
     <?php if (!empty($item->product_recurs)) : ?>
@@ -227,7 +236,10 @@ if( $changed_attr > -1 ) {
             ?>
             <?php if (!$this->getModel()->isInWishlist($item->product_id, $xref_id, $xref_type, implode(',', $selected_opts ))) { ?>
             <?php $onclick = "document.$formName.task.value='addtowishlist'; document.$formName.submit();"; ?>
-            <a href="javascript:void(0);" onclick="<?php echo $onclick; ?>"><?php echo JText::_('COM_CITRUSCART_ADD_TO_WISHLIST'); ?></a>
+        			<img class="img-circle" src="<?php echo JUri::root().'/media/citruscart/images/iconheart.png'?>" />
+            		<a  href="javascript:void(0);" onclick="<?php echo $onclick; ?>">
+						<?php echo JText::_('COM_CITRUSCART_ADD_TO_WISHLIST'); ?>
+                   </a>
             <?php } else { ?>
                 <?php echo JText::_('COM_CITRUSCART_ITEM_ALREADY_IN_WISHLIST'); ?>
             <?php } ?>
@@ -235,4 +247,30 @@ if( $changed_attr > -1 ) {
         </div>
 	<?php endif; ?>
     </form>
+<script type="text/javascript">
 
+/**
+ * Method to get Increament Qty
+ * @params string type id
+ * return result
+ */
+function QtyPlus(id){
+	var text_qty = jQuery("#"+id).val();
+	text_qty++;
+	jQuery("#"+id).val(text_qty);
+
+	}
+/**
+ * Method to get Increament Qty
+ * @params string type id
+ * return result
+ */
+function QtyMinus(id){
+	var text_qty = jQuery("#"+id).val();
+	text_qty--;
+	if(text_qty > 0){
+		jQuery("#"+id).val(text_qty);
+		}
+
+	}
+</script>
