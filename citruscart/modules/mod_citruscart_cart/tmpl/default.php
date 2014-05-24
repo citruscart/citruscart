@@ -22,7 +22,7 @@ $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/ci
 
 <div class="buycart">
 <?php
-$src = JURI::root(true).'/images/citruscart_cart.png';
+$src = JURI::root(true).'/images/citruscart.png';
 ?>
 
 <?php

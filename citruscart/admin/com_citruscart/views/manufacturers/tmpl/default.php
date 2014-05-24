@@ -58,7 +58,7 @@ defined('_JEXEC') or die('Restricted access');?>
                     </div>
                 </th>
                 <th style="text-align: left;">
-                	<input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" class="input"/>
+                	<input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
     	            <?php echo CitruscartSelect::booleans( $state->filter_enabled, 'filter_enabled', $attribs, 'enabled', true, 'COM_CITRUSCART_ENABLED_STATE' ); ?>

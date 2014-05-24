@@ -26,30 +26,30 @@ $doc->addStyleSheet(JUri::root().'/plugins/citruscart/citruscart_socialshare/cit
 <div id="citruscart_shareButton">
 	 <?php if ( $display_tw ) : ?>
 		 	<button type="button" class="btn btn-default socialshare"  onclick="socialsharing_twitter_click('<?php echo Citruscart::getInstance( )->get( 'display_tweet_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
-			 <img src="<?php echo JUri::root().'/images/twittericon.png'?>" />
+			 <img src="<?php echo JUri::root().'/plugins/citruscart/citruscart_socialshare/media/images/twittericon.png'?>" />
 			 </button>
 
 			<?php endif;?>
 
 			<?php if ( $display_fb ) : ?>
 				<button type="button" class="btn btn-default socialshare"  onclick="socialsharing_facebook_click('<?php echo Citruscart::getInstance( )->get( 'display_fb_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
-					<img src="<?php echo JUri::root().'/images/fbicon.png'?>"/>
+					<img src="<?php echo JUri::root().'/plugins/citruscart/citruscart_socialshare/media/images/fbicon.png'?>"/>
 				 </button>
 			<?php endif;?>
 
 			<?php if ( $display_gp ) : ?>
 				<button type="button" class="btn btn-default socialshare" onclick="socialsharing_google_click('<?php echo Citruscart::getInstance( )->get( 'display_gplus_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
-					<img src="<?php echo JUri::root().'/images/gplusicon.png'?>"/>
+					<img src="<?php echo JUri::root().'/plugins/citruscart/citruscart_socialshare/media/images/gplusicon.png'?>"/>
 				 </button>
 			<?php endif;?>
 			<?php if ( $display_pinterest ):?>
 				<button type="button" class="btn btn-default socialshare" onclick="socialsharing_pinterest_click('<?php echo Citruscart::getInstance( )->get( 'display_pinterest_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
-					<img src="<?php echo JUri::root().'/images/pinicon.png'?>"/>
+					<img src="<?php echo JUri::root().'/plugins/citruscart/citruscart_socialshare/media/images/pinicon.png'?>"/>
 				 </button>
 			<?php endif;?>
 			<?php if ( $display_linkedin ) : ?>
 				<button type="button" class="btn btn-default socialshare" onclick="socialsharing_linkedin_click('<?php echo Citruscart::getInstance( )->get( 'display_linkedin_message', 'Check this out!' ).' '.CitruscartHelperProduct::getSocialBookMarkUri(); ?>')">
-					<img src="<?php echo JUri::root().'/images/inicon.png'?>"/>
+					<img src="<?php echo JUri::root().'/plugins/citruscart/citruscart_socialshare/media/images/inicon.png'?>"/>
 				 </button>
 			<?php endif; ?>
 				<div class="reset"></div>
