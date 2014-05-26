@@ -58,7 +58,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </div>
                 </th>
                 <th style="text-align: left;">
-                	<input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                	<input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_("COM_CITRUSCART_NAME");?>"/>
                 </th>
                 <th>
                 </th>

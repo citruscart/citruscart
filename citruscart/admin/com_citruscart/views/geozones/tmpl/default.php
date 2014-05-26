@@ -72,7 +72,7 @@ defined('_JEXEC') or die('Restricted access');
                     </div>
                 </th>
                 <th style="text-align: left;">
-                    <input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                    <input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
                 </th>
@@ -113,7 +113,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php echo CitruscartGrid::checkedout( $item, $i, 'geozone_id' ); ?>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>" class="badge badge-warning">
+                    <a href="<?php echo $item->link; ?>">
                         <?php echo $item->geozone_id; ?>
                     </a>
                 </td>

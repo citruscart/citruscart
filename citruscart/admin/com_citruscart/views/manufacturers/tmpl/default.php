@@ -58,7 +58,7 @@ defined('_JEXEC') or die('Restricted access');?>
                     </div>
                 </th>
                 <th style="text-align: left;">
-                	<input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" class="input"/>
+                	<input id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
     	            <?php echo CitruscartSelect::booleans( $state->filter_enabled, 'filter_enabled', $attribs, 'enabled', true, 'COM_CITRUSCART_ENABLED_STATE' ); ?>
@@ -84,13 +84,13 @@ defined('_JEXEC') or die('Restricted access');?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'manufacturer_id' ); ?>
 				</td>
 				<td>
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->manufacturer_id; ?>
 					</a>
 				</td>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
-						<label class="label label-success"><?php echo JText::_($item->manufacturer_name); ?></label>
+						<label class="label label-warning"><?php echo JText::_($item->manufacturer_name); ?></label>
 					</a>
 				</td>
 				<td >

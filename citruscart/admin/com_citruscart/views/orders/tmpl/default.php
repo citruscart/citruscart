@@ -66,29 +66,29 @@ defined('_JEXEC') or die('Restricted access');
                 <th>
                     <div class="range">
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
+                            <span class="label label-warning"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_from, "filter_date_from", "filter_date_from", '%Y-%m-%d 00:00:00' ); ?>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
+                            <span class="label label-warning"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_to, "filter_date_to", "filter_date_to", '%Y-%m-%d 00:00:00' ); ?>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TYPE'); ?>:</span>
+                            <span class="label label-info"><?php echo JText::_('COM_CITRUSCART_TYPE'); ?>:</span>
                             <?php echo CitruscartSelect::datetype( $state->filter_datetype, 'filter_datetype', '', 'datetype' ); ?>
                         </div>
                     </div>
                 </th>
                 <th style="text-align: left;" colspan="2">
-                	<input id="filter_user" name="filter_user" type="text" value="<?php echo $state->filter_user; ?>" size="25"/>
+                	<input id="filter_user" name="filter_user" type="text" value="<?php echo $state->filter_user; ?>" size="25" placeholder="<?php echo JText::_('COM_CITRUSCART_CUSTOMER'); ?>"/>
                 </th>
                 <th>
                     <div class="range">
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span> <input id="filter_total_from" name="filter_total_from" value="<?php echo $state->filter_total_from; ?>" size="5" class="input" />
+                            <input id="filter_total_from" name="filter_total_from" value="<?php echo $state->filter_total_from; ?>" size="5" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_FROM'); ?>"/>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span> <input id="filter_total_to" name="filter_total_to" value="<?php echo $state->filter_total_to; ?>" size="5" class="input" />
+                            <input id="filter_total_to" name="filter_total_to" value="<?php echo $state->filter_total_to; ?>" size="5" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_TO'); ?>"/>
                         </div>
                     </div>
                 </th>
@@ -129,7 +129,7 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'order_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->order_id; ?>
 					</a>
 				</td>

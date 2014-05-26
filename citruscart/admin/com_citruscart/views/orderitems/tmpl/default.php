@@ -74,11 +74,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
                 <th>
                     <div class="range">
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
+                            <span class="label badge badge-warning"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_from, "filter_date_from", "filter_date_from", '%Y-%m-%d %H:%M:%S' ); ?>
                         </div>
                         <div class="rangeline">
-                            <span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
+                            <span class="label badge badge-warning"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span>
                             <?php echo JHTML::calendar( $state->filter_date_to, "filter_date_to", "filter_date_to", '%Y-%m-%d %H:%M:%S' ); ?>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'orderitem_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->orderitem_id; ?>
 					</a>
 				</td>
@@ -153,7 +153,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>" class="badge badge-info">
+                    <a href="<?php echo $item->link; ?>" class="badge btn-danger">
                         <?php echo $item->order_id; ?>
                     </a>
                     <br/>

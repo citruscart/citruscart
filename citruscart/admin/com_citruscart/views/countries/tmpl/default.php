@@ -66,13 +66,13 @@ defined('_JEXEC') or die('Restricted access');
                     </div>
                 </th>
                 <th style="text-align: left;">
-                    <input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                    <input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
-                    <input type="text" id="filter_code2" name="filter_code2" value="<?php echo $state->filter_code2; ?>" size="15"/>
+                    <input type="text" id="filter_code2" name="filter_code2" value="<?php echo $state->filter_code2; ?>" size="15" placeholder="<?php echo JText::_('COM_CITRUSCART_ISO_CODE_2'); ?>"/>
                 </th>
                 <th>
-                    <input type="text" id="filter_code3" name="filter_code3" value="<?php echo $state->filter_code3; ?>" size="15"/>
+                    <input type="text" id="filter_code3" name="filter_code3" value="<?php echo $state->filter_code3; ?>" size="15" placeholder="<?php echo JText::_('COM_CITRUSCART_ISO_CODE_3'); ?>"/>
                 </th>
                 <th>
 
@@ -111,7 +111,7 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'country_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->country_id; ?>
 					</a>
 				</td>
@@ -121,7 +121,7 @@ defined('_JEXEC') or die('Restricted access');
 					</a>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-success">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->country_isocode_2; ?>
 					</a>
 				</td>

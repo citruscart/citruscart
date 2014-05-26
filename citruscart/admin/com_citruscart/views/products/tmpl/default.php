@@ -91,25 +91,25 @@ $doc = JFactory::getDocument();
                 	<?php echo CitruscartSelect::taxclass( $state->filter_taxclass, 'filter_taxclass', $attribs, 'taxclass', true, false ); ?>
                 </th>
                 <th>
-                	<input id="filter_sku" name="filter_sku" type="text" value="<?php echo $state->filter_sku; ?>" class="input-small"/>
+                	<input id="filter_sku" name="filter_sku" type="text" value="<?php echo $state->filter_sku; ?>" class="input-small" placeholder="<?php echo JText::_('COM_CITRUSCART_SKU'); ?>"/>
                 </th>
                 <th>
                 	<div class="range">
 	                	<div class="rangeline">
-	                		<span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span> <input  type="text"id="filter_price_from" name="filter_price_from" value="<?php echo $state->filter_price_from; ?>" size="5" class="input input-tiny" />
+	                		<input  type="text"id="filter_price_from" name="filter_price_from" value="<?php echo $state->filter_price_from; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
 	                	</div>
 	                	<div class="rangeline">
-	                		<span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span> <input type="text" id="filter_price_to" name="filter_price_to" value="<?php echo $state->filter_price_to; ?>" size="5" class="input input-tiny" />
+	                		<input type="text" id="filter_price_to" name="filter_price_to" value="<?php echo $state->filter_price_to; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
 	                	</div>
                 	</div>
                 </th>
                 <th>
                 	<div class="range">
 	                	<div class="rangeline">
-	                		<span class="label"><?php echo JText::_('COM_CITRUSCART_FROM'); ?>:</span> <input type="text" id="filter_quantity_from" name="filter_quantity_from" value="<?php echo $state->filter_quantity_from; ?>" size="5" class="input input-tiny" />
+	                		<input type="text" id="filter_quantity_from" name="filter_quantity_from" value="<?php echo $state->filter_quantity_from; ?>" size="5" class="input input-tiny"  placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
 	                	</div>
 	                	<div class="rangeline">
-	                		<span class="label"><?php echo JText::_('COM_CITRUSCART_TO'); ?>:</span> <input type="text" id="filter_quantity_to" name="filter_quantity_to" value="<?php echo $state->filter_quantity_to; ?>" size="5" class="input input-tiny" />
+	                		<input type="text" id="filter_quantity_to" name="filter_quantity_to" value="<?php echo $state->filter_quantity_to; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
 	                	</div>
                 	</div>
                 </th>
@@ -139,7 +139,7 @@ $doc = JFactory::getDocument();
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'product_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link_edit; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link_edit; ?>">
 						<?php echo $item->product_id; ?>
 					</a>
 				</td>
@@ -188,7 +188,7 @@ $doc = JFactory::getDocument();
 					<span class="badge badge-success"><?php echo $item->product_sku; ?></span>
 				</td>
 				<td style="text-align: right;">
-					<span class="badge badge-info"><?php echo CitruscartHelperBase::currency($item->price); ?></span>
+					<span class="badge btn-danger"><?php echo CitruscartHelperBase::currency($item->price); ?></span>
 					<br/>
 					[<?php echo CitruscartUrl::popup( "index.php?option=com_citruscart&controller=products&task=setprices&id=".$item->product_id."&tmpl=component", JText::_('COM_CITRUSCART_SET_PRICES'), array('update' => true) ); ?>]
 				</td>

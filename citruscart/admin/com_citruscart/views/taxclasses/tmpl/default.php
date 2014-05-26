@@ -62,7 +62,7 @@ $items = $this->items;
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'tax_class_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->tax_class_id; ?>
 					</a>
 				</td>
@@ -79,7 +79,7 @@ $items = $this->items;
                 </td>
 				<td style="text-align: center;">
 					<?php echo JText::_('COM_CITRUSCART_TAX_RATES_ASSIGNED'); ?>:
-					<span class="badge badge-success"><?php echo $item->taxrates_assigned ?></span>
+					<span class="badge badge-warning"><?php echo $item->taxrates_assigned ?></span>
 					<br/>
 					[<?php echo CitruscartUrl::popup( $item->link_taxrates, JText::_('COM_CITRUSCART_SET_TAX_RATES'), array( 'update'=>true ) ); ?>]
 				</td>

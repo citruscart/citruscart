@@ -71,10 +71,10 @@ $app = JFactory::getApplication();
                     </div>
                 </th>
                 <th style="text-align: left;">
-                    <input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25"/>
+                    <input type="text" id="filter_name" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th>
-                    <input type="text" id="filter_code" name="filter_code" value="<?php echo $state->filter_code; ?>" size="15"/>
+                    <input type="text" id="filter_code" name="filter_code" value="<?php echo $state->filter_code; ?>" size="15"placeholder="<?php echo JText::_('COM_CITRUSCART_CODE'); ?>"/>
                 </th>
                 <th>
                 </th>
@@ -115,7 +115,7 @@ $app = JFactory::getApplication();
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'currency_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->currency_id; ?>
 					</a>
 				</td>
@@ -125,13 +125,13 @@ $app = JFactory::getApplication();
 					</a>
 				</td>
 				<td style="text-align: center;">
-					<span class="badge badge-success"><?php echo $item->currency_code; ?></span>
+					<span class="badge badge-warning"><?php echo $item->currency_code; ?></span>
 				</td>
 				<td style="text-align: center;">
 				    <?php echo $currency_helper->format( '9876.54321', $item ); ?>
 				</td>
                 <td style="text-align: center;">
-                    <span class="badge badge-info"><?php echo $currency_helper->convert( $item->currency_code ); ?></span>
+                    <span class="badge badge-success"><?php echo $currency_helper->convert( $item->currency_code ); ?></span>
                 </td>
 				<td style="text-align: center;">
 					<?php echo CitruscartGrid::enable($item->currency_enabled, $i, 'currency_enabled.' ); ?>

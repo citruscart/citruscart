@@ -79,13 +79,13 @@ $form = $this->form; ?>
                     </div>
                 </th>
                 <th>
-                	<input id="filter_name" name="filter_name" type="text" value="<?php echo $state->filter_name; ?>" class="input"/>
+                	<input id="filter_name" name="filter_name" type="text" value="<?php echo $state->filter_name; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_NAME'); ?>"/>
                 </th>
                 <th style="text-align: center;">
-                    <input id="filter_code" name="filter_code" type="text" value="<?php echo $state->filter_code; ?>" class="input"/>
+                    <input id="filter_code" name="filter_code" type="text" value="<?php echo $state->filter_code; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_CODE'); ?>"/>
                 </th>
                 <th>
-                    <input id="filter_value" name="filter_value" type="text" value="<?php echo $state->filter_value; ?>" class="input-small"/>
+                    <input id="filter_value" name="filter_value" type="text" value="<?php echo $state->filter_value; ?>" class="input-small" placeholder="<?php echo JText::_('COM_CITRUSCART_VALUE'); ?>"/>
                 </th>
                 <th>
                     <?php echo CitruscartSelect::booleans( $state->filter_type, 'filter_type', $attribs, 'filter_type', true, 'COM_CITRUSCART_SELECT_TYPE', 'COM_CITRUSCART_PERCENTAGE', 'COM_CITRUSCART_FLAT_RATE' ); ?>
@@ -118,7 +118,7 @@ $form = $this->form; ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'coupon_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->coupon_id; ?>
 					</a>
 				</td>
@@ -133,7 +133,7 @@ $form = $this->form; ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <span class="badge badge-success"><?php echo $item->coupon_value; ?></span>
+                    <span class="badge badge-warning"><?php echo $item->coupon_value; ?></span>
                 </td>
                  <td style="text-align: center;">
                     <span class="badge badge-info"><?php echo JText::_('COM_CITRUSCART_COUPON_VALUE_TYPE_'.$item->coupon_value_type); ?></span>
