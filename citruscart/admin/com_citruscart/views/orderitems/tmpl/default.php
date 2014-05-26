@@ -153,7 +153,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>" class="badge btn-danger">
+                    <a href="<?php echo $item->link; ?>" class="badge btn-warning">
                         <?php echo $item->order_id; ?>
                     </a>
                     <br/>
@@ -172,7 +172,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <label class="label label-info"><?php echo $item->orderitem_quantity; ?></label>
                 </td>
 				<td style="text-align: center;">
-				    <label class="label label-warning"><?php echo CitruscartHelperBase::currency( $item->orderitem_price ); ?></label>
+				    <label class="label btn-danger"><?php echo CitruscartHelperBase::currency( $item->orderitem_price ); ?></label>
 				</td>
 				<td style="text-align: center;">
 					<label class="label label-warning"><?php echo $item->orderitem_status; ?></label>
