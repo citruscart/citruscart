@@ -47,7 +47,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
         <?php
         	 if ($review_enable==1 && $result == 1): ?>
         	<div class="leftAlignDiv">
-        		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn" />
+        		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn btn-warning" />
         	</div>
         <?php  endif;?>
     	<!-- <div class="rightAlignDiv"> -->
