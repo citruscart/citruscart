@@ -55,8 +55,7 @@ class DSCModelElement extends DSCModel
     * @param object $control_name[optional]
     */
     function fetchElement($name, $value='', $control_name='', $js_extra='', $fieldName='' )
-    {
-
+    {    	
         $doc = JFactory::getDocument();
 
         if (empty($fieldName)) {
@@ -122,7 +121,7 @@ class DSCModelElement extends DSCModel
 
         return $html;
     }
-
+  
     /**
      *
      * @return

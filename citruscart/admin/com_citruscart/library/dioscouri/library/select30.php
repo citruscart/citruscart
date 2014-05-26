@@ -51,7 +51,8 @@ class DSCSelect extends JHTMLSelect
 		$list[] = JHTML::_('select.option',  '1', JText::_( $yes ) );
 
 		return self::genericlist($list, $name, $attribs, 'value', 'text', $selected, $idtag );
-	}
+	}	
+	
 
 	/**
 	* Generates range list

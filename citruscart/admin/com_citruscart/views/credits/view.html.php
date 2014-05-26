@@ -41,7 +41,7 @@ class CitruscartViewCredits extends CitruscartViewBase
     }
 
     function _form($tpl=null){
-
+		parent::_form($tpl);
     	$model = $this->getModel();
     	$item = $model->getItem();
     	$this->row=$item;
@@ -49,7 +49,7 @@ class CitruscartViewCredits extends CitruscartViewBase
        	if(empty($this->row->credit_id)){
     		$item = JTable::getInstance('Credits', 'CitruscartTable');
     		$this->assign('row', $item);
-    	}
-    	parent::_form($tpl);
+    	}	
+    	
     }
 }

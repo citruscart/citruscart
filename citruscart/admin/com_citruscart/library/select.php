@@ -14,8 +14,6 @@ defined('_JEXEC') or die('Restricted access');
 
 require_once JPATH_SITE . '/libraries/dioscouri/library/select30.php';
 
-
-
 class CitruscartSelect extends DSCSelect
 {
     /**
@@ -31,7 +29,7 @@ class CitruscartSelect extends DSCSelect
      */
 	public static function btbooleanlist($name, $attribs = null, $selected = null, $yes = 'JYES', $no = 'JNO', $id = false)
 	{
-	    JHTML::_('script', 'bootstrapped-advanced-ui.js', 'media/citruscart/js/');
+		JHTML::_('script', 'bootstrapped-advanced-ui.js', 'media/citruscart/js/');
 	    JHTML::_('stylesheet', 'bootstrapped-advanced-ui.css', 'media/citruscart/css/');
 	    $arr = array(JHtml::_('select.option', '0', JText::_($no)), JHtml::_('select.option', '1', JText::_($yes)));
 	    $html = '<div class="control-group"><div class="controls"><fieldset id="'.$name.'" class="radio btn-group">';
@@ -1516,8 +1514,10 @@ class CitruscartSelect extends DSCSelect
     {
         $return = array();
         $model = JModelLegacy::getInstance( 'ElementUser', 'CitruscartModel' );
-        $return['select'] = $model->fetchElement( $name, $selected, '','', $onChange );
-        $return['clear'] = $model->clearElement( $name, '0', '', '', $onChange );
+                          
+        $return['select'] = $model->fetchElement( $name, $selected, '','', $onChange );        
+        $return['clear'] = $model->clearElement( $name, '0', '', '', $onChange );        
+            
         return $return;
     }
 
