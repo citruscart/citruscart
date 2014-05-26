@@ -1049,7 +1049,9 @@ class CitruscartModelProducts extends CitruscartModelEav
 	 	$query = $db->getQuery(true);
 	 	$query = $this->_buildQuery();
 	 	$db->setQuery($query);
-	 	$list = $db->loadObjectList();
+	 	//$list = $db->loadObjectList();
+	 	$list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
+	 	$this->_list = $list;
         foreach($list as &$item)
 		 {
 		 	$item->link = 'index.php?option=com_citruscart&controller=products&view=products&task=view&id='.$item->product_id;

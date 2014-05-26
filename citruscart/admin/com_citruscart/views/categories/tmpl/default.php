@@ -161,8 +161,9 @@ $view = $app->input->getString('view');
 			</tr>
 			<?php endif; ?>
 		</tbody>
+
 	</table>
-	<input type="hidden" name="limit" value="20" />
+
 	<input type="hidden" name="order_change" value="0" />
 	<input type="hidden" name="id" value="" />
 	<input type="hidden" name="task" value="" />
