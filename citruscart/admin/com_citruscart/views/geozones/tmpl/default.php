@@ -113,7 +113,7 @@ defined('_JEXEC') or die('Restricted access');
                     <?php echo CitruscartGrid::checkedout( $item, $i, 'geozone_id' ); ?>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>" class="badge badge-warning">
+                    <a href="<?php echo $item->link; ?>">
                         <?php echo $item->geozone_id; ?>
                     </a>
                 </td>

@@ -115,7 +115,7 @@ $app = JFactory::getApplication();
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'currency_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->currency_id; ?>
 					</a>
 				</td>
@@ -125,13 +125,13 @@ $app = JFactory::getApplication();
 					</a>
 				</td>
 				<td style="text-align: center;">
-					<span class="badge badge-success"><?php echo $item->currency_code; ?></span>
+					<span class="badge badge-warning"><?php echo $item->currency_code; ?></span>
 				</td>
 				<td style="text-align: center;">
 				    <?php echo $currency_helper->format( '9876.54321', $item ); ?>
 				</td>
                 <td style="text-align: center;">
-                    <span class="badge badge-info"><?php echo $currency_helper->convert( $item->currency_code ); ?></span>
+                    <span class="badge badge-success"><?php echo $currency_helper->convert( $item->currency_code ); ?></span>
                 </td>
 				<td style="text-align: center;">
 					<?php echo CitruscartGrid::enable($item->currency_enabled, $i, 'currency_enabled.' ); ?>

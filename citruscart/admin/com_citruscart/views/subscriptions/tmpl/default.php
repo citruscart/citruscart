@@ -166,7 +166,7 @@ defined('_JEXEC') or die('Restricted access');?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'subscription_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link_view; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link_view; ?>">
 						<?php echo $item->subscription_id; ?>
 					</a>
 				</td>

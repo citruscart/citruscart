@@ -143,7 +143,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'orderitem_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->orderitem_id; ?>
 					</a>
 				</td>
@@ -153,7 +153,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="<?php echo $item->link; ?>" class="badge badge-info">
+                    <a href="<?php echo $item->link; ?>" class="badge btn-danger">
                         <?php echo $item->order_id; ?>
                     </a>
                     <br/>

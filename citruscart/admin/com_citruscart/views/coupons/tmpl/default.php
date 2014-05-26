@@ -118,7 +118,7 @@ $form = $this->form; ?>
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'coupon_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->coupon_id; ?>
 					</a>
 				</td>
@@ -133,7 +133,7 @@ $form = $this->form; ?>
                     </a>
                 </td>
                 <td style="text-align: center;">
-                    <span class="badge badge-success"><?php echo $item->coupon_value; ?></span>
+                    <span class="badge badge-warning"><?php echo $item->coupon_value; ?></span>
                 </td>
                  <td style="text-align: center;">
                     <span class="badge badge-info"><?php echo JText::_('COM_CITRUSCART_COUPON_VALUE_TYPE_'.$item->coupon_value_type); ?></span>

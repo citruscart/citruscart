@@ -188,7 +188,7 @@ $doc = JFactory::getDocument();
 					<span class="badge badge-success"><?php echo $item->product_sku; ?></span>
 				</td>
 				<td style="text-align: right;">
-					<span class="badge badge-info"><?php echo CitruscartHelperBase::currency($item->price); ?></span>
+					<span class="badge btn-danger"><?php echo CitruscartHelperBase::currency($item->price); ?></span>
 					<br/>
 					[<?php echo CitruscartUrl::popup( "index.php?option=com_citruscart&controller=products&task=setprices&id=".$item->product_id."&tmpl=component", JText::_('COM_CITRUSCART_SET_PRICES'), array('update' => true) ); ?>]
 				</td>

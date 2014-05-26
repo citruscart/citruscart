@@ -111,7 +111,7 @@ defined('_JEXEC') or die('Restricted access');
 					<?php echo CitruscartGrid::checkedout( $item, $i, 'country_id' ); ?>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
+					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->country_id; ?>
 					</a>
 				</td>
@@ -121,7 +121,7 @@ defined('_JEXEC') or die('Restricted access');
 					</a>
 				</td>
 				<td style="text-align: center;">
-					<a href="<?php echo $item->link; ?>" class="badge badge-success">
+					<a href="<?php echo $item->link; ?>" class="badge badge-warning">
 						<?php echo $item->country_isocode_2; ?>
 					</a>
 				</td>
