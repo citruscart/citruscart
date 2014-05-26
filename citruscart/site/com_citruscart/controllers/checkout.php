@@ -897,13 +897,14 @@ class CitruscartControllerCheckout extends CitruscartController
             echo ( json_encode( $response ) );
             return true;
         }
-
+		if(isset($submitted_values['billing_address_id'])){
         // fail if billing address is invalid
         if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix , $submitted_values['billing_address_id'], true ))
         {
             $response['msg'] = $helper->generateMessage( JText::_('COM_CITRUSCART_BILLING_ADDRESS_ERROR')." :: ".$this->getError() );
             $response['error'] = '1';
         }
+		}
 
         // fail if shipping address is invalid
         if($submitted_values['shippingrequired'])

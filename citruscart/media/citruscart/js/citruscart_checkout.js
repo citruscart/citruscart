@@ -441,8 +441,9 @@ function citruscartCheckoutCheckEmail( container, form )
            var resp=JSON.decode(response, false);
             if( resp.error != '0' )
             {
-        		citruscartJQ(container).set('html', resp.msg);
-        		     		
+        		//citruscartJQ(container).set('html', resp.msg);        		
+        		$(container).set('html', resp.msg);       		
+      		     		
             }
             else
        		{	
