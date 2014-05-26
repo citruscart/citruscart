@@ -17,35 +17,33 @@ $items = $this->product_relations_data->items;
 $products_model = Citruscart::getClass('CitruscartModelProducts', 'models.products');
 ?>
 
-    <div id="product_relations">
-    	<h3><?php echo JText::_('COM_CITRUSCART_YOU_MAY_ALSO_BE_INTERESTED_IN'); ?></h3>
-        <hr>
+   <div id="product_relations">
+		<h4><?php echo JText::_('COM_CITRUSCART_YOU_MAY_ALSO_BE_INTERESTED_IN'); ?></h4>
         <?php      $k = 0; ?>
         <ul class="unstyled" style="display:inline-flex;">
-        <?php foreach ($items as $item): ?>
-        <li>
-        <!--
-        <div class="productrelation" >
-            <div class="productrelation_item">
-                <div class="productrelation_image"> -->
-                    <a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
-                        <?php echo CitruscartHelperProduct::getImage($item->product_id, 'id', $item->product_name, 'full', false, false, array( 'width'=>80 ,'height'=>45 ) ); ?>
-                    </a>
-                    <br/>
-                  	<small>
-                  		<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
-                    		<?php echo $item->product_name;?>
-                    	</a>
-                    </small>
-					<br/>
-					<strong>
-                     	<?php echo CitruscartHelperProduct::dispayPriceWithTax($item->product_price, $item->tax, $this->product_relations_data->show_tax); ?>
-                     </strong>
-
+    	    <?php foreach ($items as $item): ?>
+	    	    <li class="citruscart_product_relation_list" style="">
+	    	    	<ul class="unstyled">
+           				<li>
+           					<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
+                   				<?php echo CitruscartHelperProduct::getImage($item->product_id, 'id', $item->product_name, 'full', false, false, array( 'width'=>80 ,'height'=>45 ) ); ?>
+                    		</a>
+         					<li>
+         					</li>
+	              				<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
+	                    		<?php echo $newtext = substr($item->product_name,0,15);	?>
+                    				</a>
+							</li>
+							<li>
+							<strong>
+                     			<?php echo CitruscartHelperProduct::dispayPriceWithTax($item->product_price, $item->tax, $this->product_relations_data->show_tax); ?>
+                    		</strong>
+                    	</li>
+					</ul>
                      <?php $k = 1 - $k; ?>
-       	</li>
+       			</li>
 	        <?php endforeach; ?>
-		</ul>
+			</ul>
         <div class="reset"></div>
     </div>
 	<div class="reset"></div>
