@@ -11,11 +11,12 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
-<?php $form = $this->form; ?>
-<?php $row = $this->row; 
-	JFilterOutput::objectHTMLSafe( $row );
+<?php	
+$form = $this->form;
+$row = $this->row; 
+JFilterOutput::objectHTMLSafe( $row );
+JHTML::_('behavior.tooltip'); 
 ?>
-<?php JHTML::_('behavior.tooltip'); ?>
 
 <form action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminform" name="adminForm" id="adminForm" enctype="multipart/form-data" >
 
@@ -24,12 +25,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
                     <td style="width: 100px; text-align: right;" class="key">
                         <?php echo JText::_('COM_CITRUSCART_USER'); ?>:
                     </td>
-                    <td>
-                    	<?php if(isset($row->user_id)) { ?>
-                    	<?php $user_element = CitruscartSelect::userelement( $row->user_id, 'user_id' ); ?>
+                    <td>                    	
+                     	<?php 
+                     	   	$user_element = CitruscartSelect::userelement( $row->user_id, 'user_id' ); ?>
                         <?php echo $user_element['select']; ?>
                         <?php echo $user_element['clear']; ?>
-                        <?php } ?>
                     </td>
                 </tr>
                 <tr>
@@ -45,9 +45,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 						<?php echo JText::_('COM_CITRUSCART_TYPE'); ?>:
 					</td>
 					<td>
-						<?php if(isset($row->credittype)) { ?>
+					<?php echo CitruscartSelect::credittype( $row->credittype_code, 'credittype_code' ); ?>
+						<?php  if(isset($row->credittype)) { ?>
 						<?php echo CitruscartSelect::credittype( $row->credittype_code, 'credittype_code' ); ?>
-						<?php } ?>
+						<?php }  ?>
 					</td>
 				</tr>
                 <tr>
@@ -55,9 +56,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
                         <?php echo JText::_('COM_CITRUSCART_ENABLED'); ?>:
                     </td>
                     <td>
-                    	<?php if(isset($row->credit_enabled)) { ?>
+                    	<?php echo CitruscartSelect::btbooleanlist( 'credit_enabled', '', $row->credit_enabled ); ?>
+                    	<?php /* if(isset($row->credit_enabled)) { ?>
                      	<?php echo CitruscartSelect::btbooleanlist( 'credit_enabled', '', $row->credit_enabled ); ?>
-                     	<?php } ?>
+                     	<?php }  */?>
                     </td>
                 </tr>
                 <tr>
@@ -130,7 +132,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
                         <?php echo JText::_('COM_CITRUSCART_WITHDRAWABLE_BALANCE_BEFORE'); ?>:
                     </td>
                     <td>
-                    	<?php echo isset($row->withdrawable_balance_before) ? $row->withdrawable_balance_before : ""; ?>
+                    	<?php echo $row->withdrawable_balance_before;?>
+                    	<?php  echo isset($row->withdrawable_balance_before) ? $row->withdrawable_balance_before : ""; ?>
                     </td>
                 </tr>
                 <tr>

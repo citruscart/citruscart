@@ -16,13 +16,12 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Add CSS
-
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/citruscart_cart.css');
 ?>
 
 <div class="buycart">
 <?php
-$src = JURI::root(true).'/images/citruscart.png';
+$src = JUri::root().'/modules/mod_citruscart_cart/media/images/citruscart_cart.png';
 ?>
 
 <?php
