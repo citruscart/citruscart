@@ -127,6 +127,7 @@ function citruscartCheckoutSetBillingAddress(url, container, selected, form) {
 
 		citruscartGetCheckoutTotals(true);
 		citruscartRestoreFormInputs(form, values);
+		console.log(values);
 	} else// user wants to create a new address
 	{
 		divContainer.style.display = "none";

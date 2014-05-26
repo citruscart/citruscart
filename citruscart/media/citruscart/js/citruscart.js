@@ -386,7 +386,7 @@ function citruscartFormValidation(url, container, task, form, doModal, msg, onCo
  * @return
  */
 function citruscartSubmitForm(task, form) {
-	console.log(task,form);
+	
 	Dsc.submitForm(task, form);
 }
 
@@ -863,7 +863,7 @@ function citruscartPutAjaxLoader(container, text, suffix) {
  *
  */
 function citruscartGrayOutAjaxDiv(container, text, suffix) {
-	console.log(container);
+	
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
@@ -875,14 +875,14 @@ function citruscartGrayOutAjaxDiv(container, text, suffix) {
 
 	// make all texts in the countainer gray
 	citruscartSetColorInContainer(container, '');
-	console.log(img_loader);
+	
 	//document.getElementById(container).innerHTML += '<div class="citruscartAjaxGrayDiv">' + img_loader + text_element + '</div>';
 	
 	
 }
 
 function citruscartSetColorInContainer(container, color) {
-	console.log(color);
+	
 	if (document.getElementById(container)) { document.getElementById(container).setStyle('color', color); }
 	$$('#' + container + ' *' ).each(function(el) {
 		el.setStyle('color', color);
@@ -934,7 +934,7 @@ function citruscartRestoreFormInputs(form, values) {
  */
 function citruscartGetFormInputData(form) {
 	var str = new Array();
-	console.log(form);
+	
 	for ( i = 0; i < form.elements.length; i++) {
 		postvar = {
 			name : form.elements[i].name,
@@ -944,7 +944,7 @@ function citruscartGetFormInputData(form) {
 		};
 		str[i] = postvar;
 	}
-	console.log(str);
+	
 	return str;
 }
 
