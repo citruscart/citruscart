@@ -294,9 +294,11 @@
 									<?php endif; ?>
 								</div>
 		            			<div id="coupon_code_message"></div>
-		            			<input type="text" name="new_coupon_code" id="new_coupon_code" value="" />
-		            			<input type="button" name="coupon_submit" value="<?php echo JText::_('COM_CITRUSCART_ADD_COUPON_TO_ORDER'); ?>"  onClick="citruscartAddCoupon( document.adminForm, '<?php if ($mult_enabled) { echo "1"; } else { echo "0"; } ?>' );"/>
-		            		</div>
+
+		            			<div class="input-group">
+		            				<input type="text" class="form-control" name="new_coupon_code" id="new_coupon_code" value="" />
+	   								<input type="button"  class="btn btn-danger"  name="coupon_submit" value="<?php echo JText::_('COM_CITRUSCART_ADD_COUPON_TO_ORDER'); ?>"  onClick="citruscartAddCoupon( document.adminForm, '<?php if ($mult_enabled) { echo "1"; } else { echo "0"; } ?>' );"/>
+								</div>
 		            		<div id='coupon_codes' style="display: none;"></div>
 		        		</div>
 					</div>

@@ -43,12 +43,13 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
 ?>
 <?php } ?>
  <div>
-    <div class="rowDiv" style="padding-top: 5px;">
-        <?php if ($review_enable==1 && $result == 1): ?>
+ 	 <div class="rowDiv" style="padding-top: 5px;">
+        <?php
+        	 if ($review_enable==1 && $result == 1): ?>
         	<div class="leftAlignDiv">
         		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn" />
         	</div>
-        <?php endif;?>
+        <?php  endif;?>
     	<!-- <div class="rightAlignDiv"> -->
     	<div class="pull-right">
     	<?php if ($review_enable==1 && $count > 0  ): ?>
@@ -144,7 +145,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
 </tfoot>
 </table>
 	<?php else:?>
-    	<?php echo JText::_('COM_CITRUSCART_NO_REVIEW_ITEMS_FOUND');?>
+    	<h4><?php echo JText::_('COM_CITRUSCART_NO_REVIEW_ITEMS_FOUND');?></h4>
     <?php endif;?>
     <?php endif;?>
 </div>

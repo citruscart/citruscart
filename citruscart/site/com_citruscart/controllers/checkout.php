@@ -1313,12 +1313,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
             // set the zone name
             $zone = JTable::getInstance('Zones', 'CitruscartTable');
-            $zone->load( $addressArray['zone_id'] );
-            $addressArray['zone_name'] = $zone->zone_name;
+           // $zone->load( $addressArray['zone_id'] );
+        //    $addressArray['zone_name'] = $zone->zone_name;
             // set the country name
             $country = JTable::getInstance('Countries', 'CitruscartTable');
-            $country->load( $addressArray['country_id'] );
-            $addressArray['country_name'] = $country->country_name;
+           // $country->load( $addressArray['country_id'] );
+          //  $addressArray['country_name'] = $country->country_name;
         }
 
         return $addressArray;
@@ -1715,12 +1715,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // set the shipping method
         $order->shipping = new JObject();
-        $order->shipping->shipping_price      = $values['shipping_price'];
-        $order->shipping->shipping_extra      = $values['shipping_extra'];
-        $order->shipping->shipping_code      	= $values['shipping_code'];
-        $order->shipping->shipping_name       = $values['shipping_name'];
-        $order->shipping->shipping_tax        = $values['shipping_tax'];
-        $order->shipping->shipping_type				= $values['shipping_plugin'];
+        $order->shipping->shipping_price      = (isset($values['shipping_price'])) ? $values['shipping_price'] : "";
+        $order->shipping->shipping_extra      = (isset($values['shipping_extra'])) ? $values['shipping_extra'] : "";
+        $order->shipping->shipping_code      	= (isset($values['shipping_code'])) ? $values['shipping_code'] :"";
+        $order->shipping->shipping_name       = (isset($values['shipping_name'])) ? $values['shipping_name'] : "";
+        $order->shipping->shipping_tax        = (isset($values['shipping_tax'])) ? $values['shipping_tax'] :"";
+        $order->shipping->shipping_type				= (isset($values['shipping_plugin'])) ? $values['shipping_plugin'] :"";
 
         // set the addresses
         $this->setAddresses( $values, false, true );
@@ -2850,12 +2850,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // set the shipping method
         $this->_order->shipping = new JObject();
-        $this->_order->shipping->shipping_price      = $submitted_values['shipping_price'];
-        $this->_order->shipping->shipping_extra      = $submitted_values['shipping_extra'];
-        $this->_order->shipping->shipping_code      	= $submitted_values['shipping_code'];
-        $this->_order->shipping->shipping_name       = $submitted_values['shipping_name'];
-        $this->_order->shipping->shipping_tax        = $submitted_values['shipping_tax'];
-        $this->_order->shipping->shipping_type				= $submitted_values['shipping_plugin'];
+        $this->_order->shipping->shipping_price      = (isset($submitted_values['shipping_price'])) ? $submitted_values['shipping_price'] : "";
+        $this->_order->shipping->shipping_extra      = (isset($submitted_values['shipping_extra'] )) ? $submitted_values['shipping_extra'] : "";
+        $this->_order->shipping->shipping_code      	= (isset($submitted_values['shipping_code'])) ? $submitted_values['shipping_code'] :"";
+        $this->_order->shipping->shipping_name       = (isset($submitted_values['shipping_name'])) ? $submitted_values['shipping_name'] :"" ;
+        $this->_order->shipping->shipping_tax        = (isset($submitted_values['shipping_tax'])) ? $submitted_values['shipping_tax'] : "";
+        $this->_order->shipping->shipping_type				= (isset($submitted_values['shipping_plugin'])) ? $submitted_values['shipping_plugin'] : "";
 
         $this->_order->calculateTotals();
 
