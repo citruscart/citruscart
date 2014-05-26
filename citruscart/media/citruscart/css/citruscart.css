@@ -500,9 +500,16 @@ margin-left:8px;
 #product_relations{
 	padding : 15px;
 	/*border:1px solid #ccc;*/
-	box-shadow:3px 3px 3px #dcdcdc;
+	/*box-shadow:3px 3px 3px #dcdcdc;*/ 
 }
 #citruscart_customer_review{
 	box-shadow:3px 3px 3px #dcdcdc;
 }
+#product_relations .citruscart_product_relation_list{
+	border:1px solid #ccc;
+	padding:5px 5px; 
+	text-align:center; 
+	box-shadow:3px 3px 3px #dcdcdc; 
+	margin:5px;
+	}
 		
