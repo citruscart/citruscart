@@ -77,10 +77,12 @@ defined('_JEXEC') or die('Restricted access');
                         </div>
                     </div>
                 </th>
+                
                 <?php if( $display_subnum ): ?>
                 <th>
                     <input id="filter_subnum" type="text" name="filter_subnum" value="<?php echo $state->filter_subnum; ?>" size="10"/>
                 </th>
+                
                 <?php endif; ?>
                 <th style="text-align: left;">
                 	<input id="filter_name" type="text" name="filter_name" value="<?php echo $state->filter_name; ?>" size="25" placeholder="<?php echo JText::_("COM_CITRUSCART_NAME");?>" />
