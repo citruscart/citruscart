@@ -29,7 +29,8 @@ require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.ph
 
 require_once (JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/version.php');
 
-JHtml::_('behavior.core');
+//JHtml::_('behavior.core');
+JHtml::_('jQuery.framework');
 
 JHtml::_('bootstrap.framework');
 // Check the registry to see if our Citruscart class has been overridden
