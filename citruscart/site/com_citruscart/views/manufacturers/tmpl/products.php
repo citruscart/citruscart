@@ -25,48 +25,42 @@ $citems = @$this->citems;
 
     <?php if (!empty($items)) : ?>
         <div id="citruscart_products" style="display:inline-flex;">
+         <ul id="citruscart_manufacturer_list">
             <?php foreach ($items as $item) : ?>
-            <div class="product_item">
             <!-- manufacturers unorder list ends -->
-            <ul class="unstyled" style="display:inline-flex;">
-            	<li class="ul-images">
+            	<li class="citruscart_manufacturer_main_list">
      	                <a href="<?php echo JRoute::_( $item->link."&filter_category=".$this->cat->category_id ."&Itemid=".$item->itemid ); ?>">
               	            <?php echo CitruscartHelperProduct::getImage($item->product_id); ?>
            	            </a>
-
+					<br/>
                     <?php if ( Citruscart::getInstance()->get('product_review_enable', '0') ) { ?>
-                    <div class="product_rating" style="margin-top:3px;">
+
                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating ); ?>
                        <?php if (!empty($item->product_comments)) : ?>
                        <span class="product_comments_count">(<?php echo $item->product_comments; ?>)</span>
                        <?php endif; ?>
-                    </div>
                     <?php } ?>
-                       <div class="manu_product_name">
+                       <!-- <div class="manu_product_name">-->
+                       <br/>
                         <span>
                             <a href="<?php echo JRoute::_($item->link."&filter_category=".$this->cat->category_id."&Itemid=".$item->itemid ); ?>">
                             <?php echo $item->product_name; ?>
                             </a>
                         </span>
                         <br/>
-                        <h5><span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
+                        <h6>
+                        	<span id="product_price_<?php echo $item->product_id; ?>" class="product_price">
 					    	<?php  echo CitruscartHelperProduct::dispayPriceWithTax($item->price, @$item->tax, @$this->show_tax); ?>
 					    	 <!-- For UE States, we should let the admin choose to show (+19% vat) and (link to the shipping rates) -->
 					    	<br />
 					    	<?php if(Citruscart::getInstance()->get( 'display_prices_with_shipping') && !empty($item->product_ships)):?>
 					    	<?php echo CitruscartUrl::popup( JRoute::_($this->shipping_cost_link.'&tmpl=component'), JText::_('COM_CITRUSCART_LINK_TO_SHIPPING_COST') ); ?>
 					    	<?php endif;?>
-					   		 </span></h5>
-
-                </li>
-               </ul><!-- manufacturers unorder list ends -->
-
-                <div class="reset"></div>
-            </div>
-            <div class="reset"></div>
+					   		 </span></h6>
+               </li>
+               <!-- manufacturers unorder list ends -->
             <?php endforeach; ?>
         </div>
-
         <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
             <div id="results_counter"><?php echo $this->pagination->getResultsCounter(); ?></div>

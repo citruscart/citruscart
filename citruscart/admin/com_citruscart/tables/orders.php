@@ -75,7 +75,7 @@ class CitruscartTableOrders extends CitruscartTable
      * @param $db
      * @return unknown_type
      */
-    function CitruscartTableOrders ( &$db ){
+    function __construct( &$db ){
         $tbl_key    = 'order_id';
         $tbl_suffix = 'orders';
         $this->set( '_suffix', $tbl_suffix );

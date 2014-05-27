@@ -1,19 +1,19 @@
-	/* div.Citruscart_products_grid div.Citruscart_product_item {float: left;}
-	div.Citruscart_products_grid div.Citruscart_product_item.grid2 {width: 47%; margin-right: 5%;}
-	div.Citruscart_products_grid div.Citruscart_product_item.grid3 {width: 30%; margin-right: 5%;}
-	div.Citruscart_products_grid div.Citruscart_product_item.grid4 {width: 22%; margin-right: 3%;}
-	div.Citruscart_products_grid div.Citruscart_product_item.grid5 {width: 17%; margin-right: 3%;}
-	div.Citruscart_products_grid div.Citruscart_product_item.grid6 {width: 13%; margin-right: 4%;}
+	/* div.citruscart_products_grid div.citruscart_product_item {float: left;}
+	div.citruscart_products_grid div.citruscart_product_item.grid2 {width: 47%; margin-right: 5%;}
+	div.citruscart_products_grid div.citruscart_product_item.grid3 {width: 30%; margin-right: 5%;}
+	div.citruscart_products_grid div.citruscart_product_item.grid4 {width: 22%; margin-right: 3%;}
+	div.citruscart_products_grid div.citruscart_product_item.grid5 {width: 17%; margin-right: 3%;}
+	div.citruscart_products_grid div.citruscart_product_item.grid6 {width: 13%; margin-right: 4%;}
 	*/
 	
-	div.Citruscart_product_box {overflow: hidden; padding-top: 10px;}
-	div.Citruscart_products_grid .grid1 {float: none;}
+	div.citruscart_product_box {overflow: hidden; padding-top: 10px;}
+	div.citruscart_products_grid .grid1 {float: none;}
 
-	div.Citruscart_products_grid .grid2, 
-	div.Citruscart_products_grid .grid3, 
-	div.Citruscart_products_grid .grid4, 
-	div.Citruscart_products_grid .grid5, 
-	div.Citruscart_products_grid .grid6 {float: left;}
+	div.citruscart_products_grid .grid2, 
+	div.citruscart_products_grid .grid3, 
+	div.citruscart_products_grid .grid4, 
+	div.citruscart_products_grid .grid5, 
+	div.citruscart_products_grid .grid6 {float: left;}
 
 	div.grid2 {width: 49.99%;}
 	div.grid3 {width: 33.33%;}
@@ -21,5 +21,11 @@
 	div.grid5 {width: 19.99%;}
 	div.grid6 {width: 16.67%;}
 	
-	div.Citruscart_products_grid .inner {padding: 0 20px 0 0;}
-	div.Citruscart_products_grid .right .inner {padding-right: 0;}
+	div.citruscart_products_grid .inner {padding: 0 20px 0 0;}
+	div.citruscart_products_grid .right .inner {padding-right: 0;}
+	
+	.citruscart_product_box ul li {
+	list-style-type: none;
+	display: inline;
+	float: left;
+	}

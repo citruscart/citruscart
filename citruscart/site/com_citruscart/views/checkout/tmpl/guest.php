@@ -13,7 +13,7 @@
     JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
     JHtml::_('script', 'media/citruscart/js/citruscart_checkout.js', false, false);
     $form = $this->form;
-	$row = $this->row;
+	$row = @$this->row;
 	$register = $this->register;
 	$baseurl = "index.php?option=com_citruscart&format=raw&controller=addresses&task=getAddress&address_id=";
 ?>

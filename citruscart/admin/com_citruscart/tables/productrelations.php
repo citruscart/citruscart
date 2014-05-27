@@ -14,18 +14,18 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 Citruscart::load( 'CitruscartTable', 'tables._base' );
 
-class CitruscartTableProductRelations extends CitruscartTable 
+class CitruscartTableProductRelations extends CitruscartTable
 {
-    function CitruscartTableProductRelations( &$db ) 
+    function __construct( &$db )
     {
         $tbl_key    = 'productrelation_id';
         $tbl_suffix = 'productrelations';
         $this->set( '_suffix', $tbl_suffix );
         $name       = 'citruscart';
-        
-        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );   
+
+        parent::__construct( "#__{$name}_{$tbl_suffix}", $tbl_key, $db );
     }
-	
+
 	function check()
 	{
 		if (empty($this->product_id_from))
@@ -39,13 +39,13 @@ class CitruscartTableProductRelations extends CitruscartTable
             $this->setError( JText::_('COM_CITRUSCART_PRODUCT_TO_REQUIRED') );
             return false;
         }
-        
+
 	    if (empty($this->relation_type))
         {
             $this->setError( JText::_('COM_CITRUSCART_RELATION_TYPE_REQUIRED') );
             return false;
         }
-		
+
 		return true;
 	}
 }

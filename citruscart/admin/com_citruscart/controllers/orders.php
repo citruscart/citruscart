@@ -138,9 +138,9 @@ class CitruscartControllerOrders extends CitruscartController
 
 		$model->emptyState();
 		$this->_setModelState();
-		$surrounding = $model->getSurrounding( $model->getId() );
+/* 		$surrounding = $model->getSurrounding( $model->getId() );
 		$view->assign( 'surrounding', $surrounding );
-
+ */
 		//START onDisplayOrderItem: trigger plugins for extra orderitem information
 		if (!empty($orderitems))
 		{

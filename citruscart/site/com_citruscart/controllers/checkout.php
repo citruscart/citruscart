@@ -897,13 +897,14 @@ class CitruscartControllerCheckout extends CitruscartController
             echo ( json_encode( $response ) );
             return true;
         }
-
+		if(isset($submitted_values['billing_address_id'])){
         // fail if billing address is invalid
         if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix , $submitted_values['billing_address_id'], true ))
         {
             $response['msg'] = $helper->generateMessage( JText::_('COM_CITRUSCART_BILLING_ADDRESS_ERROR')." :: ".$this->getError() );
             $response['error'] = '1';
         }
+		}
 
         // fail if shipping address is invalid
         if($submitted_values['shippingrequired'])
@@ -2078,10 +2079,10 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // set the shipping method
         $order->shipping = new JObject();
-        $order->shipping->shipping_price      = $values['shipping_price'];
-        $order->shipping->shipping_extra      = $values['shipping_extra'];
-        $order->shipping->shipping_name       = $values['shipping_name'];
-        $order->shipping->shipping_tax        = $values['shipping_tax'];
+        $order->shipping->shipping_price      = (isset($values['shipping_price'])) ? $values['shipping_price'] : "" ;
+        $order->shipping->shipping_extra      = (isset($values['shipping_extra'])) ? $values['shipping_extra'] :"";
+        $order->shipping->shipping_name       = (isset($values['shipping_name'])) ? $values['shipping_name'] :"";
+        $order->shipping->shipping_tax        =(isset($values['shipping_tax'])) ? $values['shipping_tax'] :"";
 
         $this->setAddresses( $values );
 
@@ -2109,7 +2110,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $shipping_address_id    = (!empty($values['shipping_address_id'])) ? $values['shipping_address_id'] : 0;
         $same_as_billing        = (!empty($values['sameasbilling'])) ? true : false;
         //$shipping_method_id     = $values['shipping_method_id'];
-        $customerNote           = $values['customer_note'];
+        $customerNote           = (isset($values['customer_note'] )) ? $values['customer_note'] : "";
 
         $progress = $this->getProgress();
 
@@ -2174,7 +2175,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
         $values['shipping_address_id'] = $shipping_address_id;
 
-        $shippingMethodName = $values['shipping_name'];
+        $shippingMethodName = isset($values['shipping_name']) ? $values['shipping_name'] :"";
 
         //Assign Addresses and Shippping Method to view
         $view->assign('shipping_method_name',$shippingMethodName);
@@ -3099,7 +3100,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $this->setAddresses( $values, false, $ajax );
 
         // set the shipping method
-        if($values['shippingrequired'] || !empty($values['shipping_plugin']))
+        if(isset($values['shippingrequired']) || ($values['shipping_plugin']))
         {
             $order->shipping = new JObject();
             $order->shipping->shipping_price      = $values['shipping_price'];

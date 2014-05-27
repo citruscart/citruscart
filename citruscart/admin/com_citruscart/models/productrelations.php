@@ -132,7 +132,13 @@ class CitruscartModelProductRelations extends CitruscartModelBase
 
 	public function getList($refresh = false)
 	{
-		$list = parent::getList($refresh);
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query = $this->_buildQuery();
+		$db->setQuery($query);
+		$list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
+		$this->_list = $list;
+		//$list = parent::getList($refresh);
 
 		// If no item in the list, return an array()
 		if( empty( $list ) ){

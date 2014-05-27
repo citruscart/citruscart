@@ -42,31 +42,24 @@ class CitruscartControllerProductsJson extends CitruscartControllerProducts impl
 		$helper = CitruscartHelperBase::getInstance();
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->getArray( 'elements', '', 'post', 'string' ) ) );
-		//$elements = json_decode( preg_replace('/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->getString( 'elements') ) );
 
 		// convert elements to array that can be binded
 		Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
 		$helper = CitruscartHelperBase::getInstance();
 		$submitted_values = $helper->elementsToArray( $elements );
-
 		$product_id = $submitted_values['new_relationship_productid_from'];
 		$productrelation_id = $app->input->getInt('productrelation_id');
-
 		$table = JTable::getInstance('ProductRelations', 'CitruscartTable');
 		$table->delete( $productrelation_id );
-
 		JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR . '/components/com_citruscart/models' );
 		$model = JModelLegacy::getInstance( 'ProductRelations', 'CitruscartModel' );
         $model->clearCache();
-
 		$response['error'] = '0';
 		$response['msg'] = $this->getRelationshipsHtml( null, $product_id );
-
 		echo json_encode($response);
-
 		// Close the application.
-		JFactory::getApplication()->close();
+		$app->close();
 	}
 
 	/**
@@ -86,7 +79,7 @@ class CitruscartControllerProductsJson extends CitruscartControllerProducts impl
 
 		// get elements from post
 		//$elements = json_decode( preg_replace('/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n',$app->input->get( 'elements', '', 'post', 'string' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n',$app->input->getString( 'elements') ) );
 
 
 		// convert elements to array that can be binded
@@ -143,7 +136,7 @@ class CitruscartControllerProductsJson extends CitruscartControllerProducts impl
 					$response['msg'] = $helper->generateMessage( JText::_('COM_CITRUSCART_RELATIONSHIP_ALREADY_EXISTS') );
 					$response['msg'] .= $this->getRelationshipsHtml( null, $product_id );
 					echo ( json_encode( $response ) );
-					return;
+					$app->close();
 				}
 
 				// then add it, need to flip to/from
@@ -172,7 +165,7 @@ class CitruscartControllerProductsJson extends CitruscartControllerProducts impl
 		echo json_encode($response);
 
 		// Close the application.
-		JFactory::getApplication()->close();
+		$app->close();
 	}
 
 	/**

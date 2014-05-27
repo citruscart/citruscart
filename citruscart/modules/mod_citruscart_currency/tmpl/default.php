@@ -21,14 +21,8 @@ $url = JRoute::_( 'index.php?option=com_citruscart&view=products&task=setCurrenc
 // Check the currently selected currency
 $selected = CitruscartHelperBase::getSessionVariable('currency_id', Citruscart::getInstance()->get( 'default_currencyid', 1 ) );
 ?>
-<style>
-#currency{
-	margin-top:10px;
-	margin-right:20px;
 
-}
-</style>
-<div id="currency">
+<div id="mod_citruscart_currency">
     <form action="<?php echo $url; ?>" method="post" name="currencySwitch">
         <?php // echo JText::_('COM_CITRUSCART_SELECT_CURRENCY').': '; ?>
         <?php $attribs = array( 'onChange' => 'document.currencySwitch.submit(); '); ?>

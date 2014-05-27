@@ -31,7 +31,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($product_id, '', '', 't
 		<span><?php // echo JText::_('COM_CITRUSCART_IMAGES'); ?> </span>
 	</div> -->
 	<?php $i = 1; ?>
-	<ul class="unstyled" id="citruscart-product-gallery-list<?php $product_id?>">
+	<ul class="citruscart_product_gallery_thumb" id="citruscart-product-gallery-list<?php $product_id?>">
 	<?php foreach ( $gallery_data->images as $image ):?>
 		<?php
 	    $src = $gallery_data->uri . $image;
@@ -44,10 +44,10 @@ $product_image_thumb = CitruscartHelperProduct::getImage($product_id, '', '', 't
 		    $alt_id ="citruscart_product_image_alt".$product_id."_".$i;
 		    $onclick="changeAltImage('/ $i /')";
 		?>
-		<li>
+		<li class="zoom_gallery">
 		<a href="#" data-image="<?php echo JRoute::_($src);?>" >
 		<!-- id="citruscart_alt_image<?php echo $i;?>"  -->
-		 	<img id="<?php echo $id;?>" onclick="changeAltImage(<?php echo $alt_id?>)" class="citruscart_image-product_gallery_thumb"
+		 	<img id="<?php echo $id;?>" onclick="changeAltImage(<?php echo $alt_id?>)"
 		 		 src="<?php echo $gallery_data->uri . "thumbs/" . $image;?>"
 		 		  data-zoom-image="<?php echo $src;?>"
 		 		  href="<?php echo $src;?>"
@@ -86,7 +86,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($product_id, '', '', 't
 		jQuery(".zoomImg").attr('src',id.src);
 		a = a+1;
 		var main_image_src=jQuery("#product_main_image").val();
-		var html ="<li><a href='#' ><img src='"+main_image_src +"' onclick='setMainImage(this)' class='citruscart_image-product_gallery_thumb' />"+
+		var html ="<li class='zoom_gallery'><a href='#' ><img src='"+main_image_src +"' onclick='setMainImage(this)' class='citruscart_image-product_gallery_thumb' />"+
 	 		  "<img id='<?php echo $alt_id;?>'  src='"+main_image_src +"' style='display:none;'/>"+
 			  "</a></li>";
 		if(a == 1){
