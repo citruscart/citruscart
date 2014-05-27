@@ -26,7 +26,7 @@
 ?>
 
 <div class='componentheading'>
-    <span><?php echo JText::_('COM_CITRUSCART_MANAGE_YOUR_ADDRESSES'); ?></span>
+    <h3><?php echo JText::_('COM_CITRUSCART_MANAGE_YOUR_ADDRESSES'); ?></h3>
 </div>
 
   <div class="naviagtion header">
@@ -44,22 +44,18 @@
     <?php echo CitruscartGrid::pagetooltip( $app->input->getString('view') );
     //CitruscartGrid::pagetooltip( JRequest::getVar('view') );
     ?>
-
-    <table>
-        <tr>
-            <td align="left" width="100%">
-                <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => "document.getElementById('task').value=this.options[this.selectedIndex].value; document.adminForm.submit();"); ?>
-                <?php echo CitruscartSelect::addressaction( '', 'apply_action', $attribs, 'apply_action', true, false, 'COM_CITRUSCART_SELECT_ACTION' ); ?>
-            </td>
-            <td nowrap="nowrap">
-                <a href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&task=edit".$tmpl); ?>">
-                    <?php echo JText::_('COM_CITRUSCART_ENTER_A_NEW_ADDRESS'); ?>
-                </a>
-            </td>
-        </tr>
-    </table>
-
-    <table class="adminlist" style="clear: both;">
+	<div>
+		<div class="pull-left">
+		 <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => "document.getElementById('task').value=this.options[this.selectedIndex].value; document.adminForm.submit();"); ?>
+         <?php echo CitruscartSelect::addressaction( '', 'apply_action', $attribs, 'apply_action', true, false, 'COM_CITRUSCART_SELECT_ACTION' ); ?>
+		</div>
+		<div class="pull-right">
+			<a class="btn btn-danger" href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&task=edit".$tmpl); ?>">
+                <?php echo JText::_('COM_CITRUSCART_ENTER_A_NEW_ADDRESS'); ?>
+             </a>
+		</div>
+	</div>
+    <table class="adminlist table table-striped" style="clear: both;">
         <thead>
             <tr>
                 <th style="width: 20px;">

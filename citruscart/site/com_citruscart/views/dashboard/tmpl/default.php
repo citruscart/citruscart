@@ -31,7 +31,7 @@
 
 	?>
 </div>
-<table style="width: 100%;">
+<table class="table  table-bordered" style="width: 100%;">
 <tr>
 	<td style="width: 70%; vertical-align: top; padding-right: 5px;">
 
@@ -75,8 +75,7 @@
                     <?php echo JText::_('COM_CITRUSCART_ADDRESSES'); ?>
                 </th>
                 <td>
-
-                    <a class="modal" id="citruscart_product" rel="{handler: 'iframe', size: {x: 800, y: 500}}"  href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
+                    <a class="modal" id="citruscart_product" rel="{handler: 'iframe', size: {x: 900, y: 500}}"  href="<?php echo JRoute::_("index.php?option=com_citruscart&view=addresses&tmpl=component"); ?>">
                         <?php echo JText::_('COM_CITRUSCART_MANAGE_BILLING_AND_SHIPPING_ADDRESSES'); ?>
                     </a>
                 </td>

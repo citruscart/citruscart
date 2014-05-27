@@ -325,7 +325,8 @@ class DSCGrid extends JHTMLGrid
 		$defines = DSC::getApp( $app );
 		$disabled = $defines->get( $constant."_disabled", '0');
 
-		$full_constant = strtoupper( $app . "_" . $constant );
+		 $full_constant = strtoupper( $app . "_" . $constant );
+
 		$lang = JFactory::getLanguage();
 		if ($lang->hasKey($full_constant) && !$disabled)
 		{
