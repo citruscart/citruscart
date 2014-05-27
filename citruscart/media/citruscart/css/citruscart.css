@@ -475,7 +475,8 @@ margin-left:8px;
 
 .citruscart-rating li{
 	margin-top:-15px;
-	margin-left:5px;
+	padding-right:5px;
+	list-style:none;
 }
 
 #citruscart_product_buy_info{

@@ -263,15 +263,24 @@ class CitruscartModelOrders extends CitruscartModelBase
 
 	public function getList($refresh = false)
 	{
-	    if (empty( $this->_list ))
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query = $this->_buildQuery();
+		$db->setQuery($query);
+
+		//$list = $db->loadObjectList();
+		$list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
+		$this->_list = $list;
+
+	    if ( $this->_list )
 	    {
 	        Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
 
-	        $list = parent::getList($refresh);
+	        //$list = parent::getList($refresh);
 	        // If no item in the list, return an array()
-            if( empty( $list ) ){
+           /*  if( empty( $list ) ){
                 return array();
-            }
+            } */
 
             $amigos = CitruscartHelperBase::getInstance( 'Amigos' );
             $currency_helper = CitruscartHelperBase::getInstance( 'Currency' );

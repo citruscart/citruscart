@@ -20,28 +20,28 @@ $items = $this->items;
 ?>
 <div class='categoryheading'>
 <?php echo JText::_('COM_CITRUSCART_SEARCH_RESULTS_FOR').': '.$state->filter; ?>
+<div id="citruscart_search_result" class="pull-right"><?php echo $this->pagination->getResultsCounter(); ?></div>
 </div>
+
 
 <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
 
-     <div style="float: right; padding: 5px;"><?php echo $this->pagination->getResultsCounter(); ?></div>
-	     <?php echo $this->pagination->getListFooter(); ?>
+
+	 <?php echo $this->pagination->getListFooter(); ?>
      <?php if (empty($items)) :?>
     		<?php echo JText::_('COM_CITRUSCART_NO_MATCHING_ITEMS_FOUND'); ?>
 	 <?php else :?>
-	 <ul id="image-list" class="nav navbar-nav">
+	 <ul id="citruscart_search_product_main">
 			<?php foreach ($items as $item) :?>
-			<li class="ul-images" >
+			<li class="citruscart_search_product_list" >
                <a href="<?php echo JRoute::_( $item->link ); ?>">
 	               <?php echo CitruscartHelperProduct::getImage($item->product_id); ?>
                  </a>
-                <p class="price"><?php echo CitruscartHelperBase::currency($item->price); ?></p>
-
+                 <br/>
+                <strong><?php echo CitruscartHelperBase::currency($item->price); ?></strong>
        </li>
 	<?php endforeach;?>
 	</ul>
 	<?php endif; ?>
-      </tbody>
-    </table>
 <?php echo $this->form['validate']; ?>
 </form>

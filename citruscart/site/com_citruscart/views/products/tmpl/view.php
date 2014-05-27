@@ -58,14 +58,14 @@
             </div>
             <div id="citruscart_product_buy_info" class="col-md-5 citruscart_add_info">
                <!-- product name unorder list starts -->
-               <ul class="unstyled">
+
                   <!-- product properties list starts -->
-              	    <li class="productproperties">
+
                 	     <h3>
                         	<?php echo htmlspecialchars_decode( $item->product_name ); ?>
                     	 </h3>
 						<hr>
-                    	 <ul class="unstyled citruscart-rating pull-left">
+                    	 <ul class="citruscart-rating pull-left">
                         	<!-- list starts -->
                         	<li>
                            <?php if ( $this->defines->get( 'product_review_enable', '0' ) ) { ?>
@@ -80,11 +80,11 @@
 	                     <!-- unorder list ends -->
 	                     <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	                     <?php if ( !empty( $item->product_model ) ) : ?>
-	                   		<small><?php echo JText::_('COM_CITRUSCART_MODEL'); ?> </strong>: <?php echo $item->product_model; ?></small>
+	                   		<small><strong><?php echo JText::_('COM_CITRUSCART_MODEL'); ?></strong>: <?php echo $item->product_model; ?></small>
 	                     <?php endif; ?>
 	                     <?php if ( !empty( $item->product_sku ) ) : ?>
 	                     <?php echo "|";?>
-	                     <small><?php echo JText::_('COM_CITRUSCART_SKU'); ?>:<?php echo $item->product_sku; ?></small>
+	                     <small><strong><?php echo JText::_('COM_CITRUSCART_SKU'); ?></strong>:<?php echo $item->product_sku; ?></small>
 	                     <?php endif; ?>
 	                     <?php endif; ?>
                      </div>
@@ -106,9 +106,7 @@
                      <div class="citruscart_product_shareButtons">
                         <?php echo $this->onAfterDisplayProductDescription;?>
                      </div>
-                  </li>
-                  <!-- product properties list ends -->
-               </ul>
+                 <!-- product properties list ends -->
             </div>
             <?php if ( $this->defines->get( 'enable_product_detail_nav' ) && (!empty($this->surrounding['prev']) || !empty($this->surrounding['next'])) ) { ?>
             <div class="pagination">

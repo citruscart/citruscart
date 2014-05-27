@@ -151,9 +151,9 @@ $app = JFactory::getApplication();
 
 	</div>
 	<?php endif;?>
-		<ul id="image-list" class="nav navbar-nav">
+		<ul id="citruscart_main_product_view" class="nav navbar-nav">
 			<?php foreach ($items as $item) :?>
-			<li class="ul-images" >
+			<li class="citruscart_product_default_main_list" >
 			  <span>
 			  <?php $thumb = CitruscartHelperProduct::getImage($item->product_id, '', $item->product_name); ?>
                <?php if ($thumb) { ?>
@@ -164,9 +164,9 @@ $app = JFactory::getApplication();
                         <!--</div>-->
                 <?php } ?>
 					<div class="product-general-info" id="product-general-info<?php echo $item->product_id?>">
-                        <h6>
+                        <h5>
                         	<a href="<?php echo JRoute::_($item->link . $item->itemid_string ); ?>"><?php echo htmlspecialchars_decode( $item->product_name ); ?></a>
-                        </h6>
+                        </h5>
 	                     <?php if ( $config->get('product_review_enable', '0') ) : ?>
 	                   	 <!--  <div class="dsc-wrap product_rating"> -->
 	                       <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating, $this ); ?>

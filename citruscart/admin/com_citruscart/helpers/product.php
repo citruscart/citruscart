@@ -743,6 +743,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
      */
     public static function getImage( $id, $by = 'id', $alt = '', $type = 'thumb', $url = false, $resize = false, $options = array( ), $main_product = false )
     {
+    	$app = JFactory::getApplication();
         $style = "";
         $height_style = "";
         $width_style = "";
@@ -793,7 +794,6 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             // then this is a filename, return the full img tag if file exists, otherwise use a default image
             $src = ( JFile::exists( Citruscart::getPath( $path ) . '/' . $id ) ) ? Citruscart::getUrl( $path ) . $id
             : JURI::root( true ) . '/media/citruscart/images/placeholder_239.gif';
-
 
             // if url is true, just return the url of the file and not the whole img tag
             $tmpl = ( $url ) ? $src
@@ -860,7 +860,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
                 if( $main_product )
                 {
-                    JFactory::getApplication()->triggerEvent('onGetProductMainImage', array( $row->product_id, &$full_image, $options ) );
+                    $app->triggerEvent('onGetProductMainImage', array( $row->product_id, &$full_image, $options ) );
                 }
 
                 $dirname = dirname($image_ref);
@@ -949,8 +949,8 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
 				if(JFactory::getApplication()->isSite()){
                 $tmpl = ( $url ) ? $src
-                : "<img class='citruscart-product-main-images' id=".$p_id ." " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
-                . "' align='middle' border='0' width='300px' />";
+                : "<img class='citruscart-product-main-images'  id=".$p_id ." " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
+                . "' align='middle' border='0' />";
 				}else{
 				$tmpl = ( $url ) ? $src
 					: "<img " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )

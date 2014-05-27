@@ -171,7 +171,7 @@ defined('_JEXEC') or die('Restricted access');
 		<?php
 		$url = "index.php?option=com_citruscart&format=raw&controller=checkout&task=getzones&prefix={$this->form_prefix}&country_id=";
 
-		$onchange = 'citruscartPutAjaxLoader( \''.$this->form_prefix.'zones_wrapper\' );citruscartDoTask( \''.$url.'\'+document.getElementById(\''.$this->form_prefix.'country_id\').value, \''.$this->form_prefix.'zones_wrapper\', \'\', \'\', false, function() {CitruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'country_id\' ); });';
+		$onchange = 'citruscartPutAjaxLoader( \''.$this->form_prefix.'zones_wrapper\' );citruscartDoTask( \''.$url.'\'+document.getElementById(\''.$this->form_prefix.'country_id\').value, \''.$this->form_prefix.'zones_wrapper\', \'\', \'\', false, function() {citruscartCheckoutAutomaticShippingRatesUpdate( \''.$this->form_prefix.'country_id\' ); });';
 		if( $one_page )
 		{
 			$onchange = 'citruscartPutAjaxLoader( \''.$this->form_prefix.'zones_wrapper\' );'.

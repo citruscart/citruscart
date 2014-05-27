@@ -86,7 +86,6 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <div class="sortresults option"><?php echo CitruscartGrid::sort( 'COM_CITRUSCART_REVIEWS', "tbl.product_comments", $state->direction, $state->order ); ?></div>
             <div class="reset"></div>
         </div>
-
         <div id="searchresults_results">
             <?php $i=0; $k=0; ?>
             <?php foreach ($items as $item) : ?>
