@@ -19,6 +19,10 @@
   				<p>Feel free to send your feedback to support@citruscart.com . Your feedback will help us improve the extension</p>
   				]]>
   </description>
+  <updateservers>
+       <server type="extension" priority="1" name="citruscart system Plugin Updates">http://cdn.citruscart.com/updates.xml</server>
+   </updateservers>
+  
     <scriptfile>script.citruscart.php</scriptfile>
 		
 	<!-- Application/site -->    
@@ -136,6 +140,7 @@
         <plugin folder="citruscart" plugin="tool_xmlimporter" publish="true" group="citruscart" element="tool_xmlimporter" />      
         <plugin folder="quickicon" plugin="citruscarticon" publish="true" group="quickicon" element="citruscarticon" />
         <plugin folder="user" plugin="citruscart" publish="true" group="user" element="citruscart" />
+        <plugin folder="system" plugin="dioscouri" publish="true" group="system" element="dioscouri" />
         
         
 	

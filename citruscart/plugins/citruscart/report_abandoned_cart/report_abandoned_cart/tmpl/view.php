@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);?>
 <?php $state = $vars->state; ?>
-<?php $items = $vars->items; ?>
+<?php $items = @$vars->items; ?>
 <table class="table table-striped table-bordered" style="clear: both;">
 	<thead>
 		<tr>
@@ -49,10 +49,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			</td>
 			<td style="text-align: left;">
 				<a href="index.php?option=com_citruscart&view=users&task=view&id=<?php echo $item->user_id;?>">
-					<?php echo $item->name; ?>
+					<?php echo @$item->name; ?>
 				</a>
 			</td>
-			<td style="text-align: left;"><?php echo $item->email; ?>
+			<td style="text-align: left;"><?php echo @$item->email; ?>
 			</td>
 			<td style="text-align: left;"><?php echo JHTML::_('date', $item->last_updated, Citruscart::getInstance()->get('date_format')); ?>
 			</td>

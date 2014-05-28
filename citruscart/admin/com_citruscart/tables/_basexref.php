@@ -168,8 +168,8 @@ class CitruscartTableXref extends CitruscartTable
 
 		$key_value = implode(',',array_values($data));
 
-		//$fmtsql = 'INSERT INTO '.$db->qn($table).' ( %s ) VALUES ( %s ) ';
-		$fmtsql = "INSERT INTO $table( $key ) VALUES ( $key_value ) ";
+		$fmtsql = 'INSERT INTO '.$db->qn($table).' ( %s ) VALUES ( %s ) ';
+		//$fmtsql = "INSERT INTO $table( $key ) VALUES ( $key_value ) ";
 
 		$fields = array();
 

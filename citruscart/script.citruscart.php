@@ -16,17 +16,17 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.filesystem.file');
 class Com_CitruscartInstallerScript{
-	
+
 	public function postflight($type, $parent)
 	{
 		$db = JFactory::getDBO();
 		$app = JFactory::getApplication('site');
 		$status = new stdClass;
         $status->plugins = array();
-        $src = $parent->getParent()->getPath('source'); 
-        
+        $src = $parent->getParent()->getPath('source');
+
 		$manifest = $parent->getParent()->manifest;
-		
+
 		$modules = $manifest->xpath('modules/module');
 		foreach ($modules as $module)
 		{
@@ -44,20 +44,20 @@ class Com_CitruscartInstallerScript{
 
 
 		$plugins = $manifest->xpath('plugins/plugin');
-		
+
 		foreach ($plugins as $plugin)
 		{
 			$name = (string)$plugin->attributes()->plugin;
 			$group = (string)$plugin->attributes()->group;
 			$path = $src.'/plugins/'.$group;
-			
+
 			if (JFolder::exists($src.'/plugins/'.$group.'/'.$name))
 			{
 				$path = $src.'/plugins/'.$group.'/'.$name;
 			}
-			
+
 			$installer = new JInstaller;
-			
+
 			$result = $installer->install($path);
 
 			if($type !='update') {
@@ -68,6 +68,9 @@ class Com_CitruscartInstallerScript{
 
 			$status->plugins[] = array('name' => $name, 'group' => $group, 'result' => $result);
 		}
+
+		$libInstaller = new CitruscartInstaller();
+		$libInstaller->manuallyInstallLibrary();
 
 	}
 
@@ -118,12 +121,12 @@ class Com_CitruscartInstallerScript{
 			}
 
 		}
-		
+
     }
-	
-	
+
+
 	}
-	
+
 class CitruscartInstaller extends JObject
 {
     public $lib_url = 'http://updates.dioscouri.com/library/downloads/latest.zip';
@@ -324,76 +327,24 @@ class CitruscartInstaller extends JObject
      * Install the library files manually (only for J1.5)
      * @return boolean
      */
-    protected function manuallyInstallLibrary()
+	public function manuallyInstallLibrary()
     {
         jimport('joomla.filesystem.file');
+       	 $return = false;
+        	jimport('joomla.filesystem.folder');
+        	$src = JPATH_ADMINISTRATOR .'components/com_citruscart/library/dioscouri/';
+        	$dest =JPATH_SITE .'/libraries/dioscouri/';
 
-        $return = false;
+        	if(!JFolder::exists(JPATH_SITE .'/libraries/dioscouri')){
+        		if(!JFolder::create($dest)){
+					$return;
+        		}
 
-        if (!JFile::exists(JPATH_SITE.'/plugins/system/dioscouri/dioscouri.php')) {
-            return $return;
-        }
-
-        jimport('joomla.filesystem.folder');
-
-        $src = DS . 'plugins' . DS . 'system' . DS . 'dioscouri' . DS;
-        $dest = DS . 'libraries' . DS . 'dioscouri' . DS;
-        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
-        if (!empty($src_folders)) {
-            foreach ($src_folders as $src_folder) {
-                $src_folder = str_replace(JPATH_SITE, '', $src_folder);
-                $dest_folder = str_replace( $src, '', $src_folder);
-                if (!JFolder::exists(JPATH_SITE.$dest.$dest_folder)) {
-                    JFolder::create(JPATH_SITE.$dest.$dest_folder);
-                }
-            }
-        }
-
-        // move files from plugins to libraries
-        $src = DS . 'plugins' . DS . 'system' . DS . 'dioscouri' . DS;
-        $dest = DS . 'libraries' . DS . 'dioscouri' . DS;
-        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
-        if (!empty($src_files)) {
-            foreach ($src_files as $src_file) {
-                $src_filename = str_replace(JPATH_SITE, '', $src_file);
-                $dest_filename = str_replace( $src, '', $src_filename);
-                JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
-            }
-
-            JFolder::delete(JPATH_SITE.'/plugins/system/dioscouri');
-        }
-
-        // move the media files from libraries to media
-        $src = DS . 'libraries' . DS . 'dioscouri' . DS . 'media' . DS;
-        $dest = DS . 'media' . DS . 'dioscouri' . DS;
-        $src_files = JFolder::files(JPATH_SITE.'/libraries/dioscouri/media', '.', true, true);
-        if (!empty($src_files)) {
-            foreach ($src_files as $src_file) {
-                $src_filename = str_replace(JPATH_SITE, '', $src_file);
-                $dest_filename = str_replace( $src, '', $src_filename);
-                JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
-            }
-            JFolder::delete(JPATH_SITE.'/libraries/dioscouri/media');
-        }
-
-        // move the lang files from libraries to language
-        $src_files = JFolder::files(JPATH_SITE.'/libraries/dioscouri/language', '.', true, true);
-        $src = DS . 'libraries' . DS . 'dioscouri' . DS . 'language' . DS;
-        $dest = DS . 'language' . DS;
-        if (!empty($src_files)) {
-            foreach ($src_files as $src_file) {
-                $src_filename = str_replace(JPATH_SITE, '', $src_file);
-                $dest_filename = str_replace( $src, '', $src_filename);
-                JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
-            }
-            JFolder::delete(JPATH_SITE.'/libraries/dioscouri/language');
-        }
-
-        if (JFile::exists(JPATH_SITE.'/libraries/dioscouri/dioscouri.php')) {
-            $return = true;
-        }
-
-        return $return;
+        		if(!JFolder::move($src, $dest)){
+					$return;
+        		}
+        	  }
+       return $return;
     }
 
     /**
