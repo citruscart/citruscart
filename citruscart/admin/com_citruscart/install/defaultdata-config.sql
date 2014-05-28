@@ -51,7 +51,7 @@ INSERT INTO `#__citruscart_config` (`config_id`, `config_name`, `value`) VALUES
 (45, 'addtocartaction', 'redirect'),
 (46, 'cartbutton', 'image'),
 (47, 'include_root_pathway', '0'),
-(48, 'display_Citruscart_pathway', '1'),
+(48, 'display_citruscart_pathway', '1'),
 (49, 'display_out_of_stock', '1'),
 (50, 'global_handling', ''),
 (51, 'review_helpfulness_enable', '0'),

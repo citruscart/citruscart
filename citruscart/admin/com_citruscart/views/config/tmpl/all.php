@@ -468,7 +468,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                                             <tr>
                                                 <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_DISPLAY_CITRUSCART_BREADCRUMB'); ?>
                                                 </th>
-                                                <td><?php  echo CitruscartSelect::btbooleanlist('display_citruscart_pathway', 'class="inputbox"', $this -> row -> get('display_Citruscart_pathway', '1')); ?>
+                                                <td><?php  echo CitruscartSelect::btbooleanlist('display_citruscart_pathway', 'class="inputbox"', $this -> row -> get('display_citruscart_pathway', '1')); ?>
                                                 </td>
                                                 <td></td>
                                             </tr>

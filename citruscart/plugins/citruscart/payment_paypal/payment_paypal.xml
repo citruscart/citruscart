@@ -42,7 +42,7 @@
 					<option value="0">COM_CITRUSCART_NO</option>
 					<option value="1">COM_CITRUSCART_YES</option>
 				</field>
-				<field name="ipn_method" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD" description="PLG_Citruscart_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD_DESC">
+				<field name="ipn_method" type="radio" default="0" label="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD" description="PLG_CITRUSCART_PAYMENT_PAYPAL_PAYPAL_IPN_METHOD_DESC">
 					<option value="0">CURL</option>
 					<option value="1">FSOCKOPEN</option>
 				</field>
