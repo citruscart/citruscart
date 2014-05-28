@@ -327,26 +327,47 @@ class CitruscartInstaller extends JObject
      * Install the library files manually (only for J1.5)
      * @return boolean
      */
-	public function manuallyInstallLibrary()
+public function manuallyInstallLibrary()
     {
         jimport('joomla.filesystem.file');
-       	 $return = false;
-        	jimport('joomla.filesystem.folder');
-        	$src = JPATH_ADMINISTRATOR .'components/com_citruscart/library/dioscouri/';
-        	$dest =JPATH_SITE .'/libraries/dioscouri/';
 
-        	if(!JFolder::exists(JPATH_SITE .'/libraries/dioscouri')){
-        		if(!JFolder::create($dest)){
-					$return;
-        		}
 
-        		if(!JFolder::move($src, $dest)){
-					$return;
-        		}
-        	  }
+        $return = false;
+
+        if (!JFile::exists(JPATH_SITE.'/plugins/system/dioscouri/dioscouri.php')) {
+            return $return;
+        }
+            jimport('joomla.filesystem.folder');
+
+        $src = '/plugins/system/dioscouri/dioscouri/';
+        $dest = '/libraries/dioscouri/';
+        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
+        if (!empty($src_folders)) {
+            foreach ($src_folders as $src_folder) {
+                $src_folder = str_replace(JPATH_SITE, '', $src_folder);
+                $dest_folder = str_replace( $src, '', $src_folder);
+                if (!JFolder::exists(JPATH_SITE.$dest.$dest_folder)) {
+                    JFolder::create(JPATH_SITE.$dest.$dest_folder);
+                }
+            }
+        }
+
+        // move files from plugins to libraries
+        $src = '/plugins/system/dioscouri/dioscouri/';
+        $dest = '/libraries/dioscouri/';
+        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
+        if (!empty($src_files)) {
+            foreach ($src_files as $src_file) {
+              $src_filename = str_replace(JPATH_SITE, '', $src_file);
+
+                $dest_filename = str_replace( $src, '', $src_filename);
+                JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
+            }
+
+            JFolder::delete(JPATH_SITE.'/plugins/system/dioscouri');
+        }
        return $return;
     }
-
     /**
      * Enables the system plugin after installation
      *
