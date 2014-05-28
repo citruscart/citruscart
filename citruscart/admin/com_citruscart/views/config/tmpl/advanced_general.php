@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -102,7 +102,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
             </th>
             <td style="width: 150px;"><?php  echo CitruscartSelect::btbooleanlist('password_req_spec', 'class="inputbox"', $this -> row -> get('password_req_spec', '1')); ?>
             </td>
-            <td><?php echo JText::_('COM_CITRUSCART_CONFIG_PASSWORD_REQUIRE_SPECIAL_DESC'); ?>
+            <td><?php echo JText::_('COM_CITRUSCART_CONFIG_PASSWORD_REQUIRE_SPECIAL_DESC');  ?>
+            	<?php echo '~?!@#$%^&*{}[]()-=+.,:\/"\<>_;\|' ;?>
             </td>
         </tr>
         <tr>

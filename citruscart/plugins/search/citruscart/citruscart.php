@@ -24,6 +24,10 @@ class plgSearchCitruscart extends JPlugin
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();
+
+		$lang = JFactory::getLanguage();
+		$lang->load(strtolower('citruscart'), JPATH_PLUGINS . '/' . 'plugin' . '/' . $this->_name, null, false, true);
+
 	}
 
     /**

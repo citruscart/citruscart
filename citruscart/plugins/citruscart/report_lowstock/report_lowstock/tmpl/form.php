@@ -9,7 +9,7 @@
 # Websites: http://citruscart.com
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 # Fork of Tienda
-# @license GNU/GPL  Based on Tienda by Citruscart Design http://www.Citruscart.com.
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.Dioscouri.com.
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access'); ?>
