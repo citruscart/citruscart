@@ -347,9 +347,9 @@
 				</div>
 				<div id="validationmessage" style="padding-top: 10px;"></div>
 				<div id="citruscart_btns">
-					<input type="button" class="btn" onclick="citruscartSaveOnepageOrder('citruscart_checkout_pane', 'validationmessage', this.form, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>')" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_CONTINUE'); ?>" />
+					<input type="button" class="btn citruscart_checkout_order" onclick="citruscartSaveOnepageOrder('citruscart_checkout_pane', 'validationmessage', this.form, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>')" value="<?php echo JText::_('COM_CITRUSCART_CLICK_HERE_TO_CONTINUE'); ?>" />
 					<div class="reset marginbot"></div>
-					<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
+					<a class="btn citruscart_return_shopping" href="<?php echo JRoute::_('index.php?option=com_citruscart&view=carts'); ?>"><?php echo JText::_('COM_CITRUSCART_RETURN_TO_SHOPPING_CART'); ?></a>
 				</div>
 			</div>
 		</div>

@@ -3105,7 +3105,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $this->setAddresses( $values, false, $ajax );
 
         // set the shipping method
-        if(isset($values['shippingrequired']) || ($values['shipping_plugin']))
+        if(isset($values['shippingrequired']) || (isset($values['shipping_plugin'])))
         {
             $order->shipping = new JObject();
             $order->shipping->shipping_price      = $values['shipping_price'];
@@ -3180,12 +3180,13 @@ class CitruscartControllerCheckout extends CitruscartController
             }
 
             // save the order shipping info
-            if ( isset( $order->shipping ) && !$this->saveOrderShippings( $values ))
-            {
+			if(isset($values['shipping_plugin'])){
+            	if ( isset( $order->shipping ) && ! $this->saveOrderShippings( $values ))
+            		{
                 // TODO What to do if saving order shippings fails?
                 $error = true;
-            }
-
+            		}
+			}
             // save the order coupons
             if (!$this->saveOrderCoupons())
             {

@@ -59,7 +59,7 @@ class plgCitruscartShipping_Standard extends CitruscartShippingPlugin
 
         $vars = array();
 
-        $this->includeCitruscartTables();
+        //$this->includeCitruscartTables();
         $this->includeCustomModel('ShippingMethods');
         $this->includeCustomModel('ShippingRates');
 
