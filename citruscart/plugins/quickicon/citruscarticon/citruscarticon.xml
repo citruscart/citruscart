@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="quickicon" method="upgrade">
 	<name>plg_qucikicon_citruscarticon</name>
-	<version>0.10.1</version>
+	<version>1.0</version>
 	<creationDate>October 2011</creationDate>
 	<author>Citruscart</author>
 	<authorEmail>info@Citruscart.com</authorEmail>

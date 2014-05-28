@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="system" method="upgrade">
-	<name>System - Citruscart</name>
-	<version>0.10.1</version>
+	<name>plg_system_citruscart</name>
+	<version>1.0</version>
 	<creationDate>October 2011</creationDate>
 	<author>Citruscart</author>
 	<authorEmail>info@Citruscart.com</authorEmail>

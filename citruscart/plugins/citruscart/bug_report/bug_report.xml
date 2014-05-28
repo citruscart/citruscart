@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="citruscart" method="upgrade">
-	<name>Citruscart - Bug Report</name>
+	<name>plg_citruscart_bug_report</name>
 	<author>Citruscart Team</author>
 	<creationDate>April 2014</creationDate>
 	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>

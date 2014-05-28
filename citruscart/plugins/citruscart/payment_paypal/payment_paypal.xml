@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="citruscart" method="upgrade">
-	<name>Citruscart - Payment - Paypal Payments Std</name>
+	<name>plg_citruscart_payment_paypal</name>
 	<author>Citruscart Team</author>
 	<creationDate>April 2014</creationDate>
 	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
 	<authorEmail>support@citruscart.com</authorEmail>
 	<authorUrl>http://citruscart.com</authorUrl>
-	<version>1.1.0</version>
+	<version>1.0</version>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<description>PLG_CITRUSCART_PAYMENT_PAYPAL_PLUGINDESC</description>
 	<files>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="citruscart" method="upgrade">
-	<name>Citruscart socialshare</name>
-	<version>0.10.1</version>
+	<name>plg_citruscart_citruscart_socialshare</name>
+	<version>1.0</version>
 	<creationDate>October 2011</creationDate>
 	<author>Citruscart</author>
 	<authorEmail>info@Citruscart.com</authorEmail>

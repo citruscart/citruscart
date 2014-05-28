@@ -363,6 +363,7 @@ public function manuallyInstallLibrary()
                 $dest_filename = str_replace( $src, '', $src_filename);
                 JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
             }
+            JFolder::delete(JPATH_SITE.'/plugins/system/dioscouri/dioscouri/');
         }
        return $return;
     }
