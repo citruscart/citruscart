@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.0" position="Citruscart_dashboard_right" client="administrator" method="upgrade">
+<extension type="module" version="3.0"  client="administrator" method="upgrade">
 	<name>Citruscart - Recent Orders</name>
 	<author>Citruscart Team</author>
 	<authorEmail>support@citruscart.com</authorEmail>

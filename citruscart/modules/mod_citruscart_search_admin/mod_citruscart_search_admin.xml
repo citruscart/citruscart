@@ -3,7 +3,6 @@
 	type="module"
 	version="3.0"
 	client="administrator">
-<!-- <extension type="module" version="1.5.0" position="Citruscart_dashboard_right" client="administrator" method="upgrade"> -->
 	<name>Citruscart - Admin Search</name>
 	<author>Citruscart Team</author>
 	<authorEmail>support@citruscart.com</authorEmail>

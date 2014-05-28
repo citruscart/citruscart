@@ -3,7 +3,6 @@
 	type="module"
 	version="3.0" 
 	client="administrator">
-<!-- <extension type="module" version="1.5.0" position="icon" client="administrator" method="upgrade"> -->
 	<name>Citruscart - Quick Icon</name>
 	<author>Citruscart Team</author>
 	<authorEmail>support@citruscart.com</authorEmail>
