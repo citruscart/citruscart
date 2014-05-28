@@ -19,23 +19,26 @@ $products_model = Citruscart::getClass('CitruscartModelProducts', 'models.produc
 
    <div id="product_relations">
 		<h4><?php echo JText::_('COM_CITRUSCART_YOU_MAY_ALSO_BE_INTERESTED_IN'); ?></h4>
-        <?php      $k = 0; ?>
-        <ul class="citruscart_product_upselling">
-    	    <?php foreach ($items as $item): ?>
-	    	    <li class="citruscart_product_relation_list">
-	    	    	<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
-                   		<?php echo CitruscartHelperProduct::getImage($item->product_id, 'id', $item->product_name, 'full', false, false, array( 'width'=>80 ,'height'=>45 ) ); ?>
-                    </a>
-       				<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
-                  		<?php echo $newtext = substr($item->product_name,0,15);	?>
-      				</a>
-					<strong>
-              			<?php echo CitruscartHelperProduct::dispayPriceWithTax($item->product_price, $item->tax, $this->product_relations_data->show_tax); ?>
-              		</strong>
+        <?php $k = 0; ?>
+        <ul class="citruscart_products_containers">
+          	     <?php foreach ($items as $item): ?>
+          	            <li class="citruscart_product_relation_lists">
+	    	    			<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
+	                   				<?php echo CitruscartHelperProduct::getImage($item->product_id, 'id', $item->product_name, 'full', false, false, array( 'width'=>80 ,'height'=>45 ) ); ?>
+	                    		</a>
+	                    		<br/>
+	         					<a href="<?php echo JRoute::_( 'index.php?option=com_citruscart&view=products&task=view&id='.$item->product_id . '&Itemid=' . $products_model->getItemid( $item->product_id ) ); ?>">
+		                    		<?php echo $newtext = substr($item->product_name,0,15);	?>
+	                    		</a>
+								<br/>
+								<strong>
+	                     			<?php echo CitruscartHelperProduct::dispayPriceWithTax($item->product_price, $item->tax, $this->product_relations_data->show_tax); ?>
+	                    		</strong>
 
-                     <?php $k = 1 - $k; ?>
-       			</li>
-	        <?php endforeach; ?>
+	                     <?php $k = 1 - $k; ?>
+	       		 <?php endforeach; ?>
+       		</span>
+			</li>
 			</ul>
         <div class="reset"></div>
     </div>
