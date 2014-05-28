@@ -22,3 +22,8 @@ function socialsharing_pinterest_click(message)
 {
 	window.open('http://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(location.href), 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
 }
+
+function socialsharing_linkedin_click(message)
+{
+	window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(location.href), 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
+}
