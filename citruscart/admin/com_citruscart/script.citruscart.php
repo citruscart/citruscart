@@ -24,27 +24,24 @@ class Com_CitruscartInstallerScript{
 		$status = new stdClass;
         $status->plugins = array();
         $src = $parent->getParent()->getPath('source');
-
 		$manifest = $parent->getParent()->manifest;
-
 		$modules = $manifest->xpath('modules/module');
 		foreach ($modules as $module)
 		{
 			$name = (string)$module->attributes()->module;
 			$client = (string)$module->attributes()->client;
+
 			if (is_null($client))
 			{
 				$client = 'site';
 			}
-			($client == 'administrator') ? $path = $src.'/administrator/modules/'.$name : $path = $src.'/modules/'.$name;
+			$path = $src.'/modules/'.$name;
 			$installer = new JInstaller;
 			$result = $installer->install($path);
 			$status->modules[] = array('name' => $name, 'client' => $client, 'result' => $result);
 		}
 
-
 		$plugins = $manifest->xpath('plugins/plugin');
-
 		foreach ($plugins as $plugin)
 		{
 			$name = (string)$plugin->attributes()->plugin;
@@ -363,6 +360,7 @@ public function manuallyInstallLibrary()
                 $dest_filename = str_replace( $src, '', $src_filename);
                 JFile::move(JPATH_SITE.$src_filename, JPATH_SITE.$dest.$dest_filename);
             }
+            JFolder::delete(JPATH_SITE.'/plugins/system/dioscouri/dioscouri/');
         }
        return $return;
     }

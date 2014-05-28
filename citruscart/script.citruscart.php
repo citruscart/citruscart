@@ -24,22 +24,17 @@ class Com_CitruscartInstallerScript{
 		$status = new stdClass;
         $status->plugins = array();
         $src = $parent->getParent()->getPath('source');
-		$data =array();
 		$manifest = $parent->getParent()->manifest;
-
 		$modules = $manifest->xpath('modules/module');
-
 		foreach ($modules as $module)
 		{
 			$name = (string)$module->attributes()->module;
 			$client = (string)$module->attributes()->client;
 
-
 			if (is_null($client))
 			{
 				$client = 'site';
 			}
-
 			$path = $src.'/modules/'.$name;
 			$installer = new JInstaller;
 			$result = $installer->install($path);
