@@ -131,7 +131,7 @@ class CitruscartTableXref extends CitruscartTable
                 return false;
             }
             // add the key=>value pair to the query
-            $value = $db->Quote( $db->escape( trim( strtolower( $value ) ) ) );
+            $value = $db->q( $db->escape( trim( strtolower( $value ) ) ) );
             $query->where( $key.' = '.$value);
         }
 

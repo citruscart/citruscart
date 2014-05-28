@@ -70,8 +70,8 @@ class CitruscartModelElementProductMultiple extends JModel
 
 		// Keyword filter
 		if ($search) {
-			$where[] = 'LOWER( tbl.product_id ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( tbl.product_name ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( tbl.product_id ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( tbl.product_name ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
 		}
 		// Build the where clause of the query
 		$where = (count($where) ? ' WHERE '.implode(' OR ', $where) : '');

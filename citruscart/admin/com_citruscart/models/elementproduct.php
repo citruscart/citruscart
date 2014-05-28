@@ -81,14 +81,14 @@ class CitruscartModelElementproduct extends DSCModelElement
 
 		// Keyword filter
 		if ($search) {
-			$where[] = 'LOWER( tbl.product_id ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( tbl.product_name ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( tbl.product_sku ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( tbl.product_id ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( tbl.product_name ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( tbl.product_sku ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
 		}
 		// Build the where clause of the query
 		if( strlen( $filter_state ) ) {
-	    	$where = count( $where ) ?  " WHERE (".implode(' OR ', $where)  .')  AND ( tbl.product_enabled = '.$db->Quote( $db->escape( $filter_state, true ), false ). ' )' :
-            ' WHERE  tbl.product_enabled = '.$db->Quote( $db->escape( $filter_state, true ), false );
+	    	$where = count( $where ) ?  " WHERE (".implode(' OR ', $where)  .')  AND ( tbl.product_enabled = '.$db->q( $db->escape( $filter_state, true ), false ). ' )' :
+            ' WHERE  tbl.product_enabled = '.$db->q( $db->escape( $filter_state, true ), false );
    		} else {
       		$where = (count($where) ? ' WHERE '.implode(' OR ', $where) : '');
 	    }

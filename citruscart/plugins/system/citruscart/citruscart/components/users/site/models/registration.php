@@ -47,9 +47,9 @@ class UsersModelRegistration extends JModelForm
 		// Get the user id based on the token.
 		$db->setQuery(
 			'SELECT '.$db->quoteName('id').' FROM '.$db->quoteName('#__users') .
-			' WHERE '.$db->quoteName('activation').' = '.$db->Quote($token) .
+			' WHERE '.$db->quoteName('activation').' = '.$db->q($token) .
 			' AND '.$db->quoteName('block').' = 1' .
-			' AND '.$db->quoteName('lastvisitDate').' = '.$db->Quote($db->getNullDate())
+			' AND '.$db->quoteName('lastvisitDate').' = '.$db->q($db->getNullDate())
 		);
 		$userId = (int) $db->loadResult();
 

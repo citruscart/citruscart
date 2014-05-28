@@ -58,7 +58,7 @@ class Com_CitruscartInstallerScript{
 			$result = $installer->install($path);
 
 			if($type !='update') {
-				$query = "UPDATE #__extensions SET enabled=1 WHERE type='plugin' AND element=".$db->Quote($name)." AND folder=".$db->Quote($group);
+				$query = "UPDATE #__extensions SET enabled=1 WHERE type='plugin' AND element=".$db->q($name)." AND folder=".$db->q($group);
 				$db->setQuery($query);
 				$db->query();
 			}
@@ -84,7 +84,7 @@ class Com_CitruscartInstallerScript{
 		{
 			$name = (string)$plugin->attributes()->plugin;
 			$group = (string)$plugin->attributes()->group;
-			$query = "SELECT `extension_id` FROM #__extensions WHERE `type`='plugin' AND element = ".$db->Quote($name)." AND folder = ".$db->Quote($group);
+			$query = "SELECT `extension_id` FROM #__extensions WHERE `type`='plugin' AND element = ".$db->q($name)." AND folder = ".$db->q($group);
 			$db->setQuery($query);
 			$extensions = $db->loadColumn();
 			if (count($extensions))
@@ -104,7 +104,7 @@ class Com_CitruscartInstallerScript{
 			$name = (string)$module->attributes()->module;
 			$client = (string)$module->attributes()->client;
 			$db = JFactory::getDBO();
-			$query = "SELECT `extension_id` FROM `#__extensions` WHERE `type`='module' AND element = ".$db->Quote($name)."";
+			$query = "SELECT `extension_id` FROM `#__extensions` WHERE `type`='module' AND element = ".$db->q($name)."";
 			$db->setQuery($query);
 			$extensions = $db->loadColumn();
 			if (count($extensions))

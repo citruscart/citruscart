@@ -76,7 +76,7 @@ class SampleModelElementArticle extends JModel
 		$all = 1;
 
 		if ($filter_sectionid >= 0) {
-			$filter = ' WHERE cc.section = '.$db->Quote($filter_sectionid);
+			$filter = ' WHERE cc.section = '.$db->q($filter_sectionid);
 		}
 		$section->title = 'All Articles';
 		$section->id = 0;
@@ -102,7 +102,7 @@ class SampleModelElementArticle extends JModel
 
 		// Keyword filter
 		if ($search) {
-			$where[] = 'LOWER( c.title ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( c.title ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
 		}
 
 		// Build the where clause of the content record query

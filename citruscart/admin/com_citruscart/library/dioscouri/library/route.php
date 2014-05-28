@@ -106,9 +106,9 @@ class DSCRoute
 		$query = NEW DSCQuery();
 		$query->select('*');
         $query->from(' #__menu as m');
-        $query->where(' m.link = '. $db->Quote( $url )  );
-        $query->where(' m.client_id = '.  $db->Quote(0)); //means frontend only
-        $query->where(' m.published = '. $db->Quote( 1 )); //means turned on
+        $query->where(' m.link = '. $db->q( $url )  );
+        $query->where(' m.client_id = '.  $db->q(0)); //means frontend only
+        $query->where(' m.published = '. $db->q( 1 )); //means turned on
         $db->setQuery($query, 0 , 1);
         $item =  $db->loadObject();
         if ( $item)

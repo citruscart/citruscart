@@ -70,11 +70,11 @@ class CitruscartModelElementAddress extends JModel
 
 		// Keyword filter
 		if ($search) {
-			$where[] = 'LOWER( c.address1 ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( c.address2 ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( co.country_name ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( s.state_name ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
-			$where[] = 'LOWER( z.zone_name ) LIKE '.$db->Quote( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( c.address1 ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( c.address2 ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( co.country_name ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( s.state_name ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
+			$where[] = 'LOWER( z.zone_name ) LIKE '.$db->q( '%'.$db->escape( $search, true ).'%', false );
 		}
 
 		// Build the where clause of the query

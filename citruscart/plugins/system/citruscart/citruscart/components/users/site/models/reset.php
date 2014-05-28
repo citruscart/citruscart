@@ -228,7 +228,7 @@ class UsersModelReset extends JModelForm
 		$query->select('id');
 		$query->select('block');
 		$query->from($db->quoteName('#__users'));
-		$query->where($db->quoteName('username').' = '.$db->Quote($data['username']));
+		$query->where($db->quoteName('username').' = '.$db->q($data['username']));
 
 		// Get the user id.
 		$db->setQuery((string) $query);
@@ -315,7 +315,7 @@ class UsersModelReset extends JModelForm
 		$query	= $db->getQuery(true);
 		$query->select('id');
 		$query->from($db->quoteName('#__users'));
-		$query->where($db->quoteName('email').' = '.$db->Quote($data['email']));
+		$query->where($db->quoteName('email').' = '.$db->q($data['email']));
 
 		// Get the user object.
 		$db->setQuery((string) $query);

@@ -51,7 +51,7 @@ class CitruscartModelReset extends JModel
 
 		// Build a query to find the user
 		$query	= 'SELECT id FROM #__users'
-				. ' WHERE email = '.$db->Quote($email)
+				. ' WHERE email = '.$db->q($email)
 				. ' AND block = 0';
 
 		$db->setQuery($query);
@@ -67,7 +67,7 @@ class CitruscartModelReset extends JModel
 		$token = JApplication::getHash(JUserHelper::genRandomPassword());
 
 		$query	= 'UPDATE #__users'
-				. ' SET activation = '.$db->Quote($token)
+				. ' SET activation = '.$db->q($token)
 				. ' WHERE id = '.(int) $id
 				. ' AND block = 0';
 
@@ -108,7 +108,7 @@ class CitruscartModelReset extends JModel
 		}
 
 		$db	= JFactory::getDBO();
-		$db->setQuery('SELECT id FROM #__users WHERE block = 0 AND activation = '.$db->Quote($token));
+		$db->setQuery('SELECT id FROM #__users WHERE block = 0 AND activation = '.$db->q($token));
 
 		// Verify the token
 		if (!($id = $db->loadResult()))
@@ -172,10 +172,10 @@ class CitruscartModelReset extends JModel
 
 		// Build the query
 		$query 	= 'UPDATE #__users'
-				. ' SET password = '.$db->Quote($password)
+				. ' SET password = '.$db->q($password)
 				. ' , activation = ""'
 				. ' WHERE id = '.(int) $id
-				. ' AND activation = '.$db->Quote($token)
+				. ' AND activation = '.$db->q($token)
 				. ' AND block = 0';
 
 		$db->setQuery($query);

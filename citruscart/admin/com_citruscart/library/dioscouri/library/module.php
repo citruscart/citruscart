@@ -233,8 +233,8 @@ class DSCModule extends JObject
 		$date = JFactory::getDate();
 		$now = $date->toSql();
 		$nullDate = $db->getNullDate();
-		$query->where('(m.publish_up = '.$db->Quote($nullDate).' OR m.publish_up <= '.$db->Quote($now).')');
-		$query->where('(m.publish_down = '.$db->Quote($nullDate).' OR m.publish_down >= '.$db->Quote($now).')');
+		$query->where('(m.publish_up = '.$db->q($nullDate).' OR m.publish_up <= '.$db->q($now).')');
+		$query->where('(m.publish_down = '.$db->q($nullDate).' OR m.publish_down >= '.$db->q($now).')');
 
 		$query->where('m.access IN ('.$groups.')');
 		$query->where('m.client_id = '. $clientId);
@@ -243,7 +243,7 @@ class DSCModule extends JObject
 
 		// Filter by language
 		if ($app->isSite() && $app->getLanguageFilter()) {
-			$query->where('m.language IN (' . $db->Quote($lang) . ',' . $db->Quote('*') . ')');
+			$query->where('m.language IN (' . $db->q($lang) . ',' . $db->q('*') . ')');
 		}
 
 		$query->order('m.position, m.ordering');

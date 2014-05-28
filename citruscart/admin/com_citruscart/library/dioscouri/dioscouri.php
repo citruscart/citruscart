@@ -736,7 +736,7 @@ class DSC extends JObject
           $q->from( '#__extensions' );
           $q->where( 'type = \'component\'' );
           $q->where( 'enabled = 1' );
-          $q->where( 'element = '.$db->Quote( $option ) );
+          $q->where( 'element = '.$db->q( $option ) );
           $db->setQuery( $q );
           $res = $db->loadObject();
           return $res !== null;

@@ -550,7 +550,7 @@ class DSCModel extends DSCModelBase
      * @return  string  SELECT query
      */
     protected function _buildQuery( $refresh=false )
-    {    	
+    {
     	if (!empty($this->_query) && !$refresh)
     	{
     		return $this->_query;
