@@ -16,7 +16,7 @@
     </files>
 
     <updateservers>
-       <server type="extension" priority="1" name="citruscart System Plugin Updates">http://updates.Citruscart.com/plg_system_Citruscart/updates.xml</server>
+       <server type="extension" priority="1" name="citruscart system Plugin Updates">http://cdn.citruscart.com/updates.xml</server>
     </updateservers>
     
     <config>
