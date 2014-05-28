@@ -357,7 +357,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
             // Validate the results of the payment plugin
             $errorMessagesFromPlugins = '';
             $dispatcher = JDispatcher::getInstance();
-            $results = $dispatcher->trigger( "onGetPaymentFormVerify", array( $post['payment_plugin'], $post) );
+            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentFormVerify", array( $post['payment_plugin'], $post) );
 
             foreach ($results as $result)
             {
@@ -394,7 +394,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
 
             $dispatcher = JDispatcher::getInstance();
 
-            $results = $dispatcher->trigger( "onGetPaymentSummary", array( $post['payment_plugin'], $post ) );
+            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentSummary", array( $post['payment_plugin'], $post ) );
 
             $text = '';
             for ($i=0, $count = count($results); $i<$count; $i++)
@@ -805,7 +805,7 @@ class CitruscartControllerOpc extends CitruscartControllerCheckout
         elseif (!empty($values['payment_plugin']))
         {
             $dispatcher = JDispatcher::getInstance();
-            $results = $dispatcher->trigger( "onPrePayment", array( $values['payment_plugin'], $values ) );
+            $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
             for ($i=0; $i<count($results); $i++)
             {
                 $html .= $results[$i];

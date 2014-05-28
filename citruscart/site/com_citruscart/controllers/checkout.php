@@ -146,6 +146,7 @@ class CitruscartControllerCheckout extends CitruscartController
      */
     function display($cachable=false, $urlparams = false)
     {
+    	$app = JFactory::getApplication();
     	$input = JFactory::getApplication()->input;
         $user = $this->user;
 
@@ -217,6 +218,8 @@ class CitruscartControllerCheckout extends CitruscartController
             Citruscart::load( 'CitruscartHelperPlugin', 'helpers.plugin' );
             $dispatcher = JDispatcher::getInstance();
 
+            JPluginHelper::importPlugin('citruscart');
+
             if($showShipping)
             {
                 $rates = $this->getShippingRates();
@@ -261,12 +264,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
             $dispatcher = JDispatcher::getInstance();
             ob_start();
-            $dispatcher->trigger( 'onBeforeDisplaySelectPayment', array( $order ) );
+            $app->triggerEvent( 'onBeforeDisplaySelectPayment', array( $order ) );
             $view->assign( 'onBeforeDisplaySelectPayment', ob_get_contents() );
             ob_end_clean();
 
             ob_start();
-            $dispatcher->trigger( 'onAfterDisplaySelectPayment', array( $order ) );
+            $app->triggerEvent( 'onAfterDisplaySelectPayment', array( $order ) );
             $view->assign( 'onAfterDisplaySelectPayment', ob_get_contents() );
             ob_end_clean();
 
@@ -329,13 +332,13 @@ class CitruscartControllerCheckout extends CitruscartController
                 $plugins = CitruscartHelperPlugin::getPluginsWithEvent( 'onGetShippingPlugins' );
 
                 $dispatcher = JDispatcher::getInstance();
-
+				JPluginHelper::importPlugin('citruscart');
                 $rates = array();
                 if ($plugins)
                 {
                     foreach ($plugins as $plugin)
                     {
-                        $results = $dispatcher->trigger( "onGetShippingRates", array( $plugin->element, $order ) );
+                        $results = JFactory::getApplication()->triggerEvent( "onGetShippingRates", array( $plugin->element, $order ) );
 
                         foreach ($results as $result)
                         {
@@ -467,12 +470,12 @@ class CitruscartControllerCheckout extends CitruscartController
             $dispatcher = JDispatcher::getInstance();
 
             ob_start();
-            $dispatcher->trigger( 'onBeforeDisplaySelectShipping', array( $order ) );
+            JFactory::getApplication()->triggerEvent( 'onBeforeDisplaySelectShipping', array( $order ) );
             $view->assign( 'onBeforeDisplaySelectShipping', ob_get_contents() );
             ob_end_clean();
 
             ob_start();
-            $dispatcher->trigger( 'onAfterDisplaySelectShipping', array( $order ) );
+            JFactory::getApplication()->triggerEvent( 'onAfterDisplaySelectShipping', array( $order ) );
             $view->assign( 'onAfterDisplaySelectShipping', ob_get_contents() );
             ob_end_clean();
 
@@ -918,8 +921,9 @@ class CitruscartControllerCheckout extends CitruscartController
 
         // no matter what, fire this validation plugin event for plugins that extend the checkout workflow
         $results = array();
-        $dispatcher = JDispatcher::getInstance();
-        $results = $dispatcher->trigger( "onValidateSelectShipping", array( $submitted_values ) );
+
+        JPluginHelper::importPlugin('citruscart');
+        JFactory::getApplication()->triggerEvent( "onValidateSelectShipping", array( $submitted_values ) );
 
         for ($i=0; $i<count($results); $i++)
         {
@@ -963,6 +967,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $response['msg'] = '';
         $response['error'] = '';
 
+        JPluginHelper::importPlugin('citruscart');
         Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
         $helper = CitruscartHelperBase::getInstance();
 
@@ -1023,8 +1028,8 @@ class CitruscartControllerCheckout extends CitruscartController
             {
                 // Validate the results of the payment plugin
                 $results = array();
-                $dispatcher = JDispatcher::getInstance();
-                $results = $dispatcher->trigger( "onGetPaymentFormVerify", array( $submitted_values['_checked']['payment_plugin'], $submitted_values) );
+
+                $results = JFactory::getApplication()->triggerEvent( "onGetPaymentFormVerify", array( $submitted_values['_checked']['payment_plugin'], $submitted_values) );
 
                 for ($i=0; $i<count($results); $i++)
                 {
@@ -1041,7 +1046,7 @@ class CitruscartControllerCheckout extends CitruscartController
         // no matter what, fire this validation plugin event for plugins that extend the checkout workflow
         $results = array();
         $dispatcher = JDispatcher::getInstance();
-        $results = $dispatcher->trigger( "onValidateSelectPayment", array( $submitted_values ) );
+        $results = JFactory::getApplication()->triggerEvent( "onValidateSelectPayment", array( $submitted_values ) );
 
         for ($i=0; $i<count($results); $i++)
         {
@@ -1519,7 +1524,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $plugins = $model->getList();
 
         $dispatcher = JDispatcher::getInstance();
-
+		JPluginHelper::importPlugin('citruscart');
         $rates = array();
 
         // add taxes, even thought they aren't displayed
@@ -1536,11 +1541,11 @@ class CitruscartControllerCheckout extends CitruscartController
             foreach ($plugins as $plugin)
             {
 
-                $shippingOptions = $dispatcher->trigger( "onGetShippingOptions", array( $plugin->element, $this->_order ) );
+                $shippingOptions = JFactory::getApplication()->triggerEvent( "onGetShippingOptions", array( $plugin->element, $this->_order ) );
 
                 if (in_array(true, $shippingOptions, true))
                 {
-                    $results = $dispatcher->trigger( "onGetShippingRates", array( $plugin->element, $this->_order ) );
+                    $results = JFactory::getApplication()->triggerEvent( "onGetShippingRates", array( $plugin->element, $this->_order ) );
 
                     foreach ($results as $result)
                     {
@@ -1844,12 +1849,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
         $payment_plugins = $this->getPaymentOptions($this->_order);
         $view->assign( 'payment_plugins',  $payment_plugins);
-
+		JPluginHelper::importPlugin('citruscart');
         if (count($payment_plugins) == 1)
         {
             $payment_plugins[0]->checked = true;
             $dispatcher    = JDispatcher::getInstance();
-            $results = $dispatcher->trigger( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
+            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
 
             $text = '';
             for ($i=0; $i<count($results); $i++)
@@ -1897,7 +1902,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $dispatcher = JDispatcher::getInstance();
             foreach ($plugins as $plugin)
             {
-                $results = $dispatcher->trigger( "onGetPaymentOptions", array( $plugin->element, $order ) );
+                $results = JFactory::getApplication()->triggerEvent( "onGetPaymentOptions", array( $plugin->element, $order ) );
                 if (in_array(true, $results, true))
                 {
                     $table = new CitruscartTablePayment();
@@ -1989,7 +1994,7 @@ class CitruscartControllerCheckout extends CitruscartController
         {
             $payment_plugins[0]->checked = true;
             $dispatcher    = JDispatcher::getInstance();
-            $results = $dispatcher->trigger( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
+            $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $payment_plugins[0]->element, '' ) );
 
             $text = '';
             for ($i=0; $i<count($results); $i++)
@@ -2226,12 +2231,12 @@ class CitruscartControllerCheckout extends CitruscartController
 
         $dispatcher = JDispatcher::getInstance();
         ob_start();
-        $dispatcher->trigger( 'onBeforeDisplaySelectPayment', array( $order ) );
+        JFactory::getApplication()->triggerEvent( 'onBeforeDisplaySelectPayment', array( $order ) );
         $view->assign( 'onBeforeDisplaySelectPayment', ob_get_contents() );
         ob_end_clean();
         $view->assign( 'payment_options_html', $paymentOptionsHtml );
         ob_start();
-        $dispatcher->trigger( 'onAfterDisplaySelectPayment', array( $order ) );
+        JFactory::getApplication()->triggerEvent( 'onAfterDisplaySelectPayment', array( $order ) );
         $view->assign( 'onAfterDisplaySelectPayment', ob_get_contents() );
         ob_end_clean();
 
@@ -2260,7 +2265,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
         $results = array();
         $dispatcher    = JDispatcher::getInstance();
-        $results = $dispatcher->trigger( "onGetPaymentForm", array( $element, $values ) );
+        $results = JFactory::getApplication()->triggerEvent( "onGetPaymentForm", array( $element, $values ) );
 
         for ($i=0; $i<count($results); $i++)
         {
@@ -2360,7 +2365,7 @@ class CitruscartControllerCheckout extends CitruscartController
         if (!empty($values['payment_plugin']))
         {
             $dispatcher    = JDispatcher::getInstance();
-            $results = $dispatcher->trigger( "onPrePayment", array( $values['payment_plugin'], $values ) );
+            $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
             // Display whatever comes back from Payment Plugin for the onPrePayment
             for ($i=0; $i<count($results); $i++)
@@ -2541,7 +2546,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $dispatcher    = JDispatcher::getInstance();
-        $results = $dispatcher->trigger( "onPrePayment", array( $values['payment_plugin'], $values ) );
+        $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
         // Display whatever comes back from Payment Plugin for the onPrePayment
         $html = "";
@@ -2597,12 +2602,12 @@ class CitruscartControllerCheckout extends CitruscartController
         $view->setModel( $model, true );
 
         ob_start();
-        $dispatcher->trigger( 'onBeforeDisplayPrePayment', array( $order ) );
+        JFactory::getApplication()->triggerEvent( 'onBeforeDisplayPrePayment', array( $order ) );
         $view->assign( 'onBeforeDisplayPrePayment', ob_get_contents() );
         ob_end_clean();
 
         ob_start();
-        $dispatcher->trigger( 'onAfterDisplayPrePayment', array( $order ) );
+        JFactory::getApplication()->triggerEvent( 'onAfterDisplayPrePayment', array( $order ) );
         $view->assign( 'onAfterDisplayPrePayment', ob_get_contents() );
         ob_end_clean();
 
@@ -2692,7 +2697,7 @@ class CitruscartControllerCheckout extends CitruscartController
         else
         {
             // get the payment results from the payment plugin
-            $results = $dispatcher->trigger( "onPostPayment", array( $orderpayment_type, $values ) );
+            $results = JFactory::getApplication()->triggerEvent( "onPostPayment", array( $orderpayment_type, $values ) );
 
             // Display whatever comes back from Payment Plugin for the onPrePayment
             for ($i=0; $i<count($results); $i++)
@@ -2768,12 +2773,12 @@ class CitruscartControllerCheckout extends CitruscartController
             $view->assign( 'articles', $articles );
 
             ob_start();
-            $dispatcher->trigger( 'onBeforeDisplayPostPayment', array( $order_id ) );
+            JFactory::getApplication()->triggerEvent( 'onBeforeDisplayPostPayment', array( $order_id ) );
             $view->assign( 'onBeforeDisplayPostPayment', ob_get_contents() );
             ob_end_clean();
 
             ob_start();
-            $dispatcher->trigger( 'onAfterDisplayPostPayment', array( $order_id ) );
+            JFactory::getApplication()->triggerEvent( 'onAfterDisplayPostPayment', array( $order_id ) );
             $view->assign( 'onAfterDisplayPostPayment', ob_get_contents() );
             ob_end_clean();
 
@@ -3234,7 +3239,7 @@ class CitruscartControllerCheckout extends CitruscartController
             {
                 //fire onAfterSaveOrderItem
                 $dispatcher = JDispatcher::getInstance();
-                $dispatcher->trigger( 'onAfterSaveOrderItem', array( $item ) );
+                JFactory::getApplication()->triggerEvent( 'onAfterSaveOrderItem', array( $item ) );
 
                 // does the orderitem create a subscription?
                 if (!empty($item->orderitem_subscription))
@@ -3517,7 +3522,7 @@ class CitruscartControllerCheckout extends CitruscartController
         if (isset($values['shipping_plugin']))
         {
             $dispatcher = JDispatcher::getInstance();
-            $dispatcher->trigger( "onPostSaveShipping", array( $values['shipping_plugin'], $row ) );
+            JFactory::getApplication()->triggerEvent( "onPostSaveShipping", array( $values['shipping_plugin'], $row ) );
         }
 
         return true;
@@ -4121,7 +4126,7 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $dispatcher = JDispatcher::getInstance();
-        $dispatcher->trigger( 'onGetOrderArticles', array( $order_id, &$articles ) );
+        JFactory::getApplication()->triggerEvent( 'onGetOrderArticles', array( $order_id, &$articles ) );
 
         return $articles;
     }
@@ -4179,7 +4184,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $items = $order->getItems();
 
         $dispatcher    = JDispatcher::getInstance();
-        $results = $dispatcher->trigger( "onPrePayment", array( $values['payment_plugin'], $values ) );
+        $results = JFactory::getApplication()->triggerEvent( "onPrePayment", array( $values['payment_plugin'], $values ) );
 
         // Display whatever comes back from Payment Plugin for the onPrePayment
         $html = "";
