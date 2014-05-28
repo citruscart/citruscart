@@ -27,9 +27,10 @@ class plgSystemCitruscart_Subscriptions extends JPlugin {
 
 	function __construct(&$subject, $config) {
 		parent::__construct($subject, $config);
-		$language = JFactory::getLanguage();
+		$this->loadLanguage();
+		/*$language = JFactory::getLanguage();
 		$language -> load('plg_citruscart_system' . $this -> _element, JPATH_ADMINISTRATOR, 'en-GB', true);
-		$language -> load('plg_citruscart_system' . $this -> _element, JPATH_ADMINISTRATOR, null, true);
+		$language -> load('plg_citruscart_system' . $this -> _element, JPATH_ADMINISTRATOR, null, true);*/
 	}
 
 	/**

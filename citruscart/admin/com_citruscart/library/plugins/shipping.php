@@ -29,8 +29,11 @@ if ( !class_exists( 'CitruscartShippingPlugin' ) )
 		function __construct( &$subject, $config )
 		{
 			parent::__construct( $subject, $config );
+			$this->loadLanguage();
+			/*
 			$this->loadLanguage( '', JPATH_ADMINISTRATOR );
 			$this->loadLanguage( '', JPATH_SITE );
+		  */
 			$this->getShopAddress( );
 
 			$this->_log_file = JPATH_SITE . '/images/com_citruscart/debug/' . $this->_element . '.txt';
