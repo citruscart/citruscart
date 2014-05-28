@@ -55,6 +55,9 @@ defined('_JEXEC') or die('Restricted access');?>
 					<a href="<?php echo $item->link; ?>">
 						<?php echo $item->text; ?>
 					</a>
+					<span class="alert alert-warning">
+						<?php echo JText::_('COM_CITRUSCART_EMAIL_WARNING')?>
+					</span>
 				</td>
 				<td style="text-align: left;">
 					<a href="<?php echo $item->link; ?>">
