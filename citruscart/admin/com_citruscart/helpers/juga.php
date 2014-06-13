@@ -154,7 +154,7 @@ class CitruscartHelperJuga extends CitruscartHelperBase
     function already( $userid, $groupid ) 
     {
         $success = false;
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         
         // query the db to see if the user is already a member of group
         $database->setQuery("
@@ -183,7 +183,7 @@ class CitruscartHelperJuga extends CitruscartHelperBase
     function add( $userid, $groupid )
     {
         $success = false;
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         
         $already = $this->already( $userid, $groupid );
         
@@ -216,7 +216,7 @@ class CitruscartHelperJuga extends CitruscartHelperBase
     function remove( $userid, $groupid )
     {
         $success = false;
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         
         $database->setQuery("
             DELETE FROM 

@@ -19,7 +19,7 @@ class Com_CitruscartInstallerScript{
 
 	public function postflight($type, $parent)
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$app = JFactory::getApplication('site');
 		$status = new stdClass;
         $status->plugins = array();
@@ -74,7 +74,7 @@ class Com_CitruscartInstallerScript{
 
     public function uninstall($parent)
     {
-       $db = JFactory::getDBO();
+       $db = JFactory::getDbo();
 		$status = new stdClass;
 		$status->modules = array();
 		$status->plugins = array();
@@ -103,7 +103,7 @@ class Com_CitruscartInstallerScript{
 		{
 			$name = (string)$module->attributes()->module;
 			$client = (string)$module->attributes()->client;
-			$db = JFactory::getDBO();
+			$db = JFactory::getDbo();
 			$query = "SELECT `extension_id` FROM `#__extensions` WHERE `type`='module' AND element = ".$db->q($name)."";
 			$db->setQuery($query);
 			$extensions = $db->loadColumn();
@@ -379,7 +379,7 @@ public function manuallyInstallLibrary()
             $query	= "UPDATE #__plugins SET `published` = '1' WHERE `folder` = 'system' AND `element` = 'dioscouri';";
         }
 
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $db->setQuery( $query );
         if (!$db->query())
         {

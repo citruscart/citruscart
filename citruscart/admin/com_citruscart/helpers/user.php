@@ -109,7 +109,7 @@ class CitruscartHelperUser extends DSCHelperUser
 		}
 
 		$success = false;
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$string = $database->escape($string);
 		$query = "
             SELECT
@@ -143,7 +143,7 @@ class CitruscartHelperUser extends DSCHelperUser
 
 		$mainframe = JFactory::getApplication();
 
-		$db     = JFactory::getDBO();
+		$db     = JFactory::getDbo();
 
 		$name       = $user->get('name');
 		$email      = $user->get('email');
@@ -352,7 +352,7 @@ class CitruscartHelperUser extends DSCHelperUser
 		if( DSC::getApp()->isComponentInstalled( 'com_community' ) && !$found)
 		{
 			//Get JomSocial Avatar
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 			SELECT
 				*
@@ -377,7 +377,7 @@ class CitruscartHelperUser extends DSCHelperUser
 		if( DSC::getApp()->isComponentInstalled( 'com_comprofiler' ) && !$found)
 		{
 			//Get JomSocial Avatar
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 			SELECT
 				*

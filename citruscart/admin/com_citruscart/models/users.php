@@ -176,7 +176,7 @@ class CitruscartModelUsers extends CitruscartModelBase
 	
 		$q2_5 = "SELECT @midpoint;
 		";
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$db->setQuery( $q2_5 );
 		$id_rownum = $db->loadResult();
 		echo "<p>Row Number of this ID:</p>". Publications::dump( $id_rownum );

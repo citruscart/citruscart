@@ -67,7 +67,7 @@ class CitruscartController extends DSCControllerAdmin
 		$constant = 'page_tooltip_'.$key;
 		$config_title = $constant."_disabled";
 
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		JTable::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/tables/' );
 		unset($table);
 		$table = JTable::getInstance( 'config', 'CitruscartTable' );

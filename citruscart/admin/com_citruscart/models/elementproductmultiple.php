@@ -193,7 +193,7 @@ class CitruscartModelElementProductMultiple extends JModel
 
 		$mainframe = JFactory::getApplication();
 
-		$db			= JFactory::getDBO();
+		$db			= JFactory::getDbo();
 		$doc 		= JFactory::getDocument();
 		$template 	= $mainframe->getTemplate();
 		$fieldName	= $control_name ? $control_name.'['.$name.']' : $name;

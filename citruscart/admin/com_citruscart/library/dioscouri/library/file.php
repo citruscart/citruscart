@@ -566,7 +566,7 @@ class DSCFile extends JObject
 	 */
 	function fileToText ()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$source = $this->file_path;
 		$success = false;
 
@@ -597,7 +597,7 @@ class DSCFile extends JObject
 	 */
 	function fileToBlob ()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$source = $this->file_path;
 		$success = false;
 

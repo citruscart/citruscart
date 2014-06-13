@@ -91,7 +91,7 @@ class CitruscartHelperSQL extends CitruscartHelperBase
         
         if (trim($sql)) 
         {
-            $db = JFactory::getDBO();
+            $db = JFactory::getDbo();
             $db->setQuery($sql);
             if (!$db->query())
             {

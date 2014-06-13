@@ -394,7 +394,7 @@ class CitruscartModelCarts extends CitruscartModelEav
 	 */
 	public function deleteExpiredSessionCarts()
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
 		Citruscart::load( "CitruscartHelperBase", 'helpers._base' );

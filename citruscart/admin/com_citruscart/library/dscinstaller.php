@@ -107,7 +107,7 @@ if (!class_exists( 'dscInstaller' )) {
 		function __construct()
 		{
 			$this->msg = new stdClass();
-			$this->_db = JFactory::getDBO();
+			$this->_db = JFactory::getDbo();
 		}
 
 		/**

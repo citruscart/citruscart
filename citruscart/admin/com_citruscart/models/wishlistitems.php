@@ -481,7 +481,7 @@ class CitruscartModelWishlistItems extends CitruscartModelEav
 	 */
 	public function deleteExpiredSessionItems()
 	{
-	    $db = JFactory::getDBO();
+	    $db = JFactory::getDbo();
 	
 	    Citruscart::load( 'CitruscartQuery', 'library.query' );
 	    Citruscart::load( "CitruscartHelperBase", 'helpers._base' );

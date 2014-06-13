@@ -65,7 +65,7 @@ class CitruscartHelperCategory extends CitruscartHelperBase
         if ($app->isAdmin())
         {
             // TODO This doesn't account for when templates are assigned to menu items.  Make it do so
-            $db = JFactory::getDBO();
+            $db = JFactory::getDbo();
             if(version_compare(JVERSION,'1.6.0','ge')) {
                 // Joomla! 1.6+ code here
                 $db->setQuery( "SELECT `template` FROM #__template_styles WHERE `home` = '1' AND `client_id` = '0';" );
@@ -146,7 +146,7 @@ class CitruscartHelperCategory extends CitruscartHelperBase
         {
             if ($app->isAdmin())
             {
-                $db = JFactory::getDBO();
+                $db = JFactory::getDbo();
                 if(version_compare(JVERSION,'1.6.0','ge')) {
                     // Joomla! 1.6+ code here
                     $db->setQuery( "SELECT `template` FROM #__template_styles WHERE `home` = '1' AND `client_id` = '0';" );

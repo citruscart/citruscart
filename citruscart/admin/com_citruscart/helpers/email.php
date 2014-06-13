@@ -442,7 +442,7 @@ class CitruscartHelperEmail extends CitruscartHelperBase
      */
     function getSystemEmailRecipients()
     {
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $query = "
             SELECT tbl.email
             FROM #__users AS tbl

@@ -52,7 +52,7 @@ class CitruscartModelProductPrices extends CitruscartModelBase
 
         if (strlen($filter_date))
         {
-        	$nullDate	= JFactory::getDBO()->getNullDate();
+        	$nullDate	= JFactory::getDbo()->getNullDate();
         	$query->where("tbl.product_price_startdate <= '".$filter_date."'");
   			$query->where("(tbl.product_price_enddate >= '".$filter_date."' OR tbl.product_price_enddate = '$nullDate' )");
        	}
@@ -91,7 +91,7 @@ class CitruscartModelProductPrices extends CitruscartModelBase
         if (empty( $this->_list ) || $refresh)
         {
            // $list = parent::getList($refresh);
-            $nullDate = JFactory::getDBO()->getNullDate();
+            $nullDate = JFactory::getDbo()->getNullDate();
 
             if ( empty( $list ) ) {
                 return array();
@@ -128,7 +128,7 @@ class CitruscartModelProductPrices extends CitruscartModelBase
             $this->_item = $this->_db->loadObject();
             if (is_object($this->_item))
             {
-                $nullDate = JFactory::getDBO()->getNullDate();
+                $nullDate = JFactory::getDbo()->getNullDate();
                 // convert working dates to localtime for display
                 $this->_item->product_price_startdate = ($this->_item->product_price_startdate != $nullDate) ? JHTML::_( "date", $this->_item->product_price_startdate, '%Y-%m-%d %H:%M:%S' ) : $this->_item->product_price_startdate;
                 $this->_item->product_price_enddate = ($this->_item->product_price_enddate != $nullDate) ? JHTML::_( "date", $this->_item->product_price_enddate, '%Y-%m-%d %H:%M:%S' ) : $this->_item->product_price_enddate;

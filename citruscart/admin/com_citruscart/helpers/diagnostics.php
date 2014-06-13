@@ -1508,7 +1508,7 @@ class CitruscartHelperDiagnostics extends DSCHelperDiagnostics
 
 		$table = '#__citruscart_productrelations';
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$query = " SHOW COLUMNS FROM {$table} LIKE 'productrelation_id' ";
 		$db->setQuery( $query );
 		$rows = $db->loadObjectList();
@@ -2452,7 +2452,7 @@ class CitruscartHelperDiagnostics extends DSCHelperDiagnostics
 			return true;
 		}
 
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$table = '#__citruscart_productcomments';
 		$fieldEmail = "user_email";
 		$fieldUserId = "user_id";

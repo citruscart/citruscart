@@ -333,7 +333,7 @@ class DSCHelper extends JObject
 	 */
 	public static function setDateVariables( $curdate, $enddate, $period )
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$return = new stdClass();
 		$return->thisdate = '';
@@ -421,7 +421,7 @@ class DSCHelper extends JObject
 				return $today;
 			}
 
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 				SELECT
 					{$command}( '{$today}', INTERVAL {$offset} HOUR )
@@ -451,7 +451,7 @@ class DSCHelper extends JObject
 		}
 		if ($command)
 		{
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 				SELECT
 					{$command}( '{$date}', INTERVAL {$offset} HOUR )
@@ -470,7 +470,7 @@ class DSCHelper extends JObject
 		{
 			$runningtotal = 0;
 			$return = new stdClass();
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 
 			// the following would be used if there were an additional filter in the Inputs
 			$filter_where 	= "";
@@ -500,7 +500,7 @@ class DSCHelper extends JObject
 			}
 			if ($command)
 			{
-				$database = JFactory::getDBO();
+				$database = JFactory::getDbo();
 				$query = "
 					SELECT
 						{$command}( '{$start_datetime}', INTERVAL {$offset} HOUR )

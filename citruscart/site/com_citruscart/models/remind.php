@@ -46,7 +46,7 @@ class CitruscartModelRemind extends JModel
 			return false;
 		}
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$db->setQuery('SELECT username FROM #__users WHERE email = '.$db->q($email), 0, 1);
 
 		// Get the username

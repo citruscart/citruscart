@@ -3286,7 +3286,7 @@ class CitruscartControllerCheckout extends CitruscartController
                         $item->subscription_period_interval = '100';
                         $subscription->lifetime_enabled = '1';
                     }
-                    $database = JFactory::getDBO();
+                    $database = JFactory::getDbo();
                     $query = " SELECT DATE_ADD('{$subscription->created_datetime}', INTERVAL {$item->subscription_period_interval} $period_unit ) ";
                     $database->setQuery( $query );
                     $subscription->expires_datetime = $database->loadResult();

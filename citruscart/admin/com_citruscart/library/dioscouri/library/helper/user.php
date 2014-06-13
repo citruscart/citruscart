@@ -24,7 +24,7 @@ class DSCHelperUser extends DSCHelper {
 		// TODO Make this use ->load()
 
 		$success = false;
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$string = $database -> escape($string);
 		$query = "
             SELECT
@@ -57,7 +57,7 @@ class DSCHelperUser extends DSCHelper {
 		}
 
 		$success = false;
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$string = $database -> escape($string);
 		$query = "
             SELECT
@@ -292,7 +292,7 @@ class DSCHelperUser extends DSCHelper {
 
 		$mainframe = JFactory::getApplication();
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		$name = $user -> get('name');
 		$email = $user -> get('email');
@@ -385,7 +385,7 @@ class DSCHelperUser extends DSCHelper {
 	 * Gets the next auto-inc id in the __users table
 	 */
 	public static function getLastUserId() {
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$query = "
             SELECT
                 MAX(id) as id

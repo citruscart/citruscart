@@ -106,7 +106,7 @@ class CitruscartControllerProductCompare extends CitruscartController
 		//deleting product to compare
 		if(!$add)
 		{
-			$db = JFactory::getDBO();
+			$db = JFactory::getDbo();
 			Citruscart::load( 'CitruscartQuery', 'library.query' );
 			$query = new CitruscartQuery();
 			$query->delete();

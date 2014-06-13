@@ -108,7 +108,7 @@ if (!class_exists( 'DSCInstaller' )) {
 		function __construct()
 		{
 			$this->msg = new stdClass();
-			$this->_db = JFactory::getDBO();
+			$this->_db = JFactory::getDbo();
 		}
 
 		/**
@@ -1082,7 +1082,7 @@ if (!class_exists( 'DSCInstaller' )) {
     	{
 		    $return = null;
 
-    		$db = JFactory::getDBO();
+    		$db = JFactory::getDbo();
     		$sqlfile = JPATH_ADMINISTRATOR . '/components/' . $this->thisextension . '/install/install.sql';
     		if (!file_exists($sqlfile)) { return; }
 
@@ -1200,7 +1200,7 @@ if (!class_exists( 'DSCInstaller' )) {
 		{
 		    $extension_name = strtolower($extension_name);
 
-		    $db = JFactory::getDBO();
+		    $db = JFactory::getDbo();
 		    $query = "SELECT * FROM #__menu WHERE `client_id` = '1' AND `parent_id` = '1' AND LOWER(`title`) = '$extension_name' LIMIT 1;";
 		    $db->setQuery( $query );
 		    $result = $db->loadObject();

@@ -771,7 +771,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
      */
     public function _getAdmins()
     {
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $q = "SELECT name, email FROM #__users "
            . "WHERE LOWER(usertype) = \"super administrator\" "
            . "AND sendEmail = 1 "
@@ -900,7 +900,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
                     $period_unit = "DAY";
                     break;
             }
-            $database = JFactory::getDBO();
+            $database = JFactory::getDbo();
             $query = " SELECT DATE_ADD('{$subscription->created_datetime}', INTERVAL {$order->recurring_trial_period_interval} $period_unit ) ";
             $database->setQuery( $query );
             $subscription->expires_datetime = $database->loadResult();
@@ -1023,7 +1023,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
                     $period_unit = "DAY";
                     break;
             }
-            $database = JFactory::getDBO();
+            $database = JFactory::getDbo();
             $query = " SELECT DATE_ADD('{$subscription->created_datetime}', INTERVAL {$recurring_period_interval} $period_unit ) ";
             $database->setQuery( $query );
             $subscription->expires_datetime = $database->loadResult();
@@ -1060,7 +1060,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
                     $period_unit = "DAY";
                     break;
             }
-            $database = JFactory::getDBO();
+            $database = JFactory::getDbo();
             $today = $date = JFactory::getDate();
             $query = " SELECT DATE_ADD('{$today}', INTERVAL {$order->recurring_period_interval} $period_unit ) ";
             $database->setQuery( $query );

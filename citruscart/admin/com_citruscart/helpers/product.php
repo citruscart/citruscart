@@ -57,7 +57,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         if ( $app->isAdmin( ) )
         {
             // TODO This doesn't account for when templates are assigned to menu items.  Make it do so
-            $db = JFactory::getDBO();
+            $db = JFactory::getDbo();
             if (version_compare(JVERSION, '1.6.0', 'ge')) {
                 // Joomla! 1.6+ code here
                 $db -> setQuery("SELECT `template` FROM #__template_styles WHERE `home` = '1' AND `client_id` = '0';");
@@ -1041,7 +1041,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             $model->setState( 'filter_quantity', $quantity );
 
             // does date even matter?
-            $nullDate = JFactory::getDBO( )->getNullDate( );
+            $nullDate = JFactory::getDbo( )->getNullDate( );
             if ( empty( $date ) || $date == $nullDate )
             {
                 $date = JFactory::getDate( )->toSql( );
@@ -1155,7 +1155,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 
             Citruscart::load( 'CitruscartQuery', 'library.query' );
 
-            $db = JFactory::getDBO( );
+            $db = JFactory::getDbo( );
 
             $query = new CitruscartQuery( );
             $query->select( 'tbl.*' );
@@ -1205,7 +1205,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             $table = JTable::getInstance( 'ProductCategories', 'CitruscartTable' );
 
 
-            $db = JFactory::getDBO( );
+            $db = JFactory::getDbo( );
             $query = $db->getQuery(true);
             $query->select("tbl.category_id");
 			$query->from( $table->getTableName( ) . " AS tbl" );
@@ -1217,7 +1217,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
             $query->select( "tbl.category_id" );
             $query->from( $table->getTableName( ) . " AS tbl" );
             $query->where( "tbl.product_id = " . ( int ) $id );
-            $db = JFactory::getDBO( );
+            $db = JFactory::getDbo( );
             $db->setQuery( ( string ) $query ); */
            // self::$categoriesxref[$id] = $db->loadColumn( );
         }
@@ -2013,7 +2013,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $query->from( $tableQuantity->getTableName( ) . " AS quantities" );
         $query->where( "quantities.product_id = " . $id );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
 
         $results = $db->loadObjectList( );
@@ -2066,7 +2066,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $whereClause[] = "product.product_check_inventory =1 ";
         $query->where( $whereClause, "AND" );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
         $item = $db->loadObject( );
 
@@ -2130,7 +2130,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $query->where( "tbl.product_id = " . ( int ) $product_id );
         $query->where( "tbl.user_id = " . ( int ) $user_id );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
         $items = $db->loadColumn( );
         return $items;
@@ -2157,7 +2157,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $query->from( $table->getTableName( ) . " AS tbl" );
         $query->where( "tbl.product_id = " . ( int ) $product_id );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
         $items = $db->loadColumn( );
 
@@ -2184,7 +2184,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $query->where( "tbl.user_id = " . ( int ) $uid );
         $query->where( "tbl.productcomment_id = " . ( int ) $cid );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
         $items = $db->loadColumn( );
 
@@ -2208,7 +2208,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         $query->from( $tableQuantity->getTableName( ) . " AS quantities" );
         $query->where( "quantities.product_id = " . $id );
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( ( string ) $query );
 
         $results = $db->loadObjectList( );
@@ -2352,7 +2352,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
     {
         $success = true;
 
-        $db = JFactory::getDBO( );
+        $db = JFactory::getDbo( );
         $db->setQuery( "UPDATE #__citruscart_productprices SET `group_id` = '1' WHERE `group_id` = '0'; " );
         if ( !$db->query( ) )
         {

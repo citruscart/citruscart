@@ -47,7 +47,7 @@ class DSCHelperPlugin extends DSCHelper
 	 */
 	function getPlugins( $folder='DSC' )
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$order_query = " ORDER BY ordering ASC ";
 		$folder = strtolower( $folder );

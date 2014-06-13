@@ -31,7 +31,7 @@ class CitruscartViewElementImage extends JView
 		$mainframe = JFactory::getApplication();
 		
 		// Initialize variables
-		$db			= JFactory::getDBO();
+		$db			= JFactory::getDbo();
 		$nullDate	= $db->getNullDate();
 
 		$document	= JFactory::getDocument();
@@ -149,7 +149,7 @@ class CitruscartViewElementImage extends JView
 		$mainframe = JFactory::getApplication();
 
 		// Initialize variables
-		$db		= JFactory::getDBO();
+		$db		= JFactory::getDbo();
 
 		// Get some variables from the request
 		$option				= JRequest::get( 'option' );

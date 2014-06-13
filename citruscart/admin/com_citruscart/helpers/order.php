@@ -435,7 +435,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 		if ($app->isAdmin())
 		{
 			// finds the default Site template
-			$db = JFactory::getDBO();
+			$db = JFactory::getDbo();
             if (version_compare(JVERSION, '1.6.0', 'ge')) {
                 // Joomla! 1.6+ code here
                 $db -> setQuery("SELECT `template` FROM #__template_styles WHERE `home` = '1' AND `client_id` = '0';");
@@ -579,7 +579,7 @@ class CitruscartHelperOrder extends CitruscartHelperBase
 	 */
 	public static function getDateMarginalOrder( $states, $order = 'ASC' )
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$today = CitruscartHelperBase::getToday();
 
 		$q = new CitruscartQuery();

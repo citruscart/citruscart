@@ -372,7 +372,7 @@ class CitruscartHelperBase extends DSCHelper
 	 */
 	/*function setDateVariables( $curdate, $enddate, $period )
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$return = new stdClass();
 		$return->thisdate = '';
@@ -460,7 +460,7 @@ class CitruscartHelperBase extends DSCHelper
 				return $today;
 			}
 
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 				SELECT
 				{$command}( '{$today}', INTERVAL {$offset} HOUR )
@@ -497,7 +497,7 @@ class CitruscartHelperBase extends DSCHelper
 		{
 			$offset = abs($offset);
 
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$query = "
 				SELECT
 				{$command}( '{$date}', INTERVAL {$offset} HOUR )
@@ -516,7 +516,7 @@ class CitruscartHelperBase extends DSCHelper
 		{
 			$runningtotal = 0;
 			$return = new stdClass();
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 
 			// the following would be used if there were an additional filter in the Inputs
 			$filter_where 	= "";
@@ -546,7 +546,7 @@ class CitruscartHelperBase extends DSCHelper
 			}
 			if ($command)
 			{
-				$database = JFactory::getDBO();
+				$database = JFactory::getDbo();
 				$query = "
 					SELECT
 					{$command}( '{$start_datetime}', INTERVAL {$offset} HOUR )

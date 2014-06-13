@@ -670,7 +670,7 @@ class DSC extends JObject
 	    if (empty( $this->_data ))
 	    {
 	        $this->_data = '';
-	        $database = JFactory::getDBO();
+	        $database = JFactory::getDbo();
 	        if ($query = $this->_buildQuery())
 	        {
     	        $database->setQuery( $query );
@@ -730,7 +730,7 @@ class DSC extends JObject
   {
 		if(version_compare(JVERSION,'1.6.0','ge')) {
 	        // Joomla! 1.6+ code here
-          $db = JFactory::getDBO();
+          $db = JFactory::getDbo();
           $q = new DSCQuery();
           $q->select( 'extension_id' );
           $q->from( '#__extensions' );

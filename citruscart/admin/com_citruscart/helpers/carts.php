@@ -126,7 +126,7 @@ class CitruscartHelperCarts extends CitruscartHelperBase
 	 */
 	function updateUserCartItemsSessionId( $user_id, $session_id )
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
 		$query = new CitruscartQuery();
@@ -150,7 +150,7 @@ class CitruscartHelperCarts extends CitruscartHelperBase
 	 */
 	function deleteSessionCartItems( $session_id )
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
 		$query = new CitruscartQuery();
@@ -358,7 +358,7 @@ class CitruscartHelperCarts extends CitruscartHelperBase
 	 */
 	function removeCartItem( $session_id, $user_id=0, $product_id )
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
 		$query = new CitruscartQuery();

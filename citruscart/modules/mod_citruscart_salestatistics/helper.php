@@ -125,7 +125,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _yesterday()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$end_date = CitruscartHelperBase::getCorrectBeginDayTime( JFactory::getDate() );
 
 		$query = new CitruscartQuery();
@@ -141,7 +141,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _lastSeven()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$enddate = CitruscartHelperBase::getCorrectBeginDayTime( JFactory::getDate() );
 
 		$query = new CitruscartQuery();
@@ -161,7 +161,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _thisMonth()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$date = JFactory::getDate(); //get local data
 		$today = $date->format( "%Y-%m-%d %H:%M:%S" );
@@ -181,7 +181,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _lastMonth()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$date = JFactory::getDate(); //get local data
 		//first day of month
@@ -206,7 +206,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _thisYear()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$date = JFactory::getDate(); //get local data
 		$today = $date->format( "%Y-%m-%d %H:%M:%S" );
@@ -226,7 +226,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _lastYear()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$date = JFactory::getDate(); //get local data
 		$today = CitruscartHelperBase::getCorrectBeginDayTime( $date );
@@ -255,7 +255,7 @@ class modCitruscartSaleStatisticsHelper extends CitruscartHelperBase
 	 */
 	function _lifetime()
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		$today = CitruscartHelperBase::getToday();
 
 		Citruscart::load( 'CitruscartHelperOrder','helpers.order' );

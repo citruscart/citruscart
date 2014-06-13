@@ -107,7 +107,7 @@ class DSCTableNested extends DSCTable
 	function getDescendants( $enabled='1' )
 	{
 		$success = false;
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		$enabled_query = "";
 		if (intval($enabled) > 0)
@@ -507,7 +507,7 @@ class DSCTableNested extends DSCTable
 	function rebuildTree( $parent=null, $left=1 )
 	{
 		$key = $this->getKeyName();
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
 		if ($parent === null)
 		{
@@ -959,7 +959,7 @@ class DSCTableNested extends DSCTable
      */
     protected function updateNestedValuesForSubtreeAddition( $right, $width, $excludedIds = array() )
     {
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
 
         // Move all the right values + $width for nodes where the the right value >=
         // the parent right value:
@@ -1010,7 +1010,7 @@ class DSCTableNested extends DSCTable
      */
     protected function updateNestedValuesForSubtreeDeletion( $right, $width )
     {
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 
         // Move all the right values + $width for nodes where the the right
         // value > the parent right value
@@ -1060,7 +1060,7 @@ class DSCTableNested extends DSCTable
         }
 
         $key = $this->getKeyName();
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
 
         if ($parent === null)
         {

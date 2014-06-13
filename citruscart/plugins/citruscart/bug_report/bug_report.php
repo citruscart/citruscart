@@ -99,7 +99,7 @@ class plgCitruscartBug_report extends JPlugin
 		//$option = JRequest::get('option');
 		$option = $app->input->get('option');
 		
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$path = JPATH_ADMINISTRATOR.'/components/com_admin/';
 		
 		require_once($path.'admin.admin.html.php');

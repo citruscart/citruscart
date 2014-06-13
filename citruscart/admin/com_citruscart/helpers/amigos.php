@@ -56,7 +56,7 @@ class CitruscartHelperAmigos extends CitruscartHelperBase
         $query->from( '#__amigos_logs AS tbl' );
         $query->where( "tbl.userid = '".(int) $userid."'" );
         
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $db->setQuery( (string) $query );
         $referral = $db->loadObject();
         
@@ -87,7 +87,7 @@ class CitruscartHelperAmigos extends CitruscartHelperBase
             $query->where( "tbl.orderid = '".(int) $order_id."'" );
             $query->where( "tbl.order_type = 'com_citruscart'" );
             
-            $db = JFactory::getDBO();
+            $db = JFactory::getDbo();
             $db->setQuery( (string) $query );
             $this->commissions[$order_id] = $db->loadObjectList();
         }

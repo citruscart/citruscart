@@ -65,7 +65,7 @@ class DSCHelperDiagnostics extends DSCHelper
     {
         if (!$this->tableExists( $table ))
         {
-            $db = JFactory::getDBO();
+            $db = JFactory::getDbo();
             $db->setQuery( $definition );
             if (!$db->query())
             {
@@ -83,7 +83,7 @@ class DSCHelperDiagnostics extends DSCHelper
      */
     function tableExists( $table )
     {
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
 
         // Manually replace the Joomla Tables prefix. Automatically it fails
         // because the table name is between single-quotes
@@ -104,7 +104,7 @@ class DSCHelperDiagnostics extends DSCHelper
      */
     function insertTableFields($table, $fields, $definitions)
     {
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         $fields = (array) $fields;
         $errors = array();
 
@@ -143,7 +143,7 @@ class DSCHelperDiagnostics extends DSCHelper
      */
     function changeTableFields($table, $fields, $definitions, $newnames)
     {
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         $fields = (array) $fields;
         $errors = array();
 
@@ -181,7 +181,7 @@ class DSCHelperDiagnostics extends DSCHelper
      */
     function dropTableFields($table, $fields)
     {
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         $fields = (array) $fields;
         $errors = array();
 

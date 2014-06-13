@@ -49,7 +49,7 @@ class CitruscartHelperPlugin extends CitruscartHelperBase
 	 */
 	static function getPlugins( $folder='Citruscart' )
 	{
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		
 		$order_query = " ORDER BY ordering ASC ";
 		$folder = strtolower( $folder );

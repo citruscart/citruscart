@@ -49,7 +49,7 @@ class modCitruscartLayeredNavigationFiltersHelper extends JObject
 
 		$input = JFactory::getApplication()->input;
 		$this->_params 		= $params;
-		$this->_db 			= JFactory::getDBO();
+		$this->_db 			= JFactory::getDbo();
 		$this->_multi_mode 	= $params->get('multi_mode', 1);
 		$this->_itemid 		= $input->getInt('Itemid');
 		$this->_view 		= $input->getString('view');

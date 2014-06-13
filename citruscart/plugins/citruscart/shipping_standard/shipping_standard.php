@@ -405,7 +405,7 @@ class plgCitruscartShipping_Standard extends CitruscartShippingPlugin
     	Citruscart::load( 'CitruscartQuery', 'library.query' );
 
         $taxrate = "0.00000";
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
 
         $query = new CitruscartQuery();
         $query->select( 'tbl.*' );

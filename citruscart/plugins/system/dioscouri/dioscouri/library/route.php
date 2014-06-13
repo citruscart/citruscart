@@ -102,7 +102,7 @@ class DSCRoute
 
 	public static function findItemid ($url) {
 		//TODO add CACHING
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$query = NEW DSCQuery();
 		$query->select('*');
         $query->from(' #__menu as m');

@@ -199,7 +199,7 @@ class CitruscartHelperCurrency extends CitruscartHelperBase
         
         $date = JFactory::getDate();
         $now = $date->toSql();
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
         $database->setQuery( "SELECT DATE_SUB( '$now', INTERVAL 1 HOUR )" );
         $expire_datetime = $database->loadResult();
 

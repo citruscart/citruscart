@@ -203,7 +203,7 @@ class CitruscartTableCategories extends CitruscartTableNested
     function rebuildTreeOrdering( $parent=null, $left=1 )
     {
         $key = $this->getKeyName();
-        $database = JFactory::getDBO();
+        $database = JFactory::getDbo();
 
         if ($parent === null)
         {

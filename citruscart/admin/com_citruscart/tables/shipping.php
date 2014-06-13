@@ -33,7 +33,7 @@ class CitruscartTableShipping extends CitruscartTable
 	    $this->set( '_suffix', 'shipping' );
 	    
 	    if (empty($db)) {
-	        $db = JFactory::getDBO();
+	        $db = JFactory::getDbo();
 	    }
 	    
 		parent::__construct( "#__{$tbl_suffix}", $tbl_key, $db );		

@@ -36,7 +36,7 @@ class CitruscartHelperTax extends CitruscartHelperBase
 		if ( !is_array( $items ) )
 			return $result;
 
-		$db = JFactory::getDBO( );
+		$db = JFactory::getDbo( );
 		foreach ( $items as $key => $item )
 		{
 			$orderitem_tax = 0;
@@ -178,7 +178,7 @@ class CitruscartHelperTax extends CitruscartHelperBase
 		$result->amount = 0;
 		
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
-		$db = JFactory::getDBO( );
+		$db = JFactory::getDbo( );
 		if( $tax_class_id === null )
 		{
 			$q = new CitruscartQuery( );

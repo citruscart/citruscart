@@ -107,7 +107,7 @@ class DSCAcl {
 				return $query;
 
 			}
-			$database = JFactory::getDBO();
+			$database = JFactory::getDbo();
 			$database->setQuery( $query );
 			$users = $database->loadObjectList();
 

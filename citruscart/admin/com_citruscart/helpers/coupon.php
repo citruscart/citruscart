@@ -71,7 +71,7 @@ class CitruscartHelperCoupon extends CitruscartHelperBase
 			return false;
 		}
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$nullDate = $db->getNullDate();
 		if ($coupon->expiration_date != $nullDate && $date->toSql() > $coupon->expiration_date)
 		{
@@ -121,7 +121,7 @@ class CitruscartHelperCoupon extends CitruscartHelperBase
 			$query->where( "tbl.product_id IN (".$ids.")" );
 			$query->where( "tbl.coupon_id = ".(int) $coupon_id );
 
-			$db = JFactory::getDBO();
+			$db = JFactory::getDbo();
 			$db->setQuery( (string) $query );
 
 			$count = $db->loadResult();
@@ -145,7 +145,7 @@ class CitruscartHelperCoupon extends CitruscartHelperBase
 		$query->from('#__citruscart_productcouponxref');
 		$query->where('coupon_id = '.(int)$coupon_id);
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$db->setQuery($query);
 		return $db->loadColumn();
 

@@ -244,7 +244,7 @@ class plgCitruscartTool_RedShopMigration extends CitruscartToolPlugin {
         ";
 
 		$results = array();
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$n = 0;
 		foreach ($queries as $query) {
 			$db -> setQuery($query);
@@ -339,7 +339,7 @@ class plgCitruscartTool_RedShopMigration extends CitruscartToolPlugin {
         ";
 
 		$results = array();
-		$jDBO = JFactory::getDBO();
+		$jDBO = JFactory::getDbo();
 		$sourceDB = $this -> _verifyDB();
 		$n = 0;
 

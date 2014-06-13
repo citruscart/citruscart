@@ -337,14 +337,14 @@ class plgCitruscartTool_InstallSampleData extends CitruscartToolPlugin
 
         if($state->install_default == '0' || empty($state->install_default))
         {
-        	$database = JFactory::getDBO();
+        	$database = JFactory::getDbo();
         	$results[ucfirst($sample)] = $this->_populateDatabase( $database, $state->uploaded_file, $errors);
         }
         else
         {
           if(!empty($state->sampledata))
         	{
-        	$database = JFactory::getDBO();
+        	$database = JFactory::getDbo();
 
         	if(version_compare(JVERSION,'1.6.0','ge')) {
   			// Joomla! 1.6+ code here

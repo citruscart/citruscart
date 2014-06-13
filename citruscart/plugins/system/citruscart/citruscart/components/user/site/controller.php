@@ -173,7 +173,7 @@ class UserController extends JController
     {
         global $mainframe, $option;
 
-        $db     = JFactory::getDBO();
+        $db     = JFactory::getDbo();
         $user   = JFactory::getUser();
 
         if ( $user->get('guest')) {
@@ -478,7 +478,7 @@ class UserController extends JController
         global $mainframe;
 
         // Initialize some variables
-        $db         = JFactory::getDBO();
+        $db         = JFactory::getDbo();
         $user       = JFactory::getUser();
         $document   = JFactory::getDocument();
         $pathway    = $mainframe->getPathWay();
@@ -669,7 +669,7 @@ class UserController extends JController
     	$input = JFactory::getApplication()->input;
         global $mainframe;
 
-        $db     = JFactory::getDBO();
+        $db     = JFactory::getDbo();
 
         $name       = $user->get('name');
         $email      = $user->get('email');

@@ -178,7 +178,7 @@ class modCitruscartProductsHelper extends JObject
 	private function getUserGroups()
 	{
 		$user = JFactory::getUser();
-		$database = JFactory::getDBO();
+		$database = JFactory::getDbo();
 		Citruscart::load( 'CitruscartQuery', 'library.query' );
 		$query = new CitruscartQuery();
 		$query->select( 'tbl.group_id' );

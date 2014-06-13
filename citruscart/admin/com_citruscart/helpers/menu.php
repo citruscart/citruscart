@@ -29,7 +29,7 @@ class CitruscartHelperMenu extends CitruscartHelperBase
 		} else {
 		 $query = "SELECT `published` FROM #__modules WHERE `module` = 'mod_citruscart_admin_submenu';";	
 		}
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $db->setQuery( $query );
         $result = $db->loadResult();
         return $result;

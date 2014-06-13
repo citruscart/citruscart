@@ -251,7 +251,7 @@ class plgCitruscartTool_XCartMigration extends CitruscartToolPlugin
 
 
         $results = array();
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $n=0;
         foreach ($queries as $query)
         {
@@ -335,7 +335,7 @@ class plgCitruscartTool_XCartMigration extends CitruscartToolPlugin
         ";
 
         $results = array();
-        $jDBO = JFactory::getDBO();
+        $jDBO = JFactory::getDbo();
         $sourceDB = $this->_verifyDB();
         $n=0;
         foreach ($queries as $query)

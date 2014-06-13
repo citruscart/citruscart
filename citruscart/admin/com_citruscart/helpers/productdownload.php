@@ -107,7 +107,7 @@ class CitruscartHelperProductDownload extends CitruscartHelperBase
         // TODO apply the where task for the Date
         
         $query->where($whereClause,"AND" );
-        $db = JFactory::getDBO();
+        $db = JFactory::getDbo();
         $db->setQuery( (string) $query );
         $item = $db->loadObject();
         return $item;

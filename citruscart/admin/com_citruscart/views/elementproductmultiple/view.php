@@ -31,7 +31,7 @@ class CitruscartViewElementProductMultiple extends JView
 		$mainframe = JFactory::getApplication();
 
 		// Initialize variables
-		$db			= JFactory::getDBO();
+		$db			= JFactory::getDbo();
 		$nullDate	= $db->getNullDate();
 
 		$document	= JFactory::getDocument();
@@ -157,7 +157,7 @@ class CitruscartViewElementProductMultiple extends JView
 		$mainframe = JFactory::getApplication();
 
 		// Initialize variables
-		$db		= JFactory::getDBO();
+		$db		= JFactory::getDbo();
 
 		// Get some variables from the request
 		//		$sectionid			= JRequest::getVar( 'sectionid', -1, '', 'int' );

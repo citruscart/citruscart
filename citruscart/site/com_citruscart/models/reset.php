@@ -40,7 +40,7 @@ class CitruscartModelReset extends JModel
 		jimport('joomla.mail.helper');
 		jimport('joomla.user.helper');
 
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 
 		// Make sure the e-mail address is valid
 		if (!JMailHelper::isEmailAddress($email))
@@ -107,7 +107,7 @@ class CitruscartModelReset extends JModel
 			return false;
 		}
 
-		$db	= JFactory::getDBO();
+		$db	= JFactory::getDbo();
 		$db->setQuery('SELECT id FROM #__users WHERE block = 0 AND activation = '.$db->q($token));
 
 		// Verify the token
@@ -155,7 +155,7 @@ class CitruscartModelReset extends JModel
 		}
 
 		// Get the necessary variables
-		$db			= JFactory::getDBO();
+		$db			= JFactory::getDbo();
 		$id			= $mainframe->getUserState($this->_namespace.'id');
 		$token		= $mainframe->getUserState($this->_namespace.'token');
 		$salt		= JUserHelper::genRandomPassword(32);
