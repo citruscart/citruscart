@@ -1,8 +1,23 @@
-<?php $url = JRoute::_( "index.php?option=com_citruscart&view=checkout", false ); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');
+$url = JRoute::_( "index.php?option=com_citruscart&view=checkout", false ); ?>
  <?php if(version_compare(JVERSION,'1.6.0','ge')) {     // Joomla! 1.6+ code here ?>
 
    <form action="<?php echo JRoute::_( 'index.php', true, Citruscart::getInstance()->get('usesecure', '0') ); ?>" method="post" name="login" id="form-login" >
-        
+
             <table>
             <tr>
                 <td style="height: 40px;">
@@ -29,7 +44,7 @@
                     <span style="float: left">
                         <input id="citruscart-remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
                     </span>
-                 
+
                 </td>
             </tr>
             <?php endif; ?>
@@ -59,16 +74,16 @@
                 </td>
             </tr>
             </table>
-        
+
            <input type="hidden" name="option" value="com_users" />
 			<input type="hidden" name="task" value="user.login" />
             <input type="hidden" name="return" value="<?php echo base64_encode( $url ); ?>" />
             <?php echo JHTML::_( 'form.token' ); ?>
-        </form>   
-<?php } else {     // Joomla! 1.5 code here ?> 
+        </form>
+<?php } else {     // Joomla! 1.5 code here ?>
 
   <form action="<?php echo JRoute::_( 'index.php', true, Citruscart::getInstance()->get('usesecure', '0') ); ?>" method="post" name="login" id="form-login" >
-        
+
             <table>
             <tr>
                 <td style="height: 40px;">
@@ -124,12 +139,11 @@
                 </td>
             </tr>
             </table>
-        
+
            <input type="hidden" name="option" value="com_user" />
 			<input type="hidden" name="task" value="login" />
             <input type="hidden" name="return" value="<?php echo base64_encode( $url ); ?>" />
             <?php echo JHTML::_( 'form.token' ); ?>
-        </form> 
+        </form>
 <?php } ?>
- 
- 
+
