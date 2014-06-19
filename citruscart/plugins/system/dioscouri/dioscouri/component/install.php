@@ -173,7 +173,7 @@ if ( (is_a($modules, 'JSimpleXMLElement') || is_a( $modules, 'JXMLElement')) && 
 			// set the position of the module if it is a new install and if position value exists in manifest
 			if (!empty($mposition))
 			{
-				$db = JFactory::getDBO();
+				$db = JFactory::getDbo();
                 $q = "UPDATE #__modules SET `position` = '{$mposition}' WHERE `module` = '{$result['element']}' AND `position` = '';";
                 $db->setQuery($q);
 				$db->query();
