@@ -16,7 +16,6 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.filesystem.file');
 
-
 class DSCFile extends JObject
 {
 	/**

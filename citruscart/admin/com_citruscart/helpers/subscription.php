@@ -208,10 +208,10 @@ class CitruscartHelperSubscription extends CitruscartHelperBase
         $subscriptions_expiring_notice_days = $config->get( 'subscriptions_expiring_notice_days', '14' );
         $subscriptions_expiring_notice_days_end = $subscriptions_expiring_notice_days + '1';
         $date = JFactory::getDate();
-        $today = $date->format( "%Y-%m-%d 00:00:00" );
+        $today = $date->format( "Y-m-d 00:00:00" );
         $database = JFactory::getDBO();
         $query = " SELECT DATE_ADD('".$today."', INTERVAL %s DAY) ";
-		$database->setQuery($query, sprintf($subscriptions_expiring_notice_days ) );
+		$database->setQuery( sprintf($query,$subscriptions_expiring_notice_days ) );
 		try{
         	$start_date = $database->loadResult();
 		}catch(Exception $e){
