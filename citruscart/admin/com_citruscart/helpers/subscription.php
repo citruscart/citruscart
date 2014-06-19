@@ -209,15 +209,20 @@ class CitruscartHelperSubscription extends CitruscartHelperBase
         $subscriptions_expiring_notice_days_end = $subscriptions_expiring_notice_days + '1';
         $date = JFactory::getDate();
         $today = $date->format( "%Y-%m-%d 00:00:00" );
-
         $database = JFactory::getDBO();
         $query = " SELECT DATE_ADD('".$today."', INTERVAL %s DAY) ";
-        $database->setQuery( sprintf($query, $subscriptions_expiring_notice_days ) );
-        $start_date = $database->loadResult();
+		$database->setQuery($query, sprintf($subscriptions_expiring_notice_days ) );
+		try{
+        	$start_date = $database->loadResult();
+		}catch(Exception $e){
 
-        $database->setQuery( sprintf($query, $subscriptions_expiring_notice_days_end ) );
-        $end_date = $database->loadResult();
+		}
+       	$database->setQuery( sprintf($query, $subscriptions_expiring_notice_days_end ) );
+        try{
+        	$end_date = $database->loadResult();
+        }catch(Exception $e){
 
+        	}
         // select all subs that expire between those dates
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );
         $model = JModelLegacy::getInstance( 'Subscriptions', 'CitruscartModel' );
