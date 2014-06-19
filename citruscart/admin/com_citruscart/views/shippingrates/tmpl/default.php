@@ -1,4 +1,18 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $state = @$this->state; ?>
 <?php $form = @$this->form; ?>
@@ -15,7 +29,7 @@
 <form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
 
 	<?php echo CitruscartGrid::pagetooltip( JRequest::getVar('view') ); ?>
-	
+
     <table>
         <tr>
             <td align="left" width="100%">
@@ -61,7 +75,7 @@
             </td>
         </tr>
     </table>
-    
+
 	<table class="table table-striped table-bordered" style="clear: both;">
 		<thead>
             <tr>
@@ -93,7 +107,7 @@
 				</td>
                 <td style="text-align: center;">
                     <?php echo CitruscartSelect::geozone($item->geozone_id, "geozone[{$item->shipping_rate_id}]", 2); ?>
-                </td>				
+                </td>
 				<td style="text-align: center;">
 					<input type="text" name="price[<?php echo $item->shipping_rate_id; ?>]" value="<?php echo $item->shipping_rate_price; ?>" />
 				</td>
@@ -107,14 +121,14 @@
 				</td>
 				<td style="text-align: center;">
 					[<a href="index.php?option=com_citruscart&controller=shippingrates&task=delete&cid[]=<?php echo $item->shipping_rate_id; ?>&return=<?php echo base64_encode("index.php?option=com_citruscart&controller=shippingmethods&task=setrates&id={$row->shipping_method_id}&tmpl=component"); ?>">
-						<?php echo JText::_('COM_CITRUSCART_DELETE_RATE'); ?>	
+						<?php echo JText::_('COM_CITRUSCART_DELETE_RATE'); ?>
 					</a>
 					]
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count(@$items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -138,6 +152,6 @@
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo @$state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo @$state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
 </form>

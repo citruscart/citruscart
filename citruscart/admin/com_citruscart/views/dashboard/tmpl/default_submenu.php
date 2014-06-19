@@ -13,6 +13,7 @@
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
 defined('_JEXEC') or die('Restricted access');
+
 JHtml::_('stylesheet', 'menu.css', 'media/citruscart/css/menu.css');
 
 require_once(JPATH_ADMINISTRATOR.'/components/com_citruscart/helpers/toolbar.php');
