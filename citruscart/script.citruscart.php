@@ -214,7 +214,7 @@ class CitruscartInstaller extends JObject
 
         $src = '/plugins/system/dioscouri/dioscouri/';
         $dest = '/libraries/dioscouri/';
-        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
+        $src_folders = JFolder::folders(JPATH_SITE.'/plugins/system/dioscouri/dioscouri/', '.', true, true);
         if (!empty($src_folders)) {
             foreach ($src_folders as $src_folder) {
                 $src_folder = str_replace(JPATH_SITE, '', $src_folder);
@@ -228,7 +228,7 @@ class CitruscartInstaller extends JObject
         // move files from plugins to libraries
         $src = '/plugins/system/dioscouri/dioscouri/';
         $dest = '/libraries/dioscouri/';
-        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/dioscouri', '.', true, true);
+        $src_files = JFolder::files(JPATH_SITE.'/plugins/system/dioscouri/dioscouri/', '.', true, true);
         if (!empty($src_files)) {
             foreach ($src_files as $src_file) {
               $src_filename = str_replace(JPATH_SITE, '', $src_file);
