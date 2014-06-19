@@ -1,4 +1,19 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access');
+?>
 <?php $shipping_rates_text = JText::_('COM_CITRUSCART_GETTING_SHIPPING_RATES'); ?>
 
 <h3><?php echo JText::_('COM_CITRUSCART_SELECT_A_SHIPPING_METHOD') ?></h3>
@@ -9,15 +24,15 @@
 <input type="hidden" id="shippingrequired" name="shippingrequired" value="1" />
 
 <?php
-    if (!empty($this->rates)) 
-    {      
-        foreach ($this->rates as $rate) 
+    if (!empty($this->rates))
+    {
+        foreach ($this->rates as $rate)
         {
             $checked = "";
             if (!empty($this->default_rate) && $this->default_rate['name'] == $rate['name'] )
             {
-            	$checked = "checked";                        
-            }        	        		
+            	$checked = "checked";
+            }
             ?>
             <input name="shipping_plugin" type="radio" value="<?php echo $rate['element'] ?>" onClick="citruscartSetShippingRate('<?php echo $rate['name']; ?>','<?php echo $rate['price']; ?>',<?php echo $rate['tax']; ?>,<?php echo $rate['extra']; ?>, '<?php echo $rate['code']; ?>');" <?php echo $checked; ?> /> <?php echo $rate['name']; ?> ( <?php echo CitruscartHelperBase::currency( $rate['total'] ); ?> )<br />
             <br/>
@@ -41,10 +56,10 @@
 <input type="hidden" name="shipping_code" id="shipping_code" value="<?php echo $setval ? $this->rates['0']['code'] : "";?>" />
 <input type="hidden" name="shipping_extra" id="shipping_extra" value="<?php echo $setval ? $this->rates['0']['extra'] : "";?>" />
 
-    
+
 <?php if(!Citruscart::getInstance()->get('one_page_checkout', '0')):?>
 <div id='shipping_form_div' style="padding-top: 10px;"></div>
-<!--    COMMENTS   -->     
+<!--    COMMENTS   -->
 <h3><?php echo JText::_('COM_CITRUSCART_SHIPPING_NOTES') ?></h3>
 <?php echo JText::_('COM_CITRUSCART_ADD_OPTIONAL_NOTES_FOR_SHIPMENT_HERE'); ?>:
 <br/>

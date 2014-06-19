@@ -1,4 +1,18 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHTML::_('stylesheet', 'mod_citruscart_layered_navigation.css', 'modules/mod_citruscart_layered_navigation/includes/css/');?>
 
 <?php if($found):?>
@@ -11,8 +25,8 @@
 		<?php foreach($filters as $filter):?>
 		<li>
 			<a class="btn-remove" title="<?php echo JText::_('COM_CITRUSCART_REMOVE_THIS_ITEM');?>" href="<?php echo JRoute::_($filter->link);?>"><?php echo JText::_('COM_CITRUSCART_REMOVE_THIS_ITEM');?></a>
-			<span class="label"><?php echo $filter->label;?>:</span>		
-			<span class="value"><?php echo $filter->value;?></span>					
+			<span class="label"><?php echo $filter->label;?>:</span>
+			<span class="value"><?php echo $filter->value;?></span>
 		</li>
 		<?php endforeach;?>
 	</ul>
@@ -25,8 +39,8 @@
 <?php if($trackcatcount > 0):?>
 
 	<?php $rootTxt = $params->get('roottext'); ?>
-	<h4><?php echo $helper->category_current->isroot && !empty( $rootTxt ) ? $rootTxt : $helper->category_current->category_name;?></h4>	
-	
+	<h4><?php echo $helper->category_current->isroot && !empty( $rootTxt ) ? $rootTxt : $helper->category_current->category_name;?></h4>
+
 	<ul id="citruscart_browse_category">
 	<?php foreach($categories as $category):?>
 
@@ -34,15 +48,15 @@
 		<li>
 			<a href="<?php echo $category->link;?>">
 				<span class="refinementLink">
-					<?php echo $category->category_name;?>					
+					<?php echo $category->category_name;?>
 				</span>
 			</a>
 			<span class="narrowValue">
 				(<?php echo $category->product_total;?>)
-			</span>							
-		</li>		
-		<?php endif;?>	
-	
+			</span>
+		</li>
+		<?php endif;?>
+
 	<?php endforeach;?>
 
 	</ul>
@@ -51,8 +65,8 @@
 <?php if(count($priceRanges) > 0):?>
 	<h4><?php echo JText::_('COM_CITRUSCART_PRICE');?></h4>
 	<ul id="citruscart_browse_pricerange">
-		<?php foreach($priceRanges as $priceRange):?>	
-			<?php if($priceRange->total > 0):?>		
+		<?php foreach($priceRanges as $priceRange):?>
+			<?php if($priceRange->total > 0):?>
 			<li>
 				<a href="<?php echo JRoute::_($priceRange->link);?>">
 					<span class="refinementLink">
@@ -61,9 +75,9 @@
 				</a>
 				<span class="narrowValue">
 					(<?php echo $priceRange->total;?>)
-				</span>							
-			</li>	
-			<?php endif;?>		
+				</span>
+			</li>
+			<?php endif;?>
 		<?php endforeach;?>
 	</ul>
 <?php endif;?>
@@ -72,17 +86,17 @@
 	<?php foreach($attributes as $key=>$val):?>
 		<h4><?php echo $key;?></h4>
 		<ul id="citruscart_browse_attribute">
-			<?php foreach($val as $k=>$option):?>	
+			<?php foreach($val as $k=>$option):?>
 				<li>
 					<a href="<?php echo JRoute::_($option->link.'&filter_attribute_set='.implode(',', $option->attributes));?>">
-						<span class="refinementLink">	
-						<?php echo $k;?>					
+						<span class="refinementLink">
+						<?php echo $k;?>
 						</span>
 					</a>
 					<span class="narrowValue">
 						(<?php echo count(array_unique($option->products));?>)
-					</span>								
-				</li>			
+					</span>
+				</li>
 			<?php endforeach;?>
 		</ul>
 	<?php endforeach;?>
@@ -91,7 +105,7 @@
 <?php if(count($ratings) > 0):?>
 	<h4><?php echo JText::_('COM_CITRUSCART_AVG_CUSTOMER_RATING');?></h4>
 	<ul id="citruscart_browse_rating">
-		<?php foreach($ratings as $rating):?>		
+		<?php foreach($ratings as $rating):?>
 			<li>
 				<a href="<?php echo JRoute::_($rating->link);?>">
 					<span class="refinementLink">
@@ -102,11 +116,11 @@
 					<span class="refinementLink">
 						<?php echo JText::_('COM_CITRUSCART_AND_UP');?>
 					</span>
-				</a>				
+				</a>
 				<span class="narrowValue">
 					(<?php echo $rating->total;?>)
-				</span>							
-			</li>			
+				</span>
+			</li>
 		<?php endforeach;?>
 	</ul>
 <?php endif;?>
@@ -124,7 +138,7 @@
 				</a>
 				<span class="narrowValue">
 					(<?php echo $manufacturer->total;?>)
-				</span>							
+				</span>
 			</li>
 			<?php endif;?>
 		<?php endforeach;?>

@@ -1,10 +1,24 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $state = @$this->state; ?>
 <?php $form = @$this->form; ?>
 <?php $items = @$this->items; ?>
 <?php $row = @$this->row; ?>
-                            
+
 <h1 style="margin-left: 2%; margin-top: 2%;"><?php echo JText::_('COM_CITRUSCART_MANAGE_FILES_FOR'); ?>: <?php echo $row->product_name; ?></h1>
 
 <form action="<?php echo JRoute::_( @$form['action'] )?>" method="post" name="adminForm" id="adminForm" enctype="multipart/form-data">
@@ -81,23 +95,23 @@
     		    <?php echo CitruscartSelect::btbooleanlist( 'createproductfileserver_enabled', '', '' ); ?>
     		</td>
             <td style="text-align: center;">
-                <?php 
+                <?php
                 	$helper = Citruscart::getClass('CitruscartHelperProduct', 'helpers.product');
                 	$path = $helper->getFilePath($row->product_id);
 					$files = $helper->getServerFiles($path);
-					
+
 					$list = array();
 					foreach(@$files as $file){
 						$list[] =  CitruscartSelect::option( $file, $file );
 					}
-					
+
 					echo JHTMLSelect::genericlist($list, 'createproductfileserver_file');
                 ?>
             </td>
             <td style="text-align: center;">
                 <input type="text" name="createproductfileserver_max_download" id="createproductfileserver_max_download" value="-1" size="10" maxlength="250" />
             </td>
-            
+
     	</tr>
     	</tbody>
     </table>
@@ -130,9 +144,9 @@
                     <?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ENABLED', "tbl.productfile_enabled", @$state->direction, @$state->order ); ?>
                 </th>
                 <th style="width: 100px;">
-                  <!-- // TODO make it  sortable  --> 
+                  <!-- // TODO make it  sortable  -->
                      <?php
-                      //TODO for sorting 
+                      //TODO for sorting
                      //echo CitruscartGrid::sort( 'COM_CITRUSCART_MAX_DOWNLOAD', "tbl.productfile_enabled", @$state->direction, @$state->order ); ?>
                     <?php echo JText::_('COM_CITRUSCART_MAX_DOWNLOAD');  ?>
                     <br><?php echo "(".JText::_('COM_CITRUSCART_USE_MINUS_ONE_FOR_UNLIMTED_DOWNLOADING').")" ?>
@@ -165,14 +179,14 @@
                 </td>
 				<td style="text-align: center;">
 					[<a href="index.php?option=com_citruscart&controller=productfiles&task=delete&cid[]=<?php echo $item->productfile_id; ?>&return=<?php echo base64_encode("index.php?option=com_citruscart&controller=products&task=setfiles&id={$row->product_id}&tmpl=component"); ?>">
-						<?php echo JText::_('COM_CITRUSCART_DELETE_FILE'); ?>	
+						<?php echo JText::_('COM_CITRUSCART_DELETE_FILE'); ?>
 					</a>
 					]
 				</td>
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count(@$items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -196,7 +210,7 @@
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo @$state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo @$state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
 </div>
 </form>

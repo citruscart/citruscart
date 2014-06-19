@@ -1,4 +1,18 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php
+
+/*------------------------------------------------------------------------
+# com_citruscart
+# ------------------------------------------------------------------------
+# author   Citruscart Team  - Citruscart http://www.citruscart.com
+# copyright Copyright (C) 2014 Citruscart.com All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://citruscart.com
+# Technical Support:  Forum - http://citruscart.com/forum/index.html
+# Fork of Tienda
+# @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
+-------------------------------------------------------------------------*/
+/** ensure this file is being included by a parent file */
+defined('_JEXEC') or die('Restricted access'); ?>
 <?php JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false); ?>
 <?php $state = @$this->state; ?>
 <?php $form = @$this->form; ?>
@@ -20,7 +34,7 @@
                 <button onclick="citruscartFormReset(this.form);"><?php echo JText::_('COM_CITRUSCART_RESET'); ?></button>
             </td>
             <td nowrap="nowrap">
-                <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>              
+                <?php $attribs = array('class' => 'inputbox', 'size' => '1', 'onchange' => 'document.adminForm.submit();'); ?>
             </td>
         </tr>
     </table>
@@ -36,7 +50,7 @@
                 </th>
                 <th style="width: 50px;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_ID', "tbl.product_id", @$state->direction, @$state->order ); ?>
-                </th>                
+                </th>
                 <th style="text-align: left;">
                 	<?php echo CitruscartGrid::sort( 'COM_CITRUSCART_NAME', "tbl.product_name", @$state->direction, @$state->order ); ?>
                 </th>
@@ -57,7 +71,7 @@
 				</td>
 				<td style="text-align: center;">
 					<?php echo $item->product_id; ?>
-				</td>	
+				</td>
 				<td style="text-align: left;">
 					<?php echo $item->product_name; ?>
 				</td>
@@ -74,7 +88,7 @@
 			</tr>
 			<?php $i=$i+1; $k = (1 - $k); ?>
 			<?php endforeach; ?>
-			
+
 			<?php if (!count(@$items)) : ?>
 			<tr>
 				<td colspan="10" align="center">
@@ -96,7 +110,7 @@
 	<input type="hidden" name="boxchecked" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo @$state->order; ?>" />
 	<input type="hidden" name="filter_direction" value="<?php echo @$state->direction; ?>" />
-	
+
 	<?php echo $this->form['validate']; ?>
 </div>
 </form>
