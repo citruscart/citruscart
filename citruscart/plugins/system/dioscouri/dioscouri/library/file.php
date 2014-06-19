@@ -16,7 +16,6 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.filesystem.file');
 
-
 class DSCFile extends JObject
 {
 	/**
@@ -395,7 +394,6 @@ class DSCFile extends JObject
             header("Content-Transfer-Encoding: binary");
             header("Content-Length: " . filesize($file->path));
 
-            error_reporting(0);
             if ( ! ini_get('safe_mode') ) {
                 set_time_limit(0);
             }
