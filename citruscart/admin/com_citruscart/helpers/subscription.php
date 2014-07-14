@@ -75,7 +75,7 @@ class CitruscartHelperSubscription extends CitruscartHelperBase
      * @param $subscription_id
      * @return array
      */
-     function getHistory( $subscription_id )
+     public static function getHistory( $subscription_id )
     {
         JModelLegacy::addIncludePath( JPATH_ADMINISTRATOR.'/components/com_citruscart/models' );
         $model = JModelLegacy::getInstance( 'SubscriptionHistory', 'CitruscartModel' );
