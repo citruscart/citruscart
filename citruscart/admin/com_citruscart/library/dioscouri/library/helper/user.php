@@ -165,7 +165,6 @@ class DSCHelperUser extends DSCHelper {
 
 		$acl = JFactory::getACL();
 
-
 		$name=explode('@',$details['email']);
 
 

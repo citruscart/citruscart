@@ -1,4 +1,4 @@
-<?php
+		<?php
 
 /*------------------------------------------------------------------------
 # com_citruscart
@@ -2341,6 +2341,7 @@ class CitruscartControllerProducts extends CitruscartController
     	$input = JFactory::getApplication()->input;
         $config = Citruscart::getInstance( );
         $post = $input->getArray($_POST);
+
 
         $valid = true;
         $this->messagetype = 'message';

@@ -151,7 +151,6 @@ class CitruscartControllerCheckout extends CitruscartController
         $user = $this->user;
 
         $input->set( 'view', $this->get('suffix') );
-
         //check if we have one page checkout
         if($this->onepage_checkout)
         {
@@ -900,6 +899,8 @@ class CitruscartControllerCheckout extends CitruscartController
             echo ( json_encode( $response ) );
             return true;
         }
+
+
 		if(isset($submitted_values['billing_address_id'])){
         // fail if billing address is invalid
         if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix , $submitted_values['billing_address_id'], true ))
@@ -910,7 +911,7 @@ class CitruscartControllerCheckout extends CitruscartController
 		}
 
         // fail if shipping address is invalid
-        if($submitted_values['shippingrequired'])
+        if($submitted_values['shippingrequired'] && (isset($submitted_values['shipping_address_id'])))
         {
             if ( !$this->validateAddress( $submitted_values, $this->shipping_input_prefix, $submitted_values['shipping_address_id'], true ))
             {
@@ -1318,11 +1319,11 @@ class CitruscartControllerCheckout extends CitruscartController
             $addressArray = $this->filterArrayUsingPrefix($form_input_array, $input_prefix, '', false );
 
             // set the zone name
-            $zone = JTable::getInstance('Zones', 'CitruscartTable');
+          //  $zone = JTable::getInstance('Zones', 'CitruscartTable');
            // $zone->load( $addressArray['zone_id'] );
         //    $addressArray['zone_name'] = $zone->zone_name;
             // set the country name
-            $country = JTable::getInstance('Countries', 'CitruscartTable');
+          //  $country = JTable::getInstance('Countries', 'CitruscartTable');
            // $country->load( $addressArray['country_id'] );
           //  $addressArray['country_name'] = $country->country_name;
         }
@@ -1633,7 +1634,7 @@ class CitruscartControllerCheckout extends CitruscartController
         $this->setAddresses( $submitted_values, false, true );
         // fail if shipping address is invalid
         // if we're checking shipping and the sameasbilling is checked, then this is good
-        if ($submitted_values['shippingrequired'])
+        if (isset( $submitted_values['shipping_address_id']) && ($submitted_values['shippingrequired']))
         {
             if (!$this->validateAddress( $submitted_values, $this->shipping_input_prefix, $submitted_values['shipping_address_id'], true ))
             {
@@ -2798,7 +2799,8 @@ class CitruscartControllerCheckout extends CitruscartController
 
     function saveOrderOnePage( $submitted_values=null )
     {
-    	$input =JFactory::getApplication()->input;
+    	$app = JFactory::getApplication();
+    	$input =$app->input;
         $values = array();
 
         $response = array();
@@ -3020,7 +3022,7 @@ class CitruscartControllerCheckout extends CitruscartController
                         return false;
                     }
 
-                    $user = $userHelper->createNewUser( $details, false );
+                    $user = $userHelper->createNewUser( $details, '');
                     if ( !$user )
                     {
                         $response['msg'] = $helper->generateMessage( $user->getError() );
@@ -3081,10 +3083,10 @@ class CitruscartControllerCheckout extends CitruscartController
                 $response['redirect'] = $data->redirect;
             }
         }
-        // encode and echo (need to echo to send back to browser)
-        echo ( json_encode($response) );
 
-        return;
+        // encode and echo (need to echo to send back to browser)
+       echo ( json_encode($response) );
+		$app->close();
     }
 
     /**
@@ -3108,10 +3110,10 @@ class CitruscartControllerCheckout extends CitruscartController
         if(isset($values['shippingrequired']) || (isset($values['shipping_plugin'])))
         {
             $order->shipping = new JObject();
-            $order->shipping->shipping_price      = $values['shipping_price'];
-            $order->shipping->shipping_extra   = $values['shipping_extra'];
-            $order->shipping->shipping_name        = $values['shipping_name'];
-            $order->shipping->shipping_tax      = $values['shipping_tax'];
+            $order->shipping->shipping_price      = (isset($values['shipping_price'])) ? $values['shipping_price'] :"";
+            $order->shipping->shipping_extra   = (isset($values['shipping_extra'])) ? $values['shipping_extra'] :"";
+            $order->shipping->shipping_name        = (isset($values['shipping_name'])) ? $values['shipping_name'] :"";
+            $order->shipping->shipping_tax      = (isset($values['shipping_tax'])) ? $values['shipping_tax'] : "";
         }
 
         // Store the text verion of the currency for order integrity
@@ -3787,7 +3789,7 @@ class CitruscartControllerCheckout extends CitruscartController
 
         $model->setId($address_id);
 
-        $item = $model->getItem($address_id);
+        $item = $model->getItem($address_id,$refresh=false, $emptyState=true );
 
 	     if (is_object($item))
         {
@@ -3803,6 +3805,7 @@ class CitruscartControllerCheckout extends CitruscartController
      */
     function checkEmail()
     {
+		$app= JFactory::getApplication();
     	$input =JFactory::getApplication()->input;
         Citruscart::load('CitruscartHelperUser', 'helpers.user');
         $checker = CitruscartHelperUser::getInstance('User', 'CitruscartHelper');

@@ -21,7 +21,7 @@ $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/ci
 
 <div class="buycart">
 <?php
-$src = JUri::root().'/modules/mod_citruscart_cart/media/images/citruscart_cart.png';
+$src = JUri::root()."modules/mod_citruscart_cart/media/images/citruscart_cart.png";
 ?>
 
 <?php
@@ -55,7 +55,7 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
     {
         //$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
 
-    	$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="' . $src .' " >'.'</a>';
+    	$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
 
     }
     $html .= '</span>';

@@ -429,6 +429,7 @@ function citruscartCheckoutCheckEmail( container, form )
 		    
 	// loop through form elements and prepare an array of objects for passing to server
     var str = citruscartGetFormInputData( form );
+       
     // execute Ajax request to server
     citruscartPutAjaxLoader( container, Joomla.JText._( 'COM_CITRUSCART_VALIDATING' ) );
     
@@ -439,12 +440,12 @@ function citruscartCheckoutCheckEmail( container, form )
         data:{"elements":JSON.encode(str)},
         onSuccess: function(response){
            var resp=JSON.decode(response, false);
-            if( resp.error != '0' )
+               if( resp.error != '0' )
             {
         		//citruscartJQ(container).set('html', resp.msg);        		
         		$(container).set('html', resp.msg);       		
       		     		
-            }
+            }	
             else
        		{	
             	$( container ).set('html',  resp.msg );
@@ -469,7 +470,7 @@ function citruscartHideInfoCreateAccount( )
 
 function citruscartGetPaymentOptions(container, form, msg, callback) {
     //var payment_plugin = $$('input[name=payment_plugin]:checked');
-    var payment_pugin = document.getElementsByTagName('input[name=payment_plugin]:checked');
+    var payment_plugin = document.getElementsByTagName('input[name=payment_plugin]:checked');
 
     if (payment_plugin) {
         payment_plugin = payment_plugin.value;

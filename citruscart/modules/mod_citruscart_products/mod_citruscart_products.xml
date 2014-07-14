@@ -29,8 +29,8 @@
 				<field name="price_from" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_PRICE_FROM" description="MOD_CISTRUSCART_PRODUCTS_PRICE_FROM_DESC" />
 				<field name="price_to" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_PRICE_TO" description="MOD_CISTRUSCART_PRODUCTS_PRICE_TO_DESC" />
 				<field name="random" type="list" default="0" label="MOD_CISTRUSCART_PRODUCTS_RANDOMLY_SELECTED_PRODUCTS" description="MOD_CISTRUSCART_PRODUCTS_RANDOMLY_SELECTED_PRODUCTS_DESC" >
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+					<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="order" type="list" default="0" label="MOD_CISTRUSCART_PRODUCTS_ORDER" description="MOD_CISTRUSCART_PRODUCTS_ORDER_DESC">
 					<option value="0">Ordering</option>
@@ -44,26 +44,26 @@
 				<field name="itemid" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_ITEMID_FOR_PRODUCT_PAGE" description="MOD_CISTRUSCART_PRODUCTS_ITEMID_FOR_PRODUCT_PAGE_DESC" />
 				<field type="spacer" />
 				<field name="display_title" type="list" default="1" label="MOD_CISTRUSCART_PRODUCTS_SHOW_TITLE" description="MOD_CISTRUSCART_PRODUCTS_SHOW_TITLE_DESC">
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+					<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="display_image" type="list" default="1" label="MOD_CISTRUSCART_PRODUCTS_SHOW_IMAGE" description="MOD_CISTRUSCART_PRODUCTS_SHOW_IMAGE_DESC">
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+					<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="display_image_link" type="list" default="1" label="MOD_CISTRUSCART_PRODUCTS_LINK_IMAGE" description="MOD_CISTRUSCART_PRODUCTS_LINK_IMAGE_DESC">
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+				<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="display_image_width" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_IMAGE_WIDTH" description="MOD_CISTRUSCART_PRODUCTS_IMAGE_WIDTH_DESC" />
 				<field name="display_image_height" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_IMAGE_HEIGHT" description="MOD_CISTRUSCART_PRODUCTS_IMAGE_HEIGHT_DESC" />
 				<field name="display_description" type="list" default="1" label="MOD_CISTRUSCART_PRODUCTS_SHOW_SHORT" description="MOD_CISTRUSCART_PRODUCTS_SHOW_SHORT_DESC">
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+					<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="display_price" type="list" default="1" label="MOD_CISTRUSCART_PRODUCTS_SHOW_PRICE" description="MOD_CISTRUSCART_PRODUCTS_SHOW_PRICE_DESC">
-					<option value="1">ENABLED</option>
-					<option value="0">DISABLED</option>
+					<option value="1">MOD_CITRUSCART_ENABLED</option>
+					<option value="0">MOD_CITRUSCART_DISABLED</option>
 				</field>
 				<field name="max_number" type="text" default="" label="MOD_CISTRUSCART_PRODUCTS_MAX_NUMBER" description="MOD_CISTRUSCART_PRODUCTS_MAX_NUMBER_DESC" />
 				<field type="spacer" />

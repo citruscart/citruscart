@@ -40,10 +40,10 @@ var	$_name = 'CitruscartProduct';
 
 	public function fetchElement($name, $value, &$node, $control_name)
 	{
-
 		$html = "";
 		$doc 		= JFactory::getDocument();
 		$fieldName	= $control_name ? $control_name.'['.$name.']' : $name;
+
 		$title = JText::_('COM_CITRUSCART_SELECT_PRODUCTS');
 		if ($value) {
 			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_citruscart/tables');
@@ -56,28 +56,24 @@ var	$_name = 'CitruscartProduct';
 			$title=JText::_('COM_CITRUSCART_SELECT_A_PRODUCT');
 		}
 
- 		$js = "
-			Dsc.selectelementproduct = function(id, title, object) {
-			console.log(id);
-			document.getElementById(object + '_id').value = id;
-			document.getElementById(object + '_name').value = title;";
-		if(version_compare(JVERSION,'1.6.0','ge')) {
-			$js .= 'window.parent.SqueezeBox.close()';
+		$js = "
+		function jSelectItem(id, title, object) {
+		document.getElementById('".$name."' + '_id').value = id;
+		document.getElementById('".$name."' + '_name').value = title;
+		if(typeof(window.parent.SqueezeBox.close=='function')){
+		window.parent.SqueezeBox.close();
+		}else {
+			document.getElementById('sbox-window').close();
+			}
 		}
-		else {
-			$js .= 'document.getElementById(\'sbox-window\').close()';
-		}
-	$js.=	"}";
-
+		";
 		$doc->addScriptDeclaration($js);
-
 		$link = 'index.php?option=com_citruscart&controller=elementproduct&view=elementproduct&tmpl=component&object='.$name;
 
 		JHTML::_('behavior.modal', 'a.modal');
 		$html = "\n".'<div style="float: left;"><input style="background: #ffffff;" type="text" id="'.$name.'_name" value="'.htmlspecialchars($title, ENT_QUOTES, 'UTF-8').'" disabled="disabled" /></div>';
-		$html .= '<div class="button2-left"><div class="blank"><a class="modal" title="'.JText::_('COM_CITRUSCART_SELECT_A_PRODUCT').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 800, y: 500}}">'.JText::_('COM_CITRUSCART_SELECT').'</a></div></div>'."\n";
+		$html .= '<div class="button2-left"><div class="blank"><a class="modal btn" title="'.JText::_('COM_CITRUSCART_SELECT_A_PRODUCT').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 800, y: 500}}">'.JText::_('COM_CITRUSCART_SELECT').'</a></div></div>'."\n";
 		$html .= "\n".'<input type="hidden" id="'.$name.'_id" name="'.$fieldName.'" value="'.(int)$value.'" />';
-
 		return $html;
 	}
 

@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------*/
 
 	defined('_JEXEC') or die('Restricted access');
-
+	$user = JFactory::getUser();
 	JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 	JHtml::_('script', 'media/citruscart/js/citruscart_checkout.js', false, false);
 	JHtml::_('script', 'media/citruscart/js/citruscart_checkout_onepage.js', false, false);
@@ -77,31 +77,26 @@
 			</div>
 
 			<!-- ID-CUSTOMER PANE -->
-			<div id="citruscart_customer">
+			<div id="citruscart_customer" class="form-inline">
 				<div class="citruscart_checkout_method_user_email">
-					<?php
-						if($this->user->id)
-							$email_address = $this->user->email;
-						else
-							$email_address = '';
-					?>
-
-					<?php echo JText::_('COM_CITRUSCART_E-MAIL_ADDRESS');?>:<br/>
-						<input type="text" id="email_address" class="inputbox" name="email_address" value="<?php echo $email_address; ?>" onblur="citruscartCheckoutCheckEmail( 'user_email_validation',document.adminForm, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>' )"/> *
+					<?php $email_address = ($user->id) ? $user->email : "";?>
+					<label><?php echo JText::_('COM_CITRUSCART_E-MAIL_ADDRESS');?>:
+					<span class="text text-error"> *</span></label>
+						<input type="text" id="email_address" class="inputbox" name="email_address" value="<?php echo $email_address; ?>" onblur="citruscartCheckoutCheckEmail( 'user_email_validation',document.adminForm, '<?php echo JText::_('COM_CITRUSCART_VALIDATING'); ?>' )"/>
 				</div>
 				<div id="user_email_validation"></div>
 			</div>
 			<!-- ID-CUSTOMER PANE END -->
 
 			<!-- BILLING-SHIPPING PANE -->
-			<div class="citruscart-expanded" id="billing-shipping-pane">
+			<div class="citruscart-expanded form-inline" id="billing-shipping-pane">
 
 				<div class="contentheading">
 					<?php echo $this->showShipping ? JText::_('COM_CITRUSCART_BILLING_AND_SHIPPING_INFORMATION') : JText::_('COM_CITRUSCART_BILLING_INFORMATION'); ?>
 				</div>
 
 				<div id="citruscart_billing-shipping">
-	        <div id="billingAddress">
+	      	  <div id="billingAddress">
 						<div>
 							<?php echo JText::_('COM_CITRUSCART_BILLING_ADDRESS')?>
 						</div>
@@ -112,9 +107,10 @@
 	                    	'size' => '1',
 	                    	'onchange' => "citruscartCheckoutSetBillingAddress('$baseurl'+this.options[this.selectedIndex].value, 'billingDefaultAddress', this.options[this.selectedIndex].value, this.form );"
 	                	);
-
 	                	// display select list of stored addresses
+	                	if($user->id){
 	                	echo CitruscartSelect::address( $this->user->id, $this->billing_address->address_id, 'billing_address_id', 1, $billattribs, 'billing_address_id', false, true );
+	                	}
 	           		?>
 
 						<div id="billingDefaultAddress">
@@ -128,7 +124,6 @@
 								endif;
 							?>
 						</div>
-
 						<?php echo $this->billing_address_form; ?>
 					</div>
           			<div class="reset marginbot"></div>
@@ -137,12 +132,13 @@
 						<input type="checkbox" id="create_account" name="create_account" <?php if( !$guest_enabled ) echo 'checked disabled'; ?> value="on" />
 						<label for="field-create-account"><?php echo JText::_('COM_CITRUSCART_CREATE_A_NEW_ACCOUNT');?></label>
 						<div id="citruscart_user_additional_info" <?php if( $guest_enabled ) echo 'class="hidden"'; ?>>
-               <?php echo $this->form_user_register;?>
-            </div>
+	               <?php echo $this->form_user_register;?>
+    	        </div>
     			</div>
            			<?php endif; ?>
 
-           			<?php if($this->showShipping):?>
+           			<?php
+           			if($this->showShipping):?>
           			<div class="reset marginbot"></div>
 							<div>
 								<?php echo JText::_('COM_CITRUSCART_SHIPPING_ADDRESS'); ?>
@@ -164,7 +160,9 @@
 		                );
 
 		                // display select list of stored addresses
-		                echo CitruscartSelect::address( JFactory::getUser()->id, $this->shipping_address->address_id, 'shipping_address_id', 2, $shipattribs, 'shipping_address_id', false, true );
+		                if($user->id){
+		                	echo CitruscartSelect::address( $user->id, $this->shipping_address->address_id, 'shipping_address_id', 2, $shipattribs, 'shipping_address_id', false, true );
+		                }
 					?>
 						<div id="shippingDefaultAddress">
 							<?php
@@ -178,7 +176,7 @@
 								}
 							?>
 						 </div>
-							  <?php echo $this->shipping_address_form; ?>
+						 <?php echo $this->shipping_address_form; ?>
 					</div>
 	           		<?php else :?>
 			             <input type="hidden" id="shippingrequired" name="shippingrequired" value="0"  />
@@ -368,13 +366,13 @@
 
 <script type="text/javascript">
 window.addEvent('domready', function() {
-<?php if( $this->billing_address->address_id ): ?>
+<?php if(isset($this->billing_address->address_id)): ?>
 	citruscartShowHideDiv( 'billing_input_addressForm' );
 <?php endif; ?>
 
 <?php if( $this->showShipping  ):?>
 	citruscartShowHideDiv( 'shipping_input_addressForm' );
-	<?php if( !$this->shipping_address->address_id ): ?>
+	<?php if(!isset($this->shipping_address->address_id )): ?>
 	document.id( 'sameasbilling' ).addEvent( 'change', function() { citruscartCopyBillingAdToShippingAd( document.getElementById( 'sameasbilling' ), document.adminForm, '<?php echo JText::_('COM_CITRUSCART_UPDATING_SHIPPING_RATES')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_CART')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_ADDRESS')?>', '<?php echo JText::_('COM_CITRUSCART_UPDATING_PAYMENT_METHODS')?>' ) } );
 	<?php endif; ?>
 <?php endif; ?>

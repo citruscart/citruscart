@@ -137,11 +137,11 @@ class CitruscartModelAddresses extends CitruscartModelBase
 	 * @param unknown_type $refresh
 	 */
 	protected function prepareItem( &$item, $key=0, $refresh=false )
-	{		
+	{
 	    $item->link = 'index.php?option=com_citruscart&view=addresses&task=edit&id='.$item->address_id;
-	    
-	    /* 
-	     * check extra fields empty or not 
+
+	    /*
+	     * check extra fields empty or not
 	     */
 	    if (!empty($item->extra_fields))
 	    {
@@ -152,13 +152,13 @@ class CitruscartModelAddresses extends CitruscartModelBase
 	            $item->$k = $v;
 	        }
 	    }
-		
+
 	    /*
-	     * refer parent prepareItem method. 
+	     * refer parent prepareItem method.
 	     */
 	    parent::prepareItem( $item, $key, $refresh );
 	}
-	
+
 	/*public function getItem( $pk=null, $refresh=false, $emptyState=true){
 
 		$db = JFactory::getDbo();
@@ -168,30 +168,31 @@ class CitruscartModelAddresses extends CitruscartModelBase
 		$db->setQuery($query);
 		return $row=$db->loadObject();
 	}*/
-	
+
 	public function getList($refresh = false){
-		
+
 		if (empty( $this->_list ))
 		{
 			$query = $this->getQuery(true);
-		
+
 			$this->_list = $this->_getList( (string) $query, $this->getState('limitstart'), $this->getState('limit') );
 		}
 		$list = $this->_list;
-		
+
 		foreach($list as $item)
-		{			
+		{
 			$item->link = 'index.php?option=com_citruscart&view=addresses&task=edit&id='.$item->address_id;
 		}
 		return $list;
-		
-		/*
+
+	}
+
+	public function getItem( $pk=null, $refresh=false, $emptyState=true ){
 		$db = JFactory::getDbo();
 		$query= $db->getQuery(true);
 		$query->select("*")->from("#__citruscart_addresses");
-		$this->_buildQueryWhere($query);
+		$query->where('address_id='.$db->q($pk));
 		$db->setQuery($query);
-		return $row=$db->loadObjectList();
-		*/
+		return $row=$db->loadObject();
 	}
 }

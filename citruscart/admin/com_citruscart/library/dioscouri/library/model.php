@@ -316,6 +316,7 @@ class DSCModel extends DSCModelBase
 
 	    }
 
+
 		return $this->_item;
 	}
 
@@ -330,6 +331,7 @@ class DSCModel extends DSCModelBase
 	    }
 
 	    $query = $this->getQuery( $refresh );
+
 	    $keyname = $this->getTable()->getKeyName();
 	    $value  = $this->_db->q( $cache_key );
 	    $query->where( "tbl.$keyname = $value" );

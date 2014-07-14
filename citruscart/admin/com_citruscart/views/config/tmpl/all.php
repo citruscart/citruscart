@@ -681,7 +681,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                                                 <td><?php echo JText::_('COM_CITRUSCART_HEIGHT_OF_UI_LIGHTBOXES_DESC'); ?>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_SHOW_DIOSCOURI_LINK_IN_FOOTER'); ?>
                                                 </th>
                                                 <td><?php  echo CitruscartSelect::btbooleanlist( 'show_linkback', 'class="inputbox"', $this -> row -> get('show_linkback', '1')); ?>
@@ -696,7 +696,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
                                                 <td><a href='http://www.dioscouri.com/index.php?option=com_amigos' target='_blank'> <?php echo JText::_('COM_CITRUSCART_NO_AMIGOSID'); ?>
                                                 </a>
                                                 </td>
-                                            </tr>
+                                            </tr>-->
                                             <tr>
                                                 <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_CONFIG_PROCESS_CONTENT_PLUGIN_PRODUCT_DESC'); ?>
                                                 </th>

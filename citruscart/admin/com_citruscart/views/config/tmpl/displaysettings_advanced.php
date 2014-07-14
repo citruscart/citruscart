@@ -61,21 +61,13 @@ defined('_JEXEC') or die('Restricted access'); ?>
             </td>
             <td></td>
         </tr>
-        <tr>
-            <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_SHOW_DIOSCOURI_LINK_IN_FOOTER'); ?>
+         <tr>
+            <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_SHOW_CITRUSCART_LINK_IN_FOOTER'); ?>
             </th>
             <td><?php  echo CitruscartSelect::btbooleanlist( 'show_linkback', 'class="inputbox"', $this -> row -> get('show_linkback', '1')); ?>
             </td>
             <td></td>
         </tr>
-        <tr>
-            <th style="width: 25%;"><?php echo JText::_('COM_CITRUSCART_YOUR_DIOSCOURI_AFFILIATE_ID'); ?>
-            </th>
-            <td><input type="text" name="amigosid" value="<?php echo $this -> row -> get('amigosid', ''); ?>" class="inputbox" />
-            </td>
-            <td><a href='http://www.dioscouri.com/' target='_blank'> <?php echo JText::_('COM_CITRUSCART_NO_AMIGOSID'); ?>
-            </a>
-            </td>
-        </tr>
+
     </tbody>
 </table>

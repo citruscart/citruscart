@@ -171,9 +171,10 @@ function citruscartGetCheckoutTotals() {
 }
 
 function citruscartGetShippingRates( container, form, msg, doModal ) {
+	
 	var url = 'index.php?option=com_citruscart&view=pos&task=updateShippingRates&format=raw';
 	if (doModal != false) {
-		Dsc.newModal(msg)
+		Dsc.newModal(msg);
 	}
 	citruscartJQ('#validation_message').html( '' );
 

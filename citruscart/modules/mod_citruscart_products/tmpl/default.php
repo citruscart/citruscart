@@ -60,13 +60,18 @@ if ($num > 0 && $products)
 	    <h5><a href="<?php echo JRoute::_( $product->link."&Itemid=".$product->itemid ); ?>"><?php echo $product->product_name; ?></a></h5>
 		<?php endif; ?>
 
-        <strong><?php if ($params->get('display_price','1') != '0') : ?><span class="product_price"><?php echo CitruscartHelperProduct::dispayPriceWithTax($product->price, $product->tax, Citruscart::getInstance()->get('display_prices_with_tax')) ?></span><?php endif; ?>
+        <strong>
+        	<?php if ($params->get('display_price','1') != '0') : ?>
+        		<span class="product_price">
+        			<?php echo CitruscartHelperProduct::dispayPriceWithTax($product->price, $product->tax, Citruscart::getInstance()->get('display_prices_with_tax')) ?>
+        		</span>
+        	<?php endif; ?>
         </strong>
-
-        <!--
-		<?php if ($params->get('display_description','1') != '0' && $product->product_description_short != null) : ?><p class="product_description"><?php echo $product->product_description_short ?></p><?php endif; ?>
-		</div>
-		-->
+		<?php if ($params->get('display_description','1') != '0' && $product->product_description_short != null) : ?>
+			<div class="product-description">
+			<?php echo $product->product_description_short ?>
+			</div>
+		<?php endif; ?>
 
 	</li>
 		<?php if ($params->get('display_style','flat') == 'grid' && $params->get('display_grid_items' ,'3') == $k): ?>

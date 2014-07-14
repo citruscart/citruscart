@@ -21,8 +21,10 @@ $product_id = $app->input->getInt('id',0);
 
 JHTML::_('behavior.modal');
 JHTML::_('behavior.tooltip');
+
 $model = $this->getModel();
 $page = $this->get('Pagination');
+
 ?>
 <form id="adminForm" action="<?php echo JRoute::_( $form['action'] .'&tmpl=component&object='.$this->object )?>" method="post" name="adminForm">
 <div class="pull-left">
@@ -58,16 +60,14 @@ $page = $this->get('Pagination');
 	for ($i=0, $n=count( $rows ); $i < $n; $i++)
 	{
 		$row =$rows[$i];
-		$onclick = "
-					window.parent.Dsc.select{$model->getName()}(
+	 	$onclick = "window.parent.jSelectItem(
 					'{$row->product_id}', '".str_replace(array("'", "\""), array("\\'", ""), $row->product_name)."', '".$this->object."'
 					);";
 		?>
 		<tr class="row-<?php echo $k%2;?>">
-
-
-			<td style="text-align: center;"><a style="cursor: pointer;"
-				onclick="<?php echo $onclick; ?>"> <?php echo $row->product_id;?> </a>
+			<td style="text-align: center;">
+			<a style="cursor: pointer;"
+				onclick="<?php echo $onclick; ?>" href="javascript:void(0)"> <?php echo $row->product_id;?> </a>
 			</td>
 			<td>
 			<?php
