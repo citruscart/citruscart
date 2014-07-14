@@ -13,6 +13,7 @@
 		<filename>helper.php</filename>
 		<filename>index.html</filename>
 		<folder>tmpl</folder>
+		<folder>media</folder>
 	</files>
 	<languages>
 		<language tag="en-GB">languages/en-GB.mod_citruscart_cart.ini</language>

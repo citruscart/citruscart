@@ -2341,35 +2341,40 @@ class CitruscartControllerProducts extends CitruscartController
     	$input = JFactory::getApplication()->input;
         $config = Citruscart::getInstance( );
         $post = $input->getArray($_POST);
-
-
         $valid = true;
         $this->messagetype = 'message';
         $this->message = '';
         $add_link = '';
-        if ( empty( $post['sender_name'] ) && $valid )
+
+        $json=array();
+        if (empty( $post['sender_name'] ) && $valid )
         {
             $valid = false;
             $this->message = JText::_('COM_CITRUSCART_NAME_FIELD_IS_REQUIRED');
             $this->messagetype = 'notice';
+            $json['error']['sender_name'] = JText::_('COM_CITRUSCART_NAME_FIELD_IS_REQUIRED');
         }
 
         jimport( 'joomla.mail.helper' );
-        if ( !JMailHelper::isEmailAddress( $post['sender_mail'] ) && $valid )
+        if ( !$json && !JMailHelper::isEmailAddress( $post['sender_mail'] ) && $valid )
         {
             $valid = false;
             $this->message = JText::_('COM_CITRUSCART_PLEASE_ENTER_A_CORRECT_EMAIL_ADDRESS');
             $this->messagetype = 'notice';
-
+            $json['error']['sender_mail'] = JText::_('COM_CITRUSCART_PLEASE_ENTER_A_CORRECT_EMAIL_ADDRESS');
             $add_link .= "&sender_name={$post['sender_name']}";
             $add_link .= !empty( $post['sender_message'] ) ? "&sender_message={$post['sender_message']}" : '';
+
+
         }
 
-        if ( empty( $post['sender_message'] ) && $valid )
+        if (!$json && empty( $post['sender_message'] ) && $valid )
         {
             $valid = false;
             $this->message = JText::_('COM_CITRUSCART_MESSAGE_FIELD_IS_REQUIRED');
             $this->messagetype = 'notice';
+
+           // $json['error']['message'] = JText::_('COM_CITRUSCART_MESSAGE_FIELD_IS_REQUIRED');
             $add_link .= "&sender_name={$post['sender_name']}&sender_mail={$post['sender_mail']}";
         }
 
@@ -2394,10 +2399,11 @@ class CitruscartControllerProducts extends CitruscartController
             }
 
         }
-        if ( !$captcha )
+        if ( !$json &&  !$captcha )
         {
             $valid = false;
             $this->message = JText::_('COM_CITRUSCART_INCORRECT_CAPTCHA');
+            $json['error']['captcha'] =JText::_('COM_CITRUSCART_INCORRECT_CAPTCHA');
             $this->messagetype = 'notice';
             $add_link .= "&sender_name={$post['sender_name']}&sender_mail={$post['sender_mail']}&sender_message={$post['sender_message']}";
         }
@@ -2446,13 +2452,14 @@ class CitruscartControllerProducts extends CitruscartController
             . $add_link;
             $redirect = JRoute::_( $url );
         }
-
         $this->setRedirect( $redirect, $this->message, $this->messagetype );
     }
 
     public function addToWishlist()
     {
-    	$input= JFactory::getApplication()->input;
+
+    	$app = JFactory::getApplication();
+    	$input= $app->input;
         $response = new stdClass();
         $response->html = '';
         $response->error = false;
@@ -2470,8 +2477,8 @@ class CitruscartControllerProducts extends CitruscartController
         {
             $response->html = JText::_('COM_CITRUSCART_INVALID_PRODUCT');
             $response->error = true;
-            echo json_encode($response);
-            return;
+            echo json_encode((array) $response);
+           return;
         }
 
         $values = $input->getArray($_POST);
@@ -2503,11 +2510,11 @@ class CitruscartControllerProducts extends CitruscartController
             $response->html = JText::_('COM_CITRUSCART_COULD_NOT_ADD_TO_WISHLIST');
         } else {
             $url = "index.php?option=com_citruscart&view=wishlists&Itemid=" . $this->router->findItemid( array('view'=>'wishlists') );
-            $response->html = JText::sprintf( JText::_('COM_CITRUSCART_ADDED_TO_WISHLIST'), JRoute::_( $url ) );
+            $response->html = JText::sprintf( JText::_('COM_CITRUSCART_ADDED_TO_WISHLIST'), addslashes(JRoute::_( $url )) );
         }
 
-        echo json_encode($response);
-        return;
+        echo json_encode((array) $response);
+      return;
 
         /*
         if (empty($user_id))

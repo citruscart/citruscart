@@ -38,7 +38,7 @@ onload=setTimeout("window.parent.document.getElementById( 'sbox-window' ).close(
 <?php endif;?>
 
 <div class="citruscart_askquestion" style="padding: 20px;">
-<form id="adminForm" action="<?php echo JRoute::_( $form['action'] ) ?>" method="post" class="adminForm" name="adminForm" enctype="multipart/form-data" >
+<form id="adminForm" action="<?php echo JRoute::_('index.php') ?>" method="post" class="adminForm" name="adminForm" enctype="multipart/form-data" >
 	<label for="sender_name"><?php echo JText::_('COM_CITRUSCART_NAME');?></label>
 	<br><input type="text" value="<?php echo $sender_name;?>" class="inputbox" size="30" id="sender_name" name="sender_name"><br><br>
 	<label for="sender_mail"><?php echo JText::_('COM_CITRUSCART_E-MAIL_ADDRESS');?></label>
@@ -55,9 +55,9 @@ onload=setTimeout("window.parent.document.getElementById( 'sbox-window' ).close(
     <br>
     <input type="hidden" value="com_citruscart" name="option" />
     <input type="hidden" value="products" name="view" />
-    <input type="button" onclick=" citruscartSubmitForm('sendAskedQuestion','adminForm');" value="<?php echo JText::_('COM_CITRUSCART_SEND'); ?>" />
+     <input type="button" onclick="citruscartSubmitForm('sendAskedQuestion');" value="<?php echo JText::_('COM_CITRUSCART_SEND'); ?>" />
     <input type="hidden" name="product_id" value="<?php echo $app->input->getInt('id');; ?>" />
-    <input type="hidden" name="task" id="task" value="" />
+    <input type="hidden" name="task" id="task" value="sendAskedQuestion" />
     <input type="hidden" name="return" id="return" value="<?php echo $app->input->getInt('return');?>" />
 </form>
 </div>
