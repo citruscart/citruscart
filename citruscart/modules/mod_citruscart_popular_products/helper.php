@@ -90,8 +90,7 @@ class modCitruscartPopularProductsHelper extends JObject
 				$product->link = 'index.php?option=com_citruscart&view=products&task=view&id='.$product->product_id;
 				$filter_group = CitruscartHelperUser::getUserGroup(JFactory::getUser()->id, $product->product_id);
 				$price = $helper->getPrice( $product->product_id, '1', $filter_group );
-				$product->price = $price->product_price;
-
+				$product->price = (isset($price->product_price)) ? $price->product_price :0 ;
 				//product total
 				$product->taxtotal = 0;
 				$product->tax = 0;

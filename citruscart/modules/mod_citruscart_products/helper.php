@@ -49,7 +49,7 @@ class modCitruscartProductsHelper extends JObject
 
 		// get the model
 		$model = JModelLegacy::getInstance( 'Products', 'CitruscartModel' );
-		 
+
 		// setting the model's state tells it what items to return
 		$model->setState('filter_published', '1');
 		$date = JFactory::getDate();
@@ -79,7 +79,6 @@ class modCitruscartProductsHelper extends JObject
 		$model->setState('filter_price_from', $this->params->get( 'price_from', '-1' ));
 		if($this->params->get( 'price_to', '-1' ) != '-1')
 		$model->setState('filter_price_to', $this->params->get( 'price_to', '-1' ));
-
 		$order = $this->params->get('order');
 		$direction = $this->params->get('direction', 'ASC');
 		switch ($order)
@@ -98,11 +97,12 @@ class modCitruscartProductsHelper extends JObject
 				$model->setState('order', 'tbl.ordering');
 				break;
 		}
+
 		if ($this->params->get('random', '0') == '1')
 				$model->setState('order', 'RAND()');
-		
+
 		$model->setState('direction', $direction);
-		 
+
 		$config = Citruscart::getInstance();
 		$show_tax = $config->get('display_prices_with_tax');
 
@@ -113,7 +113,7 @@ class modCitruscartProductsHelper extends JObject
 		if(count($user_groups_array) > 1 && $user_groups_array[0] != $default_user_group)
 		{
 			$overide_price = true;
-			 
+
 		}
 		// using the set filters, get a list of products
 		if ($products = $model->getList(true, false ))
@@ -130,7 +130,7 @@ class modCitruscartProductsHelper extends JObject
 					$geozones = array( $table );
 				}
 			}
-			
+
 			foreach ($products as $product)
 			{
 				if($overide_price)
@@ -148,7 +148,7 @@ class modCitruscartProductsHelper extends JObject
 					$product->taxtotal = $taxtotal;
 					$product->tax = $taxtotal->tax_total;
 				}
-				
+
 				$product->filter_category = '';
 				$categories = CitruscartHelperProduct::getCategories( $product->product_id );
 				if (!empty($categories))
@@ -167,7 +167,7 @@ class modCitruscartProductsHelper extends JObject
 				}
 			}
 		}
-		 
+
 		return $products;
 	}
 

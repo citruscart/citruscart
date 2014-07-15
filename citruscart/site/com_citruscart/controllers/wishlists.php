@@ -230,7 +230,7 @@ class CitruscartControllerWishlists extends CitruscartController
 		    return;
 		}
 
-		
+
 		$model  = $this->getModel( $this->get('suffix') );
 		$items_model = $this->getModel( 'wishlistitems' );
 
@@ -312,7 +312,7 @@ class CitruscartControllerWishlists extends CitruscartController
     public function share()
     {
     	$input =JFactory::getApplication()->input;
-		
+
 		$model  = $this->getModel( $this->get('suffix') );
         $user = JFactory::getUser();
         $cids = $input->get('cid', array(0), '', 'array');
@@ -546,7 +546,8 @@ class CitruscartControllerWishlists extends CitruscartController
 
     public function addWishlistItemToWishlist()
     {
-    	$input =JFactory::getApplication()->input;
+    	$app = JFactory::getApplication();
+    	$input =$app->input;
         $response = new stdClass();
         $response->html = '';
         $response->error = false;
@@ -583,19 +584,19 @@ class CitruscartControllerWishlists extends CitruscartController
 
     public function createWishlist()
     {
+		$app = JFactory::getApplication();
     	$input =JFactory::getApplication()->input;
-        $response = new stdClass();
+		$post = $app->input->getArray($_POST);
+    	$response = new stdClass();
         $response->html = '';
         $response->error = false;
 
         $user = JFactory::getUser();
         $wishlist_model = $this->getModel( 'wishlists' );
         $wishlist_name = $input->get('wishlist_name');
-
         $wishlist = $wishlist_model->getTable();
         $wishlist->wishlist_name = $wishlist_name;
         $wishlist->user_id = $user->id;
-
         if ($wishlist->save()) {
             $wishlist_model->clearCache();
             $response->html = JText::_('COM_CITRUSCART_WISHLIST_CREATED');
@@ -604,7 +605,6 @@ class CitruscartControllerWishlists extends CitruscartController
             $response->html = JText::_('COM_CITRUSCART_INVALID_REQUEST');
             $response->error = true;
         }
-
         echo json_encode($response);
         return;
     }

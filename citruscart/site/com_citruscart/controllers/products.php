@@ -2514,7 +2514,9 @@ class CitruscartControllerProducts extends CitruscartController
         }
 
         echo json_encode((array) $response);
-      return;
+		//$url ='index.php?option=com_citruscart&controller=products&view=products&task=view&id='. $product_id;
+        $app->redirect($url,$response->html);
+
 
         /*
         if (empty($user_id))

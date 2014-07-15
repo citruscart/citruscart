@@ -40,7 +40,7 @@ class CitruscartControllerPayment extends CitruscartController
         $state['filter_id_from']    = $app->getUserStateFromRequest($ns.'id_from', 'filter_id_from', '', '');
         $state['filter_id_to']      = $app->getUserStateFromRequest($ns.'id_to', 'filter_id_to', '', '');
         $state['filter_name']         = $app->getUserStateFromRequest($ns.'name', 'filter_name', '', '');
-        
+
         foreach ($state as $key=>$value)
         {
             $model->setState( $key, $value );
@@ -53,7 +53,8 @@ class CitruscartControllerPayment extends CitruscartController
      */
     function save()
     {
-    	$app = JFactory::getApplication();
+
+	   	$app = JFactory::getApplication();
         $model  = $this->getModel( $this->get('suffix') );
 
 		if(version_compare(JVERSION,'1.6.0','ge')) {
@@ -63,24 +64,25 @@ class CitruscartControllerPayment extends CitruscartController
 	        // Joomla! 1.5 code here
 	       $row  = JTable::getInstance('plugin');
 	    }
-       
-	    $row->bind($app->input->getArray($_POST) );
+		$post = $app->input->getArray($_POST);
 
-        $task = $app->input->getString( 'task' );
+	    $row->bind( $post);
 
-        if ($task == "save_as")
-        {
+
+       	$task = $app->input->getString( 'task' );
+
+	      if ($task == "save"){
             $pk = $row->getKeyName();
             $row->$pk = 0;
         }
 
         if ( $row->store() )
         {
-            $model->setId( $row->id );
+            $model->setId( $row->extension_id );
             $model->clearCache();
             $this->messagetype  = 'message';
             $this->message      = JText::_('COM_CITRUSCART_SAVED');
-            
+
             JFactory::getApplication()->triggerEvent( 'onAfterSave'.$this->get('suffix'), array( $row ) );
         }
         else
@@ -89,7 +91,7 @@ class CitruscartControllerPayment extends CitruscartController
             $this->message      = JText::_('COM_CITRUSCART_SAVE_FAILED')." - ".$row->getError();
         }
 
-        $redirect = "index.php?option=com_citruscart";
+         $redirect = "index.php?option=com_citruscart";
 
         switch ($task)
         {
@@ -127,7 +129,6 @@ class CitruscartControllerPayment extends CitruscartController
                 $redirect .= "&view=".$this->get('suffix');
                 break;
         }
-
         $redirect = JRoute::_( $redirect, false );
         $this->setRedirect( $redirect, $this->message, $this->messagetype );
     }
