@@ -2,7 +2,7 @@
 <extension
 	type="module"
 	version="1.5.0"
-	client="administrator">
+	client="administrator" method="upgrade">
 <!-- <extension type="module" version="1.5.0" position="Citruscart_user_main" client="administrator" method="upgrade"> -->
 	<name>Citruscart - User Addresses</name>
 	<author>Citruscart Team</author>

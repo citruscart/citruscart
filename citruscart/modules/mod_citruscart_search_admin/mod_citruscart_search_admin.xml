@@ -2,7 +2,7 @@
 <extension
 	type="module"
 	version="3.0"
-	client="administrator">
+	client="administrator" method="upgrade">
 	<name>Citruscart - Admin Search</name>
 	<author>Citruscart Team</author>
 	<authorEmail>support@citruscart.com</authorEmail>
