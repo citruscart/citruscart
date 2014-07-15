@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="1.0" method="upgrade">
+<extension type="component" version="3.0" method="upgrade">
   <name>Citruscart</name>
   <author>Citruscart Team</author>
   <creationDate>April 2014</creationDate>
   <copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
   <authorEmail>support@citruscart.com</authorEmail>
   <authorUrl>http://citruscart.com</authorUrl>
-  <version>1.1.0</version>
+  <version>1.2.1</version>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
   
   <description>
@@ -102,13 +102,13 @@
         <module module="mod_citruscart_my_wishlists" client="site" position="left" />
         <module module="mod_citruscart_popular_products" client="site" position="left" />
         <module module="mod_citruscart_pricefilters" client="site" position="left" />
-        <module module="mod_citruscart_products" client="site" position="left" />
-        <module module="mod_citruscart_quickicon"  publish="true" client="administrator"/>
-        <module module="mod_citruscart_recentorders"  publish="true" client="administrator"/>
-        <module module="mod_citruscart_salestatistics"  publish="true" client="administrator"/>
+        <module module="mod_citruscart_products" client="site" position="left" />      
         <module module="mod_citruscart_search" client="site" position="left" />
-        <module module="mod_citruscart_search_admin"  publish="true" client="administrator"/>
-        <module module="mod_citruscart_useraddress"  publish="true" client="administrator"/>
+        <module module="mod_citruscart_search_admin"   client="administrator"/>
+        <module module="mod_citruscart_useraddress"  client="administrator"/>
+        <module module="mod_citruscart_quickicon" client="administrator"/>
+        <module module="mod_citruscart_recentorders"  client="administrator"/>
+        <module module="mod_citruscart_salestatistics" client="administrator"/>
 	</modules> 
 
 	<!-- Plugins -->
@@ -141,7 +141,8 @@
         <plugin folder="quickicon" plugin="citruscarticon" publish="true" group="quickicon" element="citruscarticon" />
         <plugin folder="user" plugin="citruscart" publish="true" group="user" element="citruscart" />
         <plugin folder="system" plugin="dioscouri" publish="true" group="system" element="dioscouri" />
-          
+        
+        
 	
 	</plugins>
 	

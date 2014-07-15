@@ -53,12 +53,16 @@ class CitruscartViewBase extends DSCViewSite
 	    JHTML::_('behavior.modal');
 
 	    $doc->addScript(JUri::root().'media/system/js/core.js');
+
 	    DSC::loadJQuery('latest', true, 'citruscartJQ');
 
-	    if ($this->defines->get('use_bootstrap', '0'))
+
+	 /*   if ($this->defines->get('use_bootstrap', '0'))
 	    {
 	    	DSC::loadBootstrap();
-	    }
+	    } */
+
+
 
 	    //JHTML::_('stylesheet', 'common.css', 'media/citruscart/css/');
 

@@ -39,7 +39,7 @@ class CitruscartViewBase extends DSCViewAdmin
 		JHtml::_('script', 'media/system/js/core.js', false, false);
 		JHtml::_('script', 'media/citruscart/js/citruscart.js', false, false);
 
-		DSC::loadBootstrap();
+		//DSC::loadBootstrap();
 		DSC::loadJQuery('latest', true, 'citruscartJQ');
 
 		JHtml::_('stylesheet', 'media/citruscart/css/common.css');

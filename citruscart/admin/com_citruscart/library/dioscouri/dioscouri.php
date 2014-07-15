@@ -349,6 +349,7 @@ class DSC extends JObject
 	    $doc = JFactory::getDocument();
 
 	    $doc->addStyleSheet(JUri::root().'media/citruscart/bootstrap/'.$version.'/css/bootstrap.min.css');
+
 	    //$doc->addScript(JUri::root().'media/citruscart/bootstrap/'.$version.'/js/bootstrap.min.js');
 
 	   // JHTML::_( 'script', 'bootstrap.min.js', 'media/citruscart/bootstrap/'.$version.'/js/' );

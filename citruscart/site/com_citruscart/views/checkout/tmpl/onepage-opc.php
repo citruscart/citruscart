@@ -40,10 +40,7 @@
 </a>
 
 <div id="citruscart_checkout_pane">
-
-      <a class="modal" href="<?php echo JRoute::_($asklink);?>" rel="{handler: 'iframe', size: {x: 800, y: 500}}" name="citruscartRegistration" id="citruscartRegistration" >
-
-
+  <a class="modal" href="<?php echo JRoute::_($asklink);?>" rel="{handler: 'iframe', size: {x: 800, y: 500}}" name="citruscartRegistration" id="citruscartRegistration" >
  </a>
 
 <?php if(!$this->user->id ) : ?>
@@ -379,9 +376,13 @@
 <input type="hidden" id="order_total" name="order_total" value="<?php echo $this->order->order_total; ?>" />
 <input type="hidden" id="task" name="task" value="onepageSaveOrder" />
 <?php echo JHTML::_( 'form.token' ); ?>
-
 </form>
-<div id="refreshpage" style="display: none; text-align: right;"><a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout')?>"><?php echo JText::_('COM_CITRUSCART_BACK')?></a></div>
+</div>
+<div id="refreshpage" style="display: none; text-align: right;">
+	<a href="<?php echo JRoute::_('index.php?option=com_citruscart&view=checkout')?>">
+		<?php echo JText::_('COM_CITRUSCART_BACK')?>
+	</a>
+</div>
 
 <script type="text/javascript">
 window.addEvent('domready', function() {
