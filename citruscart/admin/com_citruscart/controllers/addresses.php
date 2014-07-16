@@ -57,11 +57,12 @@ class CitruscartControllerAddresses extends CitruscartController
      */
     function getZones()
     {
+    	$app = JFactory::getApplication();
         Citruscart::load( 'CitruscartSelect', 'library.select' );
         $html = '';
         $text = '';
 
-        $app = JFactory::getApplication();
+
 
     	$country_id =$app->input->getInt('country_id');
     	$name = $app->input->get('name', 'zone_id');
