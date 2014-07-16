@@ -71,7 +71,7 @@ $doc = JFactory::getDocument();
             <tr class="filterline">
                 <th colspan="3">
                 	<?php  //$attribs = array('class' => 'inputbox', 'onchange' => 'document.adminForm.submit();');
-                	$attribs = array('class' => 'input-small', 'onchange' => 'document.adminForm.submit();'); ?>
+                	$attribs = array('class' => 'input', 'onchange' => 'document.adminForm.submit();'); ?>
 
                 	<div class="range">
                         <div class="rangeline">
@@ -116,7 +116,9 @@ $doc = JFactory::getDocument();
                 <th>
                 </th>
                 <th>
-    	            <?php echo CitruscartSelect::booleans( $state->filter_enabled, 'filter_enabled', $attribs, 'enabled', true, 'COM_CITRUSCART_ENABLED_STATE' ); ?>
+    	            <?php
+    	            $attribs1 = array('class' => 'input-small', 'onchange' => 'document.adminForm.submit();');
+    	            echo CitruscartSelect::booleans( $state->filter_enabled, 'filter_enabled', $attribs1, 'enabled', true, 'COM_CITRUSCART_ENABLED_STATE' ); ?>
                 </th>
             </tr>
 			<tr>
