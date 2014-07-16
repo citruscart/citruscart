@@ -127,7 +127,8 @@
         <plugin folder="citruscart" plugin="report_prepayments" publish="true" group="citruscart" element="report_prepayments" />
         <plugin folder="citruscart" plugin="report_sales" publish="true" group="citruscart" element="report_sales" />
         <plugin folder="citruscart" plugin="report_salesbymanufacturer" publish="true" group="citruscart" element="report_salesbymanufacturer" />
-        <plugin folder="citruscart" plugin="report_subscriptions" publish="true" group="citruscart" element="report_subscriptions" />       
+        <plugin folder="citruscart" plugin="report_subscriptions" publish="true" group="citruscart" element="report_subscriptions" />    
+        
       
         <plugin folder="citruscart" plugin="shipping_standard" publish="true" group="citruscart" element="shipping_standard" />
         <plugin folder="citruscart" plugin="payment_paypal" group="citruscart" element="payment_paypal" />        

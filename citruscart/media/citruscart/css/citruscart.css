@@ -422,7 +422,7 @@ box-shadow: none;
 
 .add_to_cart .btn-success{
 	 background-color:#FF3F3F;
- border-color:#FF3F3F;
+ 
  /*
 background-color:#FF8800;
 border-color:#FF8800; */
@@ -466,14 +466,10 @@ margin-left:8px;
  .com_citruscart .t3-wrapper .t3-mainnav .container .navbar-header .head-search{
  	display:inline-flex; 
  }
- 
 
-.citruscart_image-product_gallery_thumb{
-	width : 50px;
-	height :80px;
-}
-.citruscart-view-product-gallery{
 
+.citruscart_product_gallery_thumb {	
+	list-style-type:none;
 }
 
 .citruscart-rating li{
@@ -484,7 +480,7 @@ margin-left:8px;
 
 #citruscart_product_buy_info{
 	height : auto;
-	box-shadow:3px 3px 3px #dcdcdc;	
+	/*box-shadow:3px 3px 3px #dcdcdc;	*/
 }
 #citruscart .table-bordered{
 	margin-top :5px;
@@ -507,7 +503,7 @@ margin-left:8px;
 	/*box-shadow:3px 3px 3px #dcdcdc;*/ 
 }
 #citruscart_customer_review{
-	box-shadow:3px 3px 3px #dcdcdc;
+	/*box-shadow:3px 3px 3px #dcdcdc;*/
 }
 #product_relations .citruscart_product_relation_list{
 	border:1px solid #ccc;
@@ -524,4 +520,33 @@ margin-left:8px;
 	max-height:400px;
 	width:300px;
 }
+.citruscart-qty-btn{
+	height:29px;
+}
 
+#citruscart_main_product_view .product_price{
+	
+	font-size:16px;
+	font-weight:bold;
+	
+}
+
+#citruscart_main_product_view li{
+		text-align:center;
+		margin:5px;
+		padding:5px;
+		float:left;
+		border:1px solid #ccc;
+}
+.citruscart_image-product_gallery_thumb {
+    height: 139px;
+    width: 87px;
+}
+#onCheckoutCart_wrapper .citruscart-product-main-images{
+	height:130px;	width:130px;
+}
+
+
+#add_to_cart_qty{	
+	width: auto;
+}

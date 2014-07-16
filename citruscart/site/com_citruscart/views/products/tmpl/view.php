@@ -47,16 +47,16 @@
          <?php // echo htmlspecialchars_decode( $item->product_name ); ?>
          <!-- row-fluid div starts -->
          <div class="row-fluid">
-            <div class="col-md-2 citruscart-view-product-gallery" >
+            <div class="span2 col-md-2 citruscart-view-product-gallery" >
                <?php echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
             </div>
-            <div class="col-md-5 citruscart-view-product-main-image">
+            <div class="span5 col-md-5 citruscart-view-product-main-image">
                <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
                <input type="hidden" id="product_main_image" value="<?php echo $product_image;?>"/>
                <div>
                </div>
             </div>
-            <div id="citruscart_product_buy_info" class=col-md-5 citruscart_add_info">
+            <div id="citruscart_product_buy_info" class="span5 col-md-5 citruscart_add_info">
                <!-- product name unorder list starts -->
 
                   <!-- product properties list starts -->

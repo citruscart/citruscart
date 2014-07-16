@@ -159,10 +159,10 @@ Citruscart::load( 'CitruscartHelperEav', 'helpers.eav' );
             <tfoot>
                 <tr>
                     <td colspan="3" style="text-align: left;">
-                        <input type="submit" class="btn" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED'); ?>" name="remove" />
+                        <input type="submit" class="btn btn-danger" value="<?php echo JText::_('COM_CITRUSCART_REMOVE_SELECTED'); ?>" name="remove" />
                     </td>
                     <td colspan="2">
-                        <input style="float: right;" type="submit" class="btn" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES'); ?>" name="update" />
+                        <input style="float: right;" type="submit" class="btn btn-success" value="<?php echo JText::_('COM_CITRUSCART_UPDATE_QUANTITIES'); ?>" name="update" />
                     </td>
                 </tr>
                 <tr>

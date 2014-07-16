@@ -136,9 +136,9 @@ if( $changed_attr > -1 ) {
         <div class="productquantity">
         	<div class="btn-group">
         		<div style="display:inline-flex">
-					<input id="add_to_cart_qty" type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input-mini" />
-	  		 		<button class="citruscart-qty-btn btn btn-default"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
-      		 		<button  class="citruscart-qty-btn btn btn-default" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
+					<input id="add_to_cart_qty" type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input" />
+	  		 		<button class="btn citruscart-qty-btn"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
+      		 		<button  class="btn citruscart-qty-btn" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
       		 	</div>
        		</div>
 
@@ -175,7 +175,7 @@ if( $changed_attr > -1 ) {
                 case "button":
                 default:
                     ?>
-                    <input onclick="<?php echo $onclick; ?>" value="<?php echo JText::_('COM_CITRUSCART_ADD_TO_CART'); ?>" type="button" class="btn btn-success" />
+                    <input  onclick="<?php echo $onclick; ?>" value="<?php echo JText::_('COM_CITRUSCART_ADD_TO_CART'); ?>" type="button" class="btn btn-success" />
                     <?php
                     break;
             }

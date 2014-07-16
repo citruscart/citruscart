@@ -91,7 +91,7 @@ $app = JFactory::getApplication();
 	  <?php if (($items)) : ?>
 	<div class="row-fluid">
 
-	<div class="col-md-6">
+	<div class="span6 col-md-6">
     <?php if (($items)) : ?>
      <?php if($config->get('display_sort_by', '1')) :?>
       <form action="<?php echo JRoute::_("&limitstart=".$state->limitstart )?>" method="post" name="adminForm_sort" enctype="multipart/form-data">
@@ -124,7 +124,7 @@ $app = JFactory::getApplication();
     <?php endif;?>
     </div>
 
-    <div class="col-md-6">
+    <div class="span6 col-md-6">
     <?php if (!empty($this->pagination) && method_exists($this->pagination, 'getResultsCounter')) { ?>
         <form action="<?php echo JRoute::_( $form['action']."&limitstart=".$state->limitstart )?>" method="post" name="adminForm" enctype="multipart/form-data">
         <div id="products_footer" class="pagination">
