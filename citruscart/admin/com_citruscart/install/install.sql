@@ -5831,13 +5831,13 @@ COLLATE = utf8_general_ci;
 
 
 
-CREATE  TABLE IF NOT EXISTS `#__citruscart_wishlists` (
+CREATE  TABLE IF NOT EXISTS `#__citruscart_wishlistitems` (
   `wishlist_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `wishlist_name` varchar(255) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '1' COMMENT 'public = 1, linkonly = 2, private  = 3',
-  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `modified_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_date` date NOT NULL,
+  `modified_date` date NOT NULL,
   PRIMARY KEY (`wishlist_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 

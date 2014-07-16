@@ -25,6 +25,12 @@ Citruscart::load( 'Citruscart', 'defines' );
 
 JHtml::_('jQuery.framework');
 
+JHtml::_('bootstrap.framework');
+
+
+$doc = JFactory::getDocument();
+$doc->addStyleSheet(JUri::root(true).'/media/jui/css/bootstrap.min.css');
+
 // set the options array
 $options = array( 'site'=>'site', 'type'=>'components', 'ext'=>'com_citruscart' );
 
@@ -67,7 +73,6 @@ if (empty($controller))
     JFactory::getApplication()->redirect( $redirect );
 }
 
-$doc = JFactory::getDocument();
 $js = "var com_citruscart = {};\n";
 $js.= "com_citruscart.jbase = '".Citruscart::getUriRoot()."';\n";
 $doc->addScriptDeclaration($js);

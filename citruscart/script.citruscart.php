@@ -17,6 +17,52 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.filesystem.file');
 class Com_CitruscartInstallerScript{
 
+	public function update($parent){
+		$this->runDBChanges($parent);
+
+
+
+	}
+
+
+	public function runDBChanges($parent){
+		$db = JFactory::getDbo();
+		//get the table list
+		$tables = $db->getTableList();
+		//get prefix
+		$prefix = $db->getPrefix();
+
+		//address
+
+		if(!in_array($prefix.'citruscart_wishlistitems', $tables)){
+
+			$query = "CREATE  TABLE IF NOT EXISTS `#__citruscart_wishlistitems` (
+					`wishlist_id` int(11) NOT NULL AUTO_INCREMENT,
+					`user_id` int(11) NOT NULL,
+					`wishlist_name` varchar(255) NOT NULL,
+					`privacy` int(11) NOT NULL DEFAULT '1' COMMENT 'public = 1, linkonly = 2, private  = 3',
+					`created_date` date NOT NULL,
+					`modified_date` date NOT NULL,
+					PRIMARY KEY (`wishlist_id`)
+			) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+			";
+			$this->_executeQuery($query);
+		}
+
+	}
+
+	private function _executeQuery($query) {
+
+		$db = JFactory::getDbo();
+		$db->setQuery($query);
+		try {
+			$db->execute();
+		}catch (Exception $e) {
+			//do nothing. we dont want to fail the install process.
+		}
+
+	}
+
 	public function postflight($type, $parent)
 	{
 		$db = JFactory::getDBO();
