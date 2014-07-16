@@ -56,7 +56,7 @@
                <div>
                </div>
             </div>
-            <div id="citruscart_product_buy_info" class="col-md-5 citruscart_add_info">
+            <div id="citruscart_product_buy_info" class=col-md-5 citruscart_add_info">
                <!-- product name unorder list starts -->
 
                   <!-- product properties list starts -->

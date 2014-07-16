@@ -258,7 +258,10 @@ a.img_tooltip:hover span{display:block;}
 .show-all a,
 .citruscart-paofilter {
     cursor: pointer;
-}
+}.citruscart-product-main-images{
+	max-height:400px;
+	width:300px;
+	}
 
 .citruscart-paofilter-option.selected {
     background-image: url('../images/tick.png');
@@ -518,4 +521,7 @@ margin-left:8px;
 	margin:5px;
 	text-align:center;
 	padding:5px;
+	max-height:400px;
+	width:300px;
 }
+

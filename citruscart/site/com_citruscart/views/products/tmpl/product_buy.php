@@ -137,8 +137,8 @@ if( $changed_attr > -1 ) {
         	<div class="btn-group">
         		<div style="display:inline-flex">
 					<input id="add_to_cart_qty" type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input-mini" />
-	  		 		<button class="btn btn-default"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
-      		 		<button  class="btn btn-default" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
+	  		 		<button class="citruscart-qty-btn btn btn-default"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
+      		 		<button  class="citruscart-qty-btn btn btn-default" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
       		 	</div>
        		</div>
 
