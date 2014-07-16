@@ -13,7 +13,7 @@
 # @license GNU/GPL  Based on Tienda by Dioscouri Design http://www.dioscouri.com.
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>
