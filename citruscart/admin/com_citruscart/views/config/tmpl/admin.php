@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*------------------------------------------------------------------------
 # com_citruscart - citruscart
 # ------------------------------------------------------------------------
@@ -17,11 +17,11 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
     <div>
         <input type="hidden" name="task" value="" />
-        <input type="hidden" name="group" value="<?php echo $this->getLayout(); ?>" /> 
+        <input type="hidden" name="group" value="<?php echo $this->getLayout(); ?>" />
     </div>
-    
+
     <div class="tabbable">
-    
+
         <ul class="nav nav-tabs">
             <li class="active">
                 <a href="#tab1" data-toggle="tab"><?php echo JText::_('COM_CITRUSCART_ADMINISTRATOR_DASHBOARD_SETTINGS'); ?></a>
@@ -35,11 +35,12 @@ defined('_JEXEC') or die('Restricted access'); ?>
             <div class="tab-pane active" id="tab1">
                 <?php $this->setLayout( 'admin_general' ); echo $this->loadTemplate(); ?>
             </div>
-            
+
             <div class="tab-pane" id="tab2">
                 <?php $this->setLayout( 'admin_tooltips' ); echo $this->loadTemplate(); ?>
             </div>
         </div>
     </div>
-    
+
+
 </form>
