@@ -32,4 +32,20 @@ class CitruscartGrid extends DSCGrid
 		;
 		return $href;
 	}
+
+	public static function ordering( $id, $value)
+	{
+		$result =
+		'
+		<input type="text"
+		name="ordering['.$id.']"
+		size="5"
+		value="'.$value.'"
+		class="input-mini"
+		style="text-align: center"
+		/>
+		';
+
+		return $result;
+	}
 }

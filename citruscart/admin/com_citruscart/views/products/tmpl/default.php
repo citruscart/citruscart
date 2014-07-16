@@ -71,45 +71,45 @@ $doc = JFactory::getDocument();
             <tr class="filterline">
                 <th colspan="3">
                 	<?php  //$attribs = array('class' => 'inputbox', 'onchange' => 'document.adminForm.submit();');
-                	$attribs = array('class' => 'input', 'onchange' => 'document.adminForm.submit();'); ?>
+                	$attribs = array('class' => 'input-small', 'onchange' => 'document.adminForm.submit();'); ?>
 
                 	<div class="range">
                         <div class="rangeline">
-                            <input type="text" placeholder="<?php echo JText::_('COM_CITRUSCART_FROM'); ?>" id="filter_id_from" name="filter_id_from" value="<?php echo $state->filter_id_from; ?>" size="5" class="input input-tiny" />
+                            <input type="text" placeholder="<?php echo JText::_('COM_CITRUSCART_FROM'); ?>" id="filter_id_from" name="filter_id_from" value="<?php echo $state->filter_id_from; ?>" size="5" class="input input-small" />
                         </div>
                         <div class="rangeline">
-                            <input type="text" placeholder="<?php echo JText::_('COM_CITRUSCART_TO'); ?>" id="filter_id_to" name="filter_id_to" value="<?php echo $state->filter_id_to; ?>" size="5" class="input input-tiny" />
+                            <input type="text" placeholder="<?php echo JText::_('COM_CITRUSCART_TO'); ?>" id="filter_id_to" name="filter_id_to" value="<?php echo $state->filter_id_to; ?>" size="5" class="input input-small" />
                         </div>
                     </div>
 
 
                 </th>
                 <th style="text-align: left;" colspan="2">
-                	<input id="filter_name" name="filter_name" placeholder="Product Name..." type="text" value="<?php echo $state->filter_name; ?>" size="25"/>
+                	<input class="input" id="filter_name" name="filter_name" placeholder="Product Name..." type="text" value="<?php echo $state->filter_name; ?>" size="25"/>
                 	<?php echo CitruscartSelect::category( $state->filter_category, 'filter_category', $attribs, 'category', true ); ?>
                 	<?php echo CitruscartSelect::booleans( $state->filter_ships, 'filter_ships', $attribs, 'ships', true, 'Requires Shipping', 'Yes', 'No' ); ?>
                 	<?php echo CitruscartSelect::taxclass( $state->filter_taxclass, 'filter_taxclass', $attribs, 'taxclass', true, false ); ?>
                 </th>
                 <th>
-                	<input id="filter_sku" name="filter_sku" type="text" value="<?php echo $state->filter_sku; ?>" class="input-small" placeholder="<?php echo JText::_('COM_CITRUSCART_SKU'); ?>"/>
+                	<input id="filter_sku"  name="filter_sku" type="text" value="<?php echo $state->filter_sku; ?>" class="input" placeholder="<?php echo JText::_('COM_CITRUSCART_SKU'); ?>"/>
                 </th>
                 <th>
                 	<div class="range">
 	                	<div class="rangeline">
-	                		<input  type="text"id="filter_price_from" name="filter_price_from" value="<?php echo $state->filter_price_from; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
+	                		<input  type="text"id="filter_price_from" name="filter_price_from" value="<?php echo $state->filter_price_from; ?>" size="5" class="input input-mini" placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
 	                	</div>
 	                	<div class="rangeline">
-	                		<input type="text" id="filter_price_to" name="filter_price_to" value="<?php echo $state->filter_price_to; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
+	                		<input type="text" id="filter_price_to" name="filter_price_to" value="<?php echo $state->filter_price_to; ?>" size="5" class="input input-mini" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
 	                	</div>
                 	</div>
                 </th>
                 <th>
                 	<div class="range">
 	                	<div class="rangeline">
-	                		<input type="text" id="filter_quantity_from" name="filter_quantity_from" value="<?php echo $state->filter_quantity_from; ?>" size="5" class="input input-tiny"  placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
+	                		<input type="text" id="filter_quantity_from" name="filter_quantity_from" value="<?php echo $state->filter_quantity_from; ?>" size="5" class="input input-mini"  placeholder="<?php echo JText::_("COM_CITRUSCART_FROM"); ?>"/>
 	                	</div>
 	                	<div class="rangeline">
-	                		<input type="text" id="filter_quantity_to" name="filter_quantity_to" value="<?php echo $state->filter_quantity_to; ?>" size="5" class="input input-tiny" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
+	                		<input type="text" id="filter_quantity_to" name="filter_quantity_to" value="<?php echo $state->filter_quantity_to; ?>" size="5" class="input input-mini" placeholder="<?php echo JText::_("COM_CITRUSCART_TO"); ?>"/>
 	                	</div>
                 	</div>
                 </th>

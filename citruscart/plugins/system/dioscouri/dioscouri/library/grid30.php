@@ -120,7 +120,7 @@ class DSCGrid extends JGrid
 			 name="ordering['.$id.']"
 			 size="5"
 			 value="'.$value.'"
-			 class="text_area input-tiny"
+			 class="text_area input-mini"
 			 style="text-align: center"
 			 />
 			 ';
