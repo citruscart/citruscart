@@ -19,9 +19,6 @@ class Com_CitruscartInstallerScript{
 
 	public function update($parent){
 		$this->runDBChanges($parent);
-
-
-
 	}
 
 
