@@ -37,6 +37,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
 ?>
 
 <div id="citruscart_customer_review">
+<h3><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></h3>
 <?php
 		if (($review_enable==1)&&($result == 1 || $count > 0 ) ) {
 		$emails = CitruscartHelperProduct::getUserEmailForReview( $this->comments_data->product_id );
@@ -45,7 +46,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
  <div>
  	 <div class="rowDiv" style="padding-top: 5px;">
         <?php
-        	 if ($review_enable==1 && $result == 1): ?>
+        	 if ($review_enable==1 && $user->id): ?>
         	<div class="leftAlignDiv">
         		<input onclick="citruscartShowHideDiv('new_review_form');" value="<?php echo JText::_('COM_CITRUSCART_ADD_REVIEW'); ?>" type="button" class="btn btn-warning" />
         	</div>
@@ -97,7 +98,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
    <?php if($review_enable==1):
    		if($reviews):?>
 
-<h3><?php echo JText::_('COM_CITRUSCART_REVIEWS'); ?></h3>
+
 <table class="table">
 <tbody>
 <?php foreach ($reviews as $review) : ?>
