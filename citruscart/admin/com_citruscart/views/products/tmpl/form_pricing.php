@@ -31,6 +31,7 @@ $helper_product = new CitruscartHelperProduct();
                 	<?php echo JText::_('COM_CITRUSCART_ITEM_NOT_FOR_SALE'); ?>
                 </td>
                 <td>
+                	<span class="text text-warning product-for-sale-help"><strong><?php echo JText::_('COM_CITRUSCART_ITEM_NOT_FOR_SALE_HELP');?></strong></span>
                 	<?php  echo CitruscartSelect::btbooleanlist( 'product_notforsale', '', $row->product_notforsale, 'JYES','JNO');?>
                 </td>
             </tr>
