@@ -35,8 +35,16 @@ class CitruscartSelect extends DSCSelect
 	    $html = '<div class="control-group"><div class="controls"><fieldset id="'.$name.'" class="radio btn-group">';
 	    $html .=  CitruscartSelect::btradiolist( $arr, $name, $attribs, 'value', 'text', (int) $selected, $id);
 	    $html .= '</fieldset></div></div>';
-
 	    return $html;
+	}
+
+	public static function ItemforSalebtbooleanlist($name, $attribs = null, $selected = null, $yes = 'JNO', $no = 'JYES', $id = false)
+	{
+		$arr = array(JHtml::_('select.option', '0', JText::_($no)), JHtml::_('select.option', '1', JText::_($yes)));
+		$html = '<div class="control-group"><div class="controls"><fieldset id="'.$name.'" class="radio btn-group">';
+		$html .=  CitruscartSelect::btradiolist( $arr, $name, $attribs, 'value', 'text', (int) $selected, $id);
+		$html .= '</fieldset></div></div>';
+		return $html;
 	}
 
 	/**
@@ -1514,10 +1522,10 @@ class CitruscartSelect extends DSCSelect
     {
         $return = array();
         $model = JModelLegacy::getInstance( 'ElementUser', 'CitruscartModel' );
-                          
-        $return['select'] = $model->fetchElement( $name, $selected, '','', $onChange );        
-        $return['clear'] = $model->clearElement( $name, '0', '', '', $onChange );        
-            
+
+        $return['select'] = $model->fetchElement( $name, $selected, '','', $onChange );
+        $return['clear'] = $model->clearElement( $name, '0', '', '', $onChange );
+
         return $return;
     }
 
