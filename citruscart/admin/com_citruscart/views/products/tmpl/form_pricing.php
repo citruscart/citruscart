@@ -28,10 +28,10 @@ $helper_product = new CitruscartHelperProduct();
         <table class="table table-striped table-bordered">
             <tr>
                 <td class="dsc-key">
-                	<?php echo JText::_('COM_CITRUSCART_ITEM_FOR_SALE'); ?>
+                	<?php echo JText::_('COM_CITRUSCART_ITEM_NOT_FOR_SALE'); ?>
                 </td>
                 <td>
-                	<?php echo CitruscartSelect::ItemforSalebtbooleanlist( 'product_notforsale', '', $row->product_notforsale, 'JNO','JYES');?>
+                	<?php  echo CitruscartSelect::btbooleanlist( 'product_notforsale', '', $row->product_notforsale, 'JYES','JNO');?>
                 </td>
             </tr>
             <?php
