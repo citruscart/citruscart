@@ -47,7 +47,7 @@ $product_image_thumb = CitruscartHelperProduct::getImage($product_id, '', '', 't
 		<li class="zoom_gallery">
 		<a href="#" data-image="<?php echo JRoute::_($src);?>" >
 		<!-- id="citruscart_alt_image<?php echo $i;?>"  -->
-		 	<img id="<?php echo $id;?>" onclick="changeAltImage(<?php echo $alt_id?>)"
+		 	<img id="<?php echo $id;?>" onclick="changeAltImage('<?php echo $alt_id?>')"
 		 		 src="<?php echo $gallery_data->uri . "thumbs/" . $image;?>"
 		 		  data-zoom-image="<?php echo $src;?>"
 		 		  href="<?php echo $src;?>"
@@ -82,10 +82,12 @@ $product_image_thumb = CitruscartHelperProduct::getImage($product_id, '', '', 't
 	var a = 0;
 
 	function changeAltImage(id){
-		jQuery("#citruscart_main_image<?php echo $product_id;?>").attr('src',id.src);
-		jQuery(".zoomImg").attr('src',id.src);
+		var resourceImg = jQuery("#"+id).attr('src');
+		jQuery("#citruscart_main_image<?php echo $product_id;?>").attr('src',resourceImg);
+		jQuery(".zoomImg").attr('src',resourceImg);
 		a = a+1;
 		var main_image_src=jQuery("#product_main_image").val();
+		console.log(main_image_src);
 		var html ="<li class='zoom_gallery'><a href='#' ><img src='"+main_image_src +"' onclick='setMainImage(this)' class='citruscart_image-product_gallery_thumb' />"+
 	 		  "<img id='<?php echo $alt_id;?>'  src='"+main_image_src +"' style='display:none;'/>"+
 			  "</a></li>";

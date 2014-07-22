@@ -83,73 +83,8 @@ class DSCHelperUser extends DSCHelper {
 	 * @param mixed Boolean
 	 * @return array
 	 */
-	public static function createNewUser($details, &$msg) {
-
-	/*$success = false;
-		// Get required system objects
-		$user = clone(JFactory::getUser());
-		$config = JFactory::getConfig();
-		$authorize = JFactory::getACL();
-
-		$usersConfig = JComponentHelper::getParams('com_users');
-
-		// Bind the post array to the user object
-		if (!$user -> bind($details)) {
-			$this -> setError($user -> getError());
-			return false;
-		}
-
-		if (empty($user -> password)) {
-			jimport('joomla.user.helper');
-			$user -> password = JUserHelper::genRandomPassword();
-		}
-
-		// Set some initial user values
-		$user -> set('id', 0);
-		$user -> set('usertype', '');
-
-		if (version_compare(JVERSION, '1.6.0', 'ge')) {
-			$newUsertype = $usersConfig -> get('new_usertype', '2');
-
-			// Joomla! 1.6+ code here
-			$user -> set('usertype', 'deprecated');
-			$user -> set('groups', array($newUsertype));
-		} else {
-			// Joomla! 1.5 code here
-			$newUsertype = $usersConfig -> get('new_usertype');
-			if (!$newUsertype) {
-				$newUsertype = 'Registered';
-			}
-			$user -> set('gid', $authorize -> get_group_id('', $newUsertype, 'ARO'));
-		}
-
-		$date = JFactory::getDate();
-		$user -> set('registerDate', $date -> toSql());
-
-		// we disable useractivation for auto-created users
-		$useractivation = '0';
-		if ($useractivation == '1') {
-			jimport('joomla.user.helper');
-			$user -> set('activation', md5(JUserHelper::genRandomPassword()));
-			$user -> set('block', '0');
-		}
-
-		// If there was an error with registration, set the message and display form
-		if (!$user -> save()) {
-			$msg -> message = $user -> getError();
-			return $success;
-		}
-
-		$app = DSC::getApp();
-		if (!$app -> get('disable_guest_signup_email')) {
-			// Send registration confirmation mail
-			self::sendMail($user, $details, $useractivation, $guest);
-		}
-
-		return $user;
-		*/
-
-		$user=JFactory::getUser(0);
+	public static function createNewUser($details) {
+		$user=JFactory::getUser();
 
 		$instance = JUser::getInstance();
 
@@ -193,6 +128,8 @@ class DSCHelperUser extends DSCHelper {
 			JError::raiseWarning('', JText::_( $instance->getError())); // ...raise an Warning
 			return false; // if you're in a method/function return false
 		}
+		
+		
 
 		return $user;
 	}

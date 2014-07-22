@@ -877,9 +877,10 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                 }
                 else
                 {
-                    $file = $dir . '/' . $image_ref;
+                    $file = $dir.$image_ref;
                     $id = $urli . $image_ref;
                 }
+
 
                 // Gotta do some resizing first?
                 if ( $resize )
@@ -948,9 +949,11 @@ class CitruscartHelperProduct extends CitruscartHelperBase
                     $id = substr( $id, 0, $dot ) . $suffix . substr( $id, $dot );
                 }
 
-                $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
+               $src = ( JFile::exists( $file ) ) ? $id : JURI::root(true).'/media/citruscart/images/placeholder_239.gif';
+
 				if(JFactory::getApplication()->isSite()){
-                $tmpl = ( $url ) ? $src
+
+				$tmpl = ( $url ) ? $src
                 : "<img class='citruscart-product-main-images'  id=".$p_id ." " . $dimensions . " src='" . $src . "' alt='" . JText::_( $alt ) . "' title='" . JText::_( $alt )
                 . "' align='middle' border='0' />";
 				}else{
@@ -959,6 +962,8 @@ class CitruscartHelperProduct extends CitruscartHelperBase
 					. "' align='middle' border='0'/>";
 
 				}
+
+
             }
         }
         return $tmpl;

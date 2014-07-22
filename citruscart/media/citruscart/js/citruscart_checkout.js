@@ -184,6 +184,8 @@ function citruscartDeleteAddressGrayDiv()
 		return;
 	citruscartSetColorInContainer( 'billingAddress', '' );
 	el_billing.remove();
+	jQuery("."+el_billing).remove();
+	
 	//el_billing.destroy();
 	
 	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
@@ -322,7 +324,8 @@ function citruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
  * 
  */
 function citruscartCheckPassword( container, form, psw, min_length, req_num, req_alpha, req_spec )
-{
+{	
+	console.log(confirm);
     val_errors = [];
 	var pass_ok = true;
 		
@@ -396,7 +399,8 @@ function citruscartCheckPassword( container, form, psw, min_length, req_num, req
  * Simple function to compare passwords
  */
 function citruscartCheckPassword2( container, form, psw1, psw2 )
-{
+{	
+	console.log(container);
 	if( citruscartJQ( psw1 ).get( 'value' ) == citruscartJQ( psw2 ).get( 'value' ) )
 	{
 		val_img 	= 'accept_16.png';

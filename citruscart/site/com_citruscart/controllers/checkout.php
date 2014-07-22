@@ -1198,14 +1198,21 @@ class CitruscartControllerCheckout extends CitruscartController
         }
 
         $billing_zone_id = 0;
+
+
+
         $billingAddressArray = $this->getAddressArray( $billing_address_id, $billing_input_prefix, $values );
+
+
         if (array_key_exists('zone_id', $billingAddressArray))
         {
             $billing_zone_id = $billingAddressArray['zone_id'];
         }
 
+
         //SHIPPING ADDRESS: get shipping address from dropdown or form (depending on selection)
         $shipping_zone_id = 0;
+
         if ($same_as_billing)
         {
             $shippingAddressArray = $billingAddressArray;
@@ -1214,6 +1221,7 @@ class CitruscartControllerCheckout extends CitruscartController
         {
             $shippingAddressArray = $this->getAddressArray($shipping_address_id, $shipping_input_prefix, $values);
         }
+
 
         if (array_key_exists('zone_id', $shippingAddressArray))
         {
@@ -1293,40 +1301,27 @@ class CitruscartControllerCheckout extends CitruscartController
             $new_address = $this->retrieveAddressIntoArray($address_id);
 
             $addressArray = $new_address;
-            	/* $new_key=array();
-
-            	$key=array_keys($new_address );
-
-				for($a=0; $a<count($key); $a++){
-            		$new_key[$a]=$input_prefix.$key[$a];
-            	}
-
-            	$addressArray=array_combine($new_key,array_values($new_address ));
-
-            	$zone = JTable::getInstance('Zones', 'CitruscartTable');
-            	$zone->load( $new_address['zone_id'] );
-            	$addressArray['zone_name'] = $zone->zone_name;
-            	// set the country name
-            	$country = JTable::getInstance('Countries', 'CitruscartTable');
-            	$country->load( $new_address['country_id'] );
-            	$addressArray['country_name'] = $country->country_name;
-
-            	print_r($addressArray); exit; */
-
-
         }else{
 
-            $addressArray = $this->filterArrayUsingPrefix($form_input_array, $input_prefix, '', false );
+           $addressArray = $this->filterArrayUsingPrefix($form_input_array, $input_prefix, '', false );
 
-            // set the zone name
-          //  $zone = JTable::getInstance('Zones', 'CitruscartTable');
-           // $zone->load( $addressArray['zone_id'] );
-        //    $addressArray['zone_name'] = $zone->zone_name;
+           $country_id = (isset($form_input_array[$input_prefix.'country_id'])) ? $form_input_array[$input_prefix.'country_id'] : "";
+           //$country_id = (isset($addressArray['country_id'])) ? $addressArray['country_id'] : "";
+           $country = JTable::getInstance('Countries', 'CitruscartTable');
+           $country->load( $country_id );
+           $addressArray['country_name'] = $country->country_name;
+           $addressArray['country_id'] = $country->country_id;
+
+			$zone_id =(isset($form_input_array[$input_prefix.'zone_id'])) ?  $form_input_array[$input_prefix.'zone_id'] : "";
+			// set the zone name
+            $zone = JTable::getInstance('Zones', 'CitruscartTable');
+            $zone->load($zone_id);
+            $addressArray['zone_name'] = $zone->zone_name;
+            $addressArray['zone_id'] = $zone->zone_id;
             // set the country name
-          //  $country = JTable::getInstance('Countries', 'CitruscartTable');
-           // $country->load( $addressArray['country_id'] );
-          //  $addressArray['country_name'] = $country->country_name;
+
         }
+
 
         return $addressArray;
     }
@@ -1951,14 +1946,19 @@ class CitruscartControllerCheckout extends CitruscartController
         JLoader::import( 'com_citruscart.library.json', JPATH_ADMINISTRATOR.'/components' );
 
         $this->setAddresses( $submitted_values, false, true );
-        if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix, $submitted_values['billing_address_id'], true ))
-        {
-            $error_message = $helper->generateMessage( JText::_('COM_CITRUSCART_BILLING_ADDRESS_ERROR')." :: ".$this->getError());
-            $response['error'] = '1';
-            $response['msg'] = $error_message;
-            echo json_encode($response);
-            return;
+        if(!isset($submitted_values['billing_address_id'])) {
+        	$submitted_values['billing_address_id'] = '';
         }
+
+	        if (!$this->validateAddress( $submitted_values, $this->billing_input_prefix, $submitted_values['billing_address_id'], true ))
+	        {
+	            $error_message = $helper->generateMessage( JText::_('COM_CITRUSCART_BILLING_ADDRESS_ERROR')." :: ".$this->getError());
+	            $response['error'] = '1';
+	            $response['msg'] = $error_message;
+	            echo json_encode($response);
+	            return;
+	        }
+
 
         $model = $this->getModel( 'Checkout', 'CitruscartModel' );
         $view   = $this->getView( 'checkout', 'html' );
@@ -3021,8 +3021,8 @@ class CitruscartControllerCheckout extends CitruscartController
                         echo ( json_encode($response) );
                         return false;
                     }
-
-                    $user = $userHelper->createNewUser( $details, '');
+                   $user = $userHelper->createNewUser( $details);                  
+                    
                     if ( !$user )
                     {
                         $response['msg'] = $helper->generateMessage( $user->getError() );

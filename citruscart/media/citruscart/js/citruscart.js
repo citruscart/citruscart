@@ -177,7 +177,7 @@ Citruscart.createWishlist = function(wishlist_name, prompt_text, callback_functi
             var response = JSON.decode(data, false);
 
             if (response.error) {
-                alert(response.html);
+              //  alert(response.html);
             } else {
                 if ( typeof callback_function === 'function') {
                     callback_function( response );
@@ -843,6 +843,8 @@ function citruscartRefreshCartTotalAmountDue() {
  * @param suffix Suffix of the AJAX loader gif (in case it's empty '_transp' is used)
  */
 function citruscartPutAjaxLoader(container, text, suffix) {
+	
+	console.log(container);
 	if (!suffix || suffix == '')
 		suffix = '_transp';
 
