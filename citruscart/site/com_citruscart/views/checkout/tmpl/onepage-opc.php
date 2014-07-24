@@ -173,7 +173,8 @@
 		                );
 
 		                // display select list of stored addresses
-		                echo CitruscartSelect::address( JFactory::getUser()->id, $this->shipping_address->address_id, 'shipping_address_id', 2, $shipattribs, 'shipping_address_id', false, true );
+		                $shipping_address_id =(isset($this->shipping_address) &&  $this->shipping_address) ? $this->shipping_address->address_id :"";
+		                echo CitruscartSelect::address( JFactory::getUser()->id,$shipping_address_id, 'shipping_address_id', 2, $shipattribs, 'shipping_address_id', false, true );
 					?>
 						<div id="shippingDefaultAddress">
 							<?php

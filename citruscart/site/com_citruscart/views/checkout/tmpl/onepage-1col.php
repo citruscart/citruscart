@@ -132,7 +132,7 @@
 						<input type="checkbox" id="create_account" name="create_account" <?php if( !$guest_enabled ) echo 'checked disabled'; ?> value="on" />
 						<label for="field-create-account"><?php echo JText::_('COM_CITRUSCART_CREATE_A_NEW_ACCOUNT');?></label>
 						<div id="citruscart_user_additional_info" <?php if( $guest_enabled ) echo 'class="hidden"'; ?>>
-	               <?php echo $this->form_user_register;?>
+	               <?php  echo $this->form_user_register;?>
     	        </div>
     			</div>
            			<?php endif; ?>

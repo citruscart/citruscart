@@ -191,6 +191,7 @@ class CitruscartControllerCheckout extends CitruscartController
             $showShipping = false;
 
             $cartsModel = $this->getModel('carts');
+
             if ($isShippingEnabled = $cartsModel->getShippingIsEnabled())
             {
                 $showShipping = true;
@@ -203,7 +204,6 @@ class CitruscartControllerCheckout extends CitruscartController
 
             $view->assign( 'showShipping', $showShipping );
             $view->assign( 'billing_address', $billingAddress);
-
             if($showShipping)
             {
                 $shippingAddress = $order->getShippingAddress();
@@ -3021,8 +3021,8 @@ class CitruscartControllerCheckout extends CitruscartController
                         echo ( json_encode($response) );
                         return false;
                     }
-                   $user = $userHelper->createNewUser( $details);                  
-                    
+                   $user = $userHelper->createNewUser( $details);
+
                     if ( !$user )
                     {
                         $response['msg'] = $helper->generateMessage( $user->getError() );

@@ -187,7 +187,7 @@ class CitruscartModelCheckout extends CitruscartModelBase
             $details['password']    = $values["register-new-password"];
             $details['password2']   = $values["register-new-password2"];
 
-            if (!$user = $userHelper->createNewUser( $details, false ))
+            if (!$user = $userHelper->createNewUser( $details))
             {
                 $result->error = true;
                 //$this->setError( $user->getError() );

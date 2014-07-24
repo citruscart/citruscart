@@ -377,12 +377,13 @@ class CitruscartModelCarts extends CitruscartModelEav
 
 		foreach ($list as $item)
 		{
-			$shipping = $product_helper->isShippingEnabled($item->product_id);
+			echo $shipping = $product_helper->isShippingEnabled($item->product_id);
 			if ($shipping)
 			{
 				return true;
 			}
 		}
+
 
 		return false;
 	}

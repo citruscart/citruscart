@@ -176,24 +176,16 @@ function citruscartManageShippingRates()
 
 function citruscartDeleteAddressGrayDiv()
 {
-	el_billing =document.getElementById('billingAddress').getElementsByClassName('citruscartAjaxGrayDiv');
-	
-	//$$( '#billingAddress .citruscartAjaxGrayDiv' );
-	
+	el_billing = $$( '#billingAddress .citruscartAjaxGrayDiv' );
 	if( !el_billing )
 		return;
 	citruscartSetColorInContainer( 'billingAddress', '' );
-	el_billing.remove();
-	jQuery("."+el_billing).remove();
-	
-	//el_billing.destroy();
+	el_billing.destroy();
 	
 	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
 	{
 		citruscartSetColorInContainer( 'shippingAddress', '' );
-		//document.getElementById('shippingAddress').getElementsByClassName('citruscartAjaxGrayDiv').destroy();
-		document.getElementById('shippingAddress').getElementsByClassName('citruscartAjaxGrayDiv').remove();
-		//$$( '#shippingAddress .citruscartAjaxGrayDiv' ).destroy();		
+		$$( '#shippingAddress .citruscartAjaxGrayDiv' ).destroy();		
 	}
 }
 
@@ -262,8 +254,11 @@ function citruscartGrayOutAddressDiv( prefix )
 {
 	if( !citruscartJQ( 'shippingAddress' ) )
 		return;
+		
 	values = citruscartStoreFormInputs( document.adminForm );
+	if(citruscartGrayOutAddressDiv('billingAddress', Joomla.JText._('COM_CITRUSCART_UPDATING_ADDRESS='), prefix))
 	citruscartGrayOutAjaxDiv( 'billingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
+	print_r(citruscartGrayOutAjaxDiv( 'billingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix ));
 	if( citruscartJQ( 'shippingAddress' ) && ( !citruscartJQ( 'sameasbilling' ) || ( citruscartJQ( 'sameasbilling' ) && !citruscartJQ( 'sameasbilling' ).checked ) ) )
 		citruscartGrayOutAjaxDiv( 'shippingAddress', Joomla.JText._( 'COM_CITRUSCART_UPDATING_ADDRESS=' ), prefix );
 	citruscartRestoreFormInputs( document.adminForm , values );
@@ -274,7 +269,7 @@ function citruscartGrayOutAddressDiv( prefix )
  * 
  */
 function citruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
-{
+{	
 	obj = document.getElementById( obj_id );
 
 	// see, if you find can find payment_wrapper and update payment methods
@@ -324,8 +319,7 @@ function citruscartCheckoutAutomaticShippingRatesUpdate( obj_id )
  * 
  */
 function citruscartCheckPassword( container, form, psw, min_length, req_num, req_alpha, req_spec )
-{	
-	console.log(confirm);
+{
     val_errors = [];
 	var pass_ok = true;
 		
@@ -399,8 +393,7 @@ function citruscartCheckPassword( container, form, psw, min_length, req_num, req
  * Simple function to compare passwords
  */
 function citruscartCheckPassword2( container, form, psw1, psw2 )
-{	
-	console.log(container);
+{
 	if( citruscartJQ( psw1 ).get( 'value' ) == citruscartJQ( psw2 ).get( 'value' ) )
 	{
 		val_img 	= 'accept_16.png';
