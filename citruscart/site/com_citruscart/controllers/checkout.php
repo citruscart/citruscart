@@ -3004,7 +3004,7 @@ class CitruscartControllerCheckout extends CitruscartController
                     // create a new user from billing info
                     $details = array(
                             'email' => $submitted_values['email_address'],
-                            'name' => $submitted_values['billing_input_first_name'].' '.$submitted_values['billing_input_middle_name'].' '.$submitted_values['billing_input_last_name'],
+                            'name' => $submitted_values['billing_input_first_name'].' '.(isset($submitted_values['billing_input_middle_name'])) ? $submitted_values['billing_input_middle_name'] : "".' '.$submitted_values['billing_input_last_name'],
                             'username' => $submitted_values['email_address']
                     );
                     if( $details['name'] == '  ' ) // both first and last name are empty -> use a generic name
@@ -3041,9 +3041,9 @@ class CitruscartControllerCheckout extends CitruscartController
                     $userinfo->user_id = $user_id;
                     $userinfo->first_name = $submitted_values['billing_input_first_name'];
                     $userinfo->last_name = $submitted_values['billing_input_last_name'];
-                    $userinfo->company = $submitted_values['billing_input_company'];
-                    $userinfo->middle_name = $submitted_values['billing_input_middle_name'];
-                    $userinfo->phone_1 = $submitted_values['billing_input_phone_1'];
+                    $userinfo->company = (isset($submitted_values['billing_input_company'])) ? $submitted_values['billing_input_company'] :"" ;
+                    $userinfo->middle_name = (isset($submitted_values['billing_input_middle_name'])) ? $submitted_values['billing_input_middle_name'] : "";
+                    $userinfo->phone_1 = (isset($submitted_values['billing_input_phone_1'])) ? $submitted_values['billing_input_phone_1'] :"";
                     $userinfo->email = $submitted_values['email_address'];
                     $userinfo->save();
                 }

@@ -496,7 +496,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
         $order_id           = (int) $data['item_number_1'];
         $orderpayment_id    = (int) $data['custom'];
         $data['transaction_details'] = $this->_getFormattedTransactionDetails( $data );
-
+        $this->_log($data['transaction_details']);
         // process the payment based on its type
         if ( !empty($data['txn_type']) ) {
             $payment_error = '';
