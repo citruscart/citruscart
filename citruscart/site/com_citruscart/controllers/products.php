@@ -1567,7 +1567,7 @@ class CitruscartControllerProducts extends CitruscartController
         $helper = CitruscartHelperBase::getInstance( );
 
         // get elements from post
-        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
+        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->getString( 'elements') ) );
 
         // validate it using table's ->check() method
         if ( empty( $elements ) )
@@ -2021,7 +2021,7 @@ class CitruscartControllerProducts extends CitruscartController
         $user = JFactory::getUser( );
 
         // get elements from post
-        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
+        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->getString( 'elements') ) );
 
         // validate it using table's ->check() method
         if ( empty( $elements ) )

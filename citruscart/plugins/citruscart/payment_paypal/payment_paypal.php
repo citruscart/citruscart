@@ -25,6 +25,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
      *                         forcing it to be unique
      */
     public $_element    = 'payment_paypal';
+    var $_isLog      = false;
 
     public function __construct(& $subject, $config)
     {
@@ -527,6 +528,27 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
         $error = 'processed';
 
         return $error;
+    }
+
+
+    /**
+     * Simple logger
+     *
+     * @param string $text
+     * @param string $type
+     * @return void
+     */
+    function _log($text, $type = 'message')
+    {
+    	if ($this->_isLog) {
+    		$file = JPATH_ROOT . "/cache/{$this->_element}.log";
+    		$date = JFactory::getDate();
+
+    		$f = fopen($file, 'a');
+    		fwrite($f, "\n\n" . $date->format('Y-m-d H:i:s'));
+    		fwrite($f, "\n" . $type . ': ' . $text);
+    		fclose($f);
+    	}
     }
 
     /**

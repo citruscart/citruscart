@@ -434,7 +434,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$response['error'] = '';
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->getString( 'elements') ) );
 
 		// convert elements to array that can be binded
 		Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
@@ -710,7 +710,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$response['error'] = '';
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->getString( 'elements') ) );
 
 		// validate it using table's ->check() method
 		if (empty($elements))
@@ -1177,7 +1177,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$helper = CitruscartHelperBase::getInstance();
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->getString( 'elements' ) ) );
 
 		// validate it using table's ->check() method
 		if (empty($elements))
