@@ -406,7 +406,7 @@ class CitruscartControllerGeozones extends CitruscartController
         $model = $this->getModel( $suffix );
         $ns = $app->getName().'::'.'com.citruscart.model.'.$model->getTable()->get('_suffix');
 
-        $id = $app->input->get( 'id', $app->input->get( 'id', '0', 'post', 'int' ), 'get', 'int' );
+        $id = $app->input->get( 'id', 0);
         $row = $model->getTable( 'geozones' );
         $row->load( $id );
 

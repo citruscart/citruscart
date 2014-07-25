@@ -71,9 +71,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 
 	    $model 	= $this->getModel( $this->get('suffix') );
 	    $error = false;
-
-		//$row->manufacturer_description = JRequest::getVar( 'manufacturer_description', '', 'post', 'string', JREQUEST_ALLOWRAW);
-	     $row->manufacturer_description = $app->input->getString('manufacturer_name');
+       $row->manufacturer_description = $app->input->getString('manufacturer_name');
 	    $row->manufacturer_description =$app->input->getString('manufacturer_description');
 		$fieldname = 'manufacturer_image_new';
 

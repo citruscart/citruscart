@@ -50,7 +50,7 @@ class UsersControllerRegistration extends UsersController
 		}
 
 		$model = $this->getModel('Registration', 'UsersModel');
-		$token = $input->get('token', null, 'request', 'alnum');
+		$token = $input->getAlnum('token');
 
 		// Check that the token is in a valid format.
 		if ($token === null || strlen($token) !== 32) {
@@ -117,7 +117,7 @@ class UsersControllerRegistration extends UsersController
 		$model	= $this->getModel('Registration', 'UsersModel');
 
 		// Get the user data.
-		$requestData = $app->input->get('jform', array(), 'post', 'array');
+		$requestData = $app->input->get('jform', array(),'array');
 
 		// Validate the posted data.
 		$form	= $model->getForm();

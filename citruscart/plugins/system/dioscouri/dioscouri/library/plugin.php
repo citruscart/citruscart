@@ -207,7 +207,7 @@ class DSCPlugin extends JPlugin
     {
         $token  = JSession::getFormToken();
         $token .= ".".strtolower($suffix);
-        if (JFactory::getApplication()->input->get( $token, '', $method, 'alnum' ))
+        if (JFactory::getApplication()->input->getAlnum($token))
         {
             return true;
         }

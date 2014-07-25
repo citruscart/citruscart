@@ -107,7 +107,7 @@ class UserController extends JController
             $view->setTask($this->_doTask);
         }
 
-        
+
         JFactory::getApplication()->triggerEvent('onBeforeDisplayComponentUser', array() );
 
         // Display the view
@@ -119,7 +119,7 @@ class UserController extends JController
             $view->display();
         }
 
-        
+
         JFactory::getApplication()->triggerEvent('onAfterDisplayComponentUser', array() );
 
         // change this around to load the Citruscart footer?
@@ -208,7 +208,6 @@ class UserController extends JController
         }
 
         //clean request
-        //$post = JRequest::get( 'post' );
         $post = $input->getArray($_POST);
         $post['username']   = $input->getString('username');
         $post['password']   = $input->get('password', '', 'post', 'string', JREQUEST_ALLOWRAW);
@@ -505,7 +504,7 @@ class UserController extends JController
         $message = new stdClass();
 
         // Do we even have an activation string?
-        $activation = $input->get('activation', '', '', 'alnum' );
+        $activation = $input->getAlnum('activation');
         $activation = $db->escape( $activation );
 
         if (empty( $activation ))
@@ -561,7 +560,7 @@ class UserController extends JController
         JSession::checkToken() or jexit( 'Invalid Token' );
 
         // Get the input
-        $email      = $input->get('email', null, 'post', 'string');
+        $email      = $input->get('email','string');
 
         // Get the model
         $model = $this->getModel('Reset');
@@ -589,7 +588,7 @@ class UserController extends JController
         JSession::checkToken() or jexit( 'Invalid Token' );
 
         // Get the input
-        $token = $input->get('token', null, 'post', 'alnum');
+        $token = $input->getAlnum('token');
 
         // Get the model
         $model = $this->getModel('Reset');
@@ -647,7 +646,7 @@ class UserController extends JController
         JSession::checkToken() or jexit( 'Invalid Token' );
 
         // Get the input
-        $email = $input->get('email', null, 'post', 'string');
+        $email = $input->get('email','string');
 
         // Get the model
         $model = $this->getModel('Remind');

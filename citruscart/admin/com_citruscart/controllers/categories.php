@@ -205,7 +205,6 @@ class CitruscartControllerCategories extends CitruscartController
 			$model->setState( $key, $value );
 		}
 
-		//$id = JRequest::getVar( 'id', JRequest::getVar( 'id', '0', 'post', 'int' ), 'get', 'int' );
 		$id = $app->input->getInt('id',0);
 		$row = $model->getTable( 'categories' );
 		$row->load( $id );

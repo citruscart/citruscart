@@ -106,7 +106,7 @@ class CitruscartControllerWishlists extends CitruscartController
         $checkout_itemid = $router->findItemid( array('view'=>'checkout') );
         if (empty($checkout_itemid)) { $checkout_itemid = JRequest::getInt('Itemid'); }
 
-        if ($return = $app->input->get('return', '', 'method', 'base64'))
+        if ($return = $app->input->getBase64('return'))
         {
             $return = base64_decode($return);
             if (!JURI::isInternal($return))
@@ -186,7 +186,7 @@ class CitruscartControllerWishlists extends CitruscartController
             $checkout_itemid = $input->getInt('Itemid');
         }
 
-        if ($return = $input->get('return', '', 'method', 'base64'))
+        if ($return = $input->getBase64('return'))
         {
             $return = base64_decode($return);
             if (!JURI::isInternal($return))

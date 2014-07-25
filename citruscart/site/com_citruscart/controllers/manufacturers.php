@@ -434,7 +434,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$response['error'] = '';
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
 
 		// convert elements to array that can be binded
 		Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
@@ -710,7 +710,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$response['error'] = '';
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
 
 		// validate it using table's ->check() method
 		if (empty($elements))
@@ -1035,7 +1035,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 				// if a base64_encoded url is present as return, use that as the return url
 				// otherwise return == the product view page
 				$returnUrl = base64_encode( $redirect );
-				if ($return_url = $input->get('return', '', 'method', 'base64'))
+				if ($return_url = $input->getBase64('return'))
 				{
 					$return_url = base64_decode($return_url);
 					if (JURI::isInternal($return_url))
@@ -1048,7 +1048,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 				// otherwise redirect to the cart
 				$itemid = $router->findItemid( array('view'=>'checkout') );
 				$redirect = JRoute::_( "index.php?option=com_citruscart&view=carts&Itemid=".$itemid, false );
-				if ($redirect_url = $input->get('redirect', '', 'method', 'base64'))
+				if ($redirect_url = $input->getBase64('redirect'))
 				{
 					$redirect_url = base64_decode($redirect_url);
 					if (JURI::isInternal($redirect_url))
@@ -1057,9 +1057,6 @@ class CitruscartControllerManufacturers extends CitruscartController
 					}
 				}
 
-				//$returnUrl = base64_encode( $redirect );
-				//$itemid = $router->findItemid( array('view'=>'checkout') );
-				//$redirect = JRoute::_( "index.php?option=com_citruscart&view=carts&Itemid=".$itemid, false );
 				if (strpos($redirect, '?') === false) {
 					$redirect .= "?return=".$returnUrl;
 				} else { $redirect .= "&return=".$returnUrl;
@@ -1180,7 +1177,7 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$helper = CitruscartHelperBase::getInstance();
 
 		// get elements from post
-		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string' ) ) );
+		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $input->get( 'elements', '' ) ) );
 
 		// validate it using table's ->check() method
 		if (empty($elements))
@@ -1370,7 +1367,6 @@ class CitruscartControllerManufacturers extends CitruscartController
 		$items = array(); // this will collect the items to add to the cart
 
 		// convert elements to array that can be binded
-		//$values = JRequest::get('post');
 		$values = $input->getArray($_POST);
 		$attributes_csv = '';
 

@@ -80,7 +80,7 @@ class CitruscartControllerProductsJson extends CitruscartControllerProducts impl
 		$helper = CitruscartHelperBase::getInstance();
 
 		// get elements from post
-		//$elements = json_decode( preg_replace('/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
+
 		$elements = json_decode( preg_replace('/[\n\r]+/', '\n',$app->input->getString( 'elements') ) );
 
 

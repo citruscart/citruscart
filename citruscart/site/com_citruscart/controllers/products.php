@@ -1173,7 +1173,7 @@ class CitruscartControllerProducts extends CitruscartController
         }
 
         // convert elements to array that can be binded
-        $values = JRequest::get( 'post' );
+        $values = $input->getArray($_POST);
         if( isset( $values['elements'] ) ) // ajax call! -> decode elements and merge them with the request array
         {
             $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $values['elements'] ) );
@@ -1337,7 +1337,7 @@ class CitruscartControllerProducts extends CitruscartController
                 // if a base64_encoded url is present as return, use that as the return url
                 // otherwise return == the product view page
                 $returnUrl = base64_encode( $redirect );
-                if ( $return_url = $input->getString( 'return','base64' ) )
+                if ( $return_url = $input->getBase64( 'return') )
                 {
                     $return_url = base64_decode( $return_url );
                     if ( JURI::isInternal( $return_url ) )
@@ -1369,7 +1369,7 @@ class CitruscartControllerProducts extends CitruscartController
                 }
 
                 $redirect = JRoute::_( "index.php?option=com_citruscart&view=" . $checkout_view . "&Itemid=" . $itemid, false );
-                if ( $redirect_url = $input->get( 'redirect', '', 'method', 'base64' ) )
+                if ( $redirect_url = $input->getBase64( 'redirect'))
                 {
                     $redirect_url = base64_decode( $redirect_url );
                     if ( JURI::isInternal( $redirect_url ) )
@@ -1396,7 +1396,7 @@ class CitruscartControllerProducts extends CitruscartController
                 // redirects back to the page it came from (category, content, etc)
                 // Take only the url without the base domain (index.php?option.....)
 
-                if ( $return_url = $input->get( 'return', '', 'method', 'base64' ) )
+                if ( $return_url = $input->getBase64( 'return') )
                 {
                     $return_url = base64_decode( $return_url );
                     $uri = JURI::getInstance( );
@@ -1413,7 +1413,7 @@ class CitruscartControllerProducts extends CitruscartController
                 // if a base64_encoded url is present as return, use that as the return url
                 // otherwise return == the product view page
                 $returnUrl = base64_encode( $redirect );
-                if ( $return_url = $input->get( 'return', '', 'method', 'base64' ) )
+                if ( $return_url = $input->getBase64('return') )
                 {
                     $return_url = base64_decode( $return_url );
                     if ( JURI::isInternal( $return_url ) )
@@ -1430,7 +1430,7 @@ class CitruscartControllerProducts extends CitruscartController
                 if( !$itemid )
                     $itemid = $input->getInt( 'Itemid', 0 );
                 $redirect = JRoute::_( "index.php?option=com_citruscart&view=carts&Itemid=" . $itemid, false );
-                if ( $redirect_url = $input->getString( 'redirect', '', 'method', 'base64' ) )
+                if ( $redirect_url = $input->getBase64( 'redirect') )
                 {
                     $redirect_url = base64_decode( $redirect_url );
                     if ( JURI::isInternal( $redirect_url ) )
@@ -1567,7 +1567,7 @@ class CitruscartControllerProducts extends CitruscartController
         $helper = CitruscartHelperBase::getInstance( );
 
         // get elements from post
-        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string' ) ) );
+        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
 
         // validate it using table's ->check() method
         if ( empty( $elements ) )
@@ -2021,7 +2021,7 @@ class CitruscartControllerProducts extends CitruscartController
         $user = JFactory::getUser( );
 
         // get elements from post
-        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '', 'post', 'string' ) ) );
+        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n', $input->get( 'elements', '') ) );
 
         // validate it using table's ->check() method
         if ( empty( $elements ) )

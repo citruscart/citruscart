@@ -577,8 +577,7 @@ class CitruscartControllerPOS extends CitruscartController
 	function saveShipping()
 	{
 		$app = JFactory::getApplication();
-		$post  = $app->input->get($_POST);
-		//$post = JRequest::get('post');
+		$post  = $app->input->getArray($_POST);
 		$session = JFactory::getSession();
 		$session->set('shipping_plugin', $post['shipping_plugin'], 'citruscart_pos');
 		$session->set('shipping_price', $post['shipping_price'], 'citruscart_pos');
@@ -608,7 +607,7 @@ class CitruscartControllerPOS extends CitruscartController
 		$app = JFactory::getApplication();
 
 		// get elements from post
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements', '', 'post', 'string')));
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements','')));
 
 		// validate it using table's ->check() method
 		if(empty($elements))
@@ -948,9 +947,8 @@ class CitruscartControllerPOS extends CitruscartController
 	{
 		$app = JFactory::getApplication();
 		JLoader::import('com_citruscart.library.json', JPATH_ADMINISTRATOR.'/components');
-		//$elements = json_decode(preg_replace('/[\n\r]+/', '\n', JRequest::getVar('elements', '', 'post', 'string')));
 
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->post->get('elements', '', 'post', 'string')));
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->post->get('elements','')));
 
 		// convert elements to array that can be binded
 		Citruscart::load('CitruscartHelperBase', 'helpers._base');
@@ -1013,8 +1011,7 @@ class CitruscartControllerPOS extends CitruscartController
     {
     	$app = JFactory::getApplication();
         JLoader::import( 'com_citruscart.library.json', JPATH_ADMINISTRATOR.'/components' );
-        //$elements = json_decode( preg_replace('/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
-        $elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->post->get( 'elements', '', 'post', 'string' ) ) );
+        $elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->getString( 'elements','' ) ) );
 
         // convert elements to array that can be binded
         Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
@@ -1234,11 +1231,8 @@ class CitruscartControllerPOS extends CitruscartController
 	function addToCart()
 	{
 		$app = JFactory::getApplication();
-		$post = $app->input->get($_POST);
-		//$post = JRequest::get('post');
-		//$files = JRequest::get('files');
+		$post = $app->input->getArray($_POST);
 		$files = $app->input->get($_FILES);
-
 		$product_id = $post['product_id'];
 
 		// get attributes
@@ -1451,8 +1445,6 @@ class CitruscartControllerPOS extends CitruscartController
 		$app = JFactory::getApplication();
 		$model = $this->getModel('carts');
 		$post = $app->input->getArray($_POST);
-		//$post = JRequest::get('post');
-		//$cids = JRequest::getVar('cid', array(0), '', 'ARRAY');
 		$cids = $app->input->get('cid', array(0), '', 'ARRAY');
 		$product_attributes = $app->input->get('product_attributes', array(0), '', 'ARRAY');
 		$quantities = $app->input->get('quantities', array(0), '', 'ARRAY');
@@ -1490,7 +1482,6 @@ class CitruscartControllerPOS extends CitruscartController
 		$app = JFactory::getApplication();
 		$model = $this->getModel('carts');
 		$post = $app->input->getArray($_POST);
-		//$post = JRequest::get('post');
 		$cids = $app->input->get('cid', array(0), 'ARRAY');
 		$product_attributes = $app->input->get('product_attributes', array(0), 'ARRAY');
 		$quantities =$app->input->get('quantities', array(0), 'ARRAY');
@@ -2159,7 +2150,7 @@ class CitruscartControllerPOS extends CitruscartController
 	{
 		/* Get the application */
 		$app = JFactory::getApplication();
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements', '', 'post', 'string')));
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $app->input->get('elements', '')));
 
 		// convert elements to array that can be binded
 		Citruscart::load('CitruscartHelperBase', 'helpers._base');
@@ -2235,7 +2226,7 @@ class CitruscartControllerPOS extends CitruscartController
 		$helper = CitruscartHelperBase::getInstance();
 
 		// get elements from post
-		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $input->get('elements', '', 'post', 'string')));
+		$elements = json_decode(preg_replace('/[\n\r]+/', '\n', $input->get('elements', '')));
 
 		// Test if elements are empty
 		// Return proper message to user
@@ -2349,9 +2340,7 @@ class CitruscartControllerPOS extends CitruscartController
 		// Use AJAX to show plugins that are available
 		JLoader::import('com_citruscart.library.json', JPATH_ADMINISTRATOR.'/components');
 		$app = JFactory::getApplication();
-
 		$values = $app->input->get($_POST);
-		//$values = JRequest::get('post');
 		$html = '';
 		$text = "";
 		$user = JFactory::getUser();
@@ -2866,7 +2855,7 @@ class CitruscartControllerPOS extends CitruscartController
 
 		/* Get the applicaiton */
 		$app = JFactory::getApplication();
-		$row->comments = $app->input->get('order_history_comments', '', 'post');
+		$row->comments = $app->input->get('order_history_comments','');
 
 		if(!$row->save())
 		{
@@ -3114,10 +3103,7 @@ class CitruscartControllerPOS extends CitruscartController
 
 		/* Get the applicaiton */
 		$app = JFactory::getApplication();
-		$post = $app->input->get($_POST);
-
-		//$post = JRequest::get('post');
-
+		$post = $app->input->getArray($_POST);
 		$model = $this->getModel( $this->get('suffix') );
         $row = $model->getTable();
         $row->load( $model->getId() );
@@ -3205,8 +3191,7 @@ class CitruscartControllerPOS extends CitruscartController
         $act = $actions['1'];
         $errors = array();
 
-        $cids = $app->input->get('cid', array (0), 'post', 'array');
-        //$cids = JRequest::getVar('cid', array (0), 'post', 'array');
+        $cids = $app->input->get('cid', array (0), 'array');
 
         foreach (@$cids as $cid)
         {
@@ -3328,8 +3313,8 @@ class CitruscartControllerPOS extends CitruscartController
         $response['error'] = '';
 
         // get elements from post
-        //$elements = json_decode( preg_replace( '/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
-        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n',$app->input->getArray('elements', '', 'post', 'string' ) ) );
+
+        $elements = json_decode( preg_replace( '/[\n\r]+/', '\n',$app->input->getString('elements','' ) ) );
 
         // convert elements to array that can be binded
         Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
@@ -3340,9 +3325,8 @@ class CitruscartControllerPOS extends CitruscartController
         //$request_arr = JRequest::get();
         $request_arr = $app->input->get();
         unset( $request_arr['elements'] );
-       $app->input->set( 'elements', null );
+ 	    $app->input->set( 'elements', null );
         $values = array_merge( $values, $request_arr );
-        //JRequest::set( $values, 'POST' );
 
         $app->input->set( $values, 'POST' );
 

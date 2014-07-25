@@ -2849,8 +2849,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
     	$app= JFactory::getApplication();
         if( is_array( $values ) && !count( $values ) )
         {
-        	$values = $app->input->get( 'post' );
-            //$values = JRequest::get( 'post' );
+        	$values = $app->input->getArray($_POST);
         }
         if( $view === null ) // if nothing is specified, load products view
             $view = CitruscartHelperProduct::getProductViewObject();

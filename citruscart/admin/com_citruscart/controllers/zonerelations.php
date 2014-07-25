@@ -45,7 +45,7 @@ class CitruscartControllerZonerelations extends CitruscartController
 			$this->messagetype 	= 'message';
 			$this->message  	= JText::_('COM_CITRUSCART_SAVED');
 
-			
+
 			JFactory::getApplication()->triggerEvent( 'onAfterSave'.$this->get('suffix'), array( $row ) );
 		}
 			else
@@ -131,7 +131,6 @@ class CitruscartControllerZonerelations extends CitruscartController
 		}
 
 		$id =$app->input->getInt( 'id',0);
-		//$id = JRequest::getVar( 'id', JRequest::getVar( 'id', '0', 'post', 'int' ), 'get', 'int' );
 		$row = $model->getTable( 'zonerelations' );
 		$row->load( $id );
 

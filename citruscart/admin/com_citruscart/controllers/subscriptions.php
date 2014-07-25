@@ -78,7 +78,7 @@ class CitruscartControllerSubscriptions extends CitruscartController
     {
     	$app = JFactory::getApplication();
         $row = JTable::getInstance('SubscriptionHistory', 'CitruscartTable');
-        $post = $app->input->getInt('post', '4');
+        $post = $app->input->getArray($_POST);
         $row->bind( $post );
         $row->subscription_id = $app->input->getInt('id');
         if ($row->save())
@@ -86,7 +86,7 @@ class CitruscartControllerSubscriptions extends CitruscartController
             $model = $this->getModel( $this->get('suffix') );
             $model->clearCache();
 
-            
+
             JFactory::getApplication()->triggerEvent( 'onAfterUpdateStatus'.$this->get('suffix'), array( $row ) );
         }
             else

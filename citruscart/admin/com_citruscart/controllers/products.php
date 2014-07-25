@@ -150,7 +150,7 @@ class CitruscartControllerProducts extends CitruscartController
 			$row = $model->getTable();
 
 			$row->load( $model->getId(), true, false );
-			//$row->bind( JRequest::get('POST') );
+
 			$row->bind( $app->input->getArray($_POST) );
 
 			$row->product_description = $app->input->get( 'product_description', '', 'RAW');

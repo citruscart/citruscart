@@ -32,14 +32,12 @@ class CitruscartControllerConfig extends CitruscartController
      */
     function save()
     {
+    	$app = JFactory::getApplication();
         $error = false;
         $errorMsg = "";
         $model  = $this->getModel( $this->get('suffix') );
         $config = Citruscart::getInstance();
-
         $properties = $config->getProperties();
-
-        $app = JFactory::getApplication();
 
         foreach ($properties as $key => $value )
         {
@@ -47,7 +45,7 @@ class CitruscartControllerConfig extends CitruscartController
 
             $row = $model->getTable( 'config' );
 
-            $newvalue =$app->input->get( $key,'','post','string',JREQUEST_ALLOWRAW | JREQUEST_NOTRIM);
+            $newvalue =$app->input->getHtml($key);
 
             $value_exists = array_key_exists( $key, $_POST );
 

@@ -70,7 +70,7 @@ class CitruscartControllerEmails extends CitruscartController
 
 		$id = $app->input->get('id','en-GB');
 
-		$temp_values =$app->input->get('post', '4');
+		$temp_values =$app->input->getArray($_POST);
 
 		$model = $this->getModel('Emails', 'CitruscartModel');
 

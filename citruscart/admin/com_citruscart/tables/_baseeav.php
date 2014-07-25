@@ -70,17 +70,11 @@ class CitruscartTableEav extends CitruscartTable
 		/* ID from post */
 		$post_id = $app->input->getInt($key,0);
 
-
-		//$post_id = JRequest::getInt( $key, null, 'post' ); // ID from post
-
-
 		$editable_by = $app->isAdmin() ? 1 : 2;
 
 		if( $app->isAdmin() ) {
 
 			$view = $app->input->get( 'view', '' );
-			//$view = JRequest::get('view', '' );
-
 			if( $view == 'pos' ) { // display all for POS
 				$editable_by = array( 0, 1, 2);
 			}
@@ -152,12 +146,11 @@ class CitruscartTableEav extends CitruscartTable
 					// Fetch the value from the post (if any) and overwrite the object value if it exists
 					if( $eav->eavattribute_type == 'text' )
 
-						$value = $app->input->get($key, null, 'post', 'string', JREQUEST_ALLOWHTML);
-						//$value = JRequest::getVar($key, null, 'post','string', JREQUEST_ALLOWHTML );
+						$value = $app->input->getHtml($key);
 					else
 
-						$value = $app->input->get($key, null, 'post');
-						//$value = JRequest::getVar($key, null, 'post');
+						$value = $app->input->get($key);
+
 					if($value === null)
 					{
 						// If not, use the object value
@@ -175,8 +168,7 @@ class CitruscartTableEav extends CitruscartTable
 					if( $id === null || $post_id == $id ) // read post only if the post variables belong to this entity
 					{
 						// Fetch the value from the post (if any)
-						$value = $app->input->get($key, null, 'post');
-						//$value = JRequest::getVar($key, null, 'post');
+						$value = $app->input->get($key);
 					}
 					else
 					{

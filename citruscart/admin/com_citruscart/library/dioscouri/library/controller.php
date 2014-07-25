@@ -805,8 +805,6 @@ class DSCController extends DSCControllerBase
 
 	    $post = $input->getInt('post',4);
 
-
-	    //$post = JRequest::get('post', '4');
 	    $row->bind( $_POST );
 
 	    $task = $input->getString('task');

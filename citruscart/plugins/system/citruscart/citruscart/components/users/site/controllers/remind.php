@@ -37,7 +37,7 @@ class UsersControllerRemind extends UsersController
 
 		$app	= JFactory::getApplication();
 		$model	= $this->getModel('Remind', 'UsersModel');
-		$data	= $app->input->get('jform', array(), 'post', 'array');
+		$data	= $app->input->get('jform', array(),'array');
 
 		// Submit the password reset request.
 		$return	= $model->processRemindRequest($data);

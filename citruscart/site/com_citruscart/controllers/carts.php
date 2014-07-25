@@ -81,7 +81,7 @@ class CitruscartControllerCarts extends CitruscartController
         $cart_helper = CitruscartHelperBase::getInstance( 'Carts' );
         $cart_helper->fixQuantities();
 
-        if ($return = $input->get('return', '', 'method', 'base64'))
+        if ($return = $input->getBase64(('return'))
         {
             $return = base64_decode($return);
             if (!JURI::isInternal($return))
@@ -110,7 +110,7 @@ class CitruscartControllerCarts extends CitruscartController
         if (!empty($items))
         {
 	        //trigger the onDisplayCartItem for each cartitem
-	        
+
 	        $user       = JFactory::getUser();
 
         	if( !$user->id ) // saves session id (will be needed after logging in)
@@ -224,7 +224,7 @@ class CitruscartControllerCarts extends CitruscartController
 
 		// onAfterCreateItemForAddToCart: plugin can add values to the item before it is being validated /added
         // once the extra field(s) have been set, they will get automatically saved
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onAfterCreateItemForAddToCart", array( $item, $values ) );
         foreach ($results as $result)
         {
@@ -236,7 +236,7 @@ class CitruscartControllerCarts extends CitruscartController
 
         // no matter what, fire this validation plugin event for plugins that extend the checkout workflow
         $results = array();
-        
+
         $results = JFactory::getApplication()->triggerEvent( "onBeforeAddToCart", array( $item, $values ) );
 
         for ($i=0; $i<count($results); $i++)
@@ -264,7 +264,7 @@ class CitruscartControllerCarts extends CitruscartController
         $cartitem = $cart_helper->addItem( $item );
 
         // fire plugin event
-        
+
         JFactory::getApplication()->triggerEvent( 'onAfterAddToCart', array( $cartitem, $values ) );
 
         // update the cart module, if it is enabled
@@ -349,7 +349,7 @@ class CitruscartControllerCarts extends CitruscartController
                     $item->vendor_id = '0'; // vendors only in enterprise version
                     $item->cart_id = $cart_id;
                     // fire plugin event
-                    
+
                     JFactory::getApplication()->triggerEvent( 'onRemoveFromCart', array( $item ) );
                 }
             }
@@ -449,7 +449,7 @@ class CitruscartControllerCarts extends CitruscartController
                       $item->vendor_id = '0'; // vendors only in enterprise version
 
                       // fire plugin event
-                      
+
                       JFactory::getApplication()->triggerEvent( 'onRemoveFromCart', array( $item ) );
                   }
               }

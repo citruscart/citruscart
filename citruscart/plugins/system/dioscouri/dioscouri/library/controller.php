@@ -802,13 +802,8 @@ class DSCController extends DSCControllerBase
 	    $row = $model->getTable();
 
 	    $row->load( $model->getId() );
-
-	    $post = $input->getInt('post',4);
-
-
-	    //$post = JRequest::get('post', '4');
+	    $post = $input->getArray($_POST);
 	    $row->bind( $_POST );
-
 	    $task = $input->getString('task');
 	 //   $task = JRequest::getVar('task');
 
@@ -992,7 +987,6 @@ class DSCController extends DSCControllerBase
 	    $row = $model->getTable();
 	    $row->load( $model->getId() );
 		$change  = $input->getInt('order_change', 0);
-	    //$change	= JRequest::getVar('order_change', '0', 'post', 'int');
 
 	    $return = true;
 	    if ( !$row->move( $change ) )
@@ -1032,9 +1026,7 @@ class DSCController extends DSCControllerBase
 	    $row = $model->getTable();
 	    $ordering = $input->get('ordering', array(0),'Array');
 	    $cids = $input->get('cid', array (0),'Array');
-		/*
-	    $ordering = JRequest::getVar('ordering', array(0), 'post', 'array');
-	    $cids = JRequest::getVar('cid', array (0), 'post', 'array'); */
+
 	    foreach ($cids as $cid)
 	    {
 	        $row->load( $cid );
@@ -1094,11 +1086,8 @@ class DSCController extends DSCControllerBase
 	    $row = $model->getTable();
 	    $cids = $input->get('cid', array (0),'Array');
 	    $task = $input->getString( 'task' );
-	    /*
-	    $cids = JRequest::getVar('cid', array (0), 'post', 'array');
-	    $task = JRequest::getVar( 'task' ); */
-	    $vals = explode('.', $task);
 
+	    $vals = explode('.', $task);
 	    $field = $vals['0'];
 	    $action = $vals['1'];
 

@@ -10,7 +10,7 @@
    -------------------------------------------------------------------------*/
    /** ensure this file is being included by a parent file */
    defined('_JEXEC') or die('Restricted access');
-	
+
    JHTML::_('behavior.modal');
 
    $doc = JFactory::getDocument();
@@ -44,14 +44,13 @@
             <?php echo $this->onBeforeDisplayProduct; ?>
          </div>
          <?php endif; ?>
-         <?php // echo htmlspecialchars_decode( $item->product_name ); ?>
          <!-- row-fluid div starts -->
          <div class="row-fluid">
             <div class="span2 col-md-2 citruscart-view-product-gallery" >
                <?php echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
             </div>
             <div class="span5 col-md-5 citruscart-view-product-main-image">
-               <?php  echo CitruscartUrl::popup( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
+               <?php echo CitruscartUrl::popupImage( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
                <input type="hidden" id="product_main_image" value="<?php echo $product_image;?>"/>
                <div>
                </div>
@@ -142,8 +141,8 @@
                {
                	$height = $this->defines->get( 'ask_question_showcaptcha', '1' ) ? '570' : '440';
                	$asktxt = CitruscartUrl::popup( "{$asklink}.&tmpl=component", JText::_('COM_CITRUSCART_ASK_A_QUESTION_ABOUT_THIS_PRODUCT'),
-               			array(
-               				'width' => '490', 'height' => "{$height}"
+               			array('id'=>'askQuestion',
+               				'width' => '690', 'height' => "{$height}"
                			) );
                }
                else

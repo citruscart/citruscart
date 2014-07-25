@@ -207,9 +207,11 @@ class DSCPlugin extends JPlugin
      */
     protected function _checkToken( $suffix='', $method='post' )
     {
+    	$app = JFactory::getApplication();
+
         $token  = JSession::getFormToken();
         $token .= ".".strtolower($suffix);
-        if (JFactory::getApplication()->input->get( $token, '', $method, 'alnum' ))
+        if ($app->input->getAlnum($token))
         {
             return true;
         }

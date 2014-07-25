@@ -20,7 +20,7 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
 {
     /**
      * Constructor
-     *  
+     *
      * @var $_element  string  Should always correspond with the plugin's filename,
      *                         forcing it to be unique
      */
@@ -254,19 +254,19 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
     {
     	/* Get the application */
     	$app = JFactory::getApplication();
-    	
+
         // Process the payment
         //$paction = JRequest::getVar('paction');
 		$paction = $app->input->getString('paction');
-    	
+
         $vars = new JObject();
         $vars->data = $data;
         switch ($paction) {
             case "display_message":
-            	
+
             	//$checkout = JRequest::getInt('checkout');
                 $checkout = $app->input->getInt('checkout');
-            	
+
             	// get the order_id from the session set by the prePayment
                 $mainframe = JFactory::getApplication();
                 $order_id = (int) $mainframe->getUserState( 'Citruscart.order_id' );
@@ -482,10 +482,8 @@ class plgCitruscartPayment_paypal extends CitruscartPaymentPlugin
     {
     	/* Get the application */
     	$app = JFactory::getApplication();
-        
-    	//$data = JRequest::get('post');
-		$data = $app->input->getString('post');
-		
+		$data = $app->input->getArray($_POST);
+
         // validate the IPN info
         $error = $this->_validateIPN($data);
         if (!empty($error)) {

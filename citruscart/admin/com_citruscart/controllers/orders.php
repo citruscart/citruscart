@@ -530,10 +530,6 @@ class CitruscartControllerOrders extends CitruscartController
 		// get elements from post
 
 		$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->getString( 'elements') ) );
-		//$elements = json_decode( preg_replace('/[\n\r]+/', '\n', $app->input->getString( 'elements') ) );
-
-		//$elements = json_decode( preg_replace('/[\n\r]+/', '\n', JRequest::getVar( 'elements', '', 'post', 'string' ) ) );
-
 		// convert elements to array that can be binded
 		Citruscart::load( 'CitruscartHelperBase', 'helpers._base' );
 		$values = CitruscartHelperBase::elementsToArray( $elements );
@@ -761,8 +757,7 @@ class CitruscartControllerOrders extends CitruscartController
 	function save()
 	{
 		$app = JFactory::getApplication();
-		$values = $app->input->get($_POST);
-		//$values = JRequest::get('post');
+		$values = $app->input->getArray($_POST);
 
 		// get the order object so we can populate it
 		$order = $this->_order; // a TableOrders object (see constructor)
@@ -946,9 +941,7 @@ class CitruscartControllerOrders extends CitruscartController
 
 		$row->notify_customer = '1';
 
-		$row->comments = $app->input->post->get('order_history_comments', '', 'post');
-		//$row->comments = JRequest::getVar('order_history_comments', '', 'post');
-
+		$row->comments = $app->input->getString('order_history_comments');
 		if (!$row->save())
 		{
 			$this->setError( $row->getError() );
@@ -1182,11 +1175,11 @@ class CitruscartControllerOrders extends CitruscartController
 		$model 	= $this->getModel( $this->get('suffix') );
 
 		// Get the list of selected items and their selected params
-		$cids 	= $app->input->getArray('cid', array (0), 'post', 'array');
-		$sendMails = $app->input->getArray('new_orderstate_notify', array (0), 'post', 'array');
-		$completeTasks = $app->input->getArray('completed_tasks', array (0), 'post', 'array');
-		$states = $app->input->getArray('new_orderstate_id', array (0), 'post', 'array');
-		$comments = $app->input->getArray('new_orderstate_comments', array (0), 'post', 'array');
+		$cids 	= $app->input->get('cid', array (0), 'array');
+		$sendMails = $app->input->get('new_orderstate_notify', array (0), 'array');
+		$completeTasks = $app->input->get('completed_tasks', array (0),'array');
+		$states = $app->input->get('new_orderstate_id', array (0), 'array');
+		$comments = $app->input->get('new_orderstate_comments', array (0), 'array');
 
 		// for the updation
 		$counter=0;
@@ -1329,9 +1322,9 @@ class CitruscartControllerOrders extends CitruscartController
 			return;
 		}
 
-		//$post = JRequest::get('post');
+
 		$app = JFactory::getApplication();
-		$post = $app->input->get($_POST);
+		$post = $app->input->getArray($_POST);
 
 		$orderinfo->bind($post);
 

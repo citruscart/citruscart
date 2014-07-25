@@ -26,6 +26,10 @@ defined('_JEXEC') or die('Restricted access');
 	Citruscart::load( 'CitruscartHelperAddresses', 'helpers.addresses' );
 	$js_strings = array( 'COM_CITRUSCART_WISHLISTITEM_ADDED_TO_WISHLIST' );
 	CitruscartHelperAddresses::addJsTranslationStrings( $js_strings );
+
+	$config = Citruscart::getInstance();
+
+
 ?>
 
 <script type="text/javascript">
@@ -173,7 +177,11 @@ citruscartJQ(document).ready(function(){
                             <?php echo JText::_('COM_CITRUSCART_PRICE'); ?>: <?php echo CitruscartHelperBase::currency($item->product_price); ?>
                         <?php } ?>
 
-                        <br/> <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating ); ?>  <br/>
+						<?php if($config->product_review_enable):?>
+                        <br/>
+                        <?php echo CitruscartHelperProduct::getRatingImage( $item->product_rating ); ?>
+                        <?php endif;?>
+                        <br/>
 
 					    <?php if (!empty($this->onDisplayCartItem) && (!empty($this->onDisplayCartItem[$i]))) : ?>
 					        <div class='onDisplayCartItem_wrapper_<?php echo $i?>'>

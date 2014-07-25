@@ -232,7 +232,7 @@ class CitruscartControllerAddresses extends CitruscartController
 		$act = $actions['1'];
 		$errors = array();
 
-		$cids = $input->get('cid', array (0), 'post', 'array');
+		$cids = $input->get('cid', array (0), 'Array');
 		foreach ($cids as $cid)
 		{
 			switch($act)

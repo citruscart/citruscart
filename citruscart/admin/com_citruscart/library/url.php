@@ -69,7 +69,7 @@ class CitruscartUrl extends DSCUrl
 
 
 		if(JFactory::getApplication()->isSite()){
-		$id = "main_image";
+		$id = (!empty($options['id'])) ? $options['id'] : '';
 		$class = "zoom";
 		$html	= "<a class=\"modal\" href=\"$url\" rel=\"$handler\" >\n";
 		$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
@@ -92,6 +92,69 @@ class CitruscartUrl extends DSCUrl
 
 		return $html;
 	}
+
+
+
+	public static function popupImage( $url, $text, $options = array() )
+	{
+		if (!empty($options['bootstrap'])) {
+			return self::popupbootstrap( $url, $text, $options );
+		}
+
+		$html = "";
+		$doc = JFactory::getDocument();
+		$doc->addStyleSheet(JUri::root().'media/citruscart/colorbox/colorbox.css');
+		$doc->addScript(JUri::root().'media/citruscart/colorbox/colorbox.js');
+		$document = JFactory::getDocument();
+		$js = "citruscartJQ(document).ready(function() { citruscartJQ('.citruscart-modal').colorbox({current: '', iframe: true, opacity: '0.6', width: '80%', height: '80%'}); });";
+		$document->addScriptDeclaration( $js );
+
+		if (!empty($options['update']))
+		{
+			$onclose = 'onClose: function(){ Dsc.update(); },';
+		}
+		else
+		{
+			$onclose = '';
+		}
+
+		// set the $handler_string based on the user's browser
+		$handler_string = "{handler:'iframe', ". $onclose ." size:{x: window.innerWidth-80, y: window.innerHeight-80}, onShow:$('sbox-window').setStyles({'padding': 0})}";
+		require_once(JPATH_SITE.'/libraries/dioscouri/dioscouri.php');
+		$browser = DSC::getClass( 'DSCBrowser', 'library.browser' );
+
+		if ( $browser->getBrowser() == DSCBrowser::BROWSER_IE )
+		{
+			// if IE, use
+			$handler_string = "{handler:'iframe', ". $onclose ." size:{x:window.getSize().scrollSize.x-80, y: window.getSize().size.y-80}, onShow:$('sbox-window').setStyles({'padding': 0})}";
+		}
+
+		$handler = (!empty($options['img']))
+		? "{handler:'image'}"
+		: $handler_string;
+
+		if (!empty($options['width']))
+		{
+			if (empty($options['height']))
+			{
+				$options['height'] = 480;
+			}
+			$handler = "{handler: 'iframe', ". $onclose ." size: {x: ".$options['width'].", y: ".$options['height']. "}}";
+		}
+
+
+			$id = "main_image";
+			$class = "zoom";
+			$html	= "<a>\n";
+			$html 	.= "<span class=\"".$class."\" id=\"".$id."\" >\n";
+			$html   .= "$text\n";
+			$html 	.= "</span>\n";
+			$html	.= "</a>\n";
+
+
+		return $html;
+	}
+
 
 	/**
 	 * TODO Push this upstream once tested
