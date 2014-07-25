@@ -101,7 +101,7 @@ class CitruscartControllerShippingMethods extends CitruscartController
         {
             $model->clearCache();
 
-            
+
             JFactory::getApplication()->triggerEvent( 'onAfterSave'.$this->get('suffix'), array( $row ) );
         }
             else
@@ -138,12 +138,12 @@ class CitruscartControllerShippingMethods extends CitruscartController
         $weight_ends = JRequest::getVar('weight_end', array(0), 'request', 'array');
         $handlings = JRequest::getVar('handling', array(0), 'request', 'array'); */
 
-        $cids =$app->input->getArray('cid', array(0), '', 'array');
-        $geozones = $app->input->getArray('geozone', array(0), '', 'array');
-        $prices = $app->input->getArray('price', array(0), 'request', 'array');
-        $weight_starts = $app->input->getArray('weight_start', array(0), 'request', 'array');
-        $weight_ends = $app->input->getArray('weight_end', array(0), 'request', 'array');
-        $handlings = $app->input->getArray('handling', array(0), 'request', 'array');
+        $cids =$app->input->getArray('cid', array(), 'Array');
+        $geozones = $app->input->getArray('geozone', array(),'Array');
+        $prices = $app->input->getArray('price', array(), 'request', 'Array');
+        $weight_starts = $app->input->getArray('weight_start', array(), 'Array');
+        $weight_ends = $app->input->getArray('weight_end', array(),'array');
+        $handlings = $app->input->getArray('handling', array(), 'Array');
 
         foreach ($cids as $cid)
         {
