@@ -81,7 +81,7 @@ class CitruscartControllerCarts extends CitruscartController
         $cart_helper = CitruscartHelperBase::getInstance( 'Carts' );
         $cart_helper->fixQuantities();
 
-        if ($return = $input->getBase64(('return'))
+        if ($return = $input->getBase64('return'))
         {
             $return = base64_decode($return);
             if (!JURI::isInternal($return))
