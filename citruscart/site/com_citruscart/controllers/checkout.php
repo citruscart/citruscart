@@ -3002,9 +3002,10 @@ class CitruscartControllerCheckout extends CitruscartController
                 if( $create_account )// user wants to register
                 {
                     // create a new user from billing info
+                    $middle_name =  (isset($submitted_values['billing_input_middle_name'])) ? $submitted_values['billing_input_middle_name'] : "";
                     $details = array(
                             'email' => $submitted_values['email_address'],
-                            'name' => $submitted_values['billing_input_first_name'].' '.(isset($submitted_values['billing_input_middle_name'])) ? $submitted_values['billing_input_middle_name'] : "".' '.$submitted_values['billing_input_last_name'],
+                            'name' => $submitted_values['billing_input_first_name'].' '.$middle_name.' '.$submitted_values['billing_input_last_name'],
                             'username' => $submitted_values['email_address']
                     );
                     if( $details['name'] == '  ' ) // both first and last name are empty -> use a generic name
