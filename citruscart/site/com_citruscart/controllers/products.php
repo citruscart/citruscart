@@ -1489,7 +1489,7 @@ class CitruscartControllerProducts extends CitruscartController
         $comments_data = new stdClass;
         $comments_data->product_id = $product_id;
         $comments_data->count = $count;
-        $comments_data->reviews = $reviews;
+        $comments_data->reviews = $reviews;           
 
         $user_id = JFactory::getUser( )->id;
         $productreview = CitruscartHelperProduct::getUserAndProductIdForReview( $product_id, $user_id );
@@ -2108,18 +2108,21 @@ class CitruscartControllerProducts extends CitruscartController
         Citruscart::load( 'CitruscartHelperProduct', 'helpers.product' );
         $productreviews = JTable::getInstance( 'productcomments', 'CitruscartTable' );
         $post = $input->getArray( $_POST );
+                      
         $product_id = $post['product_id'];
         $Itemid = $post['Itemid'];
         $user = JFactory::getUser( );
         $valid = true;
         $this->messagetype = 'message';
+        
+        $productcomment = $this->strip_html_tags($post['productcomment_text']);
 
         //set in case validation fails
         $linkAdd = '';
         $linkAdd .= '&rn=' . base64_encode( $post['user_name'] );
         $linkAdd .= '&re=' . base64_encode( $post['user_email'] );
-        $linkAdd .= '&rc=' . base64_encode( $post['productcomment_text'] );
-
+        $linkAdd .= '&rc=' . base64_encode( $productcomment );
+                
         if ( !$user->id )
         {
             if ( empty( $post['user_name'] ) && $valid )
@@ -2161,7 +2164,7 @@ class CitruscartControllerProducts extends CitruscartController
             $this->messagetype = 'notice';
         }
 
-        if ( empty( $post['productcomment_text'] ) && $valid )
+        if ( empty( $productcomment ) && $valid )
         {
             $valid = false;
             $this->message = JText::_('COM_CITRUSCART_COMMENT_FIELD_IS_REQUIRED');
@@ -2198,6 +2201,7 @@ class CitruscartControllerProducts extends CitruscartController
         if ( $valid )
         {
             $date = JFactory::getDate( );
+                       
             $productreviews->bind( $post );
             $productreviews->created_date = $date->toSql( );
             $productreviews->productcomment_enabled = Citruscart::getInstance( )->get( 'product_reviews_autoapprove', '0' );
@@ -2364,7 +2368,6 @@ class CitruscartControllerProducts extends CitruscartController
             $json['error']['sender_mail'] = JText::_('COM_CITRUSCART_PLEASE_ENTER_A_CORRECT_EMAIL_ADDRESS');
             $add_link .= "&sender_name={$post['sender_name']}";
             $add_link .= !empty( $post['sender_message'] ) ? "&sender_message={$post['sender_message']}" : '';
-
 
         }
 
@@ -2572,6 +2575,41 @@ class CitruscartControllerProducts extends CitruscartController
 
         return;
         */
+    }
+    
+    /**
+     * Remove the html tags method.
+     */
+    function strip_html_tags($str){
+    	$str = preg_replace('/(<|>)\1{2}/is', '', $str);
+    	$str = preg_replace(
+    			array(// Remove invisible content
+    					'@<head[^>]*?>.*?</head>@siu',
+    					'@<style[^>]*?>.*?</style>@siu',
+    					'@<script[^>]*?.*?</script>@siu',
+    					'@<noscript[^>]*?.*?</noscript>@siu',
+    			),
+    			"", //replace above with nothing
+    			$str );
+    	$str = $this->replaceWhitespace($str);
+    	$str = strip_tags($str);
+    	return $str;
+    }
+    
+    /**
+     *  Remove the white space.
+     */
+    function replaceWhitespace($str) {
+    	$result = $str;
+    	foreach (array(
+    			"  ", " \t",  " \r",  " \n",
+    			"\t\t", "\t ", "\t\r", "\t\n",
+    			"\r\r", "\r ", "\r\t", "\r\n",
+    			"\n\n", "\n ", "\n\t", "\n\r",
+    	) as $replacement) {
+    		$result = str_replace($replacement, $replacement[0], $result);
+    	}
+    	return $str !== $result ? replaceWhitespace($result) : $result;
     }
 }
 

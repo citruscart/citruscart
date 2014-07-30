@@ -34,6 +34,7 @@ $baseurl=$this->baseurl;
 $user = JFactory::getUser();
 $url_validate = JRoute::_( 'index.php?option=com_citruscart&controller=products&view=products&task=validateReview&format=raw' );
 $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0');
+$app = JFactory::getApplication();
 ?>
 
 <div id="citruscart_customer_review">
@@ -72,20 +73,21 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
             <?php if ($user->guest || !$user->id) {?>
             <div><?php echo JText::_('COM_CITRUSCART_NAME'); ?>: *</div>
             <div><input type="text" maxlength="100" class="inputbox" value="<?php echo base64_decode(JRequest::getVar('rn', ''));?>" size="40" name="user_name" id="user_name"/></div>
-        	<div><?php echo JText::_('COM_CITRUSCART_EMAIL'); ?>: *</div>
+           	<div><?php echo JText::_('COM_CITRUSCART_EMAIL'); ?>: *</div>
             <div><input type="text" maxlength="100" class="inputbox" value="<?php echo base64_decode(JRequest::getVar('re', ''));?>" size="40" name="user_email" id="user_email"/></div>
         	<?php }else{?>
         	<input type="hidden" maxlength="100" class="inputbox" value="<?php echo $user->email;?>" size="40" name="user_email" id="user_email"/>
         	<input type="hidden" maxlength="100" class="inputbox" value="<?php echo $user->name;?>" size="40" name="user_name" id="user_name"/>
         	<?php }?>
+        
             <div><?php echo JText::_('COM_CITRUSCART_COMMENT'); ?>: *</div>
-            <div><textarea name="productcomment_text" id="productcomment_text" rows="10" style="width: 99%;" ><?php echo base64_decode(JRequest::getVar('rc', ''));?></textarea></div>
+            <div><textarea name="productcomment_text" id="productcomment_text" rows="10" style="width: 99%;" ><?php echo base64_decode($app->input->get('rc','','')); ?></textarea></div>
             <?php
             	if (Citruscart::getInstance()->get('use_captcha', '0') == 1 ):
             		Citruscart::load( 'CitruscartRecaptcha', 'library.recaptcha' );
             		$recaptcha = new CitruscartRecaptcha();
             ?>
-            <div><?php echo $recaptcha->recaptcha_get_html($publickey); ?></div>
+            <div><?php echo $recaptcha->recaptcha_get_html($publickey, $error = null, $use_ssl = false); ?></div>
             <?php endif;?>
             <input type="button" name="review" id="review" onclick="javscript:citruscartFormValidation( '<?php echo $url_validate; ?>','validationmessage_comments', 'addReview', document.commentsForm );" value="<?php echo JText::_('COM_CITRUSCART_SUBMIT_COMMENT'); ?>" />
             <input type="hidden" name="product_id"   value="<?php echo $this->comments_data->product_id;?>" />
@@ -123,7 +125,7 @@ $share_review_enable = Citruscart::getInstance()->get('share_review_enable', '0'
 	       		$helpfuness_enable = Citruscart::getInstance()->get('review_helpfulness_enable', '0');?>
 	       		<?php if ($helpfuness_enable && $user->id != $review->user_id && !$isFeedback) :?>
 
-      			 <?php echo JText::_('COM_CITRUSCART_WAS_THIS_REVIEW_HELPFUL_TO_YOU'); ?>?
+      			 <?php echo JText::_('COM_CITRUSCART_WAS_THIS_REVIEW_HELPFUL_TO_YOU'); ?>
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&helpfulness=1&productcomment_id=<?php echo $review->productcomment_id; ?>&product_id=<?php echo $review->product_id; ?>"><?php echo JText::_('COM_CITRUSCART_YES'); ?></a>
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&helpfulness=0&productcomment_id=<?php echo$review->productcomment_id;?>&product_id=<?php echo $review->product_id;?>"><?php echo JText::_('COM_CITRUSCART_NO'); ?></a>
       			 <a href="index.php?option=com_citruscart&view=products&task=reviewHelpfullness&report=1&productcomment_id=<?php echo$review->productcomment_id;?>&product_id=<?php echo $review->product_id;?>">(<?php echo JText::_('COM_CITRUSCART_REPORT_INAPPROPRIATE_REVIEW'); ?>)</a>

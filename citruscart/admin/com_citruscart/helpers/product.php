@@ -3001,6 +3001,6 @@ class CitruscartHelperProduct extends CitruscartHelperBase
         }
 
         return $product_sku;
-    }
+    }  
 
 }
