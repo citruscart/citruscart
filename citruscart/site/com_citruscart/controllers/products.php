@@ -2519,63 +2519,8 @@ class CitruscartControllerProducts extends CitruscartController
         echo json_encode((array) $response);
 		//$url ='index.php?option=com_citruscart&controller=products&view=products&task=view&id='. $product_id;
         $app->redirect($url,$response->html);
-
-
-        /*
-        if (empty($user_id))
-        {
-            // if not logged in, add item to session wishlist for the visitor,
-            // and upon login (in user plugin) add items from session wishlist to user's wishlist
-            $wishlist = JTable::getInstance( 'Wishlists', 'CitruscartTable' );
-            $wishlist->load(array('session_id'=>$session_id, 'product_id'=>$product->product_id, 'product_attributes'=>$attributes_csv));
-            $wishlist->session_id = $session_id;
-            $wishlist->product_id = $product->product_id;
-            $wishlist->product_attributes = $attributes_csv;
-            $wishlist->last_updated = JFactory::getDate()->toSql();
-            $wishlist->store();
-
-            JFactory::getApplication()->enqueueMessage( JText::_('COM_CITRUSCART_LOGIN_TO_ADD_ITEM_TO_WISHLIST') );
-
-            Citruscart::load( "CitruscartHelperRoute", 'helpers.route' );
-            $router = new CitruscartHelperRoute();
-            $url = $redirect; // set above
-            $option_users_component = 'com_users';
-            if(!version_compare(JVERSION,'1.6.0','ge')) {
-                // Joomla! 1.5 code here
-                $option_users_component = 'com_user';
-            }
-            $redirect = "index.php?option=".$option_users_component."&view=login&return=".base64_encode( $url );
-            $redirect = JRoute::_( $redirect, false );
-            JFactory::getApplication()->redirect( $redirect );
-            return;
-        }
-
-
-        // add to wishlist
-        $wishlist = JTable::getInstance( 'Wishlists', 'CitruscartTable' );
-        // load from db in case the item is in the wishlist already and should be updated
-        $wishlist->load( array( 'user_id'=>$user_id, 'product_id'=>$product->product_id, 'product_attributes'=>$attributes_csv ) );
-        // set the values
-        $wishlist->user_id = $user_id;
-        $wishlist->product_id = $product->product_id;
-        $wishlist->product_attributes = $attributes_csv;
-        $wishlist->last_updated = JFactory::getDate()->toSql();
-
-        if (!$wishlist->save())
-        {
-            $this->messagetype = 'notice';
-            $this->message = JText::_('COM_CITRUSCART_COULD_NOT_ADD_TO_WISHLIST');
-        }
-        else
-        {
-            $url = "index.php?option=com_citruscart&view=wishlists&Itemid=".$router->findItemid( array('view'=>'wishlists') );
-            $this->messagetype = 'message';
-            $this->message = JText::sprintf( JText::_('COM_CITRUSCART_ADDED_TO_WISHLIST'), $url );
-        }
-
-        return;
-        */
-    }   
+        
+    }  
    
 }
 
