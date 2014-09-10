@@ -116,7 +116,7 @@ div.productrelation_item{margin:auto;text-align:center;}
 div#citruscart_searchfilters{border-bottom:thin solid #CCCCCC;margin-bottom:10px;}
 div#searchresults_results div.product_item,div#searchresults_sort{border-bottom:thin solid #CCCCCC;display:block;float:left;margin-bottom:10px;padding-bottom:10px;width:100%;}
 div#searchresults_results div.product_thumb{display:block;float:left;text-align:center;width:15%;}
-div#searchresults_results div.product_info{display:block;float:left;width:65%;}
+div#searchresults_results div.product_info{display:block;float:left;width:65%;margin-left:15px;}
 div#searchresults_results div.product_buy{display:block;float:right;width:15%;}
 div#searchresults_sort div.sortresults{float:left;padding:10px;vertical-align:middle;}
 div#searchresults_sort div.sortresults img{vertical-align:middle;}
