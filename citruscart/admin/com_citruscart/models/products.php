@@ -396,7 +396,7 @@ class CitruscartModelProducts extends CitruscartModelEav
     protected function _buildTempTables( ) {
         $cats = $this->getState( 'filter_multicategory' );
         $cats = implode(',', $cats);
-        if($cats!="none" && !empty($cats)) {
+        if(count($cats) > 0 &&  !empty($cats) && !empty($cats)) {
         $sql = " CREATE TEMPORARY TABLE mytable AS (SELECT a.product_id, (
         SELECT COUNT(b.product_id) FROM #__citruscart_productcategoryxref as b WHERE b.category_id IN ($cats) AND b.product_id = a.product_id
         ) as cnt FROM #__citruscart_productcategoryxref as a WHERE a.category_id IN ($cats))";
@@ -1046,7 +1046,6 @@ class CitruscartModelProducts extends CitruscartModelEav
 	  * @see CitruscartModelEav::getList()
 	 */
 	 public function getList($refresh = false, $getEav = true, $options = array()){
-
 	 	$db = JFactory::getDbo();
 	 	$query = $db->getQuery(true);
 	 	$query = $this->_buildQuery();
