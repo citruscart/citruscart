@@ -550,3 +550,12 @@ margin-left:8px;
 #add_to_cart_qty{	
 	width: auto;
 }
+
+.citruscart_products_containers {
+list-style:none;
+}
+
+.citruscart_products_containers .citruscart_product_relation_lists .citruscart-product-main-images {
+max-width:100px;
+max-height:100px;
+}
