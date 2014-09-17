@@ -18,7 +18,7 @@ $display_tw  = $this->params->get('twitter_share');
 $display_fb  = $this->params->get('fb_share');
 $display_gp = $this->params->get('gplus_share');
 $display_pinterest  = $this->params->get('pinterest_share');
-$display_linkedin  = $this->params->get('pinterest_share');
+$display_linkedin  = $this->params->get('linkedin_share');
 $doc = JFactory::getDocument();
 $doc->addScript(JUri::root().'plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/js/socialshare.js');
 $doc->addStyleSheet(JUri::root().'plugins/citruscart/citruscart_socialshare/citruscart_socialshare/media/css/socialshare.css');
