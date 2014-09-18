@@ -2522,5 +2522,33 @@ class CitruscartControllerProducts extends CitruscartController
         
     }  
    
+    /*
+     * Set the currency to a different value
+     */
+    function setCurrency()
+    {
+        $currency_id = JRequest::getVar('currency_id', 0);
+        
+        if($currency_id)
+        {
+            $helper = Citruscart::getClass('CitruscartHelperBase', 'helpers._base');
+            $helper->setSessionVariable( 'currency_id', $currency_id );
+        }
+        
+        $return = JRequest::getVar( 'return', '' );
+        if( $return )
+        {
+            $url = base64_decode($return);
+        }
+        else
+        {
+            $url = 'index.php?option=com_citruscart&view=products';
+        }
+        
+        $this->setRedirect(JRoute::_($url));
+        $this->redirect();
+        return;
+    }
+   
 }
 

@@ -3007,6 +3007,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
      * Remove the html tags method.
      */
     public static function strip_html_tags($str){
+		$helper = CitruscartHelperBase::getInstance( 'Product' );
     	$str = preg_replace('/(<|>)\1{2}/is', '', $str);
     	$str = preg_replace(
     			array(// Remove invisible content
@@ -3017,7 +3018,7 @@ class CitruscartHelperProduct extends CitruscartHelperBase
     			),
     			"", //replace above with nothing
     			$str );
-    	$str = $this->replaceWhitespace($str);
+    	$str = $helper->replaceWhitespace($str);
     	$str = strip_tags($str);
     	return $str;
     }
