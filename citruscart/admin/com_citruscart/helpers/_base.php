@@ -195,6 +195,8 @@ class CitruscartHelperBase extends DSCHelper
 	public static function currency($amount, $currency='', $options='')
 	{
 
+		$currency_selected = CitruscartHelperBase::getSessionVariable('currency_id', Citruscart::getInstance()->get( 'default_currencyid', 1 ) );
+		$currency = $currency_selected;
 		$currency_helper = CitruscartHelperBase::getInstance( 'Currency' );
 		$amount = $currency_helper->_($amount, $currency, $options);
 		return $amount;
