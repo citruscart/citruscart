@@ -34,6 +34,7 @@ class Com_CitruscartInstallerScript{
 		$prefix = $db->getPrefix();
 
 		//address
+<<<<<<< HEAD
 
 		if(!in_array($prefix.'citruscart_wishlistitems', $tables)){
 
@@ -50,6 +51,26 @@ class Com_CitruscartInstallerScript{
       `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
       `wishlistitem_params` text COMMENT 'Params for the wishlist item',
       PRIMARY KEY (`wishlistitem_id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8;";
+=======
+
+		if(!in_array($prefix.'citruscart_wishlistitems', $tables)){
+
+			$query = "CREATE TABLE IF NOT EXISTS `#__citruscart_wishlistitems` (
+  `wishlistitem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `wishlist_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `wishlist_name` varchar(255) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '1' COMMENT 'public = 1, linkonly = 2, private  = 3',
+  `session_id` varchar(255) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `vendor_id` int(11) NOT NULL,
+  `product_attributes` text NOT NULL COMMENT 'A CSV of productattributeoption_id values, always in numerical order',
+  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `wishlistitem_params` text COMMENT 'Params for the wishlist item',
+  PRIMARY KEY (`wishlistitem_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+			";
+>>>>>>> currency
 			$this->_executeQuery($query);
 		}
 
@@ -75,7 +96,7 @@ class Com_CitruscartInstallerScript{
         $status->plugins = array();
         $src = $parent->getParent()->getPath('source');
 		$manifest = $parent->getParent()->manifest;
-		$modules = $manifest->xpath('modules/module');
+		$modules = $manifest->xpath('modules'.DS.'module');
 		foreach ($modules as $module)
 		{
 			$name = (string)$module->attributes()->module;
@@ -85,13 +106,13 @@ class Com_CitruscartInstallerScript{
 			{
 				$client = 'site';
 			}
-			$path = $src.'/modules/'.$name;
+			$path = $src.DS.'modules'.DS.$name;
 			$installer = new JInstaller;
 			$result = $installer->install($path);
 			$status->modules[] = array('name' => $name, 'client' => $client, 'result' => $result);
 		}
 
-		$plugins = $manifest->xpath('plugins/plugin');
+		$plugins = $manifest->xpath('plugins'.DS.'plugin');
 		foreach ($plugins as $plugin)
 		{
 			$name = (string)$plugin->attributes()->plugin;
@@ -130,7 +151,7 @@ class Com_CitruscartInstallerScript{
 		$status->modules = array();
 		$status->plugins = array();
 		$manifest = $parent->getParent()->manifest;
-		$plugins = $manifest->xpath('plugins/plugin');
+		$plugins = $manifest->xpath('plugins'.DS.'plugin');
 		foreach ($plugins as $plugin)
 		{
 			$name = (string)$plugin->attributes()->plugin;
@@ -149,7 +170,7 @@ class Com_CitruscartInstallerScript{
 			}
 
 		}
-		$modules = $manifest->xpath('modules/module');
+		$modules = $manifest->xpath('modules'.DS.'module');
 		foreach ($modules as $module)
 		{
 			$name = (string)$module->attributes()->module;
@@ -237,7 +258,7 @@ class CitruscartInstaller extends JObject
                 // Joomla! 1.5 code here
                 $tmp_dest 	= $config->getValue('config.tmp_path');
             }
-            $package['packagefile'] = $tmp_dest . '/' . $package['packagefile'];
+            $package['packagefile'] = $tmp_dest . DS . $package['packagefile'];
         }
 
         JInstallerHelper::cleanupInstall($package['packagefile'], $package['extractdir']);
