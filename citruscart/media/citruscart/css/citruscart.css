@@ -560,7 +560,7 @@ max-width:100px;
 max-height:100px;
 }
 
-.productquantity .citruscart-qty-plus, ..productquantity .citruscart-qty-minus {
+.productquantity .citruscart-qty-plus, .productquantity .citruscart-qty-minus {
 background: #555;
 outline: none;
 text-shadow: none;
