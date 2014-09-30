@@ -567,8 +567,14 @@ text-shadow: none;
 border-radius: 0px;
 height: 34px;
 position: relative;
-top: -2px;
+top: 0px;
 color:#ffffff;
+}
+
+.productquantity .citruscart-qty-plus:hover , .productquantity .citruscart-qty-minus:hover{
+color:#555;
+background:#fff;
+border:1px solid #555;
 }
 
 .citruscart_product_gallery_thumb .zoom_gallery .sidegallery {
@@ -583,4 +589,11 @@ height:35px;
 background-color: #009ac9;
 color: #ffffff;
 outline:none;
+}
+
+.add-to-wishlist-btn:hover {
+background:#ffffff;
+color: #009ac9;
+text-decoration:none;
+border:1px solid #009ac9;
 }
