@@ -575,3 +575,12 @@ color:#ffffff;
 max-width:80px;
 max-height:80px;
 }
+
+.add-to-wishlist-btn {
+border-radius:0px;
+border:0px;
+height:35px;
+background-color: #009ac9;
+color: #ffffff;
+outline:none;
+}
