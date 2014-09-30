@@ -62,13 +62,9 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
         //$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
 
     	//$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
-    	
-    	if(!empty($items)) {             
-			$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
- 	    } else  {
-		    $html.= '<a id="cartLink" href="#" data-toggle="modal" data-target="#showEmpty" data-backdrop="static">'.'<img src="'.$src.'" >'.'</a>';
-		}
-
+    	    	  
+		$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
+ 	  
     }
     $html .= '</span>';
     $html .= '</span>';
@@ -84,30 +80,4 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
 
 echo $html;
 ?>
-
-<!-- empty cart div starts -->
-<div class="modal fade showemptycart" id="showEmpty">
-	 
-	 <!-- product modal div starts -->
-	 <div class="popluar-products-modal">
-					
-		<!-- modal header div starts -->
-		<div class="modal-header">	
-			<a href="#" style="float:right;" data-dismiss="modal">X</a>		
-			<h4 class="emptycarttitle"><?php echo JText::_('MOD_CITRUSCART_CART');?></h4>									
-		</div><!-- modal header div ends -->
-							
-		<!-- modal body div starts -->
-		<div class="modal-body">
-			
-			<div id="shows">
-				<h5><?php echo JText::_('MOD_CITRUSCART_EMPTY_CART'); ?></h5>		
-			</div>
-															
-		</div><!-- modal body div ends -->				
-
-     </div><!-- product modal div ends -->
-
-</div><!-- empty cart div ends --> 
-
 </div>

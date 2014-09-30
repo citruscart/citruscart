@@ -597,3 +597,7 @@ color: #009ac9;
 text-decoration:none;
 border:1px solid #009ac9;
 }
+
+.citruscart_product_relation_lists .relative-products h5 {
+text-align:center;
+}
