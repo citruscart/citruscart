@@ -46,16 +46,17 @@
          <?php endif; ?>
          <!-- row-fluid div starts -->
          <div class="row-fluid">
-            <div class="span2 col-md-2 citruscart-view-product-gallery" >
+            <div class="span2 col-md-2 col-sm-4 citruscart-view-product-gallery" >
                <?php echo CitruscartHelperProduct::getGalleryLayout( $this, $item->product_id, $item->product_name, $item->product_full_image ); ?>
             </div>
-            <div class="span5 col-md-5 citruscart-view-product-main-image">
+            <div class="span5 col-md-5 col-sm-6 citruscart-view-product-main-image">
                <?php echo CitruscartUrl::popupImage( $product_image, $product_image_thumb, array( 'update' => false, 'img' => true ) ); ?>
                <input type="hidden" id="product_main_image" value="<?php echo $product_image;?>"/>
                <div>
                </div>
             </div>
-            <div id="citruscart_product_buy_info" class="span5 col-md-5 citruscart_add_info">
+            <div id="citruscart_product_buy_info" class="span5 col-sm-8 col-md-5 col-xs-3 citruscart_add_info">
+				
                <!-- product name unorder list starts -->
 
                   <!-- product properties list starts -->
@@ -75,7 +76,7 @@
                            <?php } ?>
                         </li>
                      </ul>
-                     <div id="citruscart_model_sku">
+                     <div id="citruscart_model_sku" class="col-xs-8">
 	                     <!-- unorder list ends -->
 	                     <?php if ( !empty( $item->product_model ) || !empty( $item->product_sku ) ) : ?>
 	                     <?php if ( !empty( $item->product_model ) ) : ?>
@@ -180,7 +181,7 @@
             <?php echo $this->onAfterDisplayProduct; ?>
          </div>
          <?php endif; ?>
-         <div class="product_review dsc-wrap" id="product_review">
+         <div class="product_review dsc-wrap col-xs-4 col-sm-12 col-md-12" id="product_review">
             <?php if ( !empty( $this->product_comments ) ):?>
             <?php echo $this->product_comments; ?>
             <?php endif;?>

@@ -559,3 +559,19 @@ list-style:none;
 max-width:100px;
 max-height:100px;
 }
+
+.productquantity .citruscart-qty-plus, ..productquantity .citruscart-qty-minus {
+background: #555;
+outline: none;
+text-shadow: none;
+border-radius: 0px;
+height: 34px;
+position: relative;
+top: -2px;
+color:#ffffff;
+}
+
+.citruscart_product_gallery_thumb .zoom_gallery .sidegallery {
+max-width:80px;
+max-height:80px;
+}

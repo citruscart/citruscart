@@ -49,6 +49,7 @@ $app = JFactory::getApplication();
         </div>
     <?php endif; ?>
     <div id="citruscart_categories" class="dsc-wrap">
+		
         <?php if (!empty($citems)) : ?>
             <div id="citruscart_subcategories" class="dsc-wrap">
                 <?php if ($this->level > 1) {
@@ -58,9 +59,9 @@ $app = JFactory::getApplication();
                 $i = 0;
                 $subcategories_per_line = $config->get('subcategories_per_line', '5');
 				?>
-				<ul class="nav navbar" >
+				<ul class="nav navbar col-xs-3 col-sm-12 col-md-12 col-lg-12 col-sm-offset-1 col-md-offset-0">
                 <?php foreach ($citems as $citem) :  ?>
-                  <li class="citruscart_cat_list">
+                  <li class="citruscart_cat_list col-md-3">
                    <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if (!empty($citem->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
                             <div class="dsc-wrap subcategory_thumb">
@@ -151,7 +152,8 @@ $app = JFactory::getApplication();
 
 	</div>
 	<?php endif;?>
-		<ul id="citruscart_main_product_view" class="nav navbar-nav">
+	
+		<ul id="citruscart_main_product_view" class="nav navbar-nav col-xs-4 col-md-12">
 			<?php foreach ($items as $item) :?>
 			<li class="citruscart_product_default_main_list" >
 			  <span>
