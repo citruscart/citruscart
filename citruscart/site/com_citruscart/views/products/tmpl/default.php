@@ -61,7 +61,7 @@ $app = JFactory::getApplication();
 				?>
 				<ul class="nav navbar col-xs-3 col-sm-12 col-md-12 col-lg-12 col-sm-offset-1 col-md-offset-0">
                 <?php foreach ($citems as $citem) :  ?>
-                  <li class="citruscart_cat_list col-md-3">
+                  <li class="citruscart_cat_list col-md-4">
                    <div class="dsc-wrap subcategory category-<?php echo $citem->category_id; ?>">
                         <?php if (!empty($citem->category_full_image) || $config->get('use_default_category_image', '1')) : ?>
                             <div class="dsc-wrap subcategory_thumb">
