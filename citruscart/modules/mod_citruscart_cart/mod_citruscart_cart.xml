@@ -7,7 +7,7 @@
 	<creationDate>April 2014</creationDate>
 	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
 	<license>GNU General Public License</license>
-	<description>MOD_CISTRUSCART_CART_MODULEDESC</description>
+	<description>MOD_CITRUSCART_CART_MODULEDESC</description>
 	<files>
 		<filename module="mod_citruscart_cart">mod_citruscart_cart.php</filename>
 		<filename>helper.php</filename>
@@ -21,15 +21,15 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="display_null" type="radio" default="1" label="MOD_CISTRUSCART_CART_DISPLAY_NO_ITEMS" description="MOD_CISTRUSCART_CART_DISPLAY_NO_ITEMS_DESC">
+				<field name="display_null" type="radio" default="1" label="MOD_CITRUSCART_CART_DISPLAY_NO_ITEMS" description="MOD_CITRUSCART_CART_DISPLAY_NO_ITEMS_DESC">
 					<option value="0">COM_CITRUSCART_NO</option>
 					<option value="1">COM_CITRUSCART_YES</option>
 				</field>
-				<field name="display_lightbox" type="radio" default="0" label="MOD_CISTRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX" description="MOD_CISTRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX_DESC">
+				<field name="display_lightbox" type="radio" default="0" label="MOD_CITRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX" description="MOD_CITRUSCART_CART_DISPLAY_CART_IN_LIGHTBOX_DESC">
 					<option value="0">COM_CITRUSCART_NO</option>
 					<option value="1">COM_CITRUSCART_YES</option>
 				</field>
-				<field name="null_text" type="text" size="50" default="No items in your cart" label="MOD_CISTRUSCART_CART_NO_ITEMS_TEXT" description="MOD_CISTRUSCART_CART_NO_ITEMS_TEXT_DESC"></field>
+				<field name="null_text" type="text" size="50" default="No items in your cart" label="MOD_CITRUSCART_CART_NO_ITEMS_TEXT" description="MOD_CITRUSCART_CART_NO_ITEMS_TEXT_DESC"></field>
 			</fieldset>
 			<fieldset
 				name="advanced">

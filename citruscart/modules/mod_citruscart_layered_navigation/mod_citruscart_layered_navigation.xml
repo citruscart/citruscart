@@ -22,41 +22,41 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="multi_mode" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_MULTI_MODE" description="MOD_CISTRUSCART_LAYERED_NAV_MULTI_MODE_DESC">
+				<field name="multi_mode" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_MULTI_MODE" description="MOD_CITRUSCART_LAYERED_NAV_MULTI_MODE_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="filter_category" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY_DESC">
+				<field name="filter_category" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY" description="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_CATEGORY_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="roottext" size="35" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY" description="MOD_CISTRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY_DESC" />
-				<field name="filter_manufacturer" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER_DESC">
+				<field name="roottext" size="35" type="text" default="" label="MOD_CITRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY" description="MOD_CITRUSCART_LAYERED_NAV_TEXT_FOR_ROOT_CATEGORY_DESC" />
+				<field name="filter_manufacturer" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER" description="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_MANUFACTURER_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="filter_rating" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_RATING" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_RATING_DESC">
+				<field name="filter_rating" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_RATING" description="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_RATING_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="filter_attributes" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES_DESC">
+				<field name="filter_attributes" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES" description="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_ATTRIBUTES_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="excluded_attributes" size="35" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES" description="MOD_CISTRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES_DESC" />
-				<field name="filter_price" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_PRICE" description="MOD_CISTRUSCART_LAYERED_NAV_FILTER_BY_PRICE_DESC">
+				<field name="excluded_attributes" size="35" type="text" default="" label="MOD_CITRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES" description="MOD_CITRUSCART_LAYERED_NAV_EXCLUDED_ATTRIBUTES_DESC" />
+				<field name="filter_price" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_PRICE" description="MOD_CITRUSCART_LAYERED_NAV_FILTER_BY_PRICE_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="attributes_case_insensitive" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE" description="MOD_CISTRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE_DESC">
+				<field name="attributes_case_insensitive" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE" description="MOD_CITRUSCART_LAYERED_NAV_ATTRIBUTES_CASE_INSENSITIVE_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="auto_price_range" type="list" default="1" label="MOD_CISTRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE" description="MOD_CISTRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE_DESC">
+				<field name="auto_price_range" type="list" default="1" label="MOD_CITRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE" description="MOD_CITRUSCART_LAYERED_NAV_AUTOMATIC_PRICE_RANGE_DESC">
 					<option value="1">COM_CITRUSCART_YES</option>
 					<option value="0">COM_CITRUSCART_NO</option>
 				</field>
-				<field name="price_range_set" size="50" type="text" default="" label="MOD_CISTRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS" description="MOD_CISTRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS_DESC" />
+				<field name="price_range_set" size="50" type="text" default="" label="MOD_CITRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS" description="MOD_CITRUSCART_LAYERED_NAV_PRICE_RANGE_INCREMENTS_DESC" />
 			</fieldset>
 			<fieldset
 				name="advanced">

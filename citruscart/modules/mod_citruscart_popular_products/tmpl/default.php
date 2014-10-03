@@ -32,9 +32,10 @@ if ($num > 0 && @$products)
 {
 ?>
 	<?php  echo '<div id="citruscart_popular_products" class="citruscart_products_'.$params->get('display_style','flat').'">'; ?>
-
+	
+	<div class="citruscart_product_box" >
 	<!-- popular products ul starts -->
-	<ul id="citruscart_popular_products_list" class="citruscart_products_images col-md-12 col-sm-9 col-lg-12 col-xs-3 col-sm-offset-2 col-md-offset-0 col-xs-offset-0">
+	<ul id="citruscart_popular_products_list" class="citruscart_products_container col-md-12 col-sm-9 col-lg-12 col-xs-3 col-sm-offset-2 col-md-offset-0 col-xs-offset-0">
 	
     <?php foreach (@$products as $product) : ?>
 	   <li class="citruscart_products_image_list">
@@ -85,7 +86,7 @@ if ($num > 0 && @$products)
 
 		<?php  endforeach; ?>
 		</ul><!-- popular products ul ends -->
-
+      </div>
 	<?php  echo '</div>';
 	?>
 
