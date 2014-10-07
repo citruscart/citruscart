@@ -137,13 +137,10 @@ if( $changed_attr > -1 ) {
         	<div class="btn-group">
         		<div style="display:inline-flex">
 					<input id="add_to_cart_qty" type="text" name="product_qty" value="<?php echo $item->_product_quantity; ?>" size="2" class="input" />
-	  		 		<button class="btn citruscart-qty-btn"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
-      		 		<button  class="btn citruscart-qty-btn" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
+	  		 		<button class="btn citruscart-qty-btn citruscart-qty-plus"  type="button" onclick="QtyPlus('add_to_cart_qty')"> + </button>
+      		 		<button  class="btn citruscart-qty-btn citruscart-qty-minus" type="button" onclick="QtyMinus('add_to_cart_qty')"> - </button>
       		 	</div>
        		</div>
-
-
-
        	 </div>
 	<?php endif; ?>
 
@@ -236,12 +233,14 @@ if( $changed_attr > -1 ) {
             ?>
             <?php if (!$this->getModel()->isInWishlist($item->product_id, $xref_id, $xref_type, implode(',', $selected_opts ))) { ?>
             <?php $onclick = "document.$formName.task.value='addtowishlist'; document.$formName.submit();"; ?>
-        			<img class="img-circle" src="<?php echo JUri::root().'/media/citruscart/images/iconheart.png'?>" />
-            		<a  href="javascript:void(0);" onclick="<?php echo $onclick; ?>">
-						<?php echo JText::_('COM_CITRUSCART_ADD_TO_WISHLIST'); ?>
+                   <a  href="javascript:void(0);" onclick="<?php echo $onclick; ?>" class="product-addto-wishlist">
+						<button class="add-to-wishlist-btn">
+							<img class="img-circle" src="<?php echo JUri::root().'/media/citruscart/images/iconheart.png'?>" />
+							<?php echo JText::_('COM_CITRUSCART_ADD_TO_WISHLIST'); ?>
+						</button>
                    </a>
             <?php } else { ?>
-                <?php echo JText::_('COM_CITRUSCART_ITEM_ALREADY_IN_WISHLIST'); ?>
+                   <h5 class="product-addto-wishlist"><?php echo JText::_('COM_CITRUSCART_ITEM_ALREADY_IN_WISHLIST'); ?></h5>
             <?php } ?>
             <?php endif;?>
         </div>

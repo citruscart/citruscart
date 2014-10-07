@@ -35,7 +35,7 @@ div#citruscart_category_header img{max-height:75px;padding:5px;vertical-align:mi
 div#citruscart_subcategories{border-bottom:1px solid #cccccc;margin-bottom:10px;}
 div#citruscart_subcategories h3{margin-bottom:0;padding:0 10px;}
 div.subcategory img{max-height:164px;}
-div.subcategory{background:none!important;background-image:none!important;float:left;margin:5px 0 15px;min-height:128px;padding-left:30px;text-align:center;}
+div.subcategory{background:none!important;background-image:none!important;float:left;margin:5px 0 15px;min-height:128px;text-align:center;}
 
 
 /* products */ 
@@ -549,4 +549,55 @@ margin-left:8px;
 
 #add_to_cart_qty{	
 	width: auto;
+}
+
+.citruscart_products_containers {
+list-style:none;
+}
+
+.citruscart_products_containers .citruscart_product_relation_lists .citruscart-product-main-images {
+max-width:100px;
+max-height:100px;
+}
+
+.productquantity .citruscart-qty-plus, .productquantity .citruscart-qty-minus {
+background: #555;
+outline: none;
+text-shadow: none;
+border-radius: 0px;
+height: 34px;
+position: relative;
+top: 0px;
+color:#ffffff;
+}
+
+.productquantity .citruscart-qty-plus:hover , .productquantity .citruscart-qty-minus:hover{
+color:#555;
+background:#fff;
+border:1px solid #555;
+}
+
+.citruscart_product_gallery_thumb .zoom_gallery .sidegallery {
+max-width:80px;
+max-height:80px;
+}
+
+.add-to-wishlist-btn {
+border-radius:0px;
+border:0px;
+height:35px;
+background-color: #009ac9;
+color: #ffffff;
+outline:none;
+}
+
+.add-to-wishlist-btn:hover {
+background:#ffffff;
+color: #009ac9;
+text-decoration:none;
+border:1px solid #009ac9;
+}
+
+.citruscart_product_relation_lists .relative-products h5 {
+text-align:center;
 }

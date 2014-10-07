@@ -78,7 +78,6 @@ else
 	}
 }
 
-
 if (empty($controller))
 {
     // redirect to default

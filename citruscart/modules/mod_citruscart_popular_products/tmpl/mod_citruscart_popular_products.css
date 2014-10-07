@@ -27,5 +27,8 @@ div.citruscart_products_grid div.citruscart_product_item.grid6 {
 }
 citruscart_products_image_list{
 	text-align:center;
-	
+}
+
+.citruscart_popular_options {
+text-align:center;
 }

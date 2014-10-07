@@ -7,7 +7,7 @@
 	<creationDate>April 2014</creationDate>
 	<copyright>Copyright (c) 2014 - 2019 Citruscart Private Ltd. All rights reserved.</copyright>
 	<license>GNU General Public License</license>
-	<description>MOD_CISTRUSCART_MANUFACTURERS_MODULEDESC</description>
+	<description>MOD_CITRUSCART_MANUFACTURERS_MODULEDESC</description>
 	<files>
 		<filename module="mod_citruscart_manufacturers">mod_citruscart_manufacturers.php</filename>
 		<filename>helper.php</filename>
@@ -20,7 +20,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">				
-				<field name="itemid" type="text" default="" label="MOD_CISTRUSCART_MANUFACTURERS_ITEMID_FOR_PRODUCTS_PAGE" description="MOD_CISTRUSCART_MANUFACTURERS_ITEMID_FOR_PRODUCTS_PAGE_DESC" />
+				<field name="itemid" type="text" default="" label="MOD_CITRUSCART_MANUFACTURERS_ITEMID_FOR_PRODUCTS_PAGE" description="MOD_CITRUSCART_MANUFACTURERS_ITEMID_FOR_PRODUCTS_PAGE_DESC" />
 			</fieldset>
 			<fieldset
 				name="advanced">

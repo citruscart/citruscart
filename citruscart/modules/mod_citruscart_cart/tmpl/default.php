@@ -19,6 +19,12 @@ defined('_JEXEC') or die('Restricted access');
 $document->addStyleSheet( JURI::root(true).'/modules/mod_citruscart_cart/tmpl/citruscart_cart.css');
 ?>
 
+<script type="text/javascript">
+$(document).ready(function(){
+   $('.modal').modal({ backdrop: 'static', keyboard: false })
+});
+</script>
+
 <div class="buycart">
 <?php
 $src = JUri::root()."modules/mod_citruscart_cart/media/images/citruscart_cart.png";
@@ -44,7 +50,7 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
         $html .= $text;
     }
 
-   //$html .= '<span class="CartTotal">'.JText::_('COM_CITRUSCART_TOTAL').':<span>'.CitruscartHelperBase::currency($orderTable->order_total).'</span> '.'</span> ';
+    //$html .= '<span class="CartTotal">'.JText::_('COM_CITRUSCART_TOTAL').':<span>'.CitruscartHelperBase::currency($orderTable->order_total).'</span> '.'</span> ';
     //$html .= '<span class="CartView">';
     if ($params->get('display_lightbox') == '1')
     {
@@ -55,14 +61,14 @@ $html = ($ajax) ? '' : '<div id="citruscartUserShoppingCart" class="pull-right">
     {
         //$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.JText::_('COM_CITRUSCART_VIEW_YOUR_CART').'</a>';
 
-    	$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
-
+    	//$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
+    	    	  
+		$html .= '<a id="cartLink" href="'.JRoute::_("index.php?option=com_citruscart&view=carts").'">'.'<img src="'.$src.'" >'.'</a>';
+ 	  
     }
     $html .= '</span>';
     $html .= '</span>';
-    //$html .= '<span class="CartCheckout">'.'<a id="checkoutLink" href="'.JRoute::_("index.php?option=com_citruscart&view=checkout").'">'.JText::_('COM_CITRUSCART_CHECKOUT').'</a>'.'</span>';
-    //$html .= '<div class="reset"></div>';
-
+   
     if ($ajax)
     {
         $mainframe->setUserState('mod_usercart.isAjax', '0');
