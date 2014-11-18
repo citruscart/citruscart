@@ -10,10 +10,12 @@
 # Technical Support:  Forum - http://citruscart.com/forum/index.html
 -------------------------------------------------------------------------*/
 /** ensure this file is being included by a parent file */
+
+defined('_JEXEC') or die('Restricted access');
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 JHtml::_('behavior.multiselect');
-JHtml::_('formbehavior.chosen', 'select');
-defined('_JEXEC') or die('Restricted access'); ?>
+JHtml::_('formbehavior.chosen', 'select'); ?>
+
 <?php JHtml::_('script', 'citruscart.js', 'media/citruscart/js/'); ?>
 <?php $state = $this->state; ?>
 <?php $form = $this->form; ?>

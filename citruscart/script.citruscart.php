@@ -36,7 +36,7 @@ class Com_CitruscartInstallerScript{
 		//address
 
 		if(!in_array($prefix.'citruscart_wishlistitems', $tables)){
-
+     
 			$query = "CREATE TABLE IF NOT EXISTS `#__citruscart_wishlistitems` (
   `wishlistitem_id` int(11) NOT NULL AUTO_INCREMENT,
   `wishlist_id` int(11) NOT NULL,

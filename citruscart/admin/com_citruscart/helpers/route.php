@@ -370,6 +370,7 @@ class CitruscartHelperRoute extends DSCHelperRoute
 
         $vars = array();
         $count = count($segments);
+		$segments_1_in_case = array('setCurrency', 'reviewHelpfullness');
 
         $vars['view'] = $segments[0];
         switch ($segments[0])
@@ -377,11 +378,19 @@ class CitruscartHelperRoute extends DSCHelperRoute
             case 'products':
                 if ($count == '2')
                 {
+					switch (true)
+					{
+						case in_array($segments[1], $segments_1_in_case):
+							$vars['task'] = $segments[1];
+							break;
+						default:
                     $vars['filter_category'] = $segments[1];
                     if ( strpos( $segments[1], 'validate' ) !== false )
                     {
                         $vars['task'] = $segments[1];
                     }
+							break;
+					}
                 }
 
                 if ($count == '3')

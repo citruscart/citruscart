@@ -96,6 +96,7 @@
                      <!--------------------------------
                         Triggering the share Button
                         ------------------------->
+		     <?php echo CitruscartHelperProduct::getProductShareButtons( $this, $item->product_id ); ?>
                      <?php  echo $this->onBeforeDisplayProductDescription;?>
                      <div class="citruscart_product_desc">
                         <?php echo $this->product_description_short; ?>
